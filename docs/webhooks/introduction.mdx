@@ -1,0 +1,37 @@
+---
+title: Introducción
+# icon: 'code'
+---
+
+Usa webhooks para notificar a tu aplicación sobre eventos que ocurrieron en Fint.
+
+## ¿Qué es un webhook?
+
+Fint utiliza webhooks para enviarte notificaciones en tiempo real sobre la actividad en Fint. Todos los webhooks usan HTTPS y entregan un payload en formato JSON que puede ser utilizado por tu aplicación.
+
+Puedes usar los webhooks para hacer cosas como:
+
+- Registrar un pago en un sistema contable.
+- ...
+
+## Pasos para recibir webhooks
+
+Puedes empezar a recibir eventos en tiempo real en tu aplicación siguiendo estos pasos:
+
+1. Crear un endpoint en tu aplicación para recibir las solicitudes.
+2. Registrar el endpoint en la web de Fint.
+3. Probar que el endpoint esté funcionando correctamente.
+
+Para registrar los endpoints en Fint pueden usar directamente nuestra API o crearlos desde el panel de desarrolladores en la web.
+
+## ¿Qué pasa si el servidor no responde?
+
+Si Fint no recibe una respuesta con código 2xx del servidor de webhook, intentaremos reenviar el mensaje.
+
+Cada mensaje se intentará enviar hasta 5 veces, con intervalos de 5 minutos entre cada intento. Si después de estos reintentos no es posible entregar el webhook, se dejará de intentar.
+
+## Recomendaciones
+
+Para probar el endpoint desde tu aplicación local, te recomendamos usar [ngrok](https://ngrok.com/). Esta herramienta proporciona una URL HTTPS que crea un túnel a tu aplicación local, facilitando las pruebas.
+
+Si aún no tienes un servidor para probar los webhooks, te sugerimos utilizar [webhook.site](https://webhook.site/). Este sitio web te proporciona un endpoint HTTPS que puedes usar para realizar pruebas de webhooks de manera sencilla.

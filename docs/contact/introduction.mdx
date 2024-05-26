@@ -1,0 +1,37 @@
+---
+title: Contactos
+---
+
+# Contactos
+
+En Fint, un "contacto" representa a un cliente que está sujeto a una serie de transacciones financieras. Los contactos son entidades cruciales para el funcionamiento de Fint, ya que esto nos permite gestionar y realizar seguimiento de las deudas y pagos. Cada contacto tiene un ciclo de vida que refleja su estado financiero actual, el cual cambia en respuesta a diversas acciones y eventos.
+
+## Ciclo de vida de un contacto
+
+El ciclo de vida de un contacto está diseñado para proporcionar una visión clara y detallada del estado de sus deudas. Los estados del ciclo de vida permiten a los clientes tomar decisiones informadas y ejecutar acciones automáticas, como enviar alertas o bloquear servicios.
+
+A continuación se describen los posibles estados de un contacto y las condiciones que los activan:
+
+### Cuenta abierta (ACCOUNT_OPENED)
+
+**Descripción:** Este estado indica que se ha creado una cuenta para el cliente en el sistema, pero aún no se han emitido facturas a su nombre. La cuenta está activa y lista para transacciones futuras, pero no hay obligaciones financieras pendientes de parte del cliente en este momento.
+
+**Condiciones de Aplicación:** Este estado se aplica automáticamente cuando se registra un nuevo cliente en el sistema antes de la generación de la primera factura.
+
+### Pago pendiente (NOT_DUE)
+
+**Descripción:** El estado 'Not Due' se asigna a las cuentas de clientes que tienen una o más facturas emitidas, pero ninguna de ellas ha alcanzado su fecha de vencimiento. Esto implica que el cliente tiene obligaciones financieras pendientes, pero aún se encuentra dentro del plazo de pago establecido.
+
+**Condiciones de Aplicación:** Este estado se aplica a todas las facturas desde el momento de su emisión hasta el día anterior a su fecha de vencimiento, siempre y cuando el cliente no tenga facturas con el estado 'Past Due'.
+
+### Con deuda (PAST_DUE)
+
+**Descripción:** Este estado se utiliza para clientes que han superado la fecha de vencimiento de una o más facturas, sin haber realizado el pago correspondiente. Indica que el cliente está en mora con sus obligaciones financieras hacia la empresa.
+
+**Condiciones de Aplicación:** El estado 'Past Due' se asigna a una cuenta cuando al menos una factura emitida a ese cliente ha superado su fecha de vencimiento sin ser pagada.
+
+### Al día (ACCOUNT_SETTLED)
+
+**Descripción:** 'Account Settled' es el estado que indica que todas las facturas emitidas al cliente han sido pagadas en su totalidad, y no hay saldos pendientes. La cuenta está completamente al día en términos de obligaciones financieras.
+
+**Condiciones de Aplicación:** Este estado se aplica a la cuenta de un cliente cuando todos los saldos pendientes han sido saldados, incluyendo cualquier factura que haya estado previamente en estado 'Not Due' o 'Past Due'.

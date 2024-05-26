@@ -1,0 +1,194 @@
+---
+title: Estructura General y Tipos de Eventos
+---
+
+# Estructura General y Tipos de Eventos
+
+## Estructura general del webhook
+
+Todos los webhooks enviados por la API tendrán la misma estructura básica. La propiedad `data` contendrá los datos específicos del evento.
+
+```typescript
+interface WebhookBody<T> {
+  id: string;
+  event: "payment.created" | "otro-evento";
+  attempt: number;
+  timestamp: number;
+  externalReference: string | null;
+  data: T;
+}
+```
+
+### Campos Comunes:
+
+- **id (string)**: Identificador único del webhook.
+- **event (string)**: Tipo de evento que se está notificando.
+- **attempt (number)**: Intento actual de envío del webhook.
+- **timestamp (number)**: Marca de tiempo en milisegundos cuando se envía el evento.
+- **externalReference (string | null)**: Referencia externa asociada al webhook a notificar, si aplica.
+- **data (T)**: Información específica del evento, donde `T` es la estructura de datos del evento específico.
+
+## Listado de eventos soportados
+
+### `payment.created`
+
+Este evento indica que un pago ha sido creado exitosamente. El origen del pago puede ser un registro manual o una transacción realizada por un usuario a través del portal utilizando cualquier método de pago disponible.
+
+**Ejemplo de Payload:**
+
+```json
+{
+  "id": "webhook_local_da7beb710d61463bbd55209538b59a37",
+  "event": "payment.created",
+  "attempt": 3,
+  "timestamp": 1716193401008,
+  "externalReference": null,
+  "data": {
+    "paymentId": 22,
+    "paymentMethod": "CREDIT_CARD",
+    "isManual": false,
+    "invoicesPaid": [1020]
+  }
+}
+```
+
+**Estructura de los Datos del Evento:**
+
+```typescript
+interface PaymentCreatedData {
+  paymentId: number;
+  paymentMethod: string;
+  isManual: boolean;
+  invoicesPaid: number[];
+}
+```
+
+Para obtener más información sobre el pago podemos consultar el pago por id en la API.
+
+### `contact.status` (en construcción)
+
+Este evento notifica cambios en el estado del ciclo de vida de un contacto.
+
+**Ejemplo de Payload:**
+
+```json
+{
+  "id": "webhook_local_da7beb710d61463bbd55209538b59a37",
+  "event": "contact.status",
+  "attempt": 1,
+  "timestamp": 1716193401008,
+  "externalReference": null,
+  "data": {
+    "contactId": 12345,
+    "previousStatus": "NOT_DUE",
+    "newStatus": "PAST_DUE",
+    "timestamp": 1716193401008,
+    "invoices": [
+      {
+        "invoiceId": 5678,
+        "totalPending": "150.75",
+        "expirationDate": "2024-05-20",
+        "createdDate": "2024-04-20",
+        "status": "PENDING"
+      },
+      {
+        "invoiceId": 6789,
+        "totalPending": "200.00",
+        "expirationDate": "2024-05-22",
+        "createdDate": "2024-04-22",
+        "status": "PENDING"
+      }
+    ],
+    "totalPending": "350.75",
+    "metadata": {
+      "customField1": "value1",
+      "customField2": "value2"
+    }
+  }
+}
+```
+
+**Estructura de los Datos del Evento:**
+
+```typescript
+interface ContactStatusData {
+  contactId: number;
+  previousStatus: 'ACCOUNT_OPENED' | 'NOT_DUE' | 'PAST_DUE' | 'ACCOUNT_SETTLED';
+  newStatus: 'ACCOUNT_OPENED' | 'NOT_DUE' | 'PAST_DUE' | 'ACCOUNT_SETTLED';
+  timestamp: number;
+  invoices?: InvoiceDetail[];
+  totalPending?: string;
+  metadata?: any;
+  externalReference: string | null;
+}
+
+interface InvoiceDetail {
+  invoiceId: number;
+  totalPending: string;
+  expirationDate: string;
+  createdDate: string;
+  status: 'PENDING' | 'PAID' | 'PARTIALLY_PAID';
+}
+```
+
+### Descripción de Campos:
+
+- **contactId (number)**: Identificador único del contacto.
+- **previousStatus (string)**: Estado anterior del contacto (`ACCOUNT_OPENED`, `NOT_DUE`, `PAST_DUE`, `ACCOUNT_SETTLED`).
+- **newStatus (string)**: Nuevo estado del contacto (`ACCOUNT_OPENED`, `NOT_DUE`, `PAST_DUE`, `ACCOUNT_SETTLED`).
+- **timestamp (number)**: Marca de tiempo del cambio de estado.
+- **invoices (opcional)**: Lista de facturas vencidas que el contacto adeuda.
+  - **invoiceId (number)**: Identificador de la factura.
+  - **totalPending (string)**: Monto adeudado de la factura.
+  - **expirationDate (string)**: Fecha de vencimiento de la factura.
+  - **createdDate (string)**: Fecha de emisión de la factura.
+  - **status (string)**: Estado actual de la factura (`PENDING`, `PAID`, `PARTIALLY_PAID`).
+- **totalPending (opcional)**: Suma total de todas las facturas vencidas.
+- **metadata (opcional)**: Objeto de datos personalizados añadidos por el usuario al crear el contacto. Este campo puede contener cualquier información adicional relevante para el usuario.
+- **externalReference (opcional)**: Referencia externa que se asocia al contacto al momento de la creación.
+
+## ¿Puedo subscribirme a un cambio en específico?
+
+Si nos subscribimos a `contact.status` nos llegará una notificación por cada cambio de estado. Si queremos subscribirnos a ciertos cambios específicos, solo creamos el webhook con el cambio al que estamos interesados.
+
+### Eventos Específicos Disponibles:
+
+- **`contact.status.account_opened`**: Notificación cuando el estado cambia a `ACCOUNT_OPENED`.
+- **`contact.status.not_due`**: Notificación cuando el estado cambia a `NOT_DUE`.
+- **`contact.status.past_due`**: Notificación cuando el estado cambia a `PAST_DUE`.
+- **`contact.status.account_settled`**: Notificación cuando el estado cambia a `ACCOUNT_SETTLED`.
+
+Más información sobre los estados de un contacto
+
+Más eventos próximamente.
+
+## Ejemplo de implementación
+
+Para manejar estos webhooks en tu código, puedes usar una estructura genérica y luego verificar el tipo de evento para deserializar los datos específicos del evento.
+
+**Ejemplo en TypeScript:**
+
+```typescript
+function handleWebhook<T>(webhookBody: WebhookBody<T>) {
+  switch (webhookBody.event) {
+    case "payment.created":
+      const paymentData = webhookBody.data as PaymentCreatedData;
+      // Manejar el evento de pago creado
+      break;
+    case "contact.status":
+      const contactStatusData = webhookBody.data as ContactStatusData;
+      // Manejar el evento de cambio de estado del contacto
+      break;
+    case "contact.status.account_opened":
+    case "contact.status.not_due":
+    case "contact.status.past_due":
+    case "contact.status.account_settled":
+      const specificStatusData = webhookBody.data as ContactStatusData;
+      // Manejar el evento específico de cambio de estado del contacto
+      break;
+    // Agregar más casos según nuevos eventos
+    default:
+      console.error("Evento desconocido:", webhookBody.event);
+  }
+}
+```

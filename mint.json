@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Fint",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -17,69 +17,59 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Soporte",
+      "url": "soporte@fint.app"
     }
   ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
   "tabs": [
     {
       "name": "API Reference",
       "url": "api-reference"
     }
   ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Comenzar",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "introduction"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Contactos",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "docs/contact/introduction"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Webhooks",
       "pages": [
-        "api-reference/introduction"
+        "docs/webhooks/introduction",
+        "docs/webhooks/events",
+        "docs/webhooks/security"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Webhook",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/webhook/obtener-lista-de-webhooks",
+        "api-reference/webhook/crear-un-nuevo-webhook",
+        "api-reference/webhook/obtener-webhook-por-id",
+        "api-reference/webhook/actualizar-webhook-por-id",
+        "api-reference/webhook/eliminar-webhook-por-id"
+      ]
+    },
+    {
+      "group": "Pagos",
+      "pages": [
+        "api-reference/pagos/obtener-pago-por-id"
+      ]
+    },
+    {
+      "group": "Contactos",
+      "pages": [
+        "api-reference/contactos/crear-un-nuevo-contacto",
+        "api-reference/contactos/obtener-contacto-por-id",
+        "api-reference/contactos/obtener-contacto-por-referencia-externa"
       ]
     }
   ],
@@ -87,5 +77,6 @@
     "x": "https://x.com/mintlify",
     "github": "https://github.com/mintlify",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
+  },
+  "openapi": "https://dev.api.fint.app/api/v1/api-docs"
 }
