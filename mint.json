@@ -1,5 +1,4 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
   "name": "Fint",
   "logo": {
     "dark": "/logo/dark.svg",
@@ -23,7 +22,7 @@
   ],
   "tabs": [
     {
-      "name": "API Reference",
+      "name": "API Referencia",
       "url": "api-reference"
     }
   ],
@@ -44,9 +43,10 @@
     {
       "group": "Webhooks",
       "pages": [
-        "docs/webhooks/introduction",
-        "docs/webhooks/events",
-        "docs/webhooks/security"
+        "docs/webhooks/1_introduction",
+        "docs/webhooks/2_structure",
+        "docs/webhooks/3_events",
+        "docs/webhooks/4_security"
       ]
     },
     {
@@ -75,9 +75,7 @@
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "linkedin": "https://www.linkedin.com/company/fint-latam/"
   },
   "openapi": "https://dev.api.fint.app/api/v1/api-docs"
 }

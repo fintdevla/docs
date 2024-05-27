@@ -1,0 +1,26 @@
+---
+title: Estructura General
+---
+
+
+Todos los webhooks enviados por la API tendrán la misma estructura básica. La propiedad `data` contendrá los datos específicos del evento.
+
+```typescript
+interface WebhookBody<T> {
+  id: string;
+  event: "payment.created" | "otro-evento";
+  attempt: number;
+  timestamp: number;
+  externalReference: string | null;
+  data: T;
+}
+```
+
+### Campos Comunes:
+
+- **id (string)**: Identificador único del webhook.
+- **event (string)**: Tipo de evento que se está notificando.
+- **attempt (number)**: Intento actual de envío del webhook.
+- **timestamp (number)**: Marca de tiempo en milisegundos cuando se envía el evento.
+- **externalReference (string | null)**: Referencia externa asociada al webhook a notificar, si aplica.
+- **data (T)**: Información específica del evento, donde `T` es la estructura de datos del evento específico.
