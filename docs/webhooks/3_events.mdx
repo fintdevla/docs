@@ -24,7 +24,8 @@ Este evento indica que un pago ha sido creado exitosamente. El origen del pago p
     "paymentId": 22,
     "paymentMethod": "CREDIT_CARD",
     "isManual": false,
-    "invoicesPaid": [1020]
+    "invoicesPaid": [1020],
+    "externalReferences": ["ref-123"]
   }
 }
 ```
@@ -37,6 +38,7 @@ interface PaymentCreatedData {
   paymentMethod: string;
   isManual: boolean;
   invoicesPaid: number[];
+  externalReferences: string[] | null;
 }
 ```
 
@@ -70,14 +72,16 @@ Este evento notifica cambios en el estado del ciclo de vida de un contacto.
         "totalPending": "150.75",
         "expirationDate": "2024-05-20",
         "createdDate": "2024-04-20",
-        "status": "PENDING"
+        "status": "PENDING",
+        "externalReference": "ref-123"
       },
       {
         "invoiceId": 6789,
         "totalPending": "200.00",
         "expirationDate": "2024-05-22",
         "createdDate": "2024-04-22",
-        "status": "PENDING"
+        "status": "PENDING",
+        "externalReference": "ref-456"
       }
     ],
     "totalPending": "350.75",
@@ -109,6 +113,7 @@ interface InvoiceDetail {
   expirationDate: string;
   createdDate: string;
   status: 'PENDING' | 'PAID' | 'PARTIALLY_PAID';
+  externalReference: string | null;
 }
 ```
 
@@ -130,16 +135,18 @@ interface InvoiceDetail {
 
 ## ¿Puedo subscribirme a un cambio en específico?
 
-Si nos subscribimos a `contact.status` nos llegará una notificación por cada cambio de estado. Si queremos subscribirnos a ciertos cambios específicos, solo creamos el webhook con el cambio al que estamos interesados.
+Si nos subscribimos a `contact.status` nos llegará una notificación por cada cambio de estado. 
+
+{/* Si queremos subscribirnos a ciertos cambios específicos, solo creamos el webhook con el cambio al que estamos interesados.
 
 ### Eventos Específicos Disponibles:
 
 - **`contact.status.account_opened`**: Notificación cuando el estado cambia a `ACCOUNT_OPENED`.
 - **`contact.status.not_due`**: Notificación cuando el estado cambia a `NOT_DUE`.
 - **`contact.status.past_due`**: Notificación cuando el estado cambia a `PAST_DUE`.
-- **`contact.status.account_settled`**: Notificación cuando el estado cambia a `ACCOUNT_SETTLED`.
+- **`contact.status.account_settled`**: Notificación cuando el estado cambia a `ACCOUNT_SETTLED`. */}
 
-Más información sobre los estados de un contacto
+Más información sobre los estados de un contacto en la [documentación de Contactos](/docs/contact/introduction.mdx).
 
 </Accordion>
 </AccordionGroup>
@@ -166,13 +173,6 @@ function handleWebhook<T>(webhookBody: WebhookBody<T>) {
     case "contact.status":
       const contactStatusData = webhookBody.data as ContactStatusData;
       // Manejar el evento de cambio de estado del contacto
-      break;
-    case "contact.status.account_opened":
-    case "contact.status.not_due":
-    case "contact.status.past_due":
-    case "contact.status.account_settled":
-      const specificStatusData = webhookBody.data as ContactStatusData;
-      // Manejar el evento específico de cambio de estado del contacto
       break;
     // Agregar más casos según nuevos eventos
     default:
