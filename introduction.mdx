@@ -1,4 +1,87 @@
 ---
-title: Introduccion
-description: 'Bienvenido a FINT'
+title: 'Bienvenido a Fint'
 ---
+
+Fint es una plataforma que te ayuda a mejorar la recaudación.
+
+## Autenticación
+
+Todos los endpoints de la API están autenticados utilizando tokens Bearer, los cuales se especifican en el archivo de especificaciones.
+
+Para empezar a integrarse con nuestra API, sigue estos pasos:
+
+
+<Steps>
+  <Step title="Crear una API Key">
+    [Accede a nuestra panel](https://admin.fint.app/settings/developers/api-keys) y crea una nueva API Key.
+  </Step>
+  
+  <Step title="Gestionar tu API Key">
+    Gestiona, elimina o revoca tu API Key en cualquier momento desde tu [panel de control](https://admin.fint.app/settings/developers/api-keys).
+  </Step>
+  
+  <Step title="Uso de la API">
+    Incluye tu API Key en el encabezado de cada solicitud para autenticarte.
+  </Step>
+</Steps>
+
+
+El formato debe ser el siguiente:
+```json
+  {
+    "x-api-key": "API_KEY"
+  }
+```
+
+### Ejemplo de solicitud con autenticación
+
+Aquí tienes un ejemplo de cómo debería verse una solicitud autenticada usando tu API Key:
+
+
+
+<CodeGroup>
+```bash health-check.sh
+curl -X GET "https://api.fint.app/api/v1/health" -H "x-api-key: TU_API_KEY"
+```
+
+```javascript health-check.js
+const url = "https://api.fint.app/api/v1/health";
+const headers = {
+  "x-api-key": "TU_API_KEY"
+};
+
+fetch(url, {
+  method: "GET",
+  headers: headers
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error("Error:", error));
+
+```
+
+```python health-check.py
+import requests
+
+url = "https://api.fint.app/api/v1/health"
+headers = {
+    "x-api-key": "TU_API_KEY"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+
+```
+
+
+</CodeGroup>
+
+
+Asegúrate de reemplazar `TU_API_KEY` con la clave que generaste.
+
+
+Si tienes alguna pregunta o necesitas asistencia, no dudes en contactar con nuestro [soporte](mailto:soporte@fint.app?subject=[Necesito%20ayuda%20con%20la%20API]).
+
+
+
+¡Gracias por elegir Fint!
