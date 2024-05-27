@@ -30,6 +30,8 @@ interface WebhookBody<T> {
 
 ## Listado de eventos soportados
 
+<Accordion title="payment.created">
+
 ### `payment.created`
 
 Este evento indica que un pago ha sido creado exitosamente. El origen del pago puede ser un registro manual o una transacción realizada por un usuario a través del portal utilizando cualquier método de pago disponible.
@@ -64,6 +66,10 @@ interface PaymentCreatedData {
 ```
 
 Para obtener más información sobre el pago podemos consultar el pago por id en la API.
+
+</Accordion>
+
+<Accordion title="contact.status">
 
 ### `contact.status` (en construcción)
 
@@ -160,7 +166,9 @@ Si nos subscribimos a `contact.status` nos llegará una notificación por cada c
 
 Más información sobre los estados de un contacto
 
-Más eventos próximamente.
+</Accordion>
+
+<Note>Más eventos próximamente.</Note>
 
 ## Ejemplo de implementación
 
