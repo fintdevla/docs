@@ -42,13 +42,13 @@ interface PaymentCreatedData {
 }
 ```
 
-Para obtener más información sobre el pago podemos consultar el pago por id en la API.
+Para obtener más información sobre el pago podemos consultar el [pago por id en la API](/api-reference/pagos/obtener-pago-por-id.mdx).
 
 </Accordion>
 
 <Accordion title="contact.status">
 
-### `contact.status` (en construcción)
+### `contact.status`
 
 Este evento notifica cambios en el estado del ciclo de vida de un contacto.
 
@@ -133,9 +133,10 @@ interface InvoiceDetail {
 - **metadata (opcional)**: Objeto de datos personalizados añadidos por el usuario al crear el contacto. Este campo puede contener cualquier información adicional relevante para el usuario.
 - **externalReference (opcional)**: Referencia externa que se asocia al contacto al momento de la creación.
 
-## ¿Puedo subscribirme a un cambio en específico?
+{/* ## ¿Puedo subscribirme a un cambio en específico? */}
 
-Si nos subscribimos a `contact.status` nos llegará una notificación por cada cambio de estado. 
+
+Al subscribirnos a `contact.status` nos llegará una notificación por cada cambio de estado. 
 
 {/* Si queremos subscribirnos a ciertos cambios específicos, solo creamos el webhook con el cambio al que estamos interesados.
 
