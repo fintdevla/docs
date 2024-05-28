@@ -54,6 +54,7 @@
       "pages": [
         "api-reference/contactos/crear-un-nuevo-contacto",
         "api-reference/contactos/obtener-contacto-por-id",
+        "api-reference/contactos/eliminar-contacto-por-id",
         "api-reference/contactos/obtener-contacto-por-referencia-externa"
       ]
     },
