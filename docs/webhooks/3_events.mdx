@@ -24,8 +24,11 @@ Este evento indica que un pago ha sido creado exitosamente. El origen del pago p
     "paymentId": 22,
     "paymentMethod": "CREDIT_CARD",
     "isManual": false,
-    "invoicesPaid": [1020],
-    "externalReferences": ["ref-123"]
+    "invoicesPaid": [{
+      "id": 123,
+      "externalReference": "ref-123",
+      "uniqueId": "AAA-0000",
+    }],
   }
 }
 ```
@@ -37,10 +40,23 @@ interface PaymentCreatedData {
   paymentId: number;
   paymentMethod: string;
   isManual: boolean;
-  invoicesPaid: number[];
-  externalReferences: string[] | null;
+  invoicesPaid: {
+    id: number
+    externalReference: string | null,
+    uniqueId: string,
+  }[];
 }
 ```
+
+### Descripción de Campos:
+
+- **paymentId (number)**: Identificador único del pago.
+- **paymentMethod (string)**: Método de pago utilizado para realizar el pago.
+- **isManual (boolean)**: Indica si el pago fue registrado manualmente por un usuario.
+- **invoicesPaid (array)**: Lista de facturas pagadas con este pago.
+  - **id (number)**: Identificador único de la factura.
+  - **externalReference (string)**: Referencia externa asociada a la factura.
+  - **uniqueId (string)**: Identificador único de la factura, compuesto por un prefijo y un número único. {ContactHash}-{InvoiceNumber}
 
 Para obtener más información sobre el pago podemos consultar el [pago por id en la API](/api-reference/pagos/obtener-pago-por-id.mdx).
 
