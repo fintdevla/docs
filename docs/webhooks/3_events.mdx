@@ -114,8 +114,8 @@ Este evento notifica cambios en el estado del ciclo de vida de un contacto.
 ```typescript
 interface ContactStatusData {
   contactId: number;
-  previousStatus: 'ACCOUNT_OPENED' | 'NOT_DUE' | 'PAST_DUE' | 'ACCOUNT_SETTLED';
-  newStatus: 'ACCOUNT_OPENED' | 'NOT_DUE' | 'PAST_DUE' | 'ACCOUNT_SETTLED';
+  previousStatus: 'ACCOUNT_OPENED' | 'NOT_DUE' | 'PAST_DUE' | 'ACCOUNT_SETTLED' | 'INACTIVE';
+  newStatus: 'ACCOUNT_OPENED' | 'NOT_DUE' | 'PAST_DUE' | 'ACCOUNT_SETTLED' | 'INACTIVE';
   timestamp: number;
   invoices?: InvoiceDetail[];
   totalPending?: string;
@@ -136,8 +136,8 @@ interface InvoiceDetail {
 ### Descripción de Campos:
 
 - **contactId (number)**: Identificador único del contacto.
-- **previousStatus (string)**: Estado anterior del contacto (`ACCOUNT_OPENED`, `NOT_DUE`, `PAST_DUE`, `ACCOUNT_SETTLED`).
-- **newStatus (string)**: Nuevo estado del contacto (`ACCOUNT_OPENED`, `NOT_DUE`, `PAST_DUE`, `ACCOUNT_SETTLED`).
+- **previousStatus (string)**: Estado anterior del contacto (`ACCOUNT_OPENED`, `NOT_DUE`, `PAST_DUE`, `ACCOUNT_SETTLED`, `INACTIVE`).
+- **newStatus (string)**: Nuevo estado del contacto (`ACCOUNT_OPENED`, `NOT_DUE`, `PAST_DUE`, `ACCOUNT_SETTLED`, `INACTIVE`).
 - **timestamp (number)**: Marca de tiempo del cambio de estado.
 - **invoices (opcional)**: Lista de facturas vencidas que el contacto adeuda.
   - **invoiceId (number)**: Identificador de la factura.

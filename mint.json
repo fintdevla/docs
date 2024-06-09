@@ -37,7 +37,8 @@
       "group": "Contactos",
       "pages": [
         "docs/contact/introduction",
-        "docs/contact/life-cycle"
+        "docs/contact/life-cycle",
+        "docs/contact/active-status"
       ]
     },
     {
