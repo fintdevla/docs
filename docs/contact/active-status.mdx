@@ -1,0 +1,51 @@
+---
+title: 'Gestión del Estado Activo de los Contactos'
+---
+
+## Introducción
+
+En Fint, la gestión del estado activo de un contacto es crucial para regular su interacción con nuestros servicios. Este estado es controlado de manera manual a través de nuestra plataforma web o la API, permitiendo una gestión flexible de la actividad del contacto dentro del sistema.
+
+## Estados de Contacto
+
+### Estados Predeterminados
+
+- **Activo**: El contacto puede recibir recordatorios, acceder al portal de pago y se le generarán facturas nuevas.
+- **Inactivo**: El contacto no recibirá recordatorios, no tendrá acceso al portal de pago y no se le generarán nuevas facturas.
+
+### Estados Personalizados
+
+Los usuarios pueden crear, editar y eliminar estados personalizados para los contactos. Estos estados pueden ayudar a proporcionar un mayor detalle sobre la situación del contacto, como 'Alumno Regular', 'Suspensión Temporal', etc. Es importante tener en cuenta que los estados 'Activo' e 'Inactivo' son inmutables y no pueden ser eliminados.
+
+#### Creación y Gestión de Estados Personalizados
+
+Para manejar estos estados:
+- Los estados personalizados pueden ser creados y configurados según las necesidades de la organización.
+- Cada estado personalizado puede ser eliminado a menos que haya contactos actualmente asignados a ese estado.
+
+## Cambio de Estado
+
+El estado activo de un contacto puede modificarse tanto en la plataforma web como mediante la API. Este proceso es exclusivamente manual y la autenticación necesaria varía según el método utilizado; sin embargo, el comportamiento en términos de efecto sobre el contacto es el mismo independientemente de la interfaz utilizada.
+
+### Detalles Técnicos
+
+```json
+{
+  "id": number,
+  "active": boolean,
+  "activeStatus": {
+    "id": number,
+    "name": string,
+    "description": string
+  }
+}
+```
+
+## Impacto Operativo
+
+Al cambiar el estado de un contacto, todas las funcionalidades asociadas con los estados 'Activo' e 'Inactivo' se ajustarán automáticamente para reflejar el nuevo estado del contacto.
+
+## Consideraciones Importantes
+
+- No se puede eliminar un estado personalizado que esté actualmente en uso por uno o más contactos.
+- Se recomienda revisar periódicamente los estados de los contactos para mantener la integridad operativa del sistema.
