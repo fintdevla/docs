@@ -1,6 +1,5 @@
 ---
 title: Introducción
-# icon: 'code'
 ---
 
 Usa webhooks para notificar a tu aplicación sobre eventos que ocurrieron en Fint.
@@ -23,14 +22,18 @@ Puedes empezar a recibir eventos en tiempo real en tu aplicación siguiendo esto
 
 Para registrar los endpoints en Fint pueden usar directamente nuestra API o crearlos desde el panel de desarrolladores en la web.
 
-## ¿Qué pasa si el servidor no responde?
+## Estados de los Webhooks
 
-Si Fint no recibe una respuesta con código 2xx del servidor de webhook, intentaremos reenviar el mensaje.
+Los webhooks en Fint pueden tener tres estados posibles:
 
-Cada mensaje se intentará enviar hasta 5 veces, con intervalos de 5 minutos entre cada intento. Si después de estos reintentos no es posible entregar el webhook, se dejará de intentar.
-
-## Recomendaciones
-
-Para probar el endpoint desde tu aplicación local, te recomendamos usar [ngrok](https://ngrok.com/). Esta herramienta proporciona una URL HTTPS que crea un túnel a tu aplicación local, facilitando las pruebas.
-
-Si aún no tienes un servidor para probar los webhooks, te sugerimos utilizar [webhook.site](https://webhook.site/). Este sitio web te proporciona un endpoint HTTPS que puedes usar para realizar pruebas de webhooks de manera sencilla.
+<CardGroup cols={3}>
+  <Card title="Ongoing" icon="spinner">
+    El webhook está en proceso de entrega, incluyendo los intentos iniciales y adicionales.
+  </Card>
+  <Card title="Error" icon="xmark">
+    Después de todos los intentos (7 en total), el webhook no pudo ser entregado exitosamente.
+  </Card>
+  <Card title="Success" icon="check">
+    El webhook fue entregado exitosamente y se recibió una respuesta con código 2xx del servidor destino.
+  </Card>
+</CardGroup>
