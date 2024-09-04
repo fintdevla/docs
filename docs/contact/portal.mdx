@@ -1,0 +1,81 @@
+---
+title: 'Portal de Pago'
+description: 'Guía completa para acceder y utilizar el portal de pago para contactos'
+---
+
+# Portal de Pago
+
+El portal de pago es una interfaz web personalizada que permite a cada contacto gestionar sus deudas y pagos de manera eficiente.
+
+## Características Principales
+
+- Resumen de deudas pendientes
+- Pago de una o múltiples deudas
+- Historial de pagos
+- Descarga de recibos de pago
+
+## Métodos de Acceso
+
+Existen dos formas de acceder al portal de pago:
+
+1. **Enlace Directo**: El contacto recibe un enlace personalizado vía correo electrónico o mensaje de texto o el admin de la organización comparte el enlace directamente desde el detalle del contacto.
+2. **Portal General de Organización**: El contacto accede al portal general y se identifica con su número de documento.
+
+## URLs de Acceso
+
+### Portal General de Organización
+```
+https://{slug}.fint.app
+```
+
+### Portal de Pago de Contacto
+```
+https://{slug}.fint.app/?pid={pid}
+```
+
+Donde:
+- `{slug}`: Identificador único de la organización (disponible en el [panel de administración de Fint](https://admin.fint.app/settings/general))
+- `{pid}`: Identificador único del contacto (obtenible desde el panel de administración de Fint o la API)
+
+## Construcción de la URL del Portal usando la API
+
+Para redirigir a un contacto a su portal de pago, siga estos pasos:
+
+1. Realice una petición **GET** a la API de Fint para obtener los datos del contacto:
+
+<Card title="Obtener contacto por id" icon="code" href="/api-reference/contactos/obtener-contacto-por-id" />
+
+2. Localice el `hash` en la información de los `familiares` del contacto.
+
+<Note>Actualmente, el `hash` del contacto principal no es válido para acceder al portal. Estamos trabajando para habilitar esta funcionalidad en el futuro.</Note>
+
+
+```json Ejemplo de respuesta obtener contacto por id
+{
+  "id": 15678,
+  "name": "Martín",
+  "lastName": "Gómez",
+  // ... otros campos del contacto ...
+  "familyMembers": [
+    {
+      "id": 25689,
+      "type": "Esposa",
+      "name": "Laura",
+      "lastName": "Fernández",
+      "hash": "a1b2c3d4e5f6g7h8i9j0",  // Hash para acceso al portal (pid)
+      // ... otros campos del familiar ...
+    }
+  ],
+}
+```
+
+3. Construya el enlace de redirección utilizando el `hash` del familiar:
+
+```
+https://{slug}.fint.app/?pid=a1b2c3d4e5f6g7h8i9j0
+```
+
+## Consideraciones Importantes
+
+- Asegúrese de utilizar el `hash` de un familiar para generar el enlace de acceso al portal.
+- El `slug` de la organización es esencial para direccionar correctamente al portal.
