@@ -53,19 +53,42 @@
       ]
     },
     {
-      "group": "Contactos",
+      "group": "Contactos - Operaciones Básicas",
       "pages": [
+        "api-reference/contactos/obtener-contactos-paginados",
         "api-reference/contactos/crear-un-nuevo-contacto",
         "api-reference/contactos/obtener-contacto-por-id",
-        "api-reference/contactos/obtener-contacto-por-referencia-externa",
-        "api-reference/contactos/obtener-contactos-paginados",
-        "api-reference/contactos/actualizar-contacto-por-id",
         "api-reference/contactos/eliminar-contacto-por-id",
-        "api-reference/contactos/agregar-o-eliminar-items-de-un-contacto",
-        "api-reference/contactos/agregar-o-eliminar-items-de-un-contacto-por-documento",
+        "api-reference/contactos/actualizar-contacto-por-id",
+        "api-reference/contactos/obtener-contacto-por-referencia-externa"
+      ]
+    },
+    {
+      "group": "Contactos - Gestión de Items",
+      "pages": [
+        "api-reference/contactos/agregar-o-eliminar-items-a-un-contacto",
+        "api-reference/contactos/agregar-o-eliminar-items-a-un-contacto-por-documento"
+      ]
+    },
+    {
+      "group": "Contactos - Gestión de Tags",
+      "pages": [
         "api-reference/contactos/agregar-o-eliminar-tags-a-un-contacto-por-documento",
+        "api-reference/contactos/agregar-o-eliminar-tags-a-un-contacto-por-id"
+      ]
+    },
+    {
+      "group": "Contactos - Estados",
+      "pages": [
         "api-reference/contactos/obtener-estados-activos-para-contactos",
         "api-reference/contactos/crear-estado-activo"
+      ]
+    },
+    {
+      "group": "Contactos - Notas",
+      "pages": [
+        "api-reference/contactos/crear-una-nota-para-un-contacto",
+        "api-reference/contactos/eliminar-una-nota-de-un-contacto"
       ]
     },
     {
