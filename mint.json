@@ -92,6 +92,13 @@
       ]
     },
     {
+      "group": "Etiquetas",
+      "pages": [
+        "api-reference/etiquetas/obtener-etiquetas-paginadas",
+        "api-reference/etiquetas/crear-nueva-etiqueta"
+      ]
+    },
+    {
       "group": "Facturas",
       "pages": [
         "api-reference/facturas/crear-una-nueva-factura"
