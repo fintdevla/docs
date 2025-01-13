@@ -92,7 +92,7 @@
       ]
     },
     {
-      "group": "Etiquetas",
+      "group": "Etiquetas (Tags)",
       "pages": [
         "api-reference/etiquetas/obtener-etiquetas-paginadas",
         "api-reference/etiquetas/crear-nueva-etiqueta"
