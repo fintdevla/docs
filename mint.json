@@ -102,8 +102,8 @@
       "group": "Facturas",
       "pages": [
         "api-reference/facturas/crear-una-nueva-factura",
-        "api-reference/facturas/obtener-factura-por-id",
-        "api-reference/facturas/eliminar-factura-por-id"
+        "api-reference/facturas/obtener-una-factura-por-id",
+        "api-reference/facturas/eliminar-una-factura"
       ]
     },
     {
