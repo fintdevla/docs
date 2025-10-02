@@ -114,6 +114,17 @@
       ]
     },
     {
+      "group": "Eventos",
+      "pages": [
+        "api-reference/eventos/buscar-tickets-por-email-del-asistente",
+        "api-reference/eventos/buscar-compras-por-email-del-comprador",
+        "api-reference/eventos/obtener-ticket-de-evento-por-referencia",
+        "api-reference/eventos/actualizar-información-del-asistente-del-ticket",
+        "api-reference/eventos/crear-tickets-manualmente-admin",
+        "api-reference/eventos/obtener-campos-personalizados-de-un-evento"
+      ]
+    },
+    {
       "group": "Webhook",
       "pages": [
         "api-reference/webhook/obtener-lista-de-webhooks",
