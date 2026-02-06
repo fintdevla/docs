@@ -1,0 +1,161 @@
+---
+title: 'Tipos de Eventos'
+description: 'Eventos disponibles y la estructura de datos de cada uno'
+---
+
+Estos son los eventos que podés recibir a través de webhooks.
+
+<AccordionGroup>
+<Accordion title="payment.created">
+
+### `payment.created`
+
+Se dispara cuando se registra un pago, ya sea manual (registrado por un admin) o automático (realizado por el contacto desde el portal).
+
+**Ejemplo de payload:**
+
+```json
+{
+  "id": "webhook_local_da7beb710d61463bbd55209538b59a37",
+  "event": "payment.created",
+  "attempt": 1,
+  "timestamp": 1716193401008,
+  "externalReference": null,
+  "data": {
+    "paymentId": 22,
+    "paymentMethod": "CREDIT_CARD",
+    "isManual": false,
+    "invoicesPaid": [
+      {
+        "id": 123,
+        "externalReference": "ref-123",
+        "uniqueId": "AAA-0000"
+      }
+    ]
+  }
+}
+```
+
+**Estructura de `data`:**
+
+```typescript
+interface PaymentCreatedData {
+  paymentId: number;
+  paymentMethod: string;
+  isManual: boolean;
+  invoicesPaid: {
+    id: number;
+    externalReference: string | null;
+    uniqueId: string;
+  }[];
+}
+```
+
+**Campos:**
+
+- **paymentId**: ID del pago. Usalo con el endpoint [Obtener pago por ID](/api-reference/pagos/obtener-pago-por-id) para más detalles.
+- **paymentMethod**: Método de pago utilizado (ej: `CREDIT_CARD`, `BANK_TRANSFER`, `CASH`)
+- **isManual**: `true` si fue registrado manualmente por un admin, `false` si fue online
+- **invoicesPaid**: Lista de órdenes pagadas con este pago
+  - **id**: ID de la orden
+  - **externalReference**: Referencia externa de la orden, si fue definida
+  - **uniqueId**: Identificador único en formato `{ContactHash}-{InvoiceNumber}`
+
+</Accordion>
+
+<Accordion title="contact.status">
+
+### `contact.status`
+
+Se dispara cuando cambia el [estado del ciclo de vida](/developers/contact/life-cycle) de un contacto.
+
+**Ejemplo de payload:**
+
+```json
+{
+  "id": "webhook_local_da7beb710d61463bbd55209538b59a37",
+  "event": "contact.status",
+  "attempt": 1,
+  "timestamp": 1716193401008,
+  "externalReference": null,
+  "data": {
+    "contactId": 12345,
+    "previousStatus": "NOT_DUE",
+    "newStatus": "PAST_DUE",
+    "timestamp": 1716193401008,
+    "invoices": [
+      {
+        "invoiceId": 5678,
+        "totalPending": "150.75",
+        "expirationDate": "2024-05-20",
+        "createdDate": "2024-04-20",
+        "status": "PENDING",
+        "externalReference": "ref-123"
+      }
+    ],
+    "totalPending": "150.75",
+    "metadata": {},
+    "externalReference": "ALUMNO-12345"
+  }
+}
+```
+
+**Estructura de `data`:**
+
+```typescript
+interface ContactStatusData {
+  contactId: number;
+  previousStatus: 'ACCOUNT_OPENED' | 'NOT_DUE' | 'PAST_DUE' | 'ACCOUNT_SETTLED';
+  newStatus: 'ACCOUNT_OPENED' | 'NOT_DUE' | 'PAST_DUE' | 'ACCOUNT_SETTLED';
+  timestamp: number;
+  invoices?: InvoiceDetail[];
+  totalPending?: string;
+  metadata?: any;
+  externalReference: string | null;
+}
+
+interface InvoiceDetail {
+  invoiceId: number;
+  totalPending: string;
+  expirationDate: string;
+  createdDate: string;
+  status: 'PENDING' | 'PAID' | 'PARTIALLY_PAID';
+  externalReference: string | null;
+}
+```
+
+**Campos:**
+
+- **contactId**: ID del contacto
+- **previousStatus / newStatus**: Estado anterior y nuevo (`ACCOUNT_OPENED`, `NOT_DUE`, `PAST_DUE`, `ACCOUNT_SETTLED`)
+- **invoices** (opcional): Órdenes vencidas que el contacto adeuda
+- **totalPending** (opcional): Suma total de las órdenes pendientes
+- **metadata** (opcional): Datos personalizados del contacto
+- **externalReference** (opcional): Referencia externa del contacto
+
+Al suscribirte a `contact.status`, recibís una notificación por **cada cambio de estado**.
+
+</Accordion>
+</AccordionGroup>
+
+<br />
+<Info>Más eventos próximamente.</Info>
+
+## Ejemplo de implementación
+
+```typescript
+function handleWebhook<T>(webhookBody: WebhookBody<T>) {
+  switch (webhookBody.event) {
+    case "payment.created":
+      const paymentData = webhookBody.data as PaymentCreatedData;
+      // Manejar el evento de pago creado
+      break;
+    case "contact.status":
+      const contactStatusData = webhookBody.data as ContactStatusData;
+      // Manejar el evento de cambio de estado
+      break;
+    default:
+      console.error("Evento desconocido:", webhookBody.event);
+  }
+}
+```

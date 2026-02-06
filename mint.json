@@ -17,12 +17,24 @@
   "topbarLinks": [
     {
       "name": "Soporte",
-      "url": "soporte@fint.app"
+      "url": "mailto:soporte@fint.app"
     }
   ],
+  "topbarCtaButton": {
+    "name": "Acceder",
+    "url": "https://admin.fint.app"
+  },
   "tabs": [
     {
-      "name": "API Referencia",
+      "name": "Documentacion",
+      "url": "docs"
+    },
+    {
+      "name": "Desarrolladores",
+      "url": "developers"
+    },
+    {
+      "name": "API Reference",
       "url": "api-reference"
     }
   ],
@@ -30,69 +42,103 @@
     {
       "group": "Comenzar",
       "pages": [
-        "introduction"
+        "docs/introduction"
+      ]
+    },
+    {
+      "group": "Panel de Control",
+      "pages": [
+        "docs/guides/dashboard"
+      ]
+    },
+    {
+      "group": "Gestión de Clientes",
+      "pages": [
+        "docs/guides/clientes",
+        "docs/guides/portal-contacto"
+      ]
+    },
+    {
+      "group": "Cobranzas",
+      "pages": [
+        "docs/guides/items-descuentos",
+        "docs/guides/solicitudes-pago",
+        "docs/guides/pagos"
+      ]
+    },
+    {
+      "group": "Canales de Venta",
+      "pages": [
+        "docs/guides/links-pago",
+        "docs/guides/suscripciones",
+        "docs/guides/eventos"
+      ]
+    },
+    {
+      "group": "Comunicación",
+      "pages": [
+        "docs/guides/mensajeria"
+      ]
+    },
+    {
+      "group": "Configuración",
+      "pages": [
+        "docs/guides/configuracion",
+        "docs/guides/facturacion-arca"
+      ]
+    },
+    {
+      "group": "Comenzar",
+      "pages": [
+        "developers/introduction"
       ]
     },
     {
       "group": "Contactos",
       "pages": [
-        "docs/contact/introduction",
-        "docs/contact/life-cycle",
-        "docs/contact/active-status",
-        "docs/contact/portal"
+        "developers/contact/introduction",
+        "developers/contact/life-cycle",
+        "developers/contact/active-status",
+        "developers/contact/portal"
       ]
     },
     {
       "group": "Webhooks",
       "pages": [
-        "docs/webhooks/1_introduction",
-        "docs/webhooks/2_configuration_and_handling",
-        "docs/webhooks/3_structure",
-        "docs/webhooks/4_events",
-        "docs/webhooks/5_security"
+        "developers/webhooks/1_introduction",
+        "developers/webhooks/2_configuration_and_handling",
+        "developers/webhooks/3_structure",
+        "developers/webhooks/4_events",
+        "developers/webhooks/5_security"
       ]
     },
     {
-      "group": "Contactos - Operaciones Básicas",
+      "group": "Comenzar",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Contactos",
       "pages": [
         "api-reference/contactos/obtener-contactos-paginados",
         "api-reference/contactos/crear-un-nuevo-contacto",
         "api-reference/contactos/obtener-contacto-por-id",
         "api-reference/contactos/eliminar-contacto-por-id",
         "api-reference/contactos/actualizar-contacto-por-id",
-        "api-reference/contactos/obtener-contacto-por-referencia-externa"
-      ]
-    },
-    {
-      "group": "Contactos - Gestión de Items",
-      "pages": [
+        "api-reference/contactos/obtener-contacto-por-referencia-externa",
         "api-reference/contactos/agregar-o-eliminar-items-a-un-contacto",
-        "api-reference/contactos/agregar-o-eliminar-items-a-un-contacto-por-documento"
-      ]
-    },
-    {
-      "group": "Contactos - Gestión de Tags",
-      "pages": [
+        "api-reference/contactos/agregar-o-eliminar-items-a-un-contacto-por-documento",
         "api-reference/contactos/agregar-o-eliminar-tags-a-un-contacto-por-documento",
-        "api-reference/contactos/agregar-o-eliminar-tags-a-un-contacto-por-id"
-      ]
-    },
-    {
-      "group": "Contactos - Estados",
-      "pages": [
+        "api-reference/contactos/agregar-o-eliminar-tags-a-un-contacto-por-id",
         "api-reference/contactos/obtener-estados-activos-para-contactos",
-        "api-reference/contactos/crear-estado-activo"
-      ]
-    },
-    {
-      "group": "Contactos - Notas",
-      "pages": [
+        "api-reference/contactos/crear-estado-activo",
         "api-reference/contactos/crear-una-nota-para-un-contacto",
         "api-reference/contactos/eliminar-una-nota-de-un-contacto"
       ]
     },
     {
-      "group": "Etiquetas (Tags)",
+      "group": "Etiquetas",
       "pages": [
         "api-reference/etiquetas/obtener-etiquetas-paginadas",
         "api-reference/etiquetas/crear-nueva-etiqueta"
@@ -125,7 +171,7 @@
       ]
     },
     {
-      "group": "Webhook",
+      "group": "Webhooks",
       "pages": [
         "api-reference/webhook/obtener-lista-de-webhooks",
         "api-reference/webhook/crear-un-nuevo-webhook",

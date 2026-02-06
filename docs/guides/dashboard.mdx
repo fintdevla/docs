@@ -1,0 +1,71 @@
+---
+title: 'Panel de Inicio'
+description: 'Métricas y estado financiero de tu institución en tiempo real'
+---
+
+Tu panel principal con una visión completa de la situación financiera. Todos los datos se pueden filtrar por **rango de fechas personalizado**.
+
+## Tutorial en Video
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.loom.com/embed/c0f0bd3f1599479fa46a50ea75e0b422"
+  title="Tutorial Panel de Inicio"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
+></iframe>
+
+## Indicadores
+
+### Estado de Cuentas por Cobrar
+
+Gráfico principal que muestra:
+
+- **Monto cobrado**: Total de dinero recibido
+- **Monto pendiente**: Total por cobrar
+- **Monto vencido**: Solicitudes que no fueron pagadas a tiempo
+
+### Indicadores Financieros
+
+<CardGroup cols={3}>
+  <Card title="Total de Clientes" icon="users">
+    Cantidad de clientes activos e inactivos
+  </Card>
+
+  <Card title="Intereses Cobrados" icon="percent">
+    Monto y porcentaje respecto al total facturado
+  </Card>
+
+  <Card title="Tiempo Promedio de Cobro" icon="clock">
+    Días promedio entre emisión de factura y pago
+  </Card>
+</CardGroup>
+
+### Desglose de Deuda
+
+Detalla los saldos adeudados separados por antigüedad, con monto y porcentaje de cada segmento.
+
+<Warning>
+  Los montos vencidos requieren seguimiento inmediato — considerá enviar [recordatorios](/docs/guides/mensajeria) a deudores.
+</Warning>
+
+### Métodos de Pago
+
+Muestra qué métodos usan tus clientes (tarjeta, transferencia, efectivo) con el porcentaje de cada uno.
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
+    Gestiona la información de tus clientes
+  </Card>
+  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
+    Ve el detalle de cada factura
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Historial completo de transacciones
+  </Card>
+</CardGroup>

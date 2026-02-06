@@ -1,0 +1,50 @@
+---
+title: 'Contactos'
+description: 'El modelo central de Fint: clientes y responsables de pago'
+---
+
+En Fint, un **contacto** representa a cualquier persona vinculada a tu organización: puede ser un cliente directo (ej: un alumno) o un responsable de pago (ej: un padre).
+
+Los contactos son el modelo central de la plataforma. Todo lo demás — órdenes, pagos, suscripciones, entradas — se vincula a un contacto.
+
+## Propiedades principales
+
+Cada contacto tiene:
+
+- **Datos personales**: Nombre, apellido, email, documento, teléfono
+- **Etiquetas**: Clasificaciones como nivel, turno, carrera (ej: "Primario / 3° A")
+- **External reference**: Un ID de tu sistema para mantener la sincronización (ej: `"ALUMNO-12345"`)
+- **Portal URL**: Link único al [Portal de Pago](/developers/contact/portal) donde el contacto puede ver y pagar sus deudas
+- **Estado del ciclo de vida**: Estado financiero calculado automáticamente (ver [Ciclo de Vida](/developers/contact/life-cycle))
+- **Estado activo**: Si el contacto está activo o inactivo, controlado manualmente (ver [Estado Activo](/developers/contact/active-status))
+
+## Crear un contacto
+
+```javascript
+const response = await fetch('https://api.fint.app/api/v1/contacts', {
+  method: 'POST',
+  headers: {
+    'x-api-key': 'TU_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    firstName: 'Juan',
+    lastName: 'Pérez',
+    email: 'juan.perez@email.com',
+    externalReference: 'ALUMNO-12345'
+  })
+});
+```
+
+<Card title="Ver todos los endpoints de Contactos" icon="code" href="/api-reference/contactos/obtener-contactos-paginados">
+  Crear, obtener, actualizar y eliminar contactos via API.
+</Card>
+
+## Relación con la documentación de usuario
+
+En la documentación de usuario, los contactos se dividen en dos conceptos:
+
+- **Cliente**: El alumno o persona a quien se le factura
+- **Responsable de pago**: La persona que paga (puede ser el mismo cliente u otra persona, como un padre)
+
+A nivel de API, ambos son contactos. Un cliente tiene uno o más responsables de pago asociados como `familyMembers`.

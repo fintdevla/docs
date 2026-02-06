@@ -1,0 +1,108 @@
+---
+title: 'Mensajería'
+description: 'Enviá comunicados por email a tus clientes y responsables de pago'
+---
+
+Enviá emails masivos o individuales a tus clientes. Ideal para recordatorios de pago, avisos importantes o promociones.
+
+## Tutorial en Video
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.loom.com/embed/6e4e566b8adb4fb1b8631a8c39dd37bd"
+  title="Tutorial Mensajería"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
+></iframe>
+
+## Tipos de Destinatarios
+
+Al crear un mensaje, elegís a quién va dirigido:
+
+<CardGroup cols={2}>
+  <Card title="Compradores/Asistentes de Eventos" icon="calendar">
+    Enviá mensajes a personas que compraron entradas a tus eventos.
+  </Card>
+
+  <Card title="Clientes" icon="users">
+    Enviá mensajes a clientes con items asignados (liquidación, venta online) o a sus responsables de pago.
+  </Card>
+</CardGroup>
+
+## Crear y Enviar un Mensaje
+
+<Steps>
+  <Step title="Elegí el tipo de destinatario">
+    Seleccioná si vas a enviar el mensaje a compradores de eventos o a clientes.
+  </Step>
+
+  <Step title="Seleccioná destinatarios">
+    Buscá y seleccioná los contactos específicos a quienes enviar el mensaje. Podés filtrar por etiquetas, items asignados o estado.
+  </Step>
+
+  <Step title="Configurá el contenido">
+    Completá el **asunto**, **título**, elegí un **color** de paleta para el tema del email y escribí el **contenido** del mensaje. El **remitente** se toma del nombre y logo de tu organización (configurado en [Configuración](/docs/guides/configuracion)).
+
+    A medida que completás los campos, la vista previa de la derecha muestra cómo se verá el email final.
+  </Step>
+
+  <Step title="Configuración extra (opcional)">
+    Según el tipo de destinatario tenés opciones adicionales:
+
+    - **Para Compradores de Eventos**: Podés activar **"Incluir Entrada QR"** para adjuntar el código QR de la entrada.
+    - **Para Clientes**: Podés activar **"Incluir botón al portal"** que agrega un botón al [Portal de Contacto](/docs/guides/portal-contacto) con texto personalizable (ej: "Ir al portal", "Ver mi cuenta").
+
+    <Info>
+      El botón al portal es útil para recordatorios de pago, ya que lleva al cliente directo a su estado de cuenta.
+    </Info>
+  </Step>
+
+  <Step title="Previsualizá y enviá">
+    Revisá cómo se ve el email en la vista previa antes de enviarlo.
+  </Step>
+</Steps>
+
+## Estadísticas
+
+Una vez enviado el mensaje, podés ver estadísticas detalladas:
+
+<Frame>
+  <img src="/images/mensajeria/estadisticas-mensaje.png" alt="Vista de estadísticas de mensaje enviado" />
+</Frame>
+
+Las métricas principales son: **total enviados**, **entregados** (llegaron correctamente), **abiertos** (el destinatario lo abrió), **clicks** (hizo clic en un enlace) y **rebotados** (no pudieron ser entregados). Cada métrica muestra su porcentaje.
+
+También podés ver el estado de cada destinatario individual: **Entregado** o **No enviado (bloqueado)** si el email es inválido.
+
+<Info>
+  Las estadísticas se actualizan en tiempo real. Podés usar esta información para hacer seguimiento de la efectividad de tus comunicaciones.
+</Info>
+
+## Historial de Mensajes
+
+El listado de mensajes enviados muestra quién lo envió, el asunto, la cantidad de destinatarios y la fecha de envío. Hacé clic en un mensaje para ver sus estadísticas y el listado de destinatarios.
+
+## Límites y Restricciones
+
+<Info>
+  - Los mensajes se envían por **email** únicamente
+  - **No hay límite** de envíos mensuales
+  - **No se pueden adjuntar archivos**, pero podés incluir enlaces
+</Info>
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
+    Configurá recordatorios automáticos
+  </Card>
+  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
+    Gestioná información de contacto
+  </Card>
+  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
+    Generá facturas para cobrar
+  </Card>
+</CardGroup>

@@ -1,0 +1,49 @@
+---
+title: 'Portal de Pago'
+description: 'Acceso al portal de autoservicio de cada contacto via API'
+---
+
+El portal de pago es una página web personalizada donde cada contacto puede ver sus deudas, pagar online y descargar comprobantes. Cada contacto tiene una **URL única** que podés obtener por API.
+
+## Obtener la URL del portal
+
+Hacé una petición GET para obtener los datos del contacto. La respuesta incluye el campo `portalUrl`:
+
+<Card title="Obtener contacto por ID" icon="code" href="/api-reference/contactos/obtener-contacto-por-id" />
+
+```json
+{
+  "id": 15678,
+  "firstName": "Martín",
+  "lastName": "Gómez",
+  "portalUrl": "https://tuinstitucion.fint.app/?pid=a1b2c3d4e5f6",
+  "familyMembers": [
+    {
+      "id": 25689,
+      "firstName": "Laura",
+      "lastName": "Fernández",
+      "portalUrl": "https://tuinstitucion.fint.app/?pid=x9y8z7w6v5u4"
+    }
+  ]
+}
+```
+
+Cada contacto y cada miembro de la familia tiene su propia `portalUrl`. Usá esa URL directamente para redirigir al usuario a su portal.
+
+## Métodos de acceso
+
+Hay dos formas en que un contacto puede acceder al portal:
+
+- **Link directo**: Compartido por email, WhatsApp o generado vía API con la `portalUrl`
+- **Portal general**: El contacto entra al portal de la organización (`tuinstitucion.fint.app`) y se identifica con su número de documento
+
+## Funcionalidades del portal
+
+- Ver saldo pendiente y facturas vencidas
+- Pagar una, varias o todas las facturas
+- Descargar comprobantes de pago (PDF)
+- Actualizar datos personales (email, teléfono, dirección de facturación)
+
+<Info>
+  El portal no requiere registro ni contraseña. El acceso es por link único o identificación por documento.
+</Info>

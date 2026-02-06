@@ -1,0 +1,165 @@
+---
+title: 'Eventos'
+description: 'Vendé entradas online con validación QR, combos y control de asistentes'
+---
+
+Organizá eventos y vendé entradas online con página propia, validación QR, combos, descuentos y control de asistentes en tiempo real. Ideal para fiestas, conferencias, graduaciones, torneos o cualquier tipo de evento.
+
+<Info>
+  Eventos es un módulo separado de [Links de Pago](/docs/guides/links-pago). Usá Eventos cuando necesites validación QR, categorías de tickets, combos o control de asistentes.
+</Info>
+
+## Panel del Módulo
+
+Al entrar al módulo ves dos pestañas: **Eventos** (tus eventos creados) y **Entradas** (todas las entradas vendidas). En la parte superior tenés tres indicadores clave:
+
+<CardGroup cols={3}>
+  <Card title="Ventas" icon="dollar-sign">
+    Monto total recaudado
+  </Card>
+  <Card title="Entradas" icon="ticket">
+    Vendidas sobre el total disponible
+  </Card>
+  <Card title="Admisión" icon="user-check">
+    Asistentes admitidos sobre entradas vendidas
+  </Card>
+</CardGroup>
+
+También vas a ver un gráfico mensual de ventas y un ranking de los tipos de entrada más vendidos.
+
+## Crear un Evento
+
+<Steps>
+  <Step title="Completá los datos del evento">
+    Ingresá el **título**, **subtítulo**, **fechas** (desde/hasta con zona horaria), **ubicación** (nombre del recinto y dirección) y datos de **contacto** (email y WhatsApp para consultas).
+
+    Escribí una **descripción** que se va a mostrar en la página pública del evento.
+  </Step>
+
+  <Step title="Agregá las entradas">
+    Seleccioná entradas existentes o creá nuevas. Las entradas son [items de tipo Entrada de eventos](/docs/guides/items-descuentos#campos-segun-el-tipo) donde configurás nombre, precio, stock, QR y datos del asistente.
+
+    Si querés ofrecer paquetes, creá **combos** que agrupan varias entradas a un precio especial (ej: "Pack Familiar" con 2 adultos + 2 niños).
+  </Step>
+
+  <Step title="Agregá descuentos (opcional)">
+    Seleccioná descuentos existentes (creados en [Items y Descuentos](/docs/guides/items-descuentos)) para incentivar las ventas. Los descuentos son porcentuales y se aplican al momento de la compra.
+  </Step>
+
+  <Step title="Configurá las opciones del evento">
+    Personalizá la experiencia del evento con las opciones avanzadas (detalladas más abajo).
+  </Step>
+
+  <Step title="Publicá o guardá como borrador">
+    Hacé clic en **"Guardar"** para publicar el evento, o en **"Guardar como borrador"** si todavía no está listo para salir.
+  </Step>
+</Steps>
+
+## Opciones del Evento
+
+Al crear o editar un evento, tenés cuatro secciones de opciones avanzadas:
+
+<AccordionGroup>
+  <Accordion title="Configuración general">
+    - **URL de página**: Personalizá la URL pública del evento.
+    - **Costo del servicio**: Comisión base del 3% + un porcentaje adicional que vos configurás. Podés elegir si el costo va **incluido** en el precio o se muestra **discriminado** (por separado), tanto para pagos online como manuales.
+    - **Tiempo de expiración del carrito**: Minutos que el comprador tiene para completar la compra antes de que se liberen las entradas.
+    - **Texto de éxito en email**: Mensaje personalizado que se incluye en el email de confirmación.
+    - **Aforo total estimado**: Capacidad máxima del evento.
+    - **Mostrar en Descubrir**: Activá este toggle para que el evento aparezca en la sección pública donde la gente puede explorar eventos disponibles.
+  </Accordion>
+
+  <Accordion title="Preguntas frecuentes">
+    Agregá preguntas y respuestas que se muestran en la página del evento. Útil para resolver dudas comunes antes de la compra (ej: "¿Hay estacionamiento?", "¿Puedo llevar menores?").
+  </Accordion>
+
+  <Accordion title="Pedido de información">
+    Configurá qué datos pedirle a las personas al momento de la compra.
+
+    **Del comprador** se piden siempre nombre y email. Opcionalmente podés activar documento y teléfono.
+
+    **De los asistentes**, los campos base (nombre, documento, email, teléfono) se configuran en cada entrada desde [Items y Descuentos](/docs/guides/items-descuentos#campos-segun-el-tipo).
+
+    Además, podés crear **campos personalizados** para pedir información específica del evento. Por ejemplo: talle de remera, restricciones alimentarias, "¿Participaste anteriormente?", o cualquier dato que necesites. Cada campo tiene nombre, tipo, si es obligatorio, y a qué tickets aplica.
+  </Accordion>
+
+  <Accordion title="Mensaje destacado">
+    Escribí un mensaje que se muestra de forma prominente en la página del evento. Ideal para avisos de último momento, cambios de horario o información importante. Tiene un toggle para activar o desactivar su visibilidad.
+  </Accordion>
+</AccordionGroup>
+
+## Estados del Evento
+
+Los eventos pueden estar en dos estados:
+
+- **Borrador**: No es visible públicamente. Ideal para preparar todo antes de publicar.
+- **Activo**: Publicado y con entradas disponibles para la venta.
+
+## El Día del Evento
+
+### Validación por QR
+
+Desde la pestaña **Entradas**, usá el botón **"Escanear"** para validar el ingreso:
+
+- Cada ticket tiene un **QR único**. Si alguien compra 5 entradas, recibe 5 QR diferentes.
+- Al escanear, el sistema muestra los datos del asistente y permite **admitirlo** al instante.
+- También podés buscar asistentes por nombre o email desde el listado.
+
+### Gestión de entradas
+
+La pestaña **Entradas** muestra todas las entradas vendidas con su ID (TKT-XXXX), evento, tipo de entrada, comprador, asistente, fecha y estado (No admitido / Admitido). Podés filtrar por evento, tipo de entrada o estado, y **exportar a Excel**.
+
+Para crear entradas manuales (cortesías, staff, invitados), usá el botón **"+ Crear entrada"**.
+
+### Detalle de una entrada
+
+Al hacer clic en una entrada ves toda su información:
+
+- **QR descargable** y estado actual
+- **Acciones**: Admitir (marcar ingreso) o Cancelar (invalida el QR)
+- **Detalles**: ID del ticket, evento, fecha de compra, monto y origen (Online o Manual)
+- **Orden**: La solicitud de pago asociada con su estado
+- **Asistentes**: Nombre, documento y email del asistente
+- **Información adicional**: Respuestas a los campos personalizados del evento
+- **Comprador**: Datos de quien realizó la compra (puede ser distinto al asistente)
+
+<Info>
+  El **comprador** es quien paga y el **asistente** es quien va al evento. Pueden ser la misma persona o no — por ejemplo, un padre que compra la entrada para su hijo.
+</Info>
+
+## Cancelaciones y Devoluciones
+
+- **Cancelar entradas**: Desde el detalle de la entrada, hacé clic en **"Cancelar"**. El QR deja de ser válido inmediatamente.
+- **Devolver dinero**: Las devoluciones se hacen desde el procesador de pago (Mercado Pago, Stripe, etc.). Fint detecta el reembolso automáticamente y actualiza el estado.
+
+## Mensajería a Participantes
+
+Enviá comunicaciones a compradores y asistentes desde [Mensajería](/docs/guides/mensajeria). Podés enviar recordatorios, cambios de horario o información importante. Si el evento tiene entradas con QR, podés incluir las entradas en el mensaje.
+
+## Facturación Automática
+
+Fint genera facturas automáticamente cumpliendo con la normativa argentina. Los compradores reciben su comprobante por email junto con el ticket.
+
+<Card title="Configurar facturación ARCA" icon="file-invoice" href="/docs/guides/facturacion-arca">
+  Paso a paso para integrar con ARCA (ex AFIP)
+</Card>
+
+## API de Eventos
+
+<Card title="Ver API Reference" icon="code" href="/api-reference/eventos/buscar-tickets-por-email-del-asistente">
+  Endpoints para buscar tickets, obtener por referencia, actualizar asistentes y crear entradas.
+</Card>
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
+    Configurá entradas y descuentos
+  </Card>
+  <Card title="Mensajería" icon="envelope" href="/docs/guides/mensajeria">
+    Comunicá a los asistentes
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Historial de pagos
+  </Card>
+</CardGroup>

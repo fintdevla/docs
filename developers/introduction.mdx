@@ -1,0 +1,110 @@
+---
+title: 'Guía para Desarrolladores'
+description: 'Integra Fint con tus sistemas mediante nuestra API'
+---
+
+Fint ofrece una API REST completa para integrar la gestión de cobranzas con tus sistemas existentes: ERPs, sistemas académicos, CRMs y más.
+
+## Primeros Pasos
+
+<Steps>
+  <Step title="Obtené tu API Key">
+    Accedé a [Configuración > Desarrolladores](https://admin.fint.app/settings/developers/api-keys) en tu panel de Fint y creá una nueva API Key.
+  </Step>
+
+  <Step title="Configurá la autenticación">
+    Incluí tu API Key en el header `x-api-key` de cada solicitud.
+  </Step>
+
+  <Step title="Realizá tu primera llamada">
+    Probá la conexión con el endpoint de health check.
+  </Step>
+</Steps>
+
+## Autenticación
+
+Todos los endpoints requieren autenticación mediante API Key:
+
+```bash
+curl -X GET "https://api.fint.app/api/v1/health" \
+  -H "x-api-key: TU_API_KEY"
+```
+
+<Warning>
+  Nunca expongas tu API Key en código del lado del cliente. Mantené las llamadas a la API en tu backend.
+</Warning>
+
+## Conceptos Clave
+
+<CardGroup cols={2}>
+  <Card title="Contactos" icon="user" href="/developers/contact/introduction">
+    Los contactos representan a tus clientes y responsables de pago. Aprendé sobre su ciclo de vida y estados.
+  </Card>
+
+  <Card title="Webhooks" icon="webhook" href="/developers/webhooks/1_introduction">
+    Recibí notificaciones en tiempo real cuando ocurren eventos en Fint, como pagos completados.
+  </Card>
+</CardGroup>
+
+## Casos de Uso Comunes
+
+### Sincronizar clientes desde tu sistema académico
+
+```javascript
+// Crear un nuevo contacto (cliente)
+const response = await fetch('https://api.fint.app/api/v1/contacts', {
+  method: 'POST',
+  headers: {
+    'x-api-key': 'TU_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    firstName: 'Juan',
+    lastName: 'Pérez',
+    email: 'juan.perez@email.com',
+    externalReference: 'CLIENTE-12345' // ID de tu sistema
+  })
+});
+```
+
+### Recibir notificaciones de pago
+
+Configurá un [webhook](/developers/webhooks/1_introduction) para recibir eventos cuando un pago se complete:
+
+```json
+{
+  "event": "payment.created",
+  "data": {
+    "paymentId": "pay_abc123",
+    "amount": 15000,
+    "contactId": "con_xyz789"
+  }
+}
+```
+
+## Recursos
+
+<CardGroup cols={3}>
+  <Card title="API Reference" icon="book" href="/api-reference/introduction">
+    Documentación completa de endpoints
+  </Card>
+
+  <Card title="Webhooks" icon="webhook" href="/developers/webhooks/1_introduction">
+    Configuración y eventos disponibles
+  </Card>
+
+  <Card title="Contactos" icon="users" href="/developers/contact/introduction">
+    Modelo de datos y ciclo de vida
+  </Card>
+</CardGroup>
+
+## Entornos
+
+| Entorno | URL Base |
+|---------|----------|
+| Producción | `https://api.fint.app/api/v1` |
+| Desarrollo | `https://dev.api.fint.app/api/v1` |
+
+## Soporte Técnico
+
+¿Tenés dudas sobre la integración? Escribinos a [soporte@fint.app](mailto:soporte@fint.app) con el asunto "Integración API".

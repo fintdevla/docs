@@ -1,0 +1,232 @@
+---
+title: 'Órdenes y Liquidaciones'
+description: 'Generá facturas individuales o masivas, y gestioná todo el ciclo de cobro desde un solo lugar'
+---
+
+Una **orden** es una factura individual que un cliente debe pagar. El módulo de **Órdenes** centraliza toda la facturación en tres tabs:
+
+<CardGroup cols={3}>
+  <Card title="Órdenes" icon="file-invoice">
+    Todas las facturas individuales, sin importar su origen
+  </Card>
+
+  <Card title="Liquidaciones" icon="layer-group">
+    Facturación masiva basada en items asignados a clientes
+  </Card>
+
+  <Card title="Suscripciones" icon="repeat" href="/docs/guides/suscripciones">
+    Cobros recurrentes generados desde Links de Pago
+  </Card>
+</CardGroup>
+
+## Tutorial en Video
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.loom.com/embed/fce91c978488451ca07326724c7cbf1b"
+  title="Tutorial Solicitudes de Pago"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
+></iframe>
+
+---
+
+## Órdenes
+
+### ¿De dónde vienen las órdenes?
+
+Cada orden tiene un origen distinto, pero todas se gestionan desde el mismo lugar:
+
+<CardGroup cols={3}>
+  <Card title="Manual" icon="pen">
+    Creadas por un administrador para cobros puntuales
+  </Card>
+
+  <Card title="Liquidación" icon="layer-group">
+    Generadas masivamente al ejecutar una [liquidación](#liquidaciones)
+  </Card>
+
+  <Card title="Link de Pago" icon="link">
+    Creadas cuando alguien compra desde un [Link de Pago](/docs/guides/links-pago)
+  </Card>
+
+  <Card title="Suscripción" icon="repeat">
+    Generadas periódicamente por una [suscripción activa](/docs/guides/suscripciones)
+  </Card>
+
+  <Card title="Evento" icon="calendar">
+    Creadas al vender entradas de un [Evento](/docs/guides/eventos)
+  </Card>
+</CardGroup>
+
+### Listado de Órdenes
+
+El listado muestra todas las órdenes con su **número**, **descripción**, **fecha de vencimiento**, **cliente**, **importe** y **estado**. Usá el buscador para encontrar órdenes por nombre del cliente o descripción, y los filtros de **Estado** y **Etiquetas** para acotar resultados.
+
+### Estados de una Orden
+
+<CardGroup cols={3}>
+  <Card title="Por cobrar" icon="clock">
+    Enviada, pendiente de pago
+  </Card>
+
+  <Card title="Pagada" icon="check-circle">
+    Pagada en su totalidad
+  </Card>
+
+  <Card title="Pagada parcialmente" icon="circle-half-stroke">
+    Un administrador registró un pago parcial
+  </Card>
+
+  <Card title="Cancelada" icon="xmark">
+    Cancelada administrativamente
+  </Card>
+
+  <Card title="Bonificada" icon="gift">
+    Los descuentos redujeron el monto a cero
+  </Card>
+
+  <Card title="Vencida" icon="exclamation-triangle">
+    Superó la fecha de vencimiento sin pago
+  </Card>
+</CardGroup>
+
+### Detalle de una Orden
+
+Al hacer clic en una orden, se abre un panel con toda la información:
+
+- **Cliente**: Nombre y etiquetas del cliente (clickeable para ir a su perfil)
+- **Actividad**: Timeline con el historial de cambios de la orden
+- **Items**: Desglose de los conceptos facturados y el total
+- **Pagos**: Pagos asociados a esta orden (manuales u online)
+- **Detalle**: Número de orden, cliente, importe base, total pagado, estado, fecha de vencimiento y origen (ej: de qué liquidación proviene)
+
+### Crear una Orden Manual
+
+Para cobros puntuales que no forman parte de una liquidación:
+
+<Steps>
+  <Step title="Completá los datos">
+    Ingresá el **monto total**, una **descripción** del cobro, seleccioná el **cliente** y elegí la **fecha de vencimiento**.
+  </Step>
+
+  <Step title="Notificación por email (opcional)">
+    Activá el toggle **"Enviar por correo electrónico"** para que el cliente reciba la factura por email con un enlace al [Portal de Contacto](/docs/guides/portal-contacto) donde puede pagarla.
+  </Step>
+
+  <Step title="Previsualizá y creá">
+    La vista previa de la derecha muestra cómo se verá la factura. Cuando esté lista, confirmá para crearla.
+  </Step>
+</Steps>
+
+### Importar desde Excel
+
+Para crear múltiples órdenes de una vez, hacé clic en **"Importar Excel"**, descargá el modelo con las columnas correctas, completalo y subilo.
+
+### Exportar
+
+Hacé clic en **"Exportar"** para descargar las órdenes en formato Excel.
+
+---
+
+## Liquidaciones
+
+La liquidación es la herramienta central de facturación masiva. En lugar de crear órdenes una por una, Fint genera automáticamente una orden para cada cliente basándose en los [items de liquidación](/docs/guides/items-descuentos) que tenga asignados.
+
+### ¿Cómo funciona?
+
+La liquidación es completamente **item-céntrica**: vos configurás los items y los asignás a clientes, y la liquidación se encarga del resto.
+
+Al crear una liquidación para un período (ej: Marzo 2024), Fint busca todos los clientes que tengan items de liquidación pendientes para ese mes — es decir, items cuya vigencia incluya ese período y que todavía no tengan una orden generada. Con esa información, crea **una orden por cliente** que incluye todos sus items aplicables y sus [descuentos](/docs/guides/items-descuentos#descuentos) correspondientes.
+
+<Info>
+  Cada orden incluye todos los items del cliente con sus [descuentos](/docs/guides/items-descuentos#descuentos) aplicados automáticamente.
+</Info>
+
+### Crear una Liquidación
+
+<Steps>
+  <Step title="Nueva Liquidación">
+    Hacé clic en **"+ Nueva Liquidación"** e ingresá un **nombre** descriptivo (ej: "Cuota Marzo"), el **período** (mes y año) y la **fecha de vencimiento** de las órdenes.
+  </Step>
+
+  <Step title="Revisá en borrador">
+    La liquidación se crea en estado **Borrador** junto con todas sus órdenes. Este es el momento de revisar que todo esté correcto: los clientes incluidos, los items facturados y los montos calculados.
+
+    Podés buscar órdenes dentro de la liquidación y filtrar por **etiquetas** del cliente. Al hacer clic en una orden, ves su detalle completo con el desglose de items.
+  </Step>
+
+  <Step title="Enviá la liquidación">
+    Cuando todo esté correcto, enviá la liquidación. Esto cambia cada orden de borrador a **Por cobrar** y envía un **email a cada cliente** con su factura y un enlace al [Portal de Contacto](/docs/guides/portal-contacto) para pagar.
+  </Step>
+</Steps>
+
+### Corregir Errores en Borrador
+
+Mientras la liquidación está en borrador, es un **reflejo en vivo** de los items asignados a tus clientes. No se editan los montos ni las órdenes directamente — todo se gestiona desde los items:
+
+- **Sobra una orden**: Desvinculá el item del cliente (desde [Items y Descuentos](/docs/guides/items-descuentos) o desde el detalle de la orden dentro de la liquidación). La orden desaparece automáticamente.
+- **Falta una orden**: Asigná el item al cliente que falta. La liquidación se actualiza sola con la nueva orden.
+- **Monto incorrecto**: Revisá los items y descuentos asignados al cliente y corregí lo que corresponda.
+
+<Warning>
+  Si eliminás un item desde el detalle de una orden en la liquidación, eso también **desvincula al cliente de ese item para futuras liquidaciones**. Fint te pide confirmación antes de hacerlo.
+</Warning>
+
+### Descuentos y Casos Especiales
+
+Los descuentos se aplican automáticamente al generar la liquidación. Hay dos situaciones especiales:
+
+- **Monto = $0** (bonificación total): La orden se genera con estado **Bonificado**. No requiere pago, pero queda registrada.
+- **Monto negativo**: Indica un error en la configuración de descuentos. La liquidación **no se puede enviar** hasta que se corrija. Las órdenes con problemas se marcan visualmente para que puedas identificarlas rápido.
+
+### Cancelar una Liquidación
+
+Podés cancelar una liquidación ya enviada. Esto elimina todas las órdenes que aún no fueron pagadas — las que ya tienen un pago registrado se mantienen intactas.
+
+<Info>
+  Solo podés tener **una liquidación en borrador** por período. Si necesitás crear otra para el mismo mes, primero enviá o eliminá la que está en borrador.
+</Info>
+
+### Intereses por Mora
+
+Si un item tiene activado **"Generar intereses por mora"** (configurado en [Items y Descuentos](/docs/guides/items-descuentos)), los intereses se calculan automáticamente cuando la orden supera la fecha de vencimiento. El porcentaje de interés se define en [Configuración](/docs/guides/configuracion).
+
+### Listado de Liquidaciones
+
+El listado muestra todas las liquidaciones con su **nombre**, **período**, **cantidad de clientes**, **monto total a cobrar** y **estado**. Podés filtrar por **Estado** y **Período**.
+
+---
+
+## Preguntas Frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Qué pasa si un cliente no tiene items asignados?">
+    No se genera orden para ese cliente. Asegurate de tener los [items configurados](/docs/guides/items-descuentos) y asignados antes de liquidar.
+  </Accordion>
+
+  <Accordion title="¿Se pueden programar liquidaciones automáticas?">
+    No, cada liquidación se ejecuta manualmente para que puedas revisar los montos antes de enviar.
+  </Accordion>
+
+  <Accordion title="¿Se pueden hacer pagos parciales?">
+    Solo un **administrador** puede registrar pagos parciales de forma manual. Desde el Portal de Contacto, el cliente paga el monto completo.
+  </Accordion>
+</AccordionGroup>
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
+    Configurá los conceptos antes de liquidar
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Historial de pagos recibidos
+  </Card>
+  <Card title="Mensajería" icon="envelope" href="/docs/guides/mensajeria">
+    Enviá recordatorios de pago
+  </Card>
+</CardGroup>

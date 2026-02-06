@@ -1,0 +1,111 @@
+---
+title: 'Clientes'
+description: 'Gestioná clientes, responsables de pago y su información'
+---
+
+Acá gestionás a todos tus clientes: datos personales, etiquetas, items asignados y estado financiero.
+
+## Tutorial en Video
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.loom.com/embed/49133a92b795484bb3bee64fb7dc5186"
+  title="Tutorial Clientes"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
+></iframe>
+
+## Crear Clientes
+
+<Tabs>
+  <Tab title="Creación manual" icon="user-plus">
+    Para crear un cliente necesitás su **nombre y apellido**, y al menos un identificador: **email** o **documento** (DNI, CUIT, pasaporte, entre otros).
+
+    <Info>
+      Si ya existe un cliente con el mismo email o documento, el sistema no permite crear un duplicado.
+    </Info>
+  </Tab>
+
+  <Tab title="Importación masiva" icon="file-import">
+    Importá múltiples clientes desde un archivo **Excel o CSV**.
+
+    <Steps>
+      <Step title="Descargá el modelo">
+        Usá el botón **"Descargar modelo de Excel"** para obtener la plantilla con las columnas correctas.
+      </Step>
+      <Step title="Completá el archivo">
+        Organizá los datos en columnas: nombre, apellido, email, documento, etc.
+      </Step>
+      <Step title="Subí el archivo">
+        Desde el módulo de Clientes, hacé clic en **"+ Crear" > "Importar excel"** y seleccioná tu archivo.
+      </Step>
+      <Step title="Revisá y confirmá">
+        Verificá que los datos se hayan mapeado correctamente antes de confirmar.
+      </Step>
+    </Steps>
+
+    <Info>
+      Podés activar la opción **"Enviar email de bienvenida"** para que cada cliente importado reciba automáticamente un email con el enlace a su [Portal de Contacto](/docs/guides/portal-contacto).
+    </Info>
+  </Tab>
+
+  <Tab title="Exportar" icon="file-export">
+    Exportá tu listado de clientes a **Excel** con filtros opcionales por etiquetas, condición (activo/inactivo) o items asignados.
+  </Tab>
+</Tabs>
+
+## Perfil del Cliente
+
+Al hacer clic en un cliente, accedés a su perfil completo:
+
+- **Detalle**: Información personal (nombre, documento, email, teléfono, etiquetas) y dos indicadores clave: la **condición** (que controlás vos) y el **estado** financiero (calculado automáticamente).
+- **Items**: Los [items y descuentos](/docs/guides/items-descuentos) asignados para el período seleccionado. Desde acá podés asignar nuevos.
+- **Familia asociada**: Los **responsables de pago** del cliente (ej: papá, mamá). Un cliente puede ser su propio responsable o tener múltiples. Sus datos son esenciales para la [facturación con ARCA](/docs/guides/facturacion-arca) y para el acceso al [Portal de Contacto](/docs/guides/portal-contacto).
+- **Contactos**: Clientes relacionados (ej: hermanos en la misma institución). Permite vincular clientes entre sí para facilitar la gestión familiar.
+- **Órdenes**: Historial de todas las solicitudes de pago del cliente.
+- **Actividad**: Registro cronológico de todas las acciones realizadas sobre el cliente.
+- **Notas**: Comentarios internos visibles solo para el equipo administrativo.
+
+## Condición y Baja
+
+La **condición** del cliente la controlás vos manualmente:
+
+- **Activo**: Recibe recordatorios, accede al portal y se le generan facturas.
+- **Inactivo**: No recibe recordatorios, no accede al portal y no se le generan nuevas facturas.
+
+La baja es **reversible**: si el cliente vuelve, lo reactivás y recupera todo su historial.
+
+## Estado Financiero
+
+El **estado** se calcula automáticamente según las facturas del cliente:
+
+<CardGroup cols={3}>
+  <Card title="Al día" icon="check-circle">
+    Todas sus facturas están pagadas
+  </Card>
+
+  <Card title="Con pagos pendientes" icon="clock">
+    Tiene facturas emitidas pero no vencidas
+  </Card>
+
+  <Card title="Con deudas" icon="exclamation-triangle">
+    Tiene facturas vencidas sin pagar
+  </Card>
+</CardGroup>
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
+    Configurá qué se les cobra
+  </Card>
+  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
+    Generá facturas para tus clientes
+  </Card>
+  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    Donde los contactos pagan
+  </Card>
+</CardGroup>

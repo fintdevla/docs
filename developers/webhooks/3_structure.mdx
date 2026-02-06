@@ -1,0 +1,26 @@
+---
+title: 'Estructura'
+description: 'Formato del payload que recibe tu servidor'
+---
+
+Todos los webhooks de Fint comparten la misma estructura base. El campo `data` contiene la información específica de cada tipo de evento.
+
+```typescript
+interface WebhookBody<T> {
+  id: string;
+  event: string;
+  attempt: number;
+  timestamp: number;
+  externalReference: string | null;
+  data: T;
+}
+```
+
+## Campos
+
+- **id**: Identificador único del webhook. Usalo para deduplicar eventos en caso de reintentos.
+- **event**: Tipo de evento (ej: `payment.created`, `contact.status`).
+- **attempt**: Número de intento de entrega (1 a 7).
+- **timestamp**: Marca de tiempo en milisegundos (epoch) de cuando se generó el evento.
+- **externalReference**: La referencia externa del recurso asociado, si fue definida al crearlo.
+- **data**: Objeto con los datos específicos del evento. Ver [Tipos de Eventos](/developers/webhooks/4_events) para la estructura de cada uno.

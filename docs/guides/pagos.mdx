@@ -1,0 +1,100 @@
+---
+title: 'Pagos'
+description: 'Historial y gestión de todos los pagos recibidos'
+---
+
+Acá ves todos los pagos recibidos y gestionás devoluciones, exportaciones y pagos manuales.
+
+## Tutorial en Video
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.loom.com/embed/ecacb709579c45189f96421922f802e9"
+  title="Tutorial Pagos"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
+></iframe>
+
+## Listado de Pagos
+
+El listado muestra todos los pagos con: cliente, fecha, concepto, medio de pago, importe y estado.
+
+Usá el **buscador** para encontrar pagos por nombre del cliente, número de transacción, concepto o monto. También podés filtrar por **medio de pago** (tarjeta, transferencia, efectivo), **origen** (Manual u Online), **registrado por** (qué admin lo registró) y **etiquetas** del cliente.
+
+## Detalle del Pago
+
+Al hacer clic en un pago, accedés a su detalle completo. La información varía según el tipo:
+
+<Tabs>
+  <Tab title="Pago Manual">
+    Un pago manual muestra: fecha real del pago, fecha de registro en Fint, importe, medio de pago (con indicador "Manual"), estado, quién lo registró, quién pagó y el cliente asociado.
+
+    También muestra las **órdenes de pago** cubiertas (si fue pago total o parcial).
+
+    Si registraste un pago por error, podés eliminarlo con el botón **"Eliminar pago manual"**. Esto revierte el pago y restaura el estado de las órdenes asociadas.
+
+    <Warning>
+      Solo los pagos **manuales** se pueden eliminar. Los pagos online deben revertirse desde el procesador de pago.
+    </Warning>
+  </Tab>
+
+  <Tab title="Pago Online">
+    Un pago online muestra: fecha de procesamiento, importe, medio de pago, estado, **número de referencia** (clic para verlo en Mercado Pago/Stripe), quién pagó y el cliente asociado.
+
+    También muestra las **órdenes de pago** cubiertas.
+
+    <Info>
+      Los pagos online **no se pueden eliminar** desde Fint. Consultá [Devoluciones y Contracargos](#devoluciones-y-contracargos) para más información.
+    </Info>
+  </Tab>
+</Tabs>
+
+## Registrar Pagos Manuales
+
+Para registrar un pago en efectivo, transferencia u otro medio fuera de línea:
+
+<Steps>
+  <Step title="Abrí la orden">
+    Entrá a la orden del cliente (desde el módulo de [Órdenes](/docs/guides/solicitudes-pago) o desde el perfil del cliente).
+  </Step>
+  <Step title="Registrá el pago">
+    Hacé clic en **"Registrar pago"** y completá los datos: monto, medio de pago y fecha de pago.
+  </Step>
+  <Step title="Confirmá">
+    Esto actualiza el estado de la orden y el pago aparece inmediatamente en el historial.
+  </Step>
+</Steps>
+
+## Devoluciones y Contracargos
+
+Las devoluciones se gestionan desde el **procesador de pago** (Mercado Pago, Stripe, Pagos Online). Fint escucha los eventos del procesador y actualiza el sistema automáticamente:
+
+- **Reembolso**: Fint actualiza el estado del pago. Si estaba asociado a entradas de un evento, las entradas se cancelan.
+- **Contracargo**: Fint detecta los contracargos y los refleja en el sistema.
+
+## Exportar a Excel
+
+Hacé clic en **"Exportar"** para descargar los pagos en formato Excel. Podés elegir un **rango de fechas** y si filtrar por la **fecha en que se ejecutó el pago** (fecha real) o la **fecha en que se creó en Fint** (fecha de registro).
+
+<Info>
+  Para pagos manuales, la fecha de ejecución puede ser diferente a la de registro (ej: recibiste un pago el 1 de marzo pero lo registraste el 5).
+</Info>
+
+La exportación respeta los filtros activos en el listado (medio de pago, origen, registrado por, etiquetas).
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
+    Facturas pendientes de cobro
+  </Card>
+  <Card title="Panel de Inicio" icon="chart-line" href="/docs/guides/dashboard">
+    Métricas generales
+  </Card>
+  <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
+    Pagos por enlaces públicos
+  </Card>
+</CardGroup>

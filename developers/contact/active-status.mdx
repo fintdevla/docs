@@ -1,0 +1,52 @@
+---
+title: 'Estado Activo'
+description: 'Controlá manualmente si un contacto está activo o inactivo'
+---
+
+A diferencia del [ciclo de vida](/developers/contact/life-cycle) (que es automático), el estado activo lo controlás vos — ya sea desde el panel web o por API.
+
+## Estados predeterminados
+
+<CardGroup cols={2}>
+  <Card title="Activo" icon="check-circle">
+    Recibe recordatorios, accede al portal de pago y se le generan órdenes en liquidaciones.
+  </Card>
+
+  <Card title="Inactivo" icon="xmark">
+    No recibe recordatorios, no accede al portal y no se le generan nuevas órdenes.
+  </Card>
+</CardGroup>
+
+## Estados personalizados
+
+Además de Activo e Inactivo, podés crear estados personalizados para mayor detalle (ej: "Suspensión temporal", "Egresado", "Licencia"). Cada estado personalizado hereda el comportamiento de Activo o Inactivo.
+
+- Los estados Activo e Inactivo **no se pueden eliminar**
+- Un estado personalizado **no se puede eliminar** si tiene contactos asignados
+
+## Cambiar el estado por API
+
+```bash
+curl -X PUT "https://api.fint.app/api/v1/contacts/{contactId}" \
+  -H "x-api-key: TU_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "active": false }'
+```
+
+El campo `activeStatus` en la respuesta del contacto muestra el estado actual:
+
+```json
+{
+  "id": 12345,
+  "active": true,
+  "activeStatus": {
+    "id": 1,
+    "name": "Activo",
+    "description": "El contacto está activo"
+  }
+}
+```
+
+<Card title="API de Estados Activos" icon="code" href="/api-reference/contactos/obtener-estados-activos-para-contactos">
+  Obtener, crear y gestionar estados activos via API.
+</Card>

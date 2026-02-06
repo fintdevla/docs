@@ -1,0 +1,216 @@
+---
+title: 'Facturación con ARCA (ex AFIP)'
+description: 'Configurá la facturación electrónica automática integrada con ARCA'
+---
+
+Conectá Fint con ARCA para que se emitan facturas automáticamente cada vez que recibís un pago. Definí reglas para elegir qué pagos facturar, qué comprobante emitir y con qué condiciones.
+
+<CardGroup cols={2}>
+  <Card title="Facturación automática" icon="file-invoice">
+    Emite facturas o recibos al recibir pagos
+  </Card>
+
+  <Card title="Reglas personalizadas" icon="filter">
+    Definí qué pagos facturar: digitales, efectivo, o todos
+  </Card>
+
+  <Card title="Notas de crédito/débito" icon="file-circle-minus">
+    Ajustes cuando sea necesario
+  </Card>
+
+  <Card title="Múltiples puntos de venta" icon="store">
+    Diferentes puntos de venta habilitados por ARCA
+  </Card>
+</CardGroup>
+
+## Configuración
+
+Para activar la facturación automática necesitás configurar dos partes: primero en Fint y luego en el portal de ARCA.
+
+<Tabs>
+  <Tab title="1. Configuración en Fint" icon="gear">
+    ### Datos fiscales
+
+    1. Accedé a [Configuración](https://admin.fint.app/settings/general) en Fint
+    2. Entrá a la sección [Facturación](https://admin.fint.app/settings/tax/rules)
+    3. Completá la información requerida:
+
+    | Campo | Descripción |
+    |-------|-------------|
+    | Tipo de empresa | Persona física o jurídica |
+    | Razón social | Nombre registrado de la empresa |
+    | Inicio de actividades | Fecha de inicio de operaciones |
+    | <Tooltip tip="Clave Única de Identificación Laboral (personas) o Tributaria (empresas)">CUIL o CUIT</Tooltip> | Identificación fiscal |
+    | Dirección | Domicilio y código postal |
+    | Tipo de inscripción | Figura legal de registro |
+    | Condición fiscal | IVA, Ingresos Brutos, Seguridad Social |
+
+    ### Reglas de facturación
+
+    Una vez integrado con ARCA, configurá las reglas:
+
+    | Campo | Descripción |
+    |-------|-------------|
+    | Fecha de inicio | Desde cuándo comenzar a facturar automáticamente |
+    | Punto de venta | El habilitado por ARCA |
+    | Concepto | Productos, servicios o ambos |
+    | Alícuota de IVA | Porcentaje correspondiente |
+  </Tab>
+
+  <Tab title="2. Configuración en ARCA" icon="building-columns">
+    ### 2.1 Habilitar Administrador de Certificados
+
+    Primero tenés que agregar el servicio "Administración de Certificados Digitales" a tu escritorio de ARCA.
+
+    <Steps>
+      <Step title="Ingresar al Portal de Clave Fiscal">
+        Accedé con los datos fiscales de tu organización y buscá "Administrador de Relaciones de Clave Fiscal".
+
+        <Frame>
+          <img src="/images/arca/01-portal-clave-fiscal.png" alt="Portal de Clave Fiscal" />
+        </Frame>
+      </Step>
+
+      <Step title="Adherir servicio">
+        Hacé clic en el botón "Adherir Servicio".
+
+        <Frame>
+          <img src="/images/arca/02-adherir-servicio.png" alt="Botón Adherir Servicio" />
+        </Frame>
+      </Step>
+
+      <Step title="Seleccionar el servicio">
+        Navegá a **ARCA > Servicios Interactivos > Administración de Certificados Digitales** y seleccionalo.
+
+        <Frame>
+          <img src="/images/arca/03-seleccionar-certificados-digitales.png" alt="Seleccionar Administración de Certificados Digitales" />
+        </Frame>
+      </Step>
+    </Steps>
+
+    ### 2.2 Generar el certificado CSR
+
+    <Steps>
+      <Step title="Acceder a Certificados Digitales">
+        En tu escritorio de ARCA, ingresá a "Administración de Certificados Digitales" y hacé clic en "Agregar alias".
+
+        <Frame>
+          <img src="/images/arca/04-agregar-alias.png" alt="Agregar alias" />
+        </Frame>
+      </Step>
+
+      <Step title="Subir el CSR">
+        En el campo "Alias", escribí **"Fint Facturacion"**. Luego hacé clic en "Examinar" y seleccioná el certificado CSR proporcionado por Fint.
+
+        <Frame>
+          <img src="/images/arca/05-subir-csr.png" alt="Subir CSR" />
+        </Frame>
+      </Step>
+
+      <Step title="Ver el certificado generado">
+        Una vez creado, vas a ver el certificado en la lista. Hacé clic en "Ver" para ver los detalles.
+
+        <Frame>
+          <img src="/images/arca/06-lista-certificados.png" alt="Lista de certificados" />
+        </Frame>
+      </Step>
+
+      <Step title="Descargar el certificado">
+        Hacé clic en el botón de descarga para obtener el certificado generado.
+
+        <Frame>
+          <img src="/images/arca/07-descargar-certificado.png" alt="Descargar certificado" />
+        </Frame>
+      </Step>
+
+      <Step title="Enviar a Fint">
+        Enviá el certificado descargado al equipo de Fint a [soporte@fint.app](mailto:soporte@fint.app).
+      </Step>
+    </Steps>
+
+    ### 2.3 Habilitar servicios web
+
+    Necesitás habilitar 3 servicios para que Fint pueda facturar:
+
+    - **Facturación electrónica**
+    - **Padrón A13**
+    - **Constancia de CUIT**
+
+    <Steps>
+      <Step title="Nueva Relación">
+        En "Administrador de Relaciones de Clave Fiscal", seleccioná "Nueva Relación" y hacé clic en "Buscar" para seleccionar el servicio.
+
+        <Frame>
+          <img src="/images/arca/08-nueva-relacion-buscar.png" alt="Nueva Relación - Buscar" />
+        </Frame>
+      </Step>
+
+      <Step title="Seleccionar WebService">
+        Navegá a **ARCA > WebServices** y elegí el servicio que querés autorizar.
+
+        <Frame>
+          <img src="/images/arca/09-webservices.png" alt="Lista de WebServices" />
+        </Frame>
+      </Step>
+
+      <Step title="Buscar representante">
+        Hacé clic en "Buscar" para seleccionar el certificado que generaste anteriormente.
+
+        <Frame>
+          <img src="/images/arca/10-buscar-representante.png" alt="Buscar representante" />
+        </Frame>
+      </Step>
+
+      <Step title="Confirmar la relación">
+        Revisá los datos y hacé clic en "Confirmar".
+
+        <Frame>
+          <img src="/images/arca/11-confirmar-relacion.png" alt="Confirmar relación" />
+        </Frame>
+      </Step>
+
+      <Step title="Confirmar autorización">
+        Confirmá la autorización del servicio.
+
+        <Frame>
+          <img src="/images/arca/12-confirmar-autorizacion.png" alt="Confirmar autorización" />
+        </Frame>
+      </Step>
+    </Steps>
+
+    <Info>
+      Repetí el proceso de "Nueva Relación" para cada uno de los 3 servicios: **Facturación electrónica**, **Padrón A13** y **Constancia de CUIT**.
+    </Info>
+  </Tab>
+</Tabs>
+
+## Preguntas Frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Qué tipo de comprobantes puede emitir Fint?">
+    Fint puede emitir facturas A, B y C, recibos X, y notas de crédito/débito según corresponda al tipo de cliente y condición fiscal.
+  </Accordion>
+  <Accordion title="¿Qué pasa si un pago falla después de emitir la factura?">
+    Podés generar una nota de crédito para anular el comprobante original. Fint te guía en el proceso.
+  </Accordion>
+  <Accordion title="¿Puedo tener varios puntos de venta?">
+    Sí, podés configurar múltiples puntos de venta habilitados en ARCA y asignarlos a diferentes reglas de facturación.
+  </Accordion>
+  <Accordion title="¿Cuánto tiempo tarda en activarse la integración?">
+    Una vez que envíes el certificado a Fint, la activación se completa en menos de 24 horas hábiles.
+  </Accordion>
+</AccordionGroup>
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
+    Otras opciones de configuración
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Visualizá pagos facturados
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference/introduction">
+    Integración programática
+  </Card>
+</CardGroup>

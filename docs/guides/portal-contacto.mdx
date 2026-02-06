@@ -1,0 +1,70 @@
+---
+title: 'Portal de Contacto'
+description: 'Donde los contactos consultan deudas, pagan online y descargan comprobantes'
+---
+
+El Portal de Contacto es la página que ven tus clientes y sus contactos. Desde ahí consultan su estado de cuenta, pagan online y descargan comprobantes.
+
+## Acceso
+
+Cada contacto accede a través de un **link único** — no necesita registro ni contraseña.
+
+<CardGroup cols={2}>
+  <Card title="Enviar por email" icon="envelope">
+    Desde el perfil del cliente, enviá el enlace automáticamente.
+  </Card>
+
+  <Card title="Compartir manualmente" icon="share">
+    Copiá el enlace y compartilo por WhatsApp, SMS o cualquier medio.
+  </Card>
+</CardGroup>
+
+<Info>
+  Si un contacto tiene **varios hijos** en la institución, ve el estado de cuenta de todos en un **portal unificado**.
+</Info>
+
+## ¿Qué puede hacer el contacto?
+
+### Consultar deudas
+
+El responsable de pago ve en tiempo real: saldo pendiente, facturas vencidas, próximos vencimientos e intereses acumulados.
+
+### Pagar online
+
+1. Seleccioná una, varias, o todas las facturas pendientes
+2. Elegí el método de pago (tarjeta, transferencia, Rapipago, Pago Fácil — según lo que tengas [configurado](/docs/guides/configuracion))
+3. Completá el pago con confirmación inmediata
+
+### Descargar comprobantes
+
+Historial completo de pagos realizados con descarga de recibos PDF y detalle de cada factura emitida.
+
+### Actualizar datos
+
+El responsable puede modificar su email, teléfono y dirección de facturación.
+
+## Personalización
+
+El portal muestra el **logo y nombre** de tu institución, configurados en [Configuración](/docs/guides/configuracion). También muestra tu email y WhatsApp de soporte.
+
+## Notificaciones
+
+Cuando se realiza un pago desde el portal:
+
+1. El contacto recibe email de confirmación con recibo adjunto
+2. El pago aparece inmediatamente en tu [módulo de Pagos](/docs/guides/pagos)
+3. Se dispara el webhook `payment.created` si tenés [integraciones](/developers/webhooks/1_introduction) configuradas
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
+    Gestioná perfiles y enviá enlaces
+  </Card>
+  <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
+    Personalizá tu marca
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Visualizá pagos recibidos
+  </Card>
+</CardGroup>

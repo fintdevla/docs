@@ -1,0 +1,222 @@
+---
+title: 'Configuración'
+description: 'Personalizá tu organización, equipo, cobranzas e integraciones'
+---
+
+Desde Configuración gestionás todo lo que define cómo funciona tu organización en Fint: datos de contacto, marca, equipo, recordatorios, intereses, integraciones y más.
+
+## Tutorial en Video
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.loom.com/embed/023a6c7269b040369c8fddb6189628b0"
+  title="Tutorial Configuración"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
+></iframe>
+
+## General
+
+### Organización
+
+- **Nombre de la organización**: Nombre interno para identificar el proyecto. No es visible para tus usuarios.
+- **Información de soporte**: El email de soporte, el email de respuesta (reply to) y el número de WhatsApp que aparecen en mensajes, recordatorios y en el [Portal de Contacto](/docs/guides/portal-contacto).
+- **URL personalizada**: Tu subdominio en Fint (ej: `tuinstitucion.fint.app`). Es donde tus usuarios ven sus pagos, mensajes y datos de facturación.
+
+### Marca
+
+- **Nombre de fantasía**: El nombre que ven tus usuarios en el portal y en las comunicaciones.
+- **Logo**: La imagen que acompaña tu marca. Aparece en emails, portal y página de eventos.
+
+<Info>
+  Configurá la marca antes de enviar comunicaciones o publicar eventos. Es lo primero que ven tus usuarios.
+</Info>
+
+## Etiquetas
+
+Las etiquetas te permiten clasificar a tus clientes por grupo, nivel, turno, carrera o cualquier criterio que necesites. Se organizan en **grupos** que contienen **etiquetas individuales**.
+
+Por ejemplo: un grupo "Nivel" con etiquetas "Inicial", "Primario", "Secundario". O un grupo "Turno" con "Mañana", "Tarde", "Noche".
+
+Cada etiqueta muestra la cantidad de clientes que la tienen asignada, lo que te permite ver de un vistazo cómo está distribuida tu base.
+
+<Warning>
+  Las etiquetas son fundamentales para gestionar correctamente las liquidaciones y filtrar clientes. Configuralas antes de empezar a cargar clientes.
+</Warning>
+
+## Miembros
+
+Acá gestionás las personas que tienen acceso al panel de administración de Fint.
+
+Para invitar a un nuevo miembro:
+
+<Steps>
+  <Step title="Hacé clic en Invitar">
+    Ingresá el email de la persona que querés sumar al equipo.
+  </Step>
+  <Step title="Asigná permisos">
+    Elegí el nivel de acceso: **Administrador** (acceso completo).
+  </Step>
+  <Step title="Enviá la invitación">
+    La persona recibe un email y aparece en "Invitaciones pendientes" hasta que acepte.
+  </Step>
+</Steps>
+
+Una vez aceptada, el miembro aparece en el listado con su nombre, email y rol.
+
+## Recordatorios
+
+Los recordatorios son emails automáticos que se envían a tus clientes en relación a sus solicitudes de pago. Hay dos tipos:
+
+**Antes del vencimiento** — Se disparan cuando se emite la orden de pago. Sirven para avisar al cliente que tiene un pago próximo.
+
+**Después del vencimiento** — Se disparan cuando la orden vence sin ser pagada. Sirven como recordatorio de deuda.
+
+Podés crear varios recordatorios de cada tipo. Por ejemplo: 7 y 3 días antes del vencimiento, y 2, 7, 10 y 21 días después.
+
+Cada recordatorio se configura con:
+- **Estado**: Activo o Pausado (podés desactivar un recordatorio sin eliminarlo)
+- **Tipo**: Email
+- **Programado**: Cuántos días antes o después de la fecha de vencimiento se envía
+
+<Info>
+  Los recordatorios solo se envían a clientes con condición **Activo**. Los clientes dados de baja no reciben comunicaciones.
+</Info>
+
+## Intereses por Mora
+
+Configurá las reglas de recargo que se aplican automáticamente cuando un cliente no paga a tiempo. Las reglas se ejecutan en orden secuencial, lo que te permite crear **esquemas escalonados**.
+
+Cada regla tiene:
+- **Inicio**: Cuántos días después del vencimiento comienza a aplicar
+- **Duración**: Durante cuántos días aplica el recargo
+- **Monto**: Porcentaje o valor fijo del recargo
+
+<Info>
+  El sistema calcula el recargo como una **Tasa Efectiva Anual (TEA)** aplicada diariamente sobre el monto base de la factura. Por ejemplo: una TEA del 60% que comienza el día 1 después del vencimiento y dura 10 días.
+</Info>
+
+<Warning>
+  Podés crear múltiples reglas escalonadas (ej: un recargo alto los primeros días para incentivar el pago rápido, y uno menor después). Asegurate de cumplir con la normativa local.
+</Warning>
+
+## Integraciones
+
+Conectá Fint con los servicios que necesites:
+
+### Procesadores de pago
+
+<CardGroup cols={3}>
+  <Card title="Mercado Pago" icon="credit-card">
+    Procesador de pagos líder en Latinoamérica
+  </Card>
+  <Card title="Pagos Online" icon="money-bill-wave">
+    Pagos simplificados con todos los medios de pago
+  </Card>
+  <Card title="Stripe" icon="stripe-s">
+    Cobros internacionales en dólares simplificados
+  </Card>
+</CardGroup>
+
+### Facturación
+
+- **ARCA**: Facturación electrónica automática integrada con ARCA (ex AFIP). Consultá la [guía paso a paso](/docs/guides/facturacion-arca) para configurarla.
+
+### Plataformas de aprendizaje
+
+- **Teachable**: Plataforma de cursos online para crear y vender contenido educativo.
+
+<Info>
+  Cada integración tiene un estado visible (Activo o "Contactarse para activar"). Para activar un procesador de pago, hacé clic en la tarjeta correspondiente.
+</Info>
+
+## Funcionalidades
+
+Activá o desactivá módulos de Fint según lo que necesite tu organización. Esto te permite mantener la interfaz limpia mostrando solo lo que usás.
+
+**Canales de cobro:**
+- **Eventos**: Creación y gestión de eventos con venta de entradas
+- **Cuotas institucionales**: Cobro de cuotas y mensualidades recurrentes
+- **Punto de venta**: Sistema de punto de venta para cobros presenciales
+
+**Cobranzas:**
+- **Conciliación**: Conciliación de extractos bancarios con los pagos registrados
+
+**Facturación:**
+- **Arca**: Habilita el módulo de facturación electrónica (ver [Integraciones](#facturación) más arriba)
+
+<Info>
+  Si no usás un módulo, desactivalo. Siempre podés volver a activarlo cuando lo necesites.
+</Info>
+
+## Desarrolladores
+
+Desde acá gestionás las credenciales para conectar Fint con otros sistemas.
+
+<Tabs>
+  <Tab title="API Keys">
+    Las claves API son códigos únicos que permiten acceder a la API de Fint desde sistemas externos. Cada clave tiene un nombre identificativo y se muestra parcialmente oculta por seguridad.
+
+    Para crear una nueva, hacé clic en **"+ Crear API Key"** e ingresá un nombre descriptivo.
+  </Tab>
+
+  <Tab title="Webhooks">
+    Los webhooks envían información a herramientas externas cuando ocurre un evento específico en Fint.
+
+    Para crear uno, hacé clic en **"+ Crear webhook"**, ingresá la URL del endpoint y seleccioná los eventos que querés escuchar (ej: `payment.created`, `contact.status`).
+
+    Cada webhook puede estar **Activo** o **Pausado**.
+  </Tab>
+</Tabs>
+
+<CardGroup cols={2}>
+  <Card title="Documentación de API" icon="code" href="/api-reference/introduction">
+    Endpoints y referencia técnica
+  </Card>
+  <Card title="Guía de Webhooks" icon="webhook" href="/developers/webhooks/1_introduction">
+    Recibí notificaciones en tiempo real
+  </Card>
+</CardGroup>
+
+## Facturación
+
+Acá cargás la información fiscal de tu organización, necesaria para emitir facturas electrónicas con [ARCA](/docs/guides/facturacion-arca).
+
+<AccordionGroup>
+  <Accordion title="Información básica">
+    Tipo de persona (Física o Jurídica), razón social y CUIT.
+  </Accordion>
+
+  <Accordion title="Domicilio fiscal">
+    Dirección registrada ante las autoridades fiscales y código postal.
+  </Accordion>
+
+  <Accordion title="Condición fiscal">
+    Forma jurídica (Asociación Civil, SRL, SA, etc.), condición frente al IVA (Responsable Inscripto, Exento, Monotributo), condición de Ingresos Brutos y número de IIBB.
+  </Accordion>
+
+  <Accordion title="Información adicional">
+    Fecha de inicio de actividades, correo electrónico y teléfono de contacto.
+  </Accordion>
+</AccordionGroup>
+
+## Mi Cuenta
+
+Desde acá editás tu información personal como administrador: **nombre completo** y **correo electrónico** (el email de acceso no se puede modificar).
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
+    Agregá tus clientes al sistema
+  </Card>
+  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
+    Configurá los conceptos de cuotas
+  </Card>
+  <Card title="Facturación ARCA" icon="file-invoice" href="/docs/guides/facturacion-arca">
+    Configurá facturación electrónica
+  </Card>
+</CardGroup>

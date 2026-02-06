@@ -1,0 +1,159 @@
+---
+title: 'Items y Descuentos'
+description: 'Configurá los conceptos que forman parte de las cuotas y los descuentos aplicables'
+---
+
+Los **items** son lo que cobrás (cuota mensual, matrícula, comedor) y los **descuentos** son las reducciones (becas, hermanos, pago anticipado). Ambos se asignan a clientes y se usan para generar [liquidaciones](/docs/guides/solicitudes-pago).
+
+## Tutorial en Video
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.loom.com/embed/f72e64d12b124f0cb26aab8a02f29dbb"
+  title="Tutorial Items y Descuentos"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
+></iframe>
+
+## Items
+
+Un ítem es un concepto de cobro que se aplica a clientes para generar solicitudes de pago.
+
+### Tipos de Item
+
+<CardGroup cols={3}>
+  <Card title="Para Liquidación" icon="file-invoice">
+    Cuotas y conceptos que vas a facturar masivamente a tus clientes. Se incluyen automáticamente cuando ejecutás una [liquidación](/docs/guides/solicitudes-pago).
+  </Card>
+
+  <Card title="Para Venta Online" icon="cart-shopping">
+    Productos o servicios que vendas a través de [Links de Pago](/docs/guides/links-pago). El cliente los selecciona y paga directamente.
+  </Card>
+
+  <Card title="Para Evento" icon="calendar">
+    Entradas y tickets que vendas a través de [Eventos](/docs/guides/eventos). Incluye validación QR y control de asistentes.
+  </Card>
+</CardGroup>
+
+### Campos según el tipo
+
+<Tabs>
+  <Tab title="Liquidación">
+    Cada item de liquidación tiene **nombre**, **monto** y un toggle para **generar intereses por mora** en caso de pago tardío.
+  </Tab>
+
+  <Tab title="Venta Online">
+    Además de nombre y monto, los items de venta online tienen:
+    - **Imagen**: Foto del producto (se muestra en el checkout)
+    - **Descripción**: Texto visible en la página de compra
+    - **Stock disponible**: Cantidad de unidades disponibles
+
+    Un item de venta online puede ser de **pago único** (se cobra una sola vez) o **recurrente** (genera una [suscripción](/docs/guides/links-pago#suscripciones) con cobro periódico). Esto se configura en la [vigencia](#vigencia) del item.
+  </Tab>
+
+  <Tab title="Entrada de eventos">
+    Además de nombre, monto, imagen, descripción y stock, las entradas tienen opciones exclusivas:
+    - **Generar código QR**: Cada entrada genera un QR único para validación
+    - **Solicitar información al asistente**: Pide nombre, apellido y email del asistente
+    - **Incluir texto en email con las entradas**: Mensaje personalizado que se envía con los tickets
+
+    <Info>
+      Los códigos QR se usan para validar el ingreso al evento. Podés escanearlos desde la app móvil de Fint.
+    </Info>
+  </Tab>
+</Tabs>
+
+### Estados: Borrador vs Activo
+
+Los items se crean en estado **Borrador** y deben activarse manualmente. Un item en borrador no se puede asignar a clientes ni usar en liquidaciones — es ideal para preparar items antes de publicarlos.
+
+Para activar un item, hacé clic en el menú (⋯) y seleccioná **"Activar item"**.
+
+### Vigencia
+
+Definí cuándo aplica el item:
+
+<Tabs>
+  <Tab title="Pago Único">
+    El item se cobra una sola vez en una fecha específica. Solo configurás el **mes de cobro**.
+  </Tab>
+
+  <Tab title="Pago Recurrente">
+    El item se cobra periódicamente. Configurás:
+    - **Frecuencia**: Mensual, Trimestral, Semestral o Anual
+    - **Mes de inicio**: Desde qué mes comienza a cobrarse
+    - **Tipo de duración**: **Definida** (cantidad de cuotas específica) o **Indefinida** (se cobra siempre)
+    - **Cantidad de cuotas**: Si elegiste duración definida, cuántas veces se cobra
+
+    <Info>
+      **Ejemplo**: Item "Cuota Mensual" con frecuencia Mensual, inicio en Marzo 2024, duración definida de 10 cuotas → Se cobrará desde Marzo 2024 hasta Diciembre 2024 inclusive.
+    </Info>
+  </Tab>
+</Tabs>
+
+### Importar desde Excel
+
+Importá múltiples items desde un archivo Excel: hacé clic en **"Importar Excel"**, descargá el modelo con las columnas correctas, completalo y subilo.
+
+### Duplicar Items
+
+Si necesitás crear un item similar a uno existente, usá la opción **"Duplicar item"** del menú (⋯). Esto crea una copia exacta que podés modificar.
+
+## Descuentos
+
+Un descuento reduce el monto final de la solicitud de pago. Puede ser un **valor fijo** (ej: $5.000) o un **porcentaje** (ej: 10%).
+
+<Warning>
+  Los descuentos aplican solo a items de tipo **Liquidación** y **Evento**. No se pueden aplicar a items de Venta Online.
+</Warning>
+
+Cada descuento tiene un **nombre** identificativo (ej: "Beca Académica 50%"), un **valor** (fijo o porcentaje) y la configuración de **a qué items aplica** (específicos o a todos).
+
+Algunos ejemplos: becas académicas o deportivas, descuento por hermanos, pago anticipado, pago en efectivo.
+
+<Info>
+  **Ejemplo**: Un cliente tiene cuota mensual ($15.000) + salida escolar ($3.000). Si el descuento por pago en efectivo (10%) aplica solo a la cuota, el total será $13.500 + $3.000 = $16.500.
+</Info>
+
+Al igual que los items, los descuentos se crean en **Borrador** y deben activarse manualmente.
+
+## Asignar a Clientes
+
+Tanto items como descuentos se asignan a clientes. Podés hacerlo de varias formas:
+
+<CardGroup cols={3}>
+  <Card title="Individual" icon="user">
+    Selección manual uno por uno desde el perfil del cliente o desde el item
+  </Card>
+
+  <Card title="Por etiquetas" icon="tags">
+    Todos los de un grado, carrera o nivel (ej: todos los de "3er año")
+  </Card>
+
+  <Card title="Búsqueda filtrada" icon="filter">
+    Buscá clientes por nombre, etiquetas o estado y seleccioná múltiples
+  </Card>
+</CardGroup>
+
+<Info>
+  Al asignar un item desde su panel, podés buscar clientes y filtrarlos por etiquetas. Se muestra un contador de cuántos clientes están seleccionados antes de confirmar.
+</Info>
+
+Para quitar un item de un cliente, entrá al perfil del cliente, ubicá el item en la sección "Items" y eliminalo.
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
+    Usá los items en liquidaciones
+  </Card>
+  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
+    Asigná items a clientes
+  </Card>
+  <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
+    Venta online de items
+  </Card>
+</CardGroup>

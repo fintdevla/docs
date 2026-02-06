@@ -1,0 +1,52 @@
+---
+title: 'Introducción'
+description: 'Recibí notificaciones en tiempo real sobre eventos en Fint'
+---
+
+Usá webhooks para que tu aplicación reciba notificaciones automáticas cuando algo ocurre en Fint.
+
+## ¿Qué es un webhook?
+
+Un webhook es una llamada HTTP que Fint hace a tu servidor cuando ocurre un evento. Todos los webhooks usan HTTPS y envían un payload en formato JSON.
+
+Podés usar webhooks para:
+
+- Registrar pagos en tu sistema contable
+- Sincronizar el estado de deuda de tus clientes
+- Enviar notificaciones personalizadas desde tu sistema
+- Bloquear o habilitar accesos cuando cambia el estado financiero de un contacto
+
+## Primeros pasos
+
+<Steps>
+  <Step title="Creá un endpoint">
+    Implementá un endpoint HTTPS en tu servidor que reciba peticiones POST y responda con un código 2xx.
+  </Step>
+
+  <Step title="Registrá el webhook en Fint">
+    Desde [Configuración > Desarrolladores > Webhooks](https://admin.fint.app/settings/developers/webhooks) o via la [API de Webhooks](/api-reference/webhook/crear-un-nuevo-webhook), registrá la URL de tu endpoint y seleccioná los eventos que querés escuchar.
+  </Step>
+
+  <Step title="Probá la integración">
+    Verificá que tu endpoint reciba los eventos correctamente. Podés ver los logs de entrega desde el panel de Fint.
+  </Step>
+</Steps>
+
+## Estados de entrega
+
+<CardGroup cols={3}>
+  <Card title="Ongoing" icon="spinner">
+    En proceso de entrega, incluyendo reintentos.
+  </Card>
+  <Card title="Success" icon="check">
+    Entregado exitosamente (respuesta 2xx).
+  </Card>
+  <Card title="Error" icon="xmark">
+    Falló después de todos los reintentos (7 intentos).
+  </Card>
+</CardGroup>
+
+## Herramientas para testing
+
+- **[ngrok](https://ngrok.com/)**: Creá un túnel HTTPS a tu servidor local para probar webhooks en desarrollo.
+- **[webhook.site](https://webhook.site/)**: Endpoint de prueba gratuito para inspeccionar los payloads que envía Fint.
