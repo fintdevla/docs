@@ -34,6 +34,8 @@ También vas a ver un gráfico mensual de ventas y un ranking de los tipos de en
     Ingresá el **título**, **subtítulo**, **fechas** (desde/hasta con zona horaria), **ubicación** (nombre del recinto y dirección) y datos de **contacto** (email y WhatsApp para consultas).
 
     Escribí una **descripción** que se va a mostrar en la página pública del evento.
+
+    **Imagen del evento**: Subí una imagen representativa que se mostrará en la página pública y en la sección Descubre. Podés usar formatos **cuadrados** (1:1, ej: 1080x1080px) o **rectangulares** (16:9, ej: 1920x1080px). Recomendamos imágenes de alta calidad (mínimo 1000px de ancho) para mejor visualización.
   </Step>
 
   <Step title="Agregá las entradas">
@@ -57,16 +59,20 @@ También vas a ver un gráfico mensual de ventas y un ranking de los tipos de en
 
 ## Opciones del Evento
 
-Al crear o editar un evento, tenés cuatro secciones de opciones avanzadas:
+Al crear o editar un evento, tenés varias secciones de opciones avanzadas:
+
+<Info>
+  Podés modificar la configuración del evento **en cualquier momento**, incluso mientras las entradas están en venta. Esto incluye cambiar la imagen, agregar o quitar entradas, modificar descuentos, actualizar fechas, y ajustar el pedido de información.
+</Info>
 
 <AccordionGroup>
   <Accordion title="Configuración general">
     - **URL de página**: Personalizá la URL pública del evento.
-    - **Costo del servicio**: Comisión base del 3% + un porcentaje adicional que vos configurás. Podés elegir si el costo va **incluido** en el precio o se muestra **discriminado** (por separado), tanto para pagos online como manuales.
+    - **Costo del servicio**: Comisión del 4% que podés configurar como **incluido** en el precio o **discriminado** (por separado), tanto para pagos online como manuales.
     - **Tiempo de expiración del carrito**: Minutos que el comprador tiene para completar la compra antes de que se liberen las entradas.
     - **Texto de éxito en email**: Mensaje personalizado que se incluye en el email de confirmación.
     - **Aforo total estimado**: Capacidad máxima del evento.
-    - **Mostrar en Descubrir**: Activá este toggle para que el evento aparezca en la sección pública donde la gente puede explorar eventos disponibles.
+    - **Mostrar en Descubrir**: Activá este toggle para que el evento aparezca en la sección pública **Descubre** (accesible en `https://descubre.fint.app`) donde la gente puede explorar eventos disponibles. Los eventos aparecen con su imagen, título, fecha y ubicación, permitiendo que nuevos compradores encuentren tu evento sin necesitar el link directo. Esta funcionalidad aumenta la visibilidad y puede generar ventas adicionales de público que busca eventos en tu zona.
   </Accordion>
 
   <Accordion title="Preguntas frecuentes">
@@ -85,6 +91,12 @@ Al crear o editar un evento, tenés cuatro secciones de opciones avanzadas:
 
   <Accordion title="Mensaje destacado">
     Escribí un mensaje que se muestra de forma prominente en la página del evento. Ideal para avisos de último momento, cambios de horario o información importante. Tiene un toggle para activar o desactivar su visibilidad.
+  </Accordion>
+
+  <Accordion title="Información adicional y Condiciones especiales">
+    **Información adicional**: Agregá detalles complementarios sobre el evento que aparecerán en una sección dedicada de la página pública. Útil para información logística, políticas del evento, o cualquier detalle relevante.
+
+    **Condiciones especiales**: Definí términos y condiciones específicos del evento que los compradores deben aceptar antes de finalizar la compra. Por ejemplo: políticas de reembolso, restricciones de edad, código de vestimenta, o términos de responsabilidad.
   </Accordion>
 </AccordionGroup>
 
@@ -113,7 +125,19 @@ Desde la pestaña **Entradas**, usá el botón **"Escanear"** para validar el in
 
 La pestaña **Entradas** muestra todas las entradas vendidas con su ID (TKT-XXXX), evento, tipo de entrada, comprador, asistente, fecha y estado (No admitido / Admitido). Podés filtrar por evento, tipo de entrada o estado, y **exportar a Excel**.
 
-Para crear entradas manuales (cortesías, staff, invitados), usá el botón **"+ Crear entrada"**.
+#### Crear entradas manuales
+
+Para crear entradas sin cobro (cortesías, staff, invitados, prensa):
+
+1. Hacé clic en **"+ Crear entrada"** desde la pestaña Entradas
+2. Seleccioná el **evento** y el **tipo de entrada**
+3. Completá los datos del **asistente** (nombre, email, documento si es requerido)
+4. Opcionalmente ingresá datos del **comprador** (quien "otorga" la cortesía)
+5. Guardá y el sistema generará un QR válido para esa persona
+
+<Info>
+  Las entradas manuales **no aparecen en el link de venta público** del evento. Son generadas directamente por vos desde el panel de administración, ideal para invitaciones especiales o entradas de cortesía que no pasan por el proceso de compra.
+</Info>
 
 ### Detalle de una entrada
 
