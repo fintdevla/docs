@@ -1,0 +1,215 @@
+---
+title: 'App de Admisión'
+description: 'Guía paso a paso para controlar el acceso al evento mediante escaneo de QR'
+---
+
+La App de Admisión permite al personal del evento controlar el acceso de los asistentes mediante escaneo de códigos QR. Es una herramienta simple y rápida que funciona desde cualquier dispositivo con cámara.
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.loom.com/embed/TU_VIDEO_ID"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## Requisitos Previos
+
+Antes de comenzar el día del evento, asegurate de tener:
+
+- **Dispositivo con cámara**: Celular, tablet o computadora con cámara funcional
+- **Acceso a internet**: Conexión estable durante todo el evento
+- **Credenciales**: Usuario y contraseña proporcionados por el organizador
+
+<Warning>
+  Mantené el dispositivo cargado durante todo el evento. Te recomendamos tener un cargador portátil a mano.
+</Warning>
+
+## Paso 1: Ingresar a la Aplicación
+
+<Steps>
+  <Step title="Abrir el navegador">
+    Ingresá a **https://qr.fint.app/** desde cualquier navegador web. No hace falta instalar nada — la app funciona directo desde el navegador.
+  </Step>
+
+  <Step title="Iniciar sesión">
+    Ingresá las credenciales que te proporcionó el organizador:
+    - **Usuario**: El email de tu cuenta
+    - **Contraseña**: Tu contraseña
+
+    Hacé clic en **"Ingresar"**.
+
+    <img src="/docs/images/app-admision/login.png" alt="Pantalla de inicio de sesión" />
+  </Step>
+
+  <Step title="Seleccionar el evento">
+    Una vez autenticado, verás el panel principal con el evento seleccionado.
+
+    Vas a ver el listado de entradas con diferentes estados:
+    - **Sin registrar** (azul): Entrada válida que aún no ingresó al evento
+    - **Registrado** (verde): Entrada ya admitida
+    - **Cancelado** (rojo): Entrada anulada
+
+    <img src="/docs/images/app-admision/panel-principal.png" alt="Panel principal con listado de entradas" />
+  </Step>
+</Steps>
+
+## Paso 2: Activar el Escáner
+
+<Steps>
+  <Step title="Acceder al escáner">
+    En el panel principal, buscá y hacé clic en el botón **"ESCANEAR"** (generalmente ubicado en la parte inferior de la pantalla).
+  </Step>
+
+  <Step title="Conceder permisos de cámara">
+    La primera vez que uses el escáner, el navegador te va a pedir permiso para acceder a la cámara.
+
+    Aparecerá un mensaje: _"¿Permitir que la aplicación acceda a la cámara?"_
+
+    Seleccioná **"Permitir"** o **"Permitir mientras visitas el sitio"**.
+
+    <img src="/docs/images/app-admision/permisos-camara.png" alt="Solicitud de permisos de cámara" />
+  </Step>
+
+  <Step title="Preparar el escáner">
+    La cámara se activará automáticamente y verás una interfaz con un marco para enfocar el código QR.
+
+    **Consejos para un escaneo óptimo:**
+    - Asegurate de tener buena iluminación
+    - Limpiá la lente de la cámara si está sucia
+    - Mantené el dispositivo estable al escanear
+
+    <img src="/docs/images/app-admision/escaner-activo.png" alt="Interfaz del escáner QR" />
+  </Step>
+</Steps>
+
+## Paso 3: Escanear y Verificar Entradas
+
+### Proceso de escaneo
+
+Cuando un asistente llegue al evento:
+
+1. **Pedile que muestre su entrada** con el código QR visible (puede estar en el celular o impresa)
+2. **Apuntá la cámara hacia el QR** — no hace falta tocar ningún botón
+3. **Mantené el dispositivo estable** hasta que el código sea reconocido
+4. El sistema procesará la información automáticamente
+
+### Verificar los datos
+
+Una vez escaneado el código QR, aparecerán en pantalla:
+
+- **Entrada #**: Código único del ticket (ej: TKT-Z2E9S3GCK)
+- **Evento**: Nombre del evento
+- **Fecha de compra**: Cuándo se adquirió la entrada
+- **Asistente**: Nombre, documento y email
+- **Comprador**: Quién realizó la compra (puede ser diferente al asistente)
+
+<Info>
+  Es normal que el **comprador** y el **asistente** sean personas diferentes. Por ejemplo, un padre puede comprar la entrada para su hijo.
+</Info>
+
+**Verificá que la información coincida con la persona presente** — especialmente el nombre del asistente.
+
+## Paso 4: Admitir al Asistente
+
+### Estados de la entrada
+
+Al escanear, la entrada puede estar en dos estados:
+
+<CardGroup cols={2}>
+  <Card title="NO ADMITIDA" icon="circle-dot" color="#4A90E2">
+    Estado normal de una entrada válida que aún no ingresó. Aparece en **color azul**.
+
+    Podés proceder a admitir al asistente.
+  </Card>
+
+  <Card title="YA ADMITIDA" icon="circle-check" color="#27AE60">
+    La entrada ya fue utilizada anteriormente. Aparece en **color verde**.
+
+    Esto puede indicar un intento de entrada duplicada.
+  </Card>
+</CardGroup>
+
+<img src="/docs/images/app-admision/estados-entrada.png" alt="Comparación de estados NO ADMITIDA vs ADMITIDA" />
+
+### Confirmar la admisión
+
+Si todo está correcto y el estado es **"NO ADMITIDA"**:
+
+1. Confirmá con el asistente que los datos son correctos
+2. Hacé clic en el botón **"ADMITIR"** (o **"Registrar"** según la versión)
+3. El sistema actualizará el estado instantáneamente
+4. La entrada cambiará a **"ADMITIDA"** (verde)
+
+¡Listo! El asistente puede ingresar al evento. La app queda lista automáticamente para escanear la siguiente entrada.
+
+## Casos Especiales
+
+### Entrada ya utilizada
+
+Si aparece **"YA ADMITIDA"** en verde:
+
+- Informale al asistente que su entrada ya fue registrada previamente
+- Verificá los datos del asistente para confirmar que es la persona correcta
+- Consultá con tu supervisor si es necesario permitir el acceso de todas formas
+
+<Warning>
+  Una entrada ya admitida puede indicar que alguien más usó ese QR. Siempre verificá la identidad del portador antes de permitir el ingreso.
+</Warning>
+
+### Código QR no válido
+
+Si el código no se reconoce o aparece un error:
+
+- Pedile al asistente que aumente el brillo de la pantalla (si está en el celular)
+- Verificá que sea el código QR correcto del evento actual
+- Asegurate de tener buena iluminación y enfoque
+- Intentá limpiar la pantalla del dispositivo o la lente de la cámara
+- Si el QR está muy dañado (impreso y roto), buscá manualmente la entrada por nombre desde el panel principal
+
+### Problemas de conectividad
+
+Si no podés escanear por problemas de internet:
+
+- Verificá que el dispositivo esté conectado a WiFi o tenga datos móviles
+- Intentá recargar la página
+- Si el problema persiste, contactá al administrador del sistema o al equipo técnico
+
+### Búsqueda manual
+
+Si por algún motivo no podés escanear el QR, podés buscar la entrada manualmente:
+
+1. Volvé al panel principal (cerrá el escáner)
+2. Usá el buscador para encontrar la entrada por nombre, email o documento del asistente
+3. Hacé clic en la entrada para ver sus detalles
+4. Verificá los datos con el asistente
+5. Hacé clic en **"Admitir"** desde el detalle
+
+## Consejos para un Día Exitoso
+
+- **Cargá el dispositivo**: Mantené batería suficiente durante todo el evento
+- **Verificá identidad**: Siempre confirmá que los datos coincidan con la persona presente
+- **Comunicá problemas**: Si encontrás algún inconveniente, avisá inmediatamente a tu supervisor
+- **Sé amable**: Una buena experiencia de ingreso marca el tono del evento
+
+## Contacto y Soporte
+
+Si tenés dudas técnicas o problemas con la aplicación durante el evento:
+
+- **Soporte Fint**: +54 9 11 2405-8816
+- **Equipo técnico del evento**: Contactá al coordinador del evento
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Eventos" icon="calendar" href="/docs/guides/eventos">
+    Conocé cómo crear y gestionar eventos
+  </Card>
+  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
+    Configurá tipos de entradas
+  </Card>
+  <Card title="Mensajería" icon="envelope" href="/docs/guides/mensajeria">
+    Enviá comunicaciones a asistentes
+  </Card>
+</CardGroup>
