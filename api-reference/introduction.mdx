@@ -1,33 +1,56 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'API Reference'
+description: 'Documentación completa de los endpoints de la API de Fint'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+Esta referencia es generada automáticamente a partir de nuestra [especificación OpenAPI](https://dev.api.fint.app/api/v1/api-docs). Acá encontrás el detalle de cada endpoint: parámetros, cuerpo de la solicitud, respuestas posibles y ejemplos.
 
-## Welcome
+<Info>
+  Si es tu primera vez integrando con Fint, te recomendamos empezar por la [Guía para Desarrolladores](/developers/introduction) donde explicamos autenticación, conceptos clave y casos de uso comunes.
+</Info>
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## Autenticación
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+Todos los endpoints requieren el header `x-api-key` con tu API Key:
 
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+curl -X GET "https://api.fint.app/api/v1/health" \
+  -H "x-api-key: TU_API_KEY"
 ```
+
+Podés obtener tu API Key desde [Configuración > Desarrolladores](https://admin.fint.app/settings/developers/api-keys) en tu panel de Fint.
+
+## Recursos disponibles
+
+<CardGroup cols={2}>
+  <Card title="Contactos" icon="user" href="/api-reference/contactos/listar-contactos">
+    Creá, actualizá y gestioná los contactos de tu organización.
+  </Card>
+
+  <Card title="Facturas" icon="file-invoice" href="/api-reference/facturas/listar-facturas">
+    Generá facturas y consultá su estado.
+  </Card>
+
+  <Card title="Pagos" icon="credit-card" href="/api-reference/pagos/buscar-pago-por-id">
+    Consultá el detalle de los pagos recibidos.
+  </Card>
+
+  <Card title="Eventos" icon="ticket" href="/api-reference/eventos/listar-eventos">
+    Gestioná eventos y la venta de tickets.
+  </Card>
+
+  <Card title="Webhooks" icon="webhook" href="/api-reference/webhook/listar-webhooks">
+    Configurá notificaciones en tiempo real para tu sistema.
+  </Card>
+
+  <Card title="Etiquetas" icon="tag" href="/api-reference/etiquetas/listar-etiquetas">
+    Organizá tus contactos con etiquetas personalizadas.
+  </Card>
+</CardGroup>
+
+## Entornos
+
+| Entorno | URL Base |
+|---------|----------|
+| Producción | `https://api.fint.app/api/v1` |
+| Desarrollo | `https://dev.api.fint.app/api/v1` |
