@@ -165,6 +165,7 @@
       "pages": [
         "api-reference/eventos/buscar-tickets-por-email-del-asistente",
         "api-reference/eventos/buscar-compras-por-email-del-comprador",
+        "api-reference/eventos/buscar-compras-por-payment-id",
         "api-reference/eventos/obtener-ticket-de-evento-por-referencia",
         "api-reference/eventos/actualizar-información-del-asistente-del-ticket",
         "api-reference/eventos/crear-tickets-manualmente-admin",
