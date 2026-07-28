@@ -5,6 +5,12 @@ description: 'Gestioná clientes, responsables de pago y su información'
 
 Acá gestionás a todos tus clientes: datos personales, etiquetas, items asignados y estado financiero.
 
+<Info>
+  Si tenés activado el módulo de **Cuotas institucionales** (en [Funcionalidades](/docs/guides/configuracion#funcionalidades)), este módulo se llama **Estudiantes** en toda la aplicación. Es el mismo módulo — solo cambia el nombre.
+</Info>
+
+<img src="/docs/images/clientes/listado.png" alt="Listado de clientes con etiquetas y estado financiero" />
+
 ## Tutorial en Video
 
 <iframe
@@ -23,6 +29,8 @@ Acá gestionás a todos tus clientes: datos personales, etiquetas, items asignad
 <Tabs>
   <Tab title="Creación manual" icon="user-plus">
     Para crear un cliente necesitás su **nombre y apellido**, y al menos un identificador: **email** o **documento** (DNI, CUIT, pasaporte, entre otros).
+
+    <img src="/docs/images/clientes/crear-cliente.png" alt="Formulario de creación manual de un cliente" />
 
     <Info>
       Si ya existe un cliente con el mismo email o documento, el sistema no permite crear un duplicado.
@@ -47,6 +55,8 @@ Acá gestionás a todos tus clientes: datos personales, etiquetas, items asignad
       </Step>
     </Steps>
 
+    <img src="/docs/images/clientes/importar-excel.png" alt="Modal de importación de clientes desde Excel" />
+
     <Info>
       Podés activar la opción **"Enviar email de bienvenida"** para que cada cliente importado reciba automáticamente un email con el enlace a su [Portal de Contacto](/docs/guides/portal-contacto).
     </Info>
@@ -61,11 +71,15 @@ Acá gestionás a todos tus clientes: datos personales, etiquetas, items asignad
 
 Al hacer clic en un cliente, accedés a su perfil completo:
 
+<img src="/docs/images/clientes/perfil.png" alt="Perfil del cliente: detalle, items y familia asociada" />
+
 - **Detalle**: Información personal (nombre, documento, email, teléfono, etiquetas) y dos indicadores clave: la **condición** (que controlás vos) y el **estado** financiero (calculado automáticamente).
 - **Items**: Los [items y descuentos](/docs/guides/items-descuentos) asignados para el período seleccionado. Desde acá podés asignar nuevos.
-- **Familia asociada**: Los **responsables de pago** del cliente (ej: papá, mamá). Un cliente puede ser su propio responsable o tener múltiples. Sus datos son esenciales para la [facturación con ARCA](/docs/guides/facturacion-arca) y para el acceso al [Portal de Contacto](/docs/guides/portal-contacto).
-- **Contactos**: Clientes relacionados (ej: hermanos en la misma institución). Permite vincular clientes entre sí para facilitar la gestión familiar.
+- **Familia asociada**: Clientes relacionados (ej: hermanos en la misma institución). Permite vincular clientes entre sí para gestionar las cuentas compartidas de una familia.
+- **Contactos**: Los **responsables de pago** del cliente (ej: papá, mamá). Un cliente puede ser su propio responsable o tener múltiples. Sus datos son esenciales para la [facturación con ARCA](/docs/guides/facturacion-arca) y para el acceso al [Portal de Contacto](/docs/guides/portal-contacto).
 - **Órdenes**: Historial de todas las solicitudes de pago del cliente.
+
+<img src="/docs/images/clientes/perfil-familia.png" alt="Familia asociada, contactos responsables de pago y órdenes del cliente" />
 - **Actividad**: Registro cronológico de todas las acciones realizadas sobre el cliente.
 - **Notas**: Comentarios internos visibles solo para el equipo administrativo.
 

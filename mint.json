@@ -63,7 +63,8 @@
       "pages": [
         "docs/guides/items-descuentos",
         "docs/guides/solicitudes-pago",
-        "docs/guides/pagos"
+        "docs/guides/pagos",
+        "docs/guides/facturacion"
       ]
     },
     {
@@ -71,8 +72,13 @@
       "pages": [
         "docs/guides/links-pago",
         "docs/guides/suscripciones",
-        "docs/guides/eventos",
-        "docs/guides/app-admision"
+        {
+          "group": "Eventos",
+          "pages": [
+            "docs/guides/eventos",
+            "docs/guides/app-admision"
+          ]
+        }
       ]
     },
     {
@@ -85,6 +91,7 @@
       "group": "Configuración",
       "pages": [
         "docs/guides/configuracion",
+        "docs/guides/conectar-mercado-pago",
         "docs/guides/facturacion-arca"
       ]
     },

@@ -26,10 +26,14 @@ Desde Configuración gestionás todo lo que define cómo funciona tu organizaci�
 - **Información de soporte**: El email de soporte, el email de respuesta (reply to) y el número de WhatsApp que aparecen en mensajes, recordatorios y en el [Portal de Contacto](/docs/guides/portal-contacto).
 - **URL personalizada**: Tu subdominio en Fint (ej: `tuinstitucion.fint.app`). Es donde tus usuarios ven sus pagos, mensajes y datos de facturación.
 
+<img src="/docs/images/configuracion/general.png" alt="Configuración general: nombre de la organización, información de soporte y URL personalizada" />
+
 ### Marca
 
 - **Nombre de fantasía**: El nombre que ven tus usuarios en el portal y en las comunicaciones.
 - **Logo**: La imagen que acompaña tu marca. Aparece en emails, portal y página de eventos.
+
+<img src="/docs/images/configuracion/general-marca.png" alt="Sección Marca: nombre de fantasía y logo" />
 
 <Info>
   Configurá la marca antes de enviar comunicaciones o publicar eventos. Es lo primero que ven tus usuarios.
@@ -43,9 +47,19 @@ Por ejemplo: un grupo "Nivel" con etiquetas "Inicial", "Primario", "Secundario".
 
 Cada etiqueta muestra la cantidad de clientes que la tienen asignada, lo que te permite ver de un vistazo cómo está distribuida tu base.
 
+<img src="/docs/images/configuracion/etiquetas.png" alt="Etiquetas: grupo Nivel con las etiquetas Inicial, Primario y Secundario" />
+
 <Warning>
   Las etiquetas son fundamentales para gestionar correctamente las liquidaciones y filtrar clientes. Configuralas antes de empezar a cargar clientes.
 </Warning>
+
+## Campos Personalizados
+
+Los campos personalizados te permiten guardar información extra en tus contactos y facturas, más allá de los datos estándar (por ejemplo: legajo, curso, división o cualquier dato propio de tu institución).
+
+Para crear uno, hacé clic en **"Agregar campo personalizado"** y definí su nombre. Después vas a poder completarlo desde la ficha de cada cliente.
+
+<img src="/docs/images/configuracion/campos-personalizados.png" alt="Campos personalizados: información extra para contactos y facturas" />
 
 ## Miembros
 
@@ -67,6 +81,8 @@ Para invitar a un nuevo miembro:
 
 Una vez aceptada, el miembro aparece en el listado con su nombre, email y rol.
 
+<img src="/docs/images/configuracion/miembros.png" alt="Listado de miembros con nombre, email y rol" />
+
 ## Recordatorios
 
 Los recordatorios son emails automáticos que se envían a tus clientes en relación a sus solicitudes de pago. Hay dos tipos:
@@ -75,7 +91,9 @@ Los recordatorios son emails automáticos que se envían a tus clientes en relac
 
 **Después del vencimiento** — Se disparan cuando la orden vence sin ser pagada. Sirven como recordatorio de deuda.
 
-Podés crear varios recordatorios de cada tipo. Por ejemplo: 7 y 3 días antes del vencimiento, y 2, 7, 10 y 21 días después.
+Podés crear varios recordatorios de cada tipo. Por ejemplo: 7 y 3 días antes del vencimiento, y 2, 7, 14 y 21 días después.
+
+<img src="/docs/images/configuracion/recordatorios.png" alt="Recordatorios antes y después del vencimiento, con su estado" />
 
 Cada recordatorio se configura con:
 - **Estado**: Activo o Pausado (podés desactivar un recordatorio sin eliminarlo)
@@ -94,6 +112,9 @@ Cada regla tiene:
 - **Inicio**: Cuántos días después del vencimiento comienza a aplicar
 - **Duración**: Durante cuántos días aplica el recargo
 - **Monto**: Porcentaje o valor fijo del recargo
+- **Base de cálculo**: Sobre qué monto se calcula el recargo (por ejemplo, el monto bruto antes de descuentos)
+
+<img src="/docs/images/configuracion/intereses-mora-crear.png" alt="Creación de una regla de mora: inicio, duración, monto y base de cálculo" />
 
 <Info>
   El sistema calcula el recargo como una **Tasa Efectiva Anual (TEA)** aplicada diariamente sobre el monto base de la factura. Por ejemplo: una TEA del 60% que comienza el día 1 después del vencimiento y dura 10 días.
@@ -106,6 +127,8 @@ Cada regla tiene:
 ## Integraciones
 
 Conectá Fint con los servicios que necesites:
+
+<img src="/docs/images/configuracion/integraciones.png" alt="Integraciones: procesadores de pago y facturación" />
 
 ### Procesadores de pago
 
@@ -161,6 +184,8 @@ Desde acá gestionás las credenciales para conectar Fint con otros sistemas.
     Las claves API son códigos únicos que permiten acceder a la API de Fint desde sistemas externos. Cada clave tiene un nombre identificativo y se muestra parcialmente oculta por seguridad.
 
     Para crear una nueva, hacé clic en **"+ Crear API Key"** e ingresá un nombre descriptivo.
+
+    <img src="/docs/images/configuracion/desarrolladores-api-keys.png" alt="Pestaña API keys en Desarrolladores" />
   </Tab>
 
   <Tab title="Webhooks">
@@ -169,6 +194,8 @@ Desde acá gestionás las credenciales para conectar Fint con otros sistemas.
     Para crear uno, hacé clic en **"+ Crear webhook"**, ingresá la URL del endpoint y seleccioná los eventos que querés escuchar (ej: `payment.created`, `contact.status`).
 
     Cada webhook puede estar **Activo** o **Pausado**.
+
+    <img src="/docs/images/configuracion/desarrolladores-webhooks.png" alt="Pestaña Webhooks en Desarrolladores" />
   </Tab>
 </Tabs>
 
@@ -184,6 +211,8 @@ Desde acá gestionás las credenciales para conectar Fint con otros sistemas.
 ## Facturación
 
 Acá cargás la información fiscal de tu organización, necesaria para emitir facturas electrónicas con [ARCA](/docs/guides/facturacion-arca).
+
+<img src="/docs/images/configuracion/facturacion.png" alt="Información fiscal: datos básicos, domicilio y condición fiscal" />
 
 <AccordionGroup>
   <Accordion title="Información básica">
@@ -205,7 +234,9 @@ Acá cargás la información fiscal de tu organización, necesaria para emitir f
 
 ## Mi Cuenta
 
-Desde acá editás tu información personal como administrador: **nombre completo** y **correo electrónico** (el email de acceso no se puede modificar).
+Desde acá editás tu información personal como administrador: **nombre completo**, **número de WhatsApp** y **correo electrónico** (el email de acceso no se puede modificar).
+
+<img src="/docs/images/configuracion/mi-cuenta.png" alt="Mi cuenta: información personal del administrador" />
 
 ## Próximos Pasos
 

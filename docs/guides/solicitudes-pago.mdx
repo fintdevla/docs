@@ -64,7 +64,9 @@ Cada orden tiene un origen distinto, pero todas se gestionan desde el mismo luga
 
 ### Listado de Órdenes
 
-El listado muestra todas las órdenes con su **número**, **descripción**, **fecha de vencimiento**, **cliente**, **importe** y **estado**. Usá el buscador para encontrar órdenes por nombre del cliente o descripción, y los filtros de **Estado** y **Etiquetas** para acotar resultados.
+El listado muestra todas las órdenes con su **número**, **descripción**, **fecha de vencimiento**, **cliente**, **importe** y **estado**. Usá el buscador para encontrar órdenes por nombre del cliente o descripción, y los filtros de **Estado** y **Etiquetas** para acotar resultados. Las fechas de vencimiento superadas se muestran en rojo.
+
+<img src="/docs/images/solicitudes-pago/ordenes-listado.png" alt="Listado de órdenes con estados Por Cobrar, Pagada y Pago Parcial" />
 
 ### Estados de una Orden
 
@@ -77,7 +79,7 @@ El listado muestra todas las órdenes con su **número**, **descripción**, **fe
     Pagada en su totalidad
   </Card>
 
-  <Card title="Pagada parcialmente" icon="circle-half-stroke">
+  <Card title="Pago parcial" icon="circle-half-stroke">
     Un administrador registró un pago parcial
   </Card>
 
@@ -90,9 +92,13 @@ El listado muestra todas las órdenes con su **número**, **descripción**, **fe
   </Card>
 
   <Card title="Vencida" icon="exclamation-triangle">
-    Superó la fecha de vencimiento sin pago
+    Por cobrar con la fecha de vencimiento superada
   </Card>
 </CardGroup>
+
+<Info>
+  "Vencida" no es un estado aparte sino un filtro: una orden **Por cobrar** (o con **Pago parcial**) cuya fecha de vencimiento ya pasó. En el listado, esas fechas se muestran en rojo.
+</Info>
 
 ### Detalle de una Orden
 
@@ -104,13 +110,25 @@ Al hacer clic en una orden, se abre un panel con toda la información:
 - **Pagos**: Pagos asociados a esta orden (manuales u online)
 - **Detalle**: Número de orden, cliente, importe base, total pagado, estado, fecha de vencimiento y origen (ej: de qué liquidación proviene)
 
+Si la orden está vencida y sus items generan intereses, el desglose muestra el **Interés por mora acumulado** como un renglón más (en rojo). El interés se calcula al momento de consultar la orden, según las reglas de [Intereses por Mora](/docs/guides/configuracion#intereses-por-mora).
+
+<img src="/docs/images/solicitudes-pago/orden-detalle.png" alt="Detalle de una orden vencida con el interés por mora acumulado" />
+
 ### Crear una Orden Manual
 
 Para cobros puntuales que no forman parte de una liquidación:
 
 <Steps>
+  <Step title="Elegí el tipo de factura">
+    **Venta online** (items de pago único) o **Liquidación** (items de liquidación del período).
+
+    <img src="/docs/images/solicitudes-pago/crear-orden-tipo.png" alt="Selección del tipo de factura: venta online o liquidación" />
+  </Step>
+
   <Step title="Completá los datos">
-    Ingresá el **monto total**, una **descripción** del cobro, seleccioná el **cliente** y elegí la **fecha de vencimiento**.
+    Seleccioná el **cliente**, la **fecha de emisión** y la **fecha de vencimiento**, agregá una **descripción** opcional y sumá los **items** a facturar con "+ Agregar item". El importe total surge de los items seleccionados.
+
+    <img src="/docs/images/solicitudes-pago/crear-orden.png" alt="Formulario de creación de una orden con vista previa" />
   </Step>
 
   <Step title="Notificación por email (opcional)">
@@ -141,6 +159,12 @@ La liquidación es la herramienta central de facturación masiva. En lugar de cr
 La liquidación es completamente **item-céntrica**: vos configurás los items y los asignás a clientes, y la liquidación se encarga del resto.
 
 Al crear una liquidación para un período (ej: Marzo 2024), Fint busca todos los clientes que tengan items de liquidación pendientes para ese mes — es decir, items cuya vigencia incluya ese período y que todavía no tengan una orden generada. Con esa información, crea **una orden por cliente** que incluye todos sus items aplicables y sus [descuentos](/docs/guides/items-descuentos#descuentos) correspondientes.
+
+<Info>
+  Solo se incluyen los clientes con condición **Activo**. Los clientes dados de baja no generan órdenes.
+</Info>
+
+<img src="/docs/images/solicitudes-pago/liquidacion-detalle.png" alt="Liquidación en borrador: una orden por estudiante con los descuentos ya aplicados" />
 
 <Info>
   Cada orden incluye todos los items del cliente con sus [descuentos](/docs/guides/items-descuentos#descuentos) aplicados automáticamente.
@@ -198,6 +222,8 @@ Si un item tiene activado **"Generar intereses por mora"** (configurado en [Item
 ### Listado de Liquidaciones
 
 El listado muestra todas las liquidaciones con su **nombre**, **período**, **cantidad de clientes**, **monto total a cobrar** y **estado**. Podés filtrar por **Estado** y **Período**.
+
+<img src="/docs/images/solicitudes-pago/liquidaciones-listado.png" alt="Listado de liquidaciones: una enviada y una pendiente en borrador" />
 
 ---
 

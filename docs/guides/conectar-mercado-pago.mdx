@@ -1,0 +1,58 @@
+---
+title: 'Conectar Mercado Pago'
+description: 'Vinculá tu cuenta de Mercado Pago para cobrar online en minutos'
+---
+
+Mercado Pago es el procesador de pagos más usado en Argentina y Uruguay. La conexión con Fint es una **autorización directa con tu cuenta** de Mercado Pago — no hay que copiar credenciales ni tocar configuración técnica.
+
+## Antes de empezar
+
+Solo necesitás una **cuenta de Mercado Pago activa** con acceso para iniciar sesión. La moneda de cobro (ARS para Argentina, UYU para Uruguay) queda definida al dar de alta tu organización en Fint.
+
+## Conectar tu cuenta
+
+<Steps>
+  <Step title="Andá a Integraciones">
+    En **Configuración → Integraciones**, ubicá la tarjeta **Mercado Pago** (aparece como "No conectado") y hacé clic en **"Conectar"**.
+
+    <img src="/docs/images/configuracion/integraciones.png" alt="Tarjeta de Mercado Pago en Integraciones" />
+  </Step>
+
+  <Step title="Autorizá en Mercado Pago">
+    Fint te redirige al sitio de Mercado Pago: iniciá sesión con tu cuenta y autorizá la aplicación de Fint.
+  </Step>
+
+  <Step title="Confirmá la integración">
+    De vuelta en Fint, hacé clic en **"Autorizar integración"**. Vas a ver el mensaje **"Cuenta conectada exitosamente"** y la tarjeta pasa a estado **Activo**.
+  </Step>
+</Steps>
+
+Una vez conectada, la tarjeta muestra la **cuenta vinculada** (email, usuario y documento) y un acceso directo a **"Configurar plazos y comisión"**, que te lleva al panel de Mercado Pago donde definís los plazos de acreditación y ves sus comisiones.
+
+## Qué cambia al conectar
+
+- Tu organización queda cobrando **online con Mercado Pago**: cuando una familia paga desde el portal, un link de pago o un evento, Fint la redirige al **checkout de Mercado Pago**, donde elige su medio de pago y paga.
+- Las confirmaciones de pago llegan **automáticamente** — no hay que configurar webhooks ni ningún paso técnico adicional.
+- La comisión de Fint se descuenta automáticamente en cada cobro; las comisiones y plazos de Mercado Pago se gestionan en tu panel de Mercado Pago.
+
+## Desconectar o reconectar
+
+Desde la misma tarjeta podés **Desconectar** la cuenta (Fint pide confirmación: se desactiva el procesamiento de pagos online con Mercado Pago). Podés volver a conectar la misma cuenta u otra cuando quieras.
+
+<Info>
+  Si Mercado Pago corta la autorización (por ejemplo, por vencimiento del permiso), la tarjeta vuelve a mostrar **"No conectado"** y los administradores reciben un aviso por email para reconectar. Reconectar lleva un minuto y no se pierde ningún dato.
+</Info>
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    Donde las familias pagan online
+  </Card>
+  <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
+    Vendé online cobrando con MP
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Seguimiento de los cobros
+  </Card>
+</CardGroup>

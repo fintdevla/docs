@@ -1,0 +1,130 @@
+---
+title: 'Facturación'
+description: 'Emití comprobantes electrónicos de ARCA sobre tus pagos, de forma automática con reglas o manual'
+---
+
+Con la integración de [ARCA](/docs/guides/facturacion-arca) activa, Fint emite comprobantes electrónicos (facturas, notas de crédito y débito, recibos) directamente sobre los **pagos** que recibís. Podés automatizarlo con reglas o emitir manualmente desde cada pago.
+
+<Info>
+  Todo lo de esta guía requiere tener la integración con ARCA configurada. Si todavía no la tenés, empezá por la [guía de configuración de ARCA](/docs/guides/facturacion-arca).
+</Info>
+
+## Conceptos clave
+
+En Fint, los comprobantes **siempre están asociados a un pago**: primero se registra el cobro (online o manual) y sobre ese pago se emite el comprobante.
+
+### Tipos de comprobante
+
+<CardGroup cols={2}>
+  <Card title="Factura" icon="file-invoice">
+    El comprobante principal de la operación
+  </Card>
+  <Card title="Recibo" icon="receipt">
+    Comprobante electrónico con CAE, alternativa a la factura
+  </Card>
+  <Card title="Nota de Crédito" icon="rotate-left">
+    Anula o reduce una factura o recibo existente
+  </Card>
+  <Card title="Nota de Débito" icon="circle-plus">
+    Aumenta el importe de una factura existente
+  </Card>
+</CardGroup>
+
+### La letra no se elige: se calcula
+
+Fint determina automáticamente si el comprobante es **A**, **B** o **C** según la condición fiscal tuya (el emisor) y la del receptor:
+
+- Si sos **Responsable Inscripto**: emitís **A** a Responsables Inscriptos y Monotributistas, y **B** a Consumidores Finales y Exentos.
+- Si sos **Monotributista** o **Exento**: emitís siempre **C**.
+
+### ¿A nombre de quién sale el comprobante?
+
+Se factura al **contacto de pago** (responsable) del pago, con su tipo y número de documento. Si el documento es un CUIT/CUIL de 11 dígitos, Fint consulta el **padrón de ARCA** para deducir su condición fiscal (Responsable Inscripto, Monotributista, Exento). Si no puede determinarla, factura como **Consumidor Final**.
+
+<Warning>
+  Verificá que tus contactos de pago tengan el documento cargado y correcto: sin documento válido el comprobante no se puede emitir.
+</Warning>
+
+## Facturación automática con reglas
+
+En **Configuración → Facturación → Reglas de facturación** definís reglas para que los pagos se facturen solos. Cada regla configura:
+
+- **Nombre** de la regla y **fecha de inicio** (se facturan los pagos recibidos a partir de esa fecha)
+- **Tipo de comprobante**: Factura, Recibo o Ambos
+- **Punto de venta**: los puntos habilitados se traen directo de ARCA
+- **Origen** del pago: Online, Manual o Ambos
+- **Métodos de pago**: elegí cuáles facturar (tarjetas, transferencia, efectivo, Mercado Pago, etc.)
+- **Tipos de cliente**: Consumidor Final, Monotributista, Responsable Inscripto, entre otros
+- **Momento de facturación**: Inmediata (al registrarse el pago) o un día específico de la semana
+- **Concepto** (Servicios, Productos o ambos) y **Alícuota** de IVA
+
+Cada regla puede estar **Activa** o **Pausada**.
+
+### Cómo se aplican
+
+Cuando entra un pago, Fint recorre tus reglas activas y aplica **la primera que coincida** con el método de pago y el tipo de cliente — una sola regla por pago. Si ninguna regla coincide, el pago queda sin facturar (siempre podés emitir manualmente después).
+
+<Info>
+  Empezá simple: una regla "Inmediata" con tipo Factura, todos los métodos de pago online y todos los tipos de cliente cubre la mayoría de los casos. Coordiná con tu contador el punto de venta y la alícuota.
+</Info>
+
+## Emisión manual
+
+Para facturar un pago puntual (o emitir una nota de crédito/débito), desde el detalle del pago:
+
+<Steps>
+  <Step title="Abrí el pago">
+    En **Pagos**, hacé clic en el pago que querés facturar y ubicá la sección **Comprobantes**.
+
+    <img src="/docs/images/facturacion/pago-comprobantes.png" alt="Sección Comprobantes en el detalle de un pago" />
+  </Step>
+
+  <Step title="Registrá el comprobante">
+    Con el botón **+** se abre el modal **"Registrar comprobante"**: elegí el tipo (Factura, Nota de Crédito, Nota de Débito o Recibo), la fecha, el concepto, el punto de venta y el monto (viene precargado con el total del pago, editable). Para una Factura elegís también la alícuota de IVA; para una Nota de Crédito o Débito, el comprobante al que aplica.
+  </Step>
+
+  <Step title="Confirmá">
+    Fint envía la solicitud a ARCA y el comprobante queda asociado al pago, con su CAE y PDF descargable.
+  </Step>
+</Steps>
+
+Reglas a tener en cuenta:
+
+- Un pago admite **una factura válida**; si necesitás corregirla, emitís una **Nota de Crédito**.
+- La Nota de Crédito requiere una factura o recibo previo; la Nota de Débito, una factura.
+- No se puede emitir una nota sobre otra nota.
+
+### ¿Cómo se anula una factura?
+
+Por normativa de ARCA una factura **no se anula**: se emite una **Nota de Crédito por el total**, que la cancela fiscalmente. Ambos comprobantes quedan registrados.
+
+## Estados y seguimiento
+
+En el listado de **Pagos**, cada pago facturado muestra badges con sus comprobantes: **F** (Factura), **NC** (Nota de Crédito), **ND** (Nota de Débito), **R** (Recibo) — en **verde** si fue procesado por ARCA, en **rojo** si hubo un error.
+
+Dentro del pago, cada comprobante muestra su estado:
+
+| Estado | Significado |
+|---|---|
+| **Pendiente** | En proceso de emisión |
+| **Procesado** | Emitido correctamente, con CAE — PDF disponible para descargar |
+| **Error** | ARCA rechazó la emisión — el detalle del error se ve en el tooltip del estado |
+| **Cancelado** | Comprobante sin efecto |
+
+Ante un **Error** (CUIT inválido, punto de venta no habilitado, datos fiscales incompletos), corregí el problema y volvé a emitir el comprobante manualmente desde el mismo pago.
+
+Los comprobantes procesados también quedan disponibles para el responsable de pago en su [Portal de Contacto](/docs/guides/portal-contacto).
+
+## Próximos Pasos
+
+<CardGroup cols={3}>
+  <Card title="Configurar ARCA" icon="file-invoice" href="/docs/guides/facturacion-arca">
+    Certificados y autorización, paso a paso
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Donde viven los comprobantes
+  </Card>
+  <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
+    Información fiscal de tu organización
+  </Card>
+</CardGroup>

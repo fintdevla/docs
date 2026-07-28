@@ -20,9 +20,27 @@ Acá ves todos los pagos recibidos y gestionás devoluciones, exportaciones y pa
 
 ## Listado de Pagos
 
-El listado muestra todos los pagos con: cliente, fecha, concepto, medio de pago, importe y estado.
+El listado muestra todos los pagos con: cliente, fecha, concepto, medio de pago, importe y estado. Los pagos manuales se distinguen con la marca **(M)** junto al medio de pago.
 
 Usá el **buscador** para encontrar pagos por nombre del cliente, número de transacción, concepto o monto. También podés filtrar por **medio de pago** (tarjeta, transferencia, efectivo), **origen** (Manual u Online), **registrado por** (qué admin lo registró) y **etiquetas** del cliente.
+
+<img src="/docs/images/pagos/listado.png" alt="Listado de pagos con medio de pago, marca de pago manual y estado" />
+
+### Estados de un Pago
+
+<CardGroup cols={3}>
+  <Card title="Exitoso" icon="check-circle">
+    El pago se acreditó. Todo pago nace en este estado.
+  </Card>
+
+  <Card title="Reembolsado" icon="rotate-left">
+    El pago fue devuelto desde el procesador
+  </Card>
+
+  <Card title="Contracargo" icon="exclamation-triangle">
+    El pagador desconoció el pago ante su tarjeta
+  </Card>
+</CardGroup>
 
 ## Detalle del Pago
 
@@ -33,6 +51,8 @@ Al hacer clic en un pago, accedés a su detalle completo. La información varía
     Un pago manual muestra: fecha real del pago, fecha de registro en Fint, importe, medio de pago (con indicador "Manual"), estado, quién lo registró, quién pagó y el cliente asociado.
 
     También muestra las **órdenes de pago** cubiertas (si fue pago total o parcial).
+
+    <img src="/docs/images/pagos/pago-detalle.png" alt="Detalle de un pago manual: quién lo registró, quién pagó y las órdenes cubiertas" />
 
     Si registraste un pago por error, podés eliminarlo con el botón **"Eliminar pago manual"**. Esto revierte el pago y restaura el estado de las órdenes asociadas.
 
@@ -61,12 +81,18 @@ Para registrar un pago en efectivo, transferencia u otro medio fuera de línea:
     Entrá a la orden del cliente (desde el módulo de [Órdenes](/docs/guides/solicitudes-pago) o desde el perfil del cliente).
   </Step>
   <Step title="Registrá el pago">
-    Hacé clic en **"Registrar pago"** y completá los datos: monto, medio de pago y fecha de pago.
+    En la sección **Pagos** del detalle de la orden, hacé clic en **+** y completá los datos: medio de pago (efectivo, tarjeta de débito/crédito o transferencia), fecha y monto. El monto viene precargado con el total pendiente (mora incluida), y podés bajarlo para registrar un **pago parcial**. También elegís qué **contacto** de pago lo realizó.
+
+    <img src="/docs/images/pagos/registrar-pago.png" alt="Modal Registrar pago con el monto pendiente precargado" />
   </Step>
   <Step title="Confirmá">
     Esto actualiza el estado de la orden y el pago aparece inmediatamente en el historial.
   </Step>
 </Steps>
+
+<Info>
+  En un pago parcial, el monto se imputa **primero al capital** de la orden; los intereses por mora se cobran recién cuando el capital queda cubierto. Al registrar un pago parcial sobre una orden vencida, la mora acumulada se congela para no seguir corriendo sobre lo ya pagado.
+</Info>
 
 ## Devoluciones y Contracargos
 
