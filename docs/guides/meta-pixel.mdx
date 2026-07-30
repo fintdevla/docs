@@ -19,6 +19,8 @@ La configuración es **por evento**: cada evento puede tener su propio píxel y 
   <Step title="Pegá tus IDs">
     - **Meta Pixel ID**: el número de tu píxel (lo encontrás en el [Administrador de eventos de Meta](https://business.facebook.com/events_manager2), en la configuración del píxel o conjunto de datos).
     - **Google Analytics ID** (`G-XXXXXXXXXX`) y/o **Google Tag Manager ID** (`GTM-XXXXXX`), si medís con Google.
+
+    Los campos de la API de Conversiones (Test Event Code y CAPI Access Token) podés dejarlos vacíos.
   </Step>
 
   <Step title="Guardá">
@@ -39,20 +41,41 @@ El ID de transacción evita que una misma compra se cuente dos veces, incluso si
 
 Con **Google Analytics** se registra la navegación y un evento `purchase` con el monto y la transacción; con **Tag Manager**, el mismo evento `purchase` se empuja al `dataLayer` para que lo uses en tus tags.
 
-## API de Conversiones de Meta (opcional)
+## ¿A dónde apunto mis anuncios?
 
-Los campos **Meta CAPI Access Token** y **Meta Test Event Code** corresponden a la [API de Conversiones](https://www.facebook.com/business/help/2041148702652965) de Meta: el envío de la conversión de compra **desde el servidor**, como refuerzo del píxel del navegador (útil cuando bloqueadores o restricciones del browser impiden que el píxel reporte).
+Hay dos formas de armar la campaña, y la atribución funciona distinto en cada una:
 
-- **Access Token**: se genera en el Administrador de eventos de Meta, en la configuración de tu píxel → "API de conversiones".
-- **Test Event Code**: código de prueba para verificar la integración con la herramienta **Test Events** de Meta antes de salir a producción.
+### Anuncio → página del evento en Fint (recomendado)
 
-Los datos personales que acompañan la conversión server-side (email, teléfono, nombre, documento) viajan **hasheados con SHA-256**, siguiendo el estándar de Meta, y el evento usa el mismo ID de transacción que el píxel para deduplicar.
+Usá la **URL pública del evento** (`tuinstitucion.fint.app/eventos/mi-evento`) como destino del anuncio. No hay que hacer nada más: Meta agrega automáticamente el parámetro `fbclid` al link, el píxel lo captura al cargar la página, y el **Purchase queda atribuido a la campaña** de punta a punta.
+
+### Anuncio → tu propia web → página del evento en Fint
+
+Si el anuncio apunta primero a tu sitio (una landing propia) y desde ahí el visitante pasa a Fint, hay un detalle clave: **los parámetros de la campaña no viajan solos entre dominios**. El `fbclid` (y los UTM) quedan en la URL de *tu* web — si el botón "Comprar entradas" linkea a Fint sin ellos, el píxel en la página del evento no puede vincular la compra con el anuncio y la atribución se pierde.
+
+La solución es que tu web **reenvíe los query params** al link de Fint. Si tu página no usa parámetros propios, alcanza con este snippet:
+
+```html
+<a id="comprar-entradas" href="https://tuinstitucion.fint.app/eventos/mi-evento">
+  Comprar entradas
+</a>
+<script>
+  var link = document.getElementById("comprar-entradas");
+  if (window.location.search) {
+    link.href += window.location.search;
+  }
+</script>
+```
+
+<Info>
+  Lo mínimo indispensable para Meta es propagar **`fbclid`**. Si además medís con Google Analytics, propagá también los parámetros **`utm_*`**. Y si tu web tiene instalado el mismo píxel, mejor: Meta ve el recorrido completo.
+</Info>
 
 ## Verificar que funciona
 
 1. Instalá la extensión [Meta Pixel Helper](https://chrome.google.com/webstore/detail/meta-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc) en Chrome y entrá a la página pública de tu evento: deberías ver el **PageView** de tu píxel.
 2. Hacé una compra de prueba y verificá el **Purchase** en la pantalla de confirmación.
-3. En el Administrador de eventos de Meta, los eventos aparecen en la pestaña **"Probar eventos"** (con el Test Event Code) o en el resumen del píxel.
+3. En el Administrador de eventos de Meta, los eventos aparecen en **"Probar eventos"** y en el resumen del píxel.
 
 ## Próximos Pasos
 
