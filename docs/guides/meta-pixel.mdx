@@ -71,6 +71,12 @@ La solución es que tu web **reenvíe los query params** al link de Fint. Si tu 
   Lo mínimo indispensable para Meta es propagar **`fbclid`**. Si además medís con Google Analytics, propagá también los parámetros **`utm_*`**. Y si tu web tiene instalado el mismo píxel, mejor: Meta ve el recorrido completo.
 </Info>
 
+### ¿Y si no reenvío los parámetros?
+
+Puede que igual veas **algunas** conversiones atribuidas en el Ads Manager: si la persona está logueada en Facebook o Instagram en ese mismo navegador, Meta a veces logra vincular la compra al anuncio por sus propios medios. Pero es una atribución **parcial y cada vez menos confiable** — depende de que el usuario esté logueado y de que el navegador no bloquee las cookies de terceros (Safari y Firefox las bloquean por defecto, y Chrome las está restringiendo).
+
+En la práctica: sin el reenvío de parámetros vas a **subcontar** las conversiones de tus campañas, y no de forma pareja — verás resultados erráticos. El `fbclid` propagado convierte la atribución en determinística. Por eso, si podés elegir, el flujo directo (anuncio → página del evento) es siempre la opción más confiable.
+
 ## Verificar que funciona
 
 1. Instalá la extensión [Meta Pixel Helper](https://chrome.google.com/webstore/detail/meta-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc) en Chrome y entrá a la página pública de tu evento: deberías ver el **PageView** de tu píxel.
