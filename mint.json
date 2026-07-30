@@ -76,7 +76,8 @@
           "group": "Eventos",
           "pages": [
             "docs/guides/eventos",
-            "docs/guides/app-admision"
+            "docs/guides/app-admision",
+            "docs/guides/meta-pixel"
           ]
         }
       ]
