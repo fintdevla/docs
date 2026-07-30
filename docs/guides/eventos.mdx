@@ -11,7 +11,11 @@ Organizá eventos y vendé entradas online con página propia, validación QR, c
 
 ## Panel del Módulo
 
-Al entrar al módulo ves dos pestañas: **Eventos** (tus eventos creados) y **Entradas** (todas las entradas vendidas). En la parte superior tenés tres indicadores clave:
+Al entrar al módulo ves tres pestañas: **Eventos** (tus eventos, en una línea de tiempo), **Asistentes** (todas las entradas vendidas) y **Analytics**.
+
+<img src="/docs/images/eventos/listado.png" alt="Listado de eventos en línea de tiempo" />
+
+Al hacer clic en un evento ves su detalle con tres indicadores clave, el gráfico mensual de ventas y el ranking de tipos de entrada más vendidos:
 
 <CardGroup cols={3}>
   <Card title="Ventas" icon="dollar-sign">
@@ -25,7 +29,7 @@ Al entrar al módulo ves dos pestañas: **Eventos** (tus eventos creados) y **En
   </Card>
 </CardGroup>
 
-También vas a ver un gráfico mensual de ventas y un ranking de los tipos de entrada más vendidos.
+<img src="/docs/images/eventos/detalle.png" alt="Detalle del evento con estadísticas de ventas, entradas y admisión" />
 
 ## Crear un Evento
 
@@ -36,12 +40,16 @@ También vas a ver un gráfico mensual de ventas y un ranking de los tipos de en
     Escribí una **descripción** que se va a mostrar en la página pública del evento.
 
     **Imagen del evento**: Subí una imagen representativa que se mostrará en la página pública y en la sección Descubre. Podés usar formatos **cuadrados** (1:1, ej: 1080x1080px) o **rectangulares** (16:9, ej: 1920x1080px). Recomendamos imágenes de alta calidad (mínimo 1000px de ancho) para mejor visualización.
+
+    <img src="/docs/images/eventos/editar.png" alt="Editor del evento: datos generales, entradas, descuentos y opciones" />
   </Step>
 
   <Step title="Agregá las entradas">
     Seleccioná entradas existentes o creá nuevas. Las entradas son [items de tipo Entrada de eventos](/docs/guides/items-descuentos#campos-segun-el-tipo) donde configurás nombre, precio, stock, QR y datos del asistente.
 
     Si querés ofrecer paquetes, creá **combos** que agrupan varias entradas a un precio especial (ej: "Pack Familiar" con 2 adultos + 2 niños).
+
+    <img src="/docs/images/eventos/entradas-config.png" alt="Entradas del evento con stock y precio, y sección de combos" />
   </Step>
 
   <Step title="Agregá descuentos (opcional)">
@@ -54,6 +62,10 @@ También vas a ver un gráfico mensual de ventas y un ranking de los tipos de en
 
   <Step title="Publicá o guardá como borrador">
     Hacé clic en **"Guardar"** para publicar el evento, o en **"Guardar como borrador"** si todavía no está listo para salir.
+
+    Una vez publicado, la página pública queda disponible en tu URL de Fint (ej: `tuinstitucion.fint.app/eventos/mi-evento`) para compartir por donde quieras:
+
+    <img src="/docs/images/eventos/pagina-publica.png" alt="Página pública del evento con las entradas a la venta" />
   </Step>
 </Steps>
 
@@ -67,11 +79,14 @@ Al crear o editar un evento, tenés varias secciones de opciones avanzadas:
 
 <AccordionGroup>
   <Accordion title="Configuración general">
+    <img src="/docs/images/eventos/configuracion-evento.png" alt="Configuración del evento: URL, costo del servicio, expiración del carrito" />
+
     - **URL de página**: Personalizá la URL pública del evento.
     - **Costo del servicio**: Comisión del 5% que podés configurar como **incluido** en el precio o **discriminado** (por separado), tanto para pagos online como manuales.
     - **Tiempo de expiración del carrito**: Minutos que el comprador tiene para completar la compra antes de que se liberen las entradas.
     - **Texto de éxito en email**: Mensaje personalizado que se incluye en el email de confirmación.
     - **Aforo total estimado**: Capacidad máxima del evento.
+    - **Tracking y analítica**: Conectá tu [Meta Pixel, Google Analytics o Tag Manager](/docs/guides/meta-pixel) para medir las conversiones de tus campañas en la página pública.
     - **Mostrar en Descubrir**: Activá este toggle para que el evento aparezca en la sección pública **Descubre** (accesible en `https://fint.app/discover`) donde la gente puede explorar eventos disponibles. Los eventos aparecen con su imagen, título, fecha y ubicación, permitiendo que nuevos compradores encuentren tu evento sin necesitar el link directo. Esta funcionalidad aumenta la visibilidad y puede generar ventas adicionales de público que busca eventos en tu zona.
   </Accordion>
 
@@ -86,7 +101,11 @@ Al crear o editar un evento, tenés varias secciones de opciones avanzadas:
 
     **De los asistentes**, los campos base (nombre, documento, email, teléfono) se configuran en cada entrada desde [Items y Descuentos](/docs/guides/items-descuentos#campos-segun-el-tipo).
 
-    Además, podés crear **campos personalizados** para pedir información específica del evento. Por ejemplo: talle de remera, restricciones alimentarias, "¿Participaste anteriormente?", o cualquier dato que necesites. Cada campo tiene nombre, tipo, si es obligatorio, y a qué tickets aplica.
+    <img src="/docs/images/eventos/pedido-informacion.png" alt="Pedido de información: campos del comprador y de los asistentes" />
+
+    Además, con **"+ Agregar campo"** creás **campos personalizados** para pedir información específica del evento: talle de remera, restricciones alimentarias, "¿Participaste anteriormente?", o cualquier dato que necesites. Cada campo tiene **nombre**, **descripción** opcional (se muestra como ayuda), **tipo de campo** (texto, selección, número, fecha, etc.), si es **obligatorio**, si está **activo**, y a qué entradas **aplica** (todas o algunas).
+
+    <img src="/docs/images/eventos/campo-personalizado.png" alt="Modal para agregar un campo personalizado al evento" />
   </Accordion>
 
   <Accordion title="Mensaje destacado">
@@ -111,7 +130,7 @@ Los eventos pueden estar en dos estados:
 
 ### Validación por QR
 
-Desde la pestaña **Entradas**, usá el botón **"Escanear"** para validar el ingreso:
+Desde la pestaña **Asistentes**, usá el botón **"Escanear"** para validar el ingreso:
 
 - Cada ticket tiene un **QR único**. Si alguien compra 5 entradas, recibe 5 QR diferentes.
 - Al escanear, el sistema muestra los datos del asistente y permite **admitirlo** al instante.
@@ -123,13 +142,19 @@ Desde la pestaña **Entradas**, usá el botón **"Escanear"** para validar el in
 
 ### Gestión de entradas
 
-La pestaña **Entradas** muestra todas las entradas vendidas con su ID (TKT-XXXX), evento, tipo de entrada, comprador, asistente, fecha y estado (No admitido / Admitido). Podés filtrar por evento, tipo de entrada o estado, y **exportar a Excel**.
+La pestaña **Asistentes** muestra todas las entradas vendidas con su ID (TKT-XXXX), evento, tipo de entrada, comprador, asistente, fecha y estado (No admitido / Admitido). Podés filtrar por evento, tipo de entrada o estado, y **exportar a Excel**.
+
+<img src="/docs/images/eventos/entradas.png" alt="Pestaña Asistentes con las entradas vendidas y su estado de admisión" />
+
+<Info>
+  El **comprador** y el **asistente** pueden ser personas distintas: si alguien compra 2 entradas, cada una tiene su propio asistente y su propio QR.
+</Info>
 
 #### Crear entradas manuales
 
 Para crear entradas sin cobro (cortesías, staff, invitados, prensa):
 
-1. Hacé clic en **"+ Crear entrada"** desde la pestaña Entradas
+1. Hacé clic en **"+ Crear entrada"** desde la pestaña Asistentes
 2. Seleccioná el **evento** y el **tipo de entrada**
 3. Completá los datos del **asistente** (nombre, email, documento si es requerido)
 4. Opcionalmente ingresá datos del **comprador** (quien "otorga" la cortesía)

@@ -3,7 +3,7 @@ title: 'Items y Descuentos'
 description: 'Configurá los conceptos que forman parte de las cuotas y los descuentos aplicables'
 ---
 
-Los **items** son lo que cobrás (cuota mensual, matrícula, comedor) y los **descuentos** son las reducciones (becas, hermanos, pago anticipado). Ambos se asignan a clientes y se usan para generar [liquidaciones](/docs/guides/solicitudes-pago).
+Los **items** son lo que cobrás (cuota mensual, matrícula, comedor, un producto online, una entrada) y los **descuentos** son las reducciones (becas, hermanos, pago anticipado). Cada item pertenece a un **canal**: liquidación, venta online o eventos — y eso define cómo llega al cliente.
 
 ## Tutorial en Video
 
@@ -21,6 +21,8 @@ Los **items** son lo que cobrás (cuota mensual, matrícula, comedor) y los **de
 ## Items
 
 Un ítem es un concepto de cobro que se aplica a clientes para generar solicitudes de pago.
+
+<img src="/docs/images/items-descuentos/listado.png" alt="Listado de items: cuotas de liquidación y productos de venta online, con estado y stock" />
 
 ### Tipos de Item
 
@@ -74,7 +76,7 @@ Para activar un item, hacé clic en el menú (⋯) y seleccioná **"Activar item
 
 ### Vigencia
 
-Definí cuándo aplica el item:
+Definí cuándo aplica el item (para items de **Liquidación** y **Venta online** — las entradas de evento no llevan vigencia propia, valen para su evento):
 
 <Tabs>
   <Tab title="Pago Único">
@@ -83,7 +85,7 @@ Definí cuándo aplica el item:
 
   <Tab title="Pago Recurrente">
     El item se cobra periódicamente. Configurás:
-    - **Frecuencia**: Mensual, Trimestral, Semestral o Anual
+    - **Frecuencia**: Mensual o Anual
     - **Mes de inicio**: Desde qué mes comienza a cobrarse
     - **Tipo de duración**: **Definida** (cantidad de cuotas específica) o **Indefinida** (se cobra siempre)
     - **Cantidad de cuotas**: Si elegiste duración definida, cuántas veces se cobra
@@ -93,6 +95,8 @@ Definí cuándo aplica el item:
     </Info>
   </Tab>
 </Tabs>
+
+<img src="/docs/images/items-descuentos/crear.png" alt="Creación de un item de liquidación con vigencia recurrente" />
 
 ### Importar desde Excel
 
@@ -110,9 +114,16 @@ Un descuento reduce el monto final de la solicitud de pago. Puede ser un **valor
   Los descuentos aplican solo a items de tipo **Liquidación** y **Evento**. No se pueden aplicar a items de Venta Online.
 </Warning>
 
+Funcionan distinto según el canal:
+
+- **En liquidaciones**: el descuento se **asigna al cliente** (igual que un item) y se aplica automáticamente en cada orden que genera la liquidación.
+- **En eventos**: funcionan como **códigos de descuento** que el comprador ingresa en el checkout — no se asignan a nadie de antemano.
+
 Cada descuento tiene un **nombre** identificativo (ej: "Beca Académica 50%"), un **valor** (fijo o porcentaje) y la configuración de **a qué items aplica** (específicos o a todos).
 
 Algunos ejemplos: becas académicas o deportivas, descuento por hermanos, pago anticipado, pago en efectivo.
+
+<img src="/docs/images/items-descuentos/descuentos.png" alt="Listado de descuentos con porcentaje y clientes asignados" />
 
 <Info>
   **Ejemplo**: Un cliente tiene cuota mensual ($15.000) + salida escolar ($3.000). Si el descuento por pago en efectivo (10%) aplica solo a la cuota, el total será $13.500 + $3.000 = $16.500.
@@ -120,9 +131,18 @@ Algunos ejemplos: becas académicas o deportivas, descuento por hermanos, pago a
 
 Al igual que los items, los descuentos se crean en **Borrador** y deben activarse manualmente.
 
-## Asignar a Clientes
+## Asignar a Clientes (solo Liquidación)
 
-Tanto items como descuentos se asignan a clientes. Podés hacerlo de varias formas:
+La asignación item–cliente existe **únicamente para items y descuentos de Liquidación**, y es lo que alimenta las [liquidaciones](/docs/guides/solicitudes-pago): al liquidar un período, Fint genera una orden para cada cliente con los items que tenga asignados. Sin asignación, no hay orden.
+
+Los otros dos tipos **no se asignan a nadie**:
+
+- **Venta online**: el item se publica en un [Link de Pago](/docs/guides/links-pago) y el cliente "lo adquiere" recién cuando lo compra. Quien compra queda registrado como comprador de esa orden — no existe una asociación previa.
+- **Entrada de eventos**: se compra desde la página pública del [evento](/docs/guides/eventos), completando los datos del comprador y los asistentes en ese momento.
+
+Por eso, al crear un item, la sección **Clientes** solo aparece si el tipo es Liquidación.
+
+Para los items de liquidación, podés asignar de varias formas:
 
 <CardGroup cols={3}>
   <Card title="Individual" icon="user">
@@ -142,7 +162,9 @@ Tanto items como descuentos se asignan a clientes. Podés hacerlo de varias form
   Al asignar un item desde su panel, podés buscar clientes y filtrarlos por etiquetas. Se muestra un contador de cuántos clientes están seleccionados antes de confirmar.
 </Info>
 
-Para quitar un item de un cliente, entrá al perfil del cliente, ubicá el item en la sección "Items" y eliminalo.
+<img src="/docs/images/items-descuentos/asignar-clientes.png" alt="Selector de clientes con filtro por etiquetas al asignar un item de liquidación" />
+
+Para quitar un item de un cliente, entrá al perfil del cliente, ubicá el item en la sección "Items" y eliminalo. El item deja de facturarse en las próximas liquidaciones.
 
 ## Próximos Pasos
 

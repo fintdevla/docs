@@ -1,9 +1,9 @@
 ---
 title: 'Panel de Inicio'
-description: 'Métricas y estado financiero de tu institución en tiempo real'
+description: 'La foto general de tu cobranza: pagos recibidos, cobrado vs. adeudado y evolución mensual'
 ---
 
-Tu panel principal con una visión completa de la situación financiera. Todos los datos se pueden filtrar por **rango de fechas personalizado**.
+Al entrar a Fint, la pantalla de **Inicio** muestra la evolución de tu cobranza de un vistazo. No requiere configuración: se arma sola con tus órdenes y pagos.
 
 ## Tutorial en Video
 
@@ -18,52 +18,46 @@ Tu panel principal con una visión completa de la situación financiera. Todos l
   style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
 ></iframe>
 
-## Indicadores
+## Primeros pasos
 
-### Estado de Cuentas por Cobrar
+Mientras tu organización se está configurando, el Inicio muestra una **guía de primeros pasos** con el checklist para empezar a cobrar: completar los datos generales, conectar un procesador de pagos, conectar ARCA, crear tu primer evento o liquidación y recibir el primer pago. A medida que completás cada paso, se va marcando solo.
 
-Gráfico principal que muestra:
+<img src="/docs/images/dashboard/inicio-onboarding.png" alt="Checklist de primeros pasos del panel de inicio" />
 
-- **Monto cobrado**: Total de dinero recibido
-- **Monto pendiente**: Total por cobrar
-- **Monto vencido**: Solicitudes que no fueron pagadas a tiempo
+Cuando el checklist se completa, el Inicio pasa a mostrar los gráficos de cobranza.
 
-### Indicadores Financieros
+## Los gráficos
 
-<CardGroup cols={3}>
-  <Card title="Total de Clientes" icon="users">
-    Cantidad de clientes activos e inactivos
+<CardGroup cols={2}>
+  <Card title="Pagos recibidos" icon="credit-card">
+    La plata que entró en los **últimos 30 días**: el total del período y la evolución día por día.
   </Card>
 
-  <Card title="Intereses Cobrados" icon="percent">
-    Monto y porcentaje respecto al total facturado
+  <Card title="Cobrado últimos 12 meses" icon="chart-line">
+    Dos series mensuales: **Total cobrado** (verde) y **Total adeudado** (lo que sigue pendiente de cada mes). Es el gráfico para detectar meses con cobranza floja.
   </Card>
 
-  <Card title="Tiempo Promedio de Cobro" icon="clock">
-    Días promedio entre emisión de factura y pago
+  <Card title="Órdenes de pago creadas" icon="file-invoice">
+    El total facturado por mes en los últimos 12 meses (cobrado + adeudado), para ver la evolución de tu facturación.
+  </Card>
+
+  <Card title="Porcentual cobrado" icon="percent">
+    Qué porcentaje de lo facturado efectivamente cobraste, mes a mes. Un termómetro rápido de la salud de la cobranza.
   </Card>
 </CardGroup>
 
-### Desglose de Deuda
-
-Detalla los saldos adeudados separados por antigüedad, con monto y porcentaje de cada segmento.
-
-<Warning>
-  Los montos vencidos requieren seguimiento inmediato — considerá enviar [recordatorios](/docs/guides/mensajeria) a deudores.
-</Warning>
-
-### Métodos de Pago
-
-Muestra qué métodos usan tus clientes (tarjeta, transferencia, efectivo) con el porcentaje de cada uno.
+<Info>
+  Los gráficos de 12 meses se agrupan por la **fecha de emisión** de cada orden: una cuota de marzo pagada en abril suma como "cobrado" de marzo.
+</Info>
 
 ## Próximos Pasos
 
 <CardGroup cols={3}>
   <Card title="Clientes" icon="users" href="/docs/guides/clientes">
-    Gestiona la información de tus clientes
+    Gestioná la información de tus clientes
   </Card>
   <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    Ve el detalle de cada factura
+    El detalle de cada factura
   </Card>
   <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
     Historial completo de transacciones

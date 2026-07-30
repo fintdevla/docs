@@ -3,67 +3,115 @@ title: 'Bienvenido a Fint'
 description: 'Gestión de cobranzas inteligente para instituciones educativas'
 ---
 
-Fint es la plataforma de gestión de cobranzas inteligente para colegios, universidades, academias y todo tipo de instituciones educativas.
+Fint es la plataforma de gestión de cobranzas para colegios, universidades, academias y todo tipo de instituciones educativas: cuotas, venta online, eventos y suscripciones, con cobro online y seguimiento de deuda en un solo lugar.
 
-<Info>
-  Cada sección incluye un **video tutorial** para ayudarte a aprender paso a paso.
-</Info>
+## ¿Cómo funciona Fint?
 
-## Módulos Principales
+Hay dos maneras de cobrar, y las podés combinar:
 
 <CardGroup cols={2}>
-  <Card title="Panel de Inicio" icon="chart-line" href="/docs/guides/dashboard">
-    Métricas, deudas y tendencias de tu institución
+  <Card title="Cobranza institucional (cuotas)" icon="file-invoice">
+    Definís tus [items](/docs/guides/items-descuentos) (cuota, comedor, matrícula) y se los asignás a tus estudiantes. Cada mes ejecutás una [liquidación](/docs/guides/solicitudes-pago) que genera una orden de pago por estudiante — con descuentos e [intereses por mora](/docs/guides/configuracion#intereses-por-mora) aplicados automáticamente.
   </Card>
 
-  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
-    Clientes, responsables de pago y su información
+  <Card title="Canales de venta" icon="cart-shopping">
+    Publicás [links de pago](/docs/guides/links-pago) para venta online y [suscripciones](/docs/guides/suscripciones), o vendés entradas con [eventos](/docs/guides/eventos). Acá no asignás nada: la gente compra desde una página pública.
   </Card>
+</CardGroup>
 
-  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
-    Donde los contactos consultan deudas y pagan
-  </Card>
+Vengan de donde vengan, todos los cobros terminan en el mismo lugar: las **[órdenes](/docs/guides/solicitudes-pago)** (lo que hay que cobrar) y los **[pagos](/docs/guides/pagos)** (lo que ya entró). Las familias consultan y pagan desde su [Portal de Contacto](/docs/guides/portal-contacto), y si tenés [ARCA conectado](/docs/guides/facturacion-arca), los comprobantes se [emiten solos con reglas](/docs/guides/facturacion).
 
+## Primeros pasos
+
+<Steps>
+  <Step title="Configurá tu organización">
+    Nombre, marca, equipo y recordatorios en [Configuración](/docs/guides/configuracion).
+  </Step>
+  <Step title="Conectá un procesador de pagos">
+    Por ejemplo [Mercado Pago](/docs/guides/conectar-mercado-pago), para cobrar online.
+  </Step>
+  <Step title="Cargá estudiantes e items">
+    Importá tus [estudiantes](/docs/guides/clientes) desde Excel y creá tus [items y descuentos](/docs/guides/items-descuentos).
+  </Step>
+  <Step title="Hacé tu primer cobro">
+    Ejecutá tu primera [liquidación](/docs/guides/solicitudes-pago), o publicá un [link de pago](/docs/guides/links-pago) o [evento](/docs/guides/eventos).
+  </Step>
+</Steps>
+
+<Info>
+  Cada guía incluye capturas reales de la aplicación y, en la mayoría de los casos, un **video tutorial** paso a paso.
+</Info>
+
+## Todas las guías
+
+### Cobranzas
+
+<CardGroup cols={2}>
   <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
-    Conceptos de cuotas y descuentos aplicables
+    Lo que cobrás y las reducciones que aplicás
   </Card>
-
   <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    Generá y enviá liquidaciones a tus clientes
+    Facturación masiva y todas las órdenes de pago
   </Card>
-
   <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
-    Historial de transacciones recibidas
+    Todo lo cobrado: online, manual y conciliado
   </Card>
+  <Card title="Facturación" icon="file-lines" href="/docs/guides/facturacion">
+    Comprobantes de ARCA, automáticos o manuales
+  </Card>
+</CardGroup>
 
+### Estudiantes y familias
+
+<CardGroup cols={2}>
+  <Card title="Estudiantes" icon="users" href="/docs/guides/clientes">
+    Perfiles, etiquetas, responsables de pago y estado financiero
+  </Card>
+  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    Donde las familias consultan deudas y pagan
+  </Card>
+</CardGroup>
+
+### Canales de venta
+
+<CardGroup cols={2}>
   <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
     Vendé productos y servicios online
   </Card>
-
   <Card title="Suscripciones" icon="repeat" href="/docs/guides/suscripciones">
-    Cobros recurrentes periódicos
+    Cobros recurrentes que nacen de un link
   </Card>
-
   <Card title="Eventos" icon="calendar" href="/docs/guides/eventos">
-    Vendé entradas con validación QR
+    Entradas con QR y control de asistentes
   </Card>
+  <Card title="App de Admisión" icon="qrcode" href="/docs/guides/app-admision">
+    El escáner para el día del evento
+  </Card>
+</CardGroup>
 
+### Comunicación y configuración
+
+<CardGroup cols={2}>
   <Card title="Mensajería" icon="envelope" href="/docs/guides/mensajeria">
-    Enviá comunicados y recordatorios
+    Comunicados por email con estadísticas
   </Card>
-
+  <Card title="Panel de Inicio" icon="chart-line" href="/docs/guides/dashboard">
+    La evolución de tu cobranza de un vistazo
+  </Card>
   <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
-    Personalizá tu institución y preferencias
+    Marca, equipo, recordatorios, mora e integraciones
   </Card>
-
-  <Card title="Facturación ARCA" icon="file-invoice" href="/docs/guides/facturacion-arca">
-    Facturación electrónica automática
+  <Card title="Conectar Mercado Pago" icon="credit-card" href="/docs/guides/conectar-mercado-pago">
+    Vinculá tu cuenta y cobrá online en minutos
+  </Card>
+  <Card title="Configurar ARCA" icon="file-invoice" href="/docs/guides/facturacion-arca">
+    Certificados y autorización para facturar
   </Card>
 </CardGroup>
 
 ## Para Desarrolladores
 
-Si necesitás integrar Fint con otros sistemas, visitá nuestra [documentación para desarrolladores](/developers/introduction).
+Si necesitás integrar Fint con otros sistemas, visitá la [documentación para desarrolladores](/developers/introduction) y la [referencia de la API](/api-reference/introduction).
 
 ## Soporte
 

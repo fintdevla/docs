@@ -11,7 +11,30 @@ Las suscripciones se generan automáticamente cuando un comprador adquiere un **
 
 ## Ver suscripciones activas
 
-Las suscripciones se gestionan desde la tab **Suscripciones** dentro del módulo de [Órdenes](/docs/guides/solicitudes-pago). Ahí podés ver el listado completo con cliente, página de origen, intervalo, artículos y estado. Al hacer clic en una, ves su detalle: fecha de inicio, finalización, medio de pago, historial de facturas generadas y calendario de próximas facturas.
+Las suscripciones se gestionan desde la tab **Suscripciones** dentro del módulo de [Órdenes](/docs/guides/solicitudes-pago). Ahí podés ver el listado completo con cliente, página de origen, intervalo, artículos y estado.
+
+<img src="/docs/images/suscripciones/listado.png" alt="Listado de suscripciones con página de origen, intervalo y estado" />
+
+Al hacer clic en una, ves su detalle: fecha de inicio, finalización, medio de pago, historial de facturas generadas, calendario de **próximas facturas** y el registro de actividad (cobros exitosos y fallidos incluidos).
+
+<img src="/docs/images/suscripciones/detalle.png" alt="Detalle de una suscripción: facturas emitidas y próximas facturas proyectadas" />
+
+## Estados
+
+<CardGroup cols={2}>
+  <Card title="Activa" icon="circle-check">
+    Genera una factura por período en la fecha que corresponde
+  </Card>
+  <Card title="Pendiente" icon="clock">
+    Creada pero con el primer cobro aún sin confirmar
+  </Card>
+  <Card title="Finalizada" icon="flag-checkered">
+    Completó todos sus ciclos de cobro
+  </Card>
+  <Card title="Cancelada" icon="xmark">
+    Dada de baja por el administrador — no genera más órdenes
+  </Card>
+</CardGroup>
 
 ## Casos de uso
 
