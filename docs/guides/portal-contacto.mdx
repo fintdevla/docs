@@ -47,13 +47,13 @@ El responsable de pago ve en tiempo real: saldo pendiente, facturas vencidas, pr
 
 ### Descargar comprobantes
 
-Historial completo de pagos realizados con descarga de recibos PDF y detalle de cada factura emitida.
+Historial completo de pagos realizados con el detalle de cada factura. Si tu institución [factura con ARCA](/docs/guides/facturacion), el comprobante en PDF queda disponible para descargar desde el detalle de la factura.
 
 <img src="/docs/images/portal-contacto/historial.png" alt="Historial de facturas pagadas en el portal" />
 
 ### Actualizar datos
 
-El responsable puede modificar su email, teléfono y dirección de facturación.
+El responsable puede modificar su email, su número de WhatsApp y su documento desde el perfil del portal.
 
 ## Personalización
 
@@ -63,7 +63,7 @@ El portal muestra el **logo y nombre** de tu institución, configurados en [Conf
 
 Cuando se realiza un pago desde el portal:
 
-1. El contacto recibe email de confirmación con recibo adjunto
+1. El contacto recibe un email de confirmación del pago
 2. El pago aparece inmediatamente en tu [módulo de Pagos](/docs/guides/pagos)
 3. Se dispara el webhook `payment.created` si tenés [integraciones](/developers/webhooks/1_introduction) configuradas
 
