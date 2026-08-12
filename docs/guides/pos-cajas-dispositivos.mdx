@@ -1,0 +1,136 @@
+---
+title: 'Cajas y dispositivos'
+description: 'Creá cajas, asocialas al punto de venta y prepará Point y QR'
+---
+
+En organizaciones de Argentina, una **caja** vincula el punto de venta con los canales presenciales de Mercado Pago. Puede habilitar un **dispositivo Point**, un **QR** o ambos.
+
+Dentro del POS, **Config → Cajas y dispositivos** resume la caja asociada y la disponibilidad real de cada canal.
+
+<img src="/docs/images/punto-de-venta/caja-del-pos.png" alt="Caja Mostrador principal asociada al punto de venta, sin Point ni QR disponibles" />
+
+## Antes de crear una caja
+
+Point y QR del Punto de Venta están disponibles para organizaciones de **Argentina**. Para usarlos, la organización necesita una conexión activa con Mercado Pago. Si todavía no la tenés, seguí [Conectar Mercado Pago](/docs/guides/conectar-mercado-pago).
+
+La pantalla **Punto de Venta → Cajas y dispositivos** está disponible para administradores. Si la integración no está conectada, Fint muestra un acceso directo a **Integraciones** en lugar de la grilla.
+
+## Crear o asociar una caja
+
+Presioná **Crear caja**. El asistente ofrece dos caminos:
+
+<Tabs>
+  <Tab title="Asociar existente">
+    Usalo si la caja ya existe en la cuenta de Mercado Pago.
+
+    1. Ingresá un nombre para reconocerla en Fint.
+    2. Elegí el punto de venta asignado.
+    3. Seleccioná **Asociar existente**.
+    4. Elegí una caja disponible del proveedor y guardá.
+
+    Las cajas ya vinculadas aparecen deshabilitadas y no se pueden asociar dos veces.
+  </Tab>
+  <Tab title="Crear caja nueva">
+    Usalo para dar de alta los recursos desde Fint.
+
+    1. Ingresá el nombre y elegí el punto de venta.
+    2. Seleccioná **Crear caja nueva** y presioná **Continuar**.
+    3. Elegí una sucursal existente de Mercado Pago o **Crear sucursal nueva**.
+    4. Si creás una sucursal, completá calle, número, ciudad, provincia y ubicación en el mapa.
+    5. Guardá.
+
+    Varias cajas pueden compartir la misma sucursal.
+  </Tab>
+</Tabs>
+
+<Info>
+  Podés dejar la caja sin punto de venta durante el alta y asignarlo después desde su tarjeta. Para que el cajero pueda usarla, debe quedar vinculada al POS correspondiente.
+</Info>
+
+## Administrar una caja
+
+Cada tarjeta muestra:
+
+- El nombre y estado de la caja.
+- El **PDV asignado**.
+- El **dispositivo** asignado y su modo.
+- Alertas de configuración o conexión, cuando corresponda.
+
+Hacé clic en el bloque **PDV asignado** para cambiarlo. Podés elegir un punto de venta o dejar la caja sin asignar.
+
+Desde el menú `…` también podés abrir **Ver detalle** o **Editar** para cambiar el nombre y dejarla activa o inactiva.
+
+El detalle informa además el proveedor, origen de la caja, sucursal, dirección, identificadores del proveedor y disponibilidad real de dispositivo y QR.
+
+## Sincronizar y asignar un dispositivo
+
+<Steps>
+  <Step title="Abrí el selector">
+    En la tarjeta de la caja, hacé clic en el bloque **Dispositivo**.
+  </Step>
+  <Step title="Sincronizá">
+    Presioná **Sincronizar dispositivos** para traer los equipos vinculados a la cuenta del proveedor.
+  </Step>
+  <Step title="Elegí un equipo disponible">
+    Marcá el dispositivo y guardá. Un equipo que ya pertenece a otra caja o que dejó de aparecer en la cuenta no se puede seleccionar.
+  </Step>
+  <Step title="Comprobá el modo">
+    El dispositivo debe estar en **modo de venta (PDV)** para recibir cobros enviados por Fint.
+  </Step>
+</Steps>
+
+<Warning>
+  Cada caja admite un solo dispositivo asignado. Cambiar el equipo libera el anterior antes de asociar el nuevo.
+</Warning>
+
+### Cambiar entre PDV e independiente
+
+Desde el menú del dispositivo podés elegir **Pasar a modo de venta (PDV)** o **Pasar a modo independiente**.
+
+Después de cambiar el modo:
+
+1. Reiniciá el dispositivo físico.
+2. Volvé a **Sincronizar dispositivos**.
+3. Confirmá que Fint ya muestre el modo esperado.
+
+El modo independiente sirve para operar directamente desde el equipo, pero no recibe cobros iniciados desde el POS de Fint.
+
+## Cuándo aparecen Point y QR
+
+Fint usa el estado calculado por el servidor:
+
+- **Dispositivo Point** aparece solo si la conexión está activa, la caja tiene un dispositivo asignado y ese dispositivo está listo en modo PDV.
+- **QR Mercado Pago** aparece solo si la caja tiene un QR provisionado y está operativa para ese canal.
+- **Efectivo** y **Transferencia** siguen disponibles aunque la caja no tenga canales de Mercado Pago listos.
+
+Podés revisar el resumen desde **Config → Cajas y dispositivos** dentro del POS. La tabla separa “Cobro con dispositivo” y “Cobro con QR”, porque una caja puede estar lista para uno y no para el otro.
+
+## Caja de este dispositivo
+
+Si un punto de venta tiene varias cajas, cada navegador elige la suya. En el primer ingreso Fint abre **Seleccionar caja**; después podés cambiarla desde **Config**.
+
+<Warning>
+  La selección es local al navegador. Si una caja fue desasignada del POS, Fint no adopta otra silenciosamente: el cajero debe elegir una caja válida.
+</Warning>
+
+## Cambios de cuenta y recuperación
+
+Si la conexión de una caja queda desconectada, la tarjeta conserva el historial pero bloquea las acciones del proveedor.
+
+Cuando exista una conexión activa nueva, usá **Reconectar caja** para asociarla a una caja existente o crear recursos nuevos sin perder su identidad en Fint.
+
+Si el provisionamiento falla y el servidor marca la caja como recuperable, aparece **Reintentar configuración**.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Hacer una venta" icon="cart-shopping" href="/docs/guides/pos-venta">
+    Usá la caja desde Inicio
+  </Card>
+  <Card title="Medios de cobro" icon="credit-card" href="/docs/guides/pos-cobros">
+    Point, QR y combinados
+  </Card>
+  <Card title="Conectar Mercado Pago" icon="link" href="/docs/guides/conectar-mercado-pago">
+    Revisá la integración
+  </Card>
+</CardGroup>

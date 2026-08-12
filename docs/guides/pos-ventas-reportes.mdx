@@ -1,0 +1,122 @@
+---
+title: 'Ventas y reportes'
+description: 'Consultá operaciones, intentos rechazados, descuentos y resultados por punto de venta'
+---
+
+Fint ofrece dos niveles de seguimiento:
+
+- **Ventas** dentro de cada punto de venta, para la operación diaria.
+- **Reportes**, para analizar uno o todos los puntos de venta de la organización.
+
+## Listado de ventas
+
+Entrá al punto de venta y elegí **Ventas**. La tabla muestra cliente, fecha, medio de pago, importe y estado.
+
+<img src="/docs/images/punto-de-venta/ventas.png" alt="Listado de ventas del POS con búsqueda y filtros" />
+
+Podés buscar por cliente y filtrar por:
+
+- Estado: exitoso, pendiente, parcialmente pagado, cancelado, borrador o rechazado, según los datos disponibles.
+- Medio: efectivo, transferencia, dispositivo, QR, combinado u otros métodos registrados.
+
+<Info>
+  La vista inicial muestra ventas y oculta los intentos fallidos. Para investigarlos, elegí **Rechazado** en el filtro de estado.
+</Info>
+
+## Revisar un intento rechazado
+
+Al seleccionar una fila rechazada, Fint abre **Intento de cobro** con:
+
+- Importe y estado.
+- Motivo del rechazo, si el proveedor lo informó.
+- Método y caja utilizados.
+- Fecha del intento.
+- Los identificadores disponibles de orden, operación y referencia del proveedor.
+
+Podés tocar los identificadores disponibles para copiarlos y buscar el movimiento en el panel de Mercado Pago.
+
+Los intentos vencidos o cancelados no aparecen en ese filtro. **Rechazado** muestra solo los intentos que requieren investigación.
+
+## Resolver verificaciones pendientes
+
+Si un cobro queda en estado incierto, aparece un aviso arriba de la tabla. Presioná **Resolver**, verificá el equipo físico, escribí una nota y elegí **Se aprobó** o **Se rechazó**.
+
+<Warning>
+  La pantalla exige una nota que describa la evidencia observada. Si Mercado Pago ya confirmó un resultado, Fint prioriza esa información y te muestra qué resultado aplicó.
+</Warning>
+
+## Exportar las ventas de un POS
+
+Desde el listado general de puntos de venta, abrí el menú `…` de una tarjeta y elegí **Exportar ventas (Excel)**. Podés indicar **Desde** y **Hasta** o dejar ambos vacíos para incluir todos los períodos.
+
+El archivo se descarga con el nombre del punto de venta para facilitar su archivo y conciliación.
+
+El archivo respeta el alcance del usuario: un cajero sin permiso para ver ventas ajenas exporta solo las operaciones propias de ese POS.
+
+## Reportes generales
+
+Los administradores pueden entrar a **Punto de Venta → Reportes** y elegir un punto de venta particular o ver todos.
+
+El tablero incluye:
+
+<CardGroup cols={2}>
+  <Card title="Resumen" icon="chart-simple">
+    Ventas totales, cantidad de órdenes, unidades y ticket promedio.
+  </Card>
+  <Card title="Evolución" icon="chart-line">
+    Unidades y monto cobrado por día, con vistas de 30 días, 90 días o todo el historial.
+  </Card>
+  <Card title="Productos" icon="ranking-star">
+    Productos más vendidos y un detalle buscable con unidades, órdenes e importe bruto.
+  </Card>
+  <Card title="Medios de pago" icon="chart-pie">
+    Cantidad, monto y participación de cada medio.
+  </Card>
+  <Card title="Descuentos" icon="percent">
+    Total descontado, órdenes con descuento, usos e importe de cada regla.
+  </Card>
+  <Card title="Exportación" icon="file-excel">
+    Excel por rango de fechas para un POS o para todos los seleccionados.
+  </Card>
+</CardGroup>
+
+<img src="/docs/images/punto-de-venta/reportes-tienda-escolar.png" alt="Reporte filtrado por Tienda escolar con ventas, órdenes, unidades, ticket promedio y gráficos" />
+
+### Ver todos o un punto de venta
+
+El selector superior recuerda la última elección en ese navegador. Elegí **Todos los puntos de venta** para el consolidado o uno específico para analizarlo por separado.
+
+<Warning>
+  No se pueden consolidar puntos de venta con monedas diferentes. En ese caso, elegí uno en particular para ver sus resultados.
+</Warning>
+
+## Qué revisar al cerrar el día
+
+<Steps>
+  <Step title="Filtrá rechazos">
+    En **Ventas**, elegí el estado **Rechazado** y revisá si hay intentos que necesiten seguimiento.
+  </Step>
+  <Step title="Resolvé verificaciones">
+    No dejes cobros en “Esperando verificación manual”. Contrastá cada uno con el equipo físico.
+  </Step>
+  <Step title="Compará los medios">
+    En **Reportes**, compará los importes de efectivo, transferencia y Mercado Pago con tu cierre externo. Una venta combinada aparece distribuida entre los medios que la componen.
+  </Step>
+  <Step title="Exportá si necesitás conciliar">
+    Descargá el Excel del período y conservá las referencias del proveedor para cualquier diferencia.
+  </Step>
+</Steps>
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Cobros" icon="credit-card" href="/docs/guides/pos-cobros">
+    Rechazos, cancelación y verificación
+  </Card>
+  <Card title="Descuentos" icon="percent" href="/docs/guides/pos-descuentos">
+    Entendé el total descontado
+  </Card>
+  <Card title="Pagos" icon="receipt" href="/docs/guides/pagos">
+    Historial general de cobros
+  </Card>
+</CardGroup>

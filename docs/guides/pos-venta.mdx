@@ -1,0 +1,112 @@
+---
+title: 'Armar la orden'
+description: 'Armá la orden, elegí al cliente y agregá productos o montos libres'
+---
+
+La pantalla **Inicio** reúne el catálogo a la izquierda y la **Orden actual** a la derecha. El total se actualiza mientras agregás unidades, items libres y descuentos.
+
+<img src="/docs/images/punto-de-venta/venta-orden.png" alt="Orden del POS con productos, cantidades y total" />
+
+## 1. Elegir la caja
+
+Si este navegador todavía no tiene una caja elegida y el POS tiene varias, Fint abre **Seleccionar caja**. Elegí la que corresponde a este mostrador.
+
+La caja determina si después vas a poder elegir Point o QR. Podés cambiarla desde **Config → Caja de este dispositivo** antes de iniciar el cobro.
+
+## 2. Identificar al cliente
+
+La experiencia depende del rol y del medio de pago:
+
+<Tabs>
+  <Tab title="Administrador">
+    En la orden, presioná **Elegir cliente**. Podés buscar un contacto o crearlo sin salir de la venta.
+  </Tab>
+  <Tab title="Cajero">
+    En cobros con Point o QR, elegí o creá el contacto en el paso de pago. Para efectivo o transferencia, Fint puede solicitar los datos del comprador antes de registrar el pago.
+  </Tab>
+  <Tab title="Consumidor final">
+    Si la compra anónima está habilitada y el total no supera el máximo, Fint permite continuar sin seleccionar un contacto.
+  </Tab>
+</Tabs>
+
+<Info>
+  Cuando la venta no califica como Consumidor final, Point y QR requieren un contacto seleccionado.
+</Info>
+
+## 3. Agregar productos
+
+Hacé clic sobre un producto para sumarlo. Podés buscar por nombre, filtrar por grupo y ordenar por:
+
+- Más frecuentes.
+- Recientes.
+- Nombre de producto de A a Z.
+- Categoría de A a Z.
+
+En **Orden actual**, usá `+` y `−` para cambiar la cantidad. Los productos sin stock se muestran deshabilitados y no se pueden agregar.
+
+<Warning>
+  El stock se valida nuevamente al iniciar el checkout. Si cambió desde que abriste el catálogo, Fint identifica el producto sin stock y no crea la sesión de pago.
+</Warning>
+
+## 4. Agregar un item de monto libre
+
+Usá **Item de monto libre** para cobrar algo que no está preparado en el catálogo.
+
+<Steps>
+  <Step title="Abrí el item libre">
+    En la parte inferior de la orden, presioná **Item de monto libre**.
+  </Step>
+  <Step title="Ingresá el valor">
+    Cargá un monto mayor a cero con el teclado en pantalla o el teclado físico.
+  </Step>
+  <Step title="Describilo si hace falta">
+    Presioná **+ Agregar descripción** para poner un concepto reconocible. Si lo dejás vacío, la línea se guarda como “Item de monto libre”.
+  </Step>
+  <Step title="Sumalo">
+    Confirmá con **Agregar item**. Después podés modificar su cantidad desde la orden igual que un producto.
+  </Step>
+</Steps>
+
+<img src="/docs/images/punto-de-venta/monto-libre.png" alt="Carga de un item de monto libre con descripción opcional" />
+
+<Info>
+  Un item de monto libre existe solamente dentro de esa venta: no se agrega al catálogo general ni crea stock.
+</Info>
+
+## 5. Revisar o limpiar la orden
+
+Antes de cobrar, verificá:
+
+- Cliente o Consumidor final.
+- Productos y cantidades.
+- Items de monto libre.
+- Descuentos aplicados y sus importes.
+- Total final.
+
+El ícono de papelera limpia los items, los descuentos y el cliente después de pedir confirmación. Si ya existía una sesión de checkout, Fint la cancela antes de vaciar la orden y libera las reservas.
+
+## 6. Continuar al pago
+
+Presioná **Continuar al pago**. Fint valida de nuevo los descuentos, el total y el stock, crea una sesión temporal y muestra **Método de pago**.
+
+Durante el checkout aparece un contador. Volver a la orden cancela la sesión; si vence, Fint libera la reserva.
+
+Si el navegador se recarga durante un cobro Point o QR, Fint intenta recuperar la sesión de ese mismo navegador en vez de iniciar otra venta encima.
+
+<Warning>
+  La interfaz del POS exige un total mínimo de **30 unidades de la moneda configurada para la organización** para iniciar el cobro.
+</Warning>
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Aplicar descuentos" icon="percent" href="/docs/guides/pos-descuentos">
+    Guardados, manuales y múltiples
+  </Card>
+  <Card title="Cobrar la venta" icon="credit-card" href="/docs/guides/pos-cobros">
+    Elegí el medio y confirmá
+  </Card>
+  <Card title="Configurar catálogo" icon="boxes-stacked" href="/docs/guides/pos-configuracion">
+    Productos y grupos
+  </Card>
+</CardGroup>

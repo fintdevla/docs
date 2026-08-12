@@ -1,0 +1,163 @@
+---
+title: 'Cobrar la venta'
+description: 'Usá efectivo, transferencia, Point, QR o un pago combinado y resolvé excepciones'
+---
+
+Después de presionar **Continuar al pago**, Fint crea una sesión temporal, reserva la orden y muestra únicamente los medios disponibles para la caja elegida.
+
+<img src="/docs/images/punto-de-venta/metodos-pago.png" alt="Medios de pago disponibles en el checkout del POS" />
+
+<Info>
+  En esta captura, **Mostrador principal** no tiene Point ni QR configurados. Por eso Fint ofrece solo efectivo, transferencia y pago combinado. Cada caja muestra únicamente los medios que puede usar.
+</Info>
+
+## Medios disponibles
+
+| Medio | Qué hace Fint | Requisito |
+| --- | --- | --- |
+| **Efectivo** | Registra un pago manual en efectivo | Orden válida; identificación si la venta no es anónima |
+| **Transferencia** | Registra un pago manual identificado como transferencia | Orden válida; identificación si la venta no es anónima |
+| **Dispositivo Point** | Envía el importe al equipo físico y espera su resultado | Caja con dispositivo listo en modo PDV |
+| **QR Mercado Pago** | Muestra el QR de la caja y espera la confirmación | Caja con QR listo |
+| **Combinado** | Reparte el total entre dos o más medios | Las partes deben sumar exactamente el total |
+
+Point y QR no aparecen si la caja actual no está lista para ese canal. Revisá [Cajas y Dispositivos](/docs/guides/pos-cajas-dispositivos) si falta una opción.
+
+## Datos del cliente
+
+Según el rol y la configuración del POS, Fint usa uno de estos caminos:
+
+- **Contacto seleccionado:** la venta queda asociada al cliente elegido en la orden.
+- **Consumidor final:** se permite cuando la compra anónima está habilitada y el total no supera el máximo configurado.
+- **Información del cliente:** si un cajero registra un cobro manual no anónimo, Fint solicita nombre, apellido, email y documento antes de confirmar. Teléfono, dirección y país son opcionales.
+
+## Efectivo o transferencia
+
+<Steps>
+  <Step title="Elegí el medio">
+    Seleccioná **Efectivo** o **Transferencia**.
+  </Step>
+  <Step title="Completá los datos si Fint los solicita">
+    Verificá nombre, apellido, email y documento.
+  </Step>
+  <Step title="Registrá el pago">
+    Presioná **Registrar pago**. La operación queda asentada de inmediato y Fint muestra la confirmación de venta.
+  </Step>
+</Steps>
+
+## Cobrar con dispositivo Point
+
+<Steps>
+  <Step title="Elegí Dispositivo Point">
+    Confirmá que la caja mostrada corresponde a este puesto y presioná **Enviar cobro al dispositivo**.
+  </Step>
+  <Step title="Esperá al equipo">
+    Fint muestra primero “Enviando el cobro”, después “Esperando el dispositivo” y, cuando el equipo lo toma, “El cliente está pagando”.
+  </Step>
+  <Step title="Terminá en el Point">
+    El cliente sigue las instrucciones del equipo. No cierres ni repitas la operación mientras el cobro esté pendiente.
+  </Step>
+  <Step title="Confirmá el resultado">
+    Cuando Mercado Pago lo aprueba, Fint registra la venta automáticamente y abre la pantalla de confirmación.
+  </Step>
+</Steps>
+
+Si el Point no toma el cobro después de unos segundos, revisá que esté encendido y tocá **Actualizar** en el equipo o presioná su botón de encendido.
+
+## Cobrar con QR
+
+Elegí **QR Mercado Pago** y presioná **Generar QR**. Fint muestra el código de la caja y su tiempo restante; el cliente lo escanea desde Mercado Pago y paga.
+
+Mientras el pago se confirma, el QR puede quedar atenuado y Fint sigue consultando el estado. Si vence o es rechazado, podés **Regenerar QR** o **Cambiar método**.
+
+<Warning>
+  Una caja no puede tener dos cobros QR activos al mismo tiempo. Si Fint encuentra uno anterior, muestra **Cancelar el cobro anterior** antes de permitir el nuevo intento.
+</Warning>
+
+## Pago combinado
+
+Seleccioná **Combinado** y distribuí el total entre:
+
+- Efectivo.
+- Transferencia.
+- Dispositivo Point, si está disponible.
+- QR, si está disponible.
+
+Podés escribir cada monto o usar **Resto** para asignar lo que falta a un medio. La pantalla indica **Falta asignar**, **Sobra** o **Listo para cobrar**.
+
+<img src="/docs/images/punto-de-venta/pago-combinado.png" alt="Pago combinado repartido entre varios medios" />
+
+La combinación es válida cuando:
+
+- Usa al menos dos medios con importe mayor a cero.
+- Las partes suman exactamente el total.
+- No incluye Point y QR a la vez: puede haber como máximo un cobro procesado por el proveedor en la venta.
+- La porción de Point o QR, si existe, alcanza el mínimo de 30 unidades de la moneda de la organización.
+
+<Info>
+  Podés combinar efectivo y transferencia, o sumar una de esas partes a Point o QR. Los pagos manuales se registran recién cuando el cobro del proveedor queda aprobado.
+</Info>
+
+## Cancelar un cobro en curso
+
+Mientras Point o QR está en creación, pendiente o en el dispositivo, el botón `×` solicita cancelar **el cobro activo**, no la orden completa.
+
+El resultado puede ser:
+
+- **Cobro abortado:** podés elegir otro medio.
+- **Cancelación pedida:** Fint espera la confirmación del proveedor.
+- **Ya finalizado:** el proveedor ya tenía un resultado definitivo.
+- **Ya aprobado:** no se fuerza la cancelación; Fint conserva la aprobación para evitar inconsistencias.
+
+No inicies otro cobro hasta que Fint muestre el resultado de la cancelación.
+
+## Rechazos y vencimientos
+
+Cuando un cobro no se completa, la pantalla ofrece:
+
+- **Reintentar cobro** para Point.
+- **Regenerar QR** para QR.
+- **Cambiar método** para volver al selector sin perder la orden.
+
+Los intentos rechazados también quedan disponibles en **Ventas** mediante el filtro de estado **Rechazado**, junto con el motivo y las referencias del proveedor.
+
+## Cuando el resultado es incierto
+
+Si Fint no puede determinar si el equipo aprobó o rechazó, el cobro pasa a **Esperando verificación manual**.
+
+<Steps>
+  <Step title="Consultá la terminal física">
+    Revisá el resultado real y el comprobante en el dispositivo. No decidas por el estado visual del navegador solamente.
+  </Step>
+  <Step title="Abrí Ventas">
+    El aviso superior indica que existe un cobro para resolver. Presioná **Resolver**.
+  </Step>
+  <Step title="Dejá evidencia">
+    La pantalla exige una nota, por ejemplo el resultado y número de cupón del equipo.
+  </Step>
+  <Step title="Marcá el resultado">
+    Elegí **Se aprobó** o **Se rechazó**. Si Mercado Pago ya informó un resultado definitivo, Fint conserva ese estado y te lo muestra.
+  </Step>
+</Steps>
+
+## Confirmación y siguiente venta
+
+Al completar el cobro aparece **La venta se registró correctamente**, el nombre del cliente cuando corresponde y el número de operación si está disponible.
+
+<img src="/docs/images/punto-de-venta/venta-completada.png" alt="Confirmación de una venta registrada correctamente" />
+
+Presioná **Crear otra orden** para limpiar el resumen y volver al catálogo.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Ventas y reportes" icon="chart-line" href="/docs/guides/pos-ventas-reportes">
+    Controlá resultados e intentos
+  </Card>
+  <Card title="Descuentos" icon="percent" href="/docs/guides/pos-descuentos">
+    Revisá cómo se calcula el total
+  </Card>
+  <Card title="Cajas y dispositivos" icon="cash-register" href="/docs/guides/pos-cajas-dispositivos">
+    Solucioná medios no disponibles
+  </Card>
+</CardGroup>

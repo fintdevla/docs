@@ -1,0 +1,146 @@
+---
+title: 'Aplicar descuentos'
+description: 'Combiná descuentos guardados y manuales con alcance y condiciones diferentes'
+---
+
+Una misma orden puede tener **varios descuentos**. Cada uno conserva su valor, alcance y regla de activación, por lo que podés descontar productos distintos y sumar además una promoción global.
+
+## Dos formas de descontar
+
+<CardGroup cols={2}>
+  <Card title="Descuento guardado" icon="bookmark">
+    Se configura previamente en **Items → Descuentos**. Es reutilizable, tiene nombre propio y puede definir alcance y una cantidad mínima de activación.
+  </Card>
+  <Card title="Descuento personalizado" icon="calculator">
+    Se crea durante la venta. Puede ser un monto fijo o porcentaje sobre toda la orden o sobre productos concretos.
+  </Card>
+</CardGroup>
+
+## Preparar un descuento guardado
+
+<Steps>
+  <Step title="Creá el descuento">
+    Entrá a **Items → Descuentos**, presioná **Crear** y elegí el tipo **Venta online**. Ese es el tipo que el POS reconoce para descuentos presenciales.
+  </Step>
+  <Step title="Definí sus datos">
+    Ingresá nombre, descripción, valor de **Monto Fijo** o **Porcentaje** y stock disponible.
+  </Step>
+  <Step title="Definí dónde aplica">
+    En **Condiciones**, elegí todos los items, algunos items o todos excepto algunos. Esta selección determina la base sobre la que se calcula el descuento.
+  </Step>
+  <Step title="Agregá una condición de cantidad, si corresponde">
+    Activá **Requerir una cantidad mínima de productos**, ingresá la cantidad y elegí qué productos cuentan para alcanzarla.
+  </Step>
+  <Step title="Activá el descuento">
+    Guardalo y dejalo en estado **Activo**. El POS muestra descuentos de Venta online activos; también valida su stock al usarlos.
+  </Step>
+</Steps>
+
+Encontrás la configuración general en [Items y Descuentos](/docs/guides/items-descuentos).
+
+## Alcance y activación son cosas distintas
+
+Esta separación permite promociones como “llevando dos prendas, 5% sobre toda la compra”:
+
+- **Aplica sobre:** define qué líneas reciben el descuento. En el ejemplo, **Todos los items**.
+- **Cantidad mínima:** define cuándo se habilita. En el ejemplo, `2`.
+- **Productos que cuentan:** define qué unidades activan la regla. En el ejemplo, remera y buzo.
+
+<Info>
+  Los productos que activan la promoción no tienen que ser los mismos que reciben el descuento. Esa diferencia es intencional.
+</Info>
+
+Si no elegís productos calificadores, cuentan todas las unidades de productos del catálogo presentes en la orden. Los items de monto libre no activan esta condición.
+
+<img src="/docs/images/items-descuentos/condicion-cantidad-pos.png" alt="Descuento del cinco por ciento con mínimo de dos productos y Remera escolar y Buzo escolar como calificadores" />
+
+## Aplicar descuentos guardados
+
+<Steps>
+  <Step title="Abrí Descuento">
+    Con productos en la orden, presioná **Descuento**.
+  </Step>
+  <Step title="Elegí todos los necesarios">
+    Hacé clic en cada tarjeta. El ícono de información muestra la regla de alcance y, si existe, la cantidad mínima.
+  </Step>
+  <Step title="Revisá la combinación">
+    La sección **Seleccionados** muestra cada descuento y el importe calculado. Podés quitar uno sin perder los demás.
+  </Step>
+  <Step title="Confirmá">
+    Presioná **Aplicar N descuentos**. Fint solo habilita la acción cuando la combinación es válida.
+  </Step>
+</Steps>
+
+<img src="/docs/images/punto-de-venta/descuentos-guardados.png" alt="Descuentos guardados de la tienda escolar disponibles para combinar" />
+
+Después de elegirlos, revisá la base y el importe de cada regla antes de confirmar:
+
+<img src="/docs/images/punto-de-venta/descuentos-seleccionados.png" alt="Combinación de cuatro descuentos seleccionados antes de aplicarlos" />
+
+## Crear descuentos manuales
+
+Elegí la tarjeta **Descuento personalizado** y completá:
+
+1. **Monto fijo** o **Porcentaje**.
+2. **Aplicar sobre** toda la orden o uno o más productos del catálogo presentes en ella.
+3. El valor; un porcentaje no puede superar el 100%.
+4. Una descripción opcional, útil para identificarlo en la orden. En Reportes, los descuentos manuales se agrupan como **Descuentos manuales**.
+5. **Agregar a la combinación**.
+
+Podés mezclar descuentos manuales con guardados antes de aplicar la combinación, hasta un máximo de 50 descuentos por orden.
+
+<img src="/docs/images/punto-de-venta/descuento-manual.png" alt="Descuento personalizado del diez por ciento aplicado a un producto" />
+
+<Warning>
+  El selector individual del descuento manual lista productos del catálogo. Para incluir también items de monto libre, elegí **Toda la orden**.
+</Warning>
+
+## Cómo se combinan
+
+Fint calcula cada descuento contra su **base original elegible** y suma los importes. No aplica un porcentaje sobre el resultado ya reducido por el descuento anterior.
+
+Este ejemplo fue calculado con una orden de cinco productos:
+
+| Regla | Base | Descuento |
+| --- | ---: | ---: |
+| 25% sobre Libro de actividades | $18.000 | $4.500 |
+| 10% sobre Libro de lectura | $22.000 | $2.200 |
+| 25% sobre Guía de estudio | $20.000 | $5.000 |
+| 5% global, activado por Remera escolar y Buzo escolar | $127.000 | $6.350 |
+
+El subtotal es <strong>&#36;127.000</strong>, los cuatro descuentos suman <strong>&#36;18.050</strong> y el total final es <strong>&#36;108.950</strong>.
+
+<img src="/docs/images/punto-de-venta/descuentos-aplicados.png" alt="Orden con varios descuentos aplicados y total recalculado" />
+
+<Info>
+  Si cambiás una cantidad después de aplicar descuentos, Fint vuelve a pedir una vista previa y recalcula la orden automáticamente.
+</Info>
+
+## Si una regla deja de aplicar
+
+Fint valida la combinación antes de aplicarla y otra vez antes de cobrar. Comprueba las condiciones de cantidad, los productos alcanzados, los topes configurados y que el descuento no supere el importe elegible.
+
+Si una regla deja de aplicar, Fint muestra el motivo —por ejemplo, “Se requieren al menos 2 productos calificadores”— y bloquea la combinación hasta que corrijas la orden o quites esa regla.
+
+## Editar una orden descontada
+
+Desde **Orden actual** podés:
+
+- Abrir otra vez **Descuento** para sumar o quitar reglas.
+- Quitar un descuento individual desde la línea correspondiente.
+- Cambiar cantidades y esperar el recálculo.
+- Limpiar toda la orden, lo que también elimina la combinación.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Hacer una venta" icon="cart-shopping" href="/docs/guides/pos-venta">
+    Productos y monto libre
+  </Card>
+  <Card title="Cobrar" icon="credit-card" href="/docs/guides/pos-cobros">
+    Confirmá el total final
+  </Card>
+  <Card title="Items y Descuentos" icon="percent" href="/docs/guides/items-descuentos">
+    Creá reglas reutilizables
+  </Card>
+</CardGroup>

@@ -1,0 +1,110 @@
+---
+title: 'Catálogo y configuración'
+description: 'Prepará el catálogo, los grupos y las reglas de identificación del comprador'
+---
+
+Cada punto de venta tiene su propio catálogo y organización visual. Esta configuración la realiza un administrador; después, el cajero encuentra todo listo al entrar a **Inicio**.
+
+## Crear el punto de venta
+
+<Steps>
+  <Step title="Abrí Puntos de venta">
+    Entrá a **Punto de Venta → Puntos de venta**.
+  </Step>
+  <Step title="Crealo">
+    Presioná **Crear**, escribí un nombre que identifique el espacio —por ejemplo, “Tienda escolar”— y confirmá con **Crear**.
+  </Step>
+  <Step title="Entrá al espacio de trabajo">
+    Seleccioná la tarjeta del punto de venta. En el menú lateral vas a encontrar **Inicio**, **Items**, **Grupos**, **Ventas** y **Config**.
+  </Step>
+</Steps>
+
+<Info>
+  Desde el menú de la tarjeta también podés **Duplicar** el punto de venta o exportar sus ventas a Excel. La copia sirve como base para otra sede y después se configura por separado.
+</Info>
+
+## Preparar productos
+
+Antes de asociar un producto, [creá un item de Venta online](/docs/guides/items-descuentos#crear-un-item-de-venta-online) con estas características:
+
+- Tipo **Venta online**.
+- Vigencia de **pago único**.
+- Precio y stock correctos.
+
+Antes de asociarlo al POS, dejalo en estado **Activo** para distinguirlo de productos que todavía estás preparando.
+
+Encontrás el resto de la configuración general en [Items y Descuentos](/docs/guides/items-descuentos).
+
+### Agregarlos al POS
+
+<Steps>
+  <Step title="Abrí Items dentro del POS">
+    En el menú lateral del punto de venta, elegí **Items**.
+  </Step>
+  <Step title="Seleccioná el catálogo">
+    Presioná **Agregar**, buscá los productos y marcá todos los que querés incluir. La opción **Seleccionar todos** actúa sobre los resultados visibles de la búsqueda.
+  </Step>
+  <Step title="Guardá">
+    Confirmá con **Guardar**. La tabla muestra producto, precio, stock y estado. Para retirarlo de este POS, abrí su menú y elegí **Quitar del punto de venta**.
+  </Step>
+</Steps>
+
+<img src="/docs/images/punto-de-venta/productos.png" alt="Administración de productos asociados a un punto de venta" />
+
+<Warning>
+  Quitar un producto del punto de venta no elimina el item general ni sus ventas anteriores; solamente deja de ofrecerlo en este POS.
+</Warning>
+
+## Organizar el catálogo con grupos
+
+Los grupos funcionan como filtros rápidos del catálogo: por ejemplo, **Libros** e **Indumentaria**. La pantalla se llama **Grupos** y el formulario usa el término **categoría** para cada grupo.
+
+1. Entrá a **Grupos** y presioná **Nueva categoría**.
+2. Definí un nombre y un color.
+3. Usá **Agregar items** o **Editar items** para elegir los productos del grupo.
+4. Desde el menú de cada tarjeta podés renombrar, cambiar sus items o eliminar el grupo.
+
+Un producto puede pertenecer a más de un grupo. En **Inicio**, el cajero puede filtrar por esos grupos y ordenar el catálogo por frecuencia, uso reciente, nombre o categoría.
+
+<img src="/docs/images/punto-de-venta/grupos.png" alt="Grupos Libros e Indumentaria configurados en la tienda escolar" />
+
+<img src="/docs/images/punto-de-venta/catalogo.png" alt="Catálogo del POS con buscador, grupos y productos disponibles" />
+
+## Configurar la identificación del comprador
+
+Entrá a **Config** para editar el nombre del punto de venta y decidir si se permiten ventas a **Consumidor final**.
+
+<img src="/docs/images/punto-de-venta/configuracion.png" alt="Configuración de compra anónima y límite del punto de venta" />
+
+<Tabs>
+  <Tab title="Con cliente obligatorio">
+    Dejá desactivado **Permitir compra anónima**. Las ventas deben identificar a una persona. El momento y el formulario dependen del rol y del medio de pago.
+  </Tab>
+  <Tab title="Consumidor final">
+    Activá **Permitir compra anónima** y definí el **Monto máximo anónimo**. Si la orden no supera ese tope, Fint muestra “Consumidor final” y permite seguir sin seleccionar un contacto.
+  </Tab>
+</Tabs>
+
+<Info>
+  El administrador puede elegir el contacto mientras arma la orden. El cajero lo selecciona al cobrar con Point o QR; en cobros manuales, Fint puede pedir los datos del comprador en el paso de pago.
+</Info>
+
+## Elegir la caja de esta computadora
+
+Cuando el POS tiene más de una caja, Fint pregunta cuál usa ese dispositivo. También podés cambiarla desde **Config → Cajas y dispositivos → Caja de este dispositivo**.
+
+La elección se guarda localmente en el navegador. Esto permite que dos mostradores entren al mismo POS y cada uno conserve su propia caja.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Cajas y dispositivos" icon="cash-register" href="/docs/guides/pos-cajas-dispositivos">
+    Asociá el mostrador y Point
+  </Card>
+  <Card title="Hacer una venta" icon="cart-shopping" href="/docs/guides/pos-venta">
+    Armá la primera orden
+  </Card>
+  <Card title="Items y descuentos" icon="boxes-stacked" href="/docs/guides/items-descuentos">
+    Administrá catálogo y stock
+  </Card>
+</CardGroup>
