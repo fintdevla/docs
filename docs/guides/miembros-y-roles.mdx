@@ -1,0 +1,128 @@
+---
+title: 'Miembros y roles'
+description: 'Invitá a tu equipo y definí el acceso de administradores, cajeros y acomodadores de evento'
+---
+
+Desde **Configuración → Miembros** los administradores gestionan quién puede entrar al panel y con qué alcance.
+
+Usá un rol de operación para cada tarea. Reservá el rol de administrador para quienes necesiten configurar la organización o administrar al equipo.
+
+## Roles disponibles
+
+| Rol | Experiencia disponible | Alcance que podés definir |
+| --- | --- | --- |
+| **Administrador** | Acceso completo al panel y a la configuración de la organización. | No requiere restricciones adicionales. |
+| **Cajero** | **Puntos de venta** y **Configuración → Mi cuenta**. Dentro de un POS, ve **Inicio** y **Ventas**. | Todos o algunos puntos de venta y cajas; además, visibilidad sobre ventas de otros cajeros. |
+| **Acomodador de evento** | **Eventos** y **Configuración → Mi cuenta**. | Todos los eventos o una selección. También podés guardar el permiso **Ver dinero en estadísticas de eventos**. |
+
+<Info>
+  Un cajero no puede crear ni configurar puntos de venta, productos, grupos o cajas. Prepará esos elementos antes de darle acceso. Un acomodador no recibe una experiencia de Punto de Venta en la interfaz.
+</Info>
+
+## Invitar a una persona
+
+<Steps>
+  <Step title="Abrí Miembros">
+    Entrá a **Configuración → Miembros** y presioná **Invitar**.
+  </Step>
+  <Step title="Ingresá el email y elegí el rol">
+    Escribí el correo de la persona y seleccioná **Administrador**, **Cajero** o **Acomodador de evento**.
+  </Step>
+  <Step title="Definí el alcance del rol">
+    Para cajeros y acomodadores, completá las opciones que aparecen para ese rol antes de enviar la invitación.
+  </Step>
+  <Step title="Enviá la invitación">
+    La persona queda en **Invitaciones pendientes** hasta que acepte el email. Sus permisos se aplican al aceptar la invitación.
+  </Step>
+</Steps>
+
+## Configurar un cajero para Punto de Venta
+
+Al elegir **Cajero**, el formulario muestra tres decisiones:
+
+1. **Acceso a todos los puntos de venta:** activalo para que pueda operar en todos. Si lo desactivás, seleccioná los puntos de venta permitidos.
+2. **Puede usar todas las cajas:** activalo para que use cualquier caja de los puntos de venta a los que tiene acceso. Si lo desactivás, seleccioná las cajas permitidas. La lista se limita a las cajas de los puntos de venta elegidos.
+3. **Ver ventas de otros cajeros:** activalo si debe consultar todas las ventas de sus puntos de venta. Desactivado, el listado de ventas queda limitado a sus propias operaciones.
+
+<img src="/docs/images/configuracion/miembros-invitar-cajero.png" alt="Invitación de un cajero con permisos para puntos de venta, cajas y ventas de otros cajeros" />
+
+Si desactivás el acceso a todos los puntos de venta, aparece el selector para limitarlo a los mostradores correspondientes:
+
+<img src="/docs/images/configuracion/miembros-cajero.png" alt="Configuración de un cajero restringido a puntos de venta seleccionados" />
+
+<Warning>
+  Si restringís puntos de venta o cajas, seleccioná al menos uno antes de enviar la invitación. De lo contrario, el botón para enviar no se habilita.
+</Warning>
+
+Preparación recomendada:
+
+1. [Configurá el catálogo y el comportamiento del POS](/docs/guides/pos-configuracion).
+2. [Creá o asociá las cajas y dispositivos](/docs/guides/pos-cajas-dispositivos).
+3. Invitá al cajero con el alcance correspondiente.
+4. Compartile la guía de [operación diaria del Punto de Venta](/docs/guides/pos-venta).
+
+### Comparar las vistas
+
+<Tabs>
+  <Tab title="Administrador">
+    Dentro del POS ve **Inicio**, **Items**, **Grupos**, **Ventas** y **Config**. Además puede crear puntos de venta, preparar cajas y consultar reportes.
+
+    <img src="/docs/images/punto-de-venta/catalogo.png" alt="Vista del administrador dentro del Punto de Venta con navegación de catálogo y configuración" />
+  </Tab>
+  <Tab title="Cajero">
+    Dentro de un POS permitido ve solamente **Inicio** y **Ventas**. Opera el catálogo preparado por un administrador y no puede abrir la configuración por una URL directa.
+
+    <img src="/docs/images/configuracion/miembros-vista-cajero.png" alt="Vista del cajero dentro del Punto de Venta con navegación limitada a Inicio y Ventas" />
+  </Tab>
+</Tabs>
+
+## Configurar un acomodador de evento
+
+Al elegir **Acomodador de evento**, podés:
+
+- Activar **Acceso a todos los eventos**; o desactivarlo y seleccionar los eventos permitidos.
+- Activar **Ver dinero en estadísticas de eventos**.
+
+<Warning>
+  El permiso **Ver dinero en estadísticas de eventos** se puede guardar, pero la vista actual del acomodador no incluye **Estadísticas**. Activarlo hoy no cambia su interfaz.
+</Warning>
+
+Cuando la invitación se restringe a eventos concretos, Fint abre el paso **Seleccionar eventos**. Elegí al menos uno para poder enviarla.
+
+<img src="/docs/images/configuracion/miembros-acomodador.png" alt="Invitación de un acomodador con permisos de eventos y visibilidad de estadísticas" />
+
+### Qué ve el acomodador
+
+Al ingresar, el acomodador encuentra **Eventos** y **Configuración** en la navegación principal. Dentro de Eventos puede abrir la lista de eventos y **Asistentes**; la configuración queda limitada a **Mi cuenta**.
+
+No ve ni puede abrir el Punto de Venta.
+
+<img src="/docs/images/configuracion/miembros-vista-acomodador.png" alt="Vista del acomodador con acceso a Eventos, Asistentes y Configuración, sin Punto de Venta" />
+
+<Info>
+  Para la operación del día del evento, consultá [Eventos](/docs/guides/eventos) y la [App de Admisión](/docs/guides/app-admision).
+</Info>
+
+## Editar un miembro existente
+
+En la fila de cada miembro, abrí el menú de acciones y elegí **Editar permisos**. Podés cambiar el rol y las opciones que corresponden a ese rol; presioná **Guardar** para aplicar los cambios.
+
+Al pasar una persona a **Administrador**, Fint deja de aplicar sus restricciones de eventos, puntos de venta, cajas y ventas. Al cambiar entre roles operativos, revisá el alcance que aparece en el formulario antes de guardar.
+
+<Warning>
+  La pantalla de edición avisa si un rol restringido quedó sin eventos, puntos de venta o cajas seleccionados. Corregí esa selección antes de guardar para no dejar a la persona sin área de trabajo.
+</Warning>
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Punto de Venta" icon="store" href="/docs/guides/punto-de-venta">
+    Prepará el mostrador y asigná cajeros.
+  </Card>
+  <Card title="Cajas y dispositivos" icon="cash-register" href="/docs/guides/pos-cajas-dispositivos">
+    Definí qué cajas puede usar cada cajero.
+  </Card>
+  <Card title="Eventos" icon="calendar" href="/docs/guides/eventos">
+    Prepará eventos y el acceso del equipo de admisión.
+  </Card>
+</CardGroup>

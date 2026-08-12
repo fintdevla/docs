@@ -70,6 +70,33 @@
     {
       "group": "Canales de Venta",
       "pages": [
+        {
+          "group": "Punto de Venta",
+          "pages": [
+            "docs/guides/punto-de-venta",
+            {
+              "group": "Preparación",
+              "pages": [
+                "docs/guides/pos-configuracion",
+                "docs/guides/pos-cajas-dispositivos"
+              ]
+            },
+            {
+              "group": "Operación diaria",
+              "pages": [
+                "docs/guides/pos-venta",
+                "docs/guides/pos-descuentos",
+                "docs/guides/pos-cobros"
+              ]
+            },
+            {
+              "group": "Seguimiento",
+              "pages": [
+                "docs/guides/pos-ventas-reportes"
+              ]
+            }
+          ]
+        },
         "docs/guides/links-pago",
         "docs/guides/suscripciones",
         {
@@ -92,6 +119,7 @@
       "group": "Configuración",
       "pages": [
         "docs/guides/configuracion",
+        "docs/guides/miembros-y-roles",
         "docs/guides/conectar-mercado-pago",
         "docs/guides/facturacion-arca"
       ]
