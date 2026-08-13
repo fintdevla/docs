@@ -1,0 +1,82 @@
+---
+title: 'Configurar una cuenta bancaria'
+description: 'Registrá la cuenta que vas a usar para importar y conciliar movimientos bancarios'
+---
+
+Creá una cuenta bancaria para indicarle a Fint de qué banco proviene cada extracto que vas a importar.
+
+Esta configuración no conecta Fint con el banco ni descarga movimientos. Después de crearla, vas a subir cada extracto desde **Conciliación → Extractos**.
+
+## Antes de empezar
+
+Necesitás:
+
+- La funcionalidad **Conciliación** activada en **Configuración → Funcionalidades**.
+- Acceso de **Administrador**. Los demás roles no pueden abrir las pantallas ni usar las operaciones de conciliación.
+- Un nombre que permita reconocer la cuenta y el banco al que pertenece.
+
+Fint admite extractos de **ICBC**, **Banco Provincia (BAPRO)**, **BBVA**, **Credicoop** y **Banco Patagonia**.
+
+El nombre y el banco son los únicos datos obligatorios. El CBU, el alias, el CUIT, la razón social y la descripción son opcionales.
+
+## Crear la cuenta
+
+<Steps>
+  <Step title="Abrí Cuentas bancarias">
+    Entrá a **Conciliación → Cuentas bancarias** y presioná **Nueva cuenta**.
+  </Step>
+
+  <Step title="Identificá la cuenta">
+    Completá **Nombre de referencia** y **Banco**.
+
+    Usá un nombre que distinga su función y moneda. Por ejemplo: **Cuenta recaudadora ARS**.
+  </Step>
+
+  <Step title="Agregá los datos útiles">
+    Podés completar una descripción, el CBU, el alias, el CUIT del titular y la razón social.
+
+    En el ejemplo se usa el alias **colegio.modelo.recaudacion** y la descripción “Cuenta destinada a transferencias de cuotas”. No se cargan datos fiscales ni bancarios reales.
+
+    <img src="/docs/images/conciliacion-bancaria/cuenta-bancaria-formulario.png" alt="Formulario de una cuenta recaudadora de ICBC con alias y descripción, sin CBU ni CUIT" />
+  </Step>
+
+  <Step title="Definí si se usa como medio de pago">
+    Activá **Usar como método de pago** solo si la institución también quiere ofrecer esa cuenta al registrar pagos por transferencia.
+
+    Esta opción no es necesaria para importar extractos ni para conciliar. En el ejemplo queda desactivada.
+  </Step>
+
+  <Step title="Guardá y verificá">
+    Presioná **Crear Cuenta**. La tarjeta muestra el nombre, el banco y los datos opcionales que cargaste.
+
+    <img src="/docs/images/conciliacion-bancaria/cuenta-bancaria-creada.png" alt="Tarjeta de la Cuenta recaudadora ARS de ICBC con alias y descripción" />
+  </Step>
+</Steps>
+
+## Qué queda configurado
+
+La cuenta aparece como opción al subir un extracto. El banco elegido define la estructura que Fint espera encontrar en el archivo.
+
+<Warning>
+  Elegí el banco correcto. Si el archivo no respeta la estructura esperada para esa cuenta, la importación puede rechazarse o informar filas que no pudo procesar.
+</Warning>
+
+## Editar o eliminar la cuenta
+
+Usá las acciones de la tarjeta para corregir sus datos o eliminarla.
+
+Al eliminar una cuenta, Fint conserva los extractos que ya fueron importados. La eliminación de la cuenta no sirve para borrar esos movimientos.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Subir un extracto" icon="file-arrow-up" href="/docs/guides/conciliacion-bancaria-extractos">
+    Importá movimientos y seguí su revisión
+  </Card>
+  <Card title="Conciliar un ingreso" icon="link" href="/docs/guides/conciliacion-bancaria">
+    Aplicá una transferencia a una orden
+  </Card>
+  <Card title="Casos frecuentes" icon="circle-question" href="/docs/guides/conciliacion-bancaria-casos-frecuentes">
+    Varias personas, mora y filas que no aparecen
+  </Card>
+</CardGroup>

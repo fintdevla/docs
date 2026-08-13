@@ -1,0 +1,119 @@
+---
+title: 'Conciliar un ingreso'
+description: 'Asigná un ingreso bancario a su responsable y conciliá una orden por el mismo importe'
+---
+
+La conciliación bancaria permite relacionar movimientos del extracto con las órdenes y los pagos de Fint.
+
+En este recorrido, una transferencia de **$75.000,00** paga una única orden por el mismo importe.
+
+Al completar el flujo, Fint registra un pago por transferencia, deja la orden como **Pagada** y cambia el movimiento a **Conciliada**.
+
+```mermaid
+flowchart LR
+  A[En revisión] --> B[Asignar responsable]
+  B --> C[Con sugerencias]
+  C --> D[Revisar orden recomendada]
+  D --> E[Conciliar]
+  E --> F[Conciliada y pago asociado]
+```
+
+## Antes de empezar
+
+Esta guía parte de un movimiento que ya aparece en **Conciliación**.
+
+Si todavía no preparaste el origen, consultá [Configurar una cuenta bancaria](/docs/guides/conciliacion-bancaria-cuentas) y [Subir y seguir un extracto](/docs/guides/conciliacion-bancaria-extractos).
+
+Para seguir el ejemplo, necesitás:
+
+- La funcionalidad **Conciliación** activada en **Configuración → Funcionalidades**.
+- Acceso de **Administrador**. Este primer recorrido no documenta otros roles.
+- Una transferencia entrante en estado **En revisión**.
+- Un responsable de pago cargado. En este caso, Carolina Rodríguez es responsable de Sofía Rodríguez.
+- Una orden **Por Cobrar** cuyo pendiente coincida con la transferencia. En el ejemplo, es **Cuota de agosto 2026** por **$75.000,00**.
+
+Podés consultar cómo administrar responsables en [Clientes](/docs/guides/clientes).
+
+Para revisar órdenes, consultá [Órdenes y Liquidaciones](/docs/guides/solicitudes-pago).
+
+## Conciliar un ingreso exacto
+
+<Steps>
+  <Step title="Abrí el movimiento">
+    Entrá a **Conciliación → Movimientos** y elegí la transferencia de **$75.000,00**.
+
+    El detalle muestra el estado **En revisión** y la sección **Contacto** como **Sin asignar**.
+
+    Antes de avanzar, verificá la fecha, el importe y el concepto del movimiento.
+
+    <img src="/docs/images/conciliacion-bancaria/movimiento-en-revision.png" alt="Movimiento de ingreso por setenta y cinco mil pesos en estado En revisión y sin contacto asignado" />
+  </Step>
+
+  <Step title="Asigná al responsable">
+    En **Contacto**, presioná el lápiz. Buscá “Rodríguez, Carolina”, elegí el resultado y confirmá con **Seleccionar**.
+  </Step>
+
+  <Step title="Revisá la sugerencia">
+    Después de asignar a Carolina, el movimiento cambia a **Con sugerencias**. Fint muestra **Cuota de agosto 2026** seleccionada y con la etiqueta **Recomendado**.
+
+    Comprobá que la orden corresponda a Sofía Rodríguez, continúe **Por Cobrar** y tenga el mismo importe que la transferencia.
+
+    El resumen debe indicar **Total a conciliar: $75.000,00**.
+
+    <img src="/docs/images/conciliacion-bancaria/orden-exacta-seleccionada.png" alt="Orden Cuota de agosto 2026 recomendada y total de setenta y cinco mil pesos listo para conciliar" />
+  </Step>
+
+  <Step title="Conciliá">
+    Presioná **Conciliar**. Fint aplica la sugerencia seleccionada y registra el pago.
+
+    <Warning>
+      Revisá el responsable, la orden y el total antes de continuar. En este flujo, **Conciliar** registra la operación sin una confirmación adicional.
+    </Warning>
+  </Step>
+
+  <Step title="Verificá el resultado">
+    El detalle cambia a **Conciliada** y muestra la sección **Pago Asociado**.
+
+    Allí vas a ver el medio **Transferencia**, el importe de **$75.000,00** y el estado **Exitoso**.
+
+    La orden **Cuota de agosto 2026** queda **Pagada**.
+
+    <img src="/docs/images/conciliacion-bancaria/movimiento-conciliado.png" alt="Movimiento en estado Conciliada con un pago por transferencia asociado" />
+  </Step>
+</Steps>
+
+## Qué cambia al conciliar
+
+| Registro | Antes | Después |
+| --- | --- | --- |
+| Movimiento | **En revisión** o **Con sugerencias** | **Conciliada** |
+| Orden | **Por Cobrar** | **Pagada** |
+| Pago asociado | Sin pago | **Transferencia** · **Exitoso** |
+
+## Alcance de esta guía
+
+Este recorrido cubre una sola transferencia aplicada a una única orden por el importe exacto.
+
+Consultá [Casos frecuentes de conciliación bancaria](/docs/guides/conciliacion-bancaria-casos-frecuentes) para transferencias que reúnen varias órdenes, mora puntual o movimientos que no aparecen.
+
+Quedan fuera de esta primera guía:
+
+- Deudas de varios períodos y mora sobre órdenes parcialmente pagadas.
+- Pagos parciales y diferencias de importe.
+- Otras sugerencias y reglas automáticas.
+- La creación de órdenes desde un movimiento, la vinculación de pagos existentes y la reversión.
+- Egresos, roles y permisos.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Casos frecuentes" icon="circle-question" href="/docs/guides/conciliacion-bancaria-casos-frecuentes">
+    Varias personas, mora y movimientos que no aparecen
+  </Card>
+  <Card title="Subir otro extracto" icon="file-arrow-up" href="/docs/guides/conciliacion-bancaria-extractos">
+    Importá movimientos y seguí su revisión
+  </Card>
+  <Card title="Órdenes" icon="file-invoice" href="/docs/guides/solicitudes-pago">
+    Revisá el saldo y el estado de cada cobro
+  </Card>
+</CardGroup>

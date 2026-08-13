@@ -1,0 +1,117 @@
+---
+title: 'Subir y seguir un extracto'
+description: 'Importá movimientos bancarios y seguí qué ingresos todavía necesitan revisión'
+---
+
+Subí un extracto para convertir sus movimientos en ingresos que puedas revisar y conciliar en Fint.
+
+La tarjeta del archivo separa dos momentos: qué ocurrió durante la **Importación** y cuánto avanzó la **Revisión de ingresos**.
+
+## Antes de empezar
+
+Necesitás:
+
+- La funcionalidad **Conciliación** activada.
+- Acceso de **Administrador**.
+- Una [cuenta bancaria configurada](/docs/guides/conciliacion-bancaria-cuentas).
+- Un extracto del mismo banco que la cuenta, en formato **.xlsx**, **.xls** o **.csv**, de hasta **20 MB**.
+
+## Subir el archivo
+
+<Steps>
+  <Step title="Abrí Extractos">
+    Entrá a **Conciliación → Extractos** y presioná **Subir extracto**.
+  </Step>
+
+  <Step title="Elegí la cuenta">
+    Seleccioná la cuenta bancaria que corresponde al archivo. Fint usa el banco de esa cuenta para interpretarlo.
+  </Step>
+
+  <Step title="Seleccioná el archivo">
+    Arrastrá el archivo al área de carga o hacé clic para buscarlo en tu computadora.
+
+    Verificá el nombre antes de continuar. En el ejemplo se usa **extracto-icbc-septiembre-2026.csv** con dos ingresos de cuotas: **\$45.000,00** y **\$55.000,00**.
+
+    <img src="/docs/images/conciliacion-bancaria/extracto-bancario-seleccionado.png" alt="Diálogo de carga con la Cuenta recaudadora ARS y un extracto CSV de septiembre seleccionado" />
+  </Step>
+
+  <Step title="Iniciá la importación">
+    Presioná **Subir archivo** y esperá a que termine el procesamiento.
+
+    Si el archivo continúa en curso, su tarjeta lo indica. No vuelvas a subirlo mientras esperás.
+  </Step>
+
+  <Step title="Comprobá el resultado">
+    Cuando termina, la tarjeta muestra los importes de ingresos y egresos, el resultado de la importación y el avance de revisión.
+
+    **Importación completada** significa que Fint terminó de leer y guardar el archivo. Las sugerencias pueden aparecer poco después, a medida que Fint analiza los ingresos; no tienen un progreso separado.
+
+    En el ejemplo se importaron dos movimientos, sin duplicados ni advertencias. La revisión empieza en **0/2**.
+
+    <img src="/docs/images/conciliacion-bancaria/extracto-progreso-0-de-2.png" alt="Revisión de ingresos en cero de dos, con dos movimientos importados y cien mil pesos de ingresos" />
+  </Step>
+</Steps>
+
+## Entender la tarjeta del extracto
+
+- **Importación** resume los movimientos guardados, los duplicados omitidos y las advertencias detectadas al leer el archivo.
+- **Revisión de ingresos** muestra cuántos ingresos quedaron conciliados o ignorados sobre el total importado.
+- **Ingresos** suma los movimientos entrantes importados.
+- **Egresos** suma los movimientos salientes importados.
+
+La revisión cuenta solo ingresos no duplicados. Los egresos no aumentan el total y los duplicados omitidos no se vuelven a revisar.
+
+Un ingreso se considera resuelto cuando queda **Conciliado** o **Ignorado**. Asignar un responsable o recibir una sugerencia no completa la revisión por sí solo.
+
+## Seguir el avance
+
+| Avance | Lectura |
+| --- | --- |
+| **0/2** | Hay dos ingresos pendientes de resolver |
+| **1/2** | Uno está conciliado o ignorado y queda uno pendiente |
+| **2/2** | Los dos ingresos están resueltos |
+
+Después de resolver el primer ingreso, la tarjeta avanza a **1/2**.
+
+<img src="/docs/images/conciliacion-bancaria/extracto-progreso-1-de-2.png" alt="Revisión de ingresos en uno de dos después de conciliar el primer movimiento" />
+
+Al resolver el segundo, llega a **2/2**.
+
+<img src="/docs/images/conciliacion-bancaria/extracto-progreso-2-de-2.png" alt="Revisión de ingresos completa en dos de dos" />
+
+Si hay ingresos ignorados, la tarjeta separa cuántos quedaron **conciliados** y cuántos **ignorados**. Por eso **2/2** no significa necesariamente que los dos hayan generado pagos.
+
+## Revisar los movimientos
+
+Entrá a **Conciliación → Movimientos** para trabajar sobre los ingresos importados.
+
+Para el recorrido principal, seguí [Conciliar un ingreso](/docs/guides/conciliacion-bancaria). Volvé a **Extractos** cuando quieras comprobar el avance general del archivo.
+
+## Si la carga no coincide con lo esperado
+
+| Situación | Qué revisar |
+| --- | --- |
+| El archivo sigue procesándose | Esperá a que termine antes de repetir la carga |
+| Fint rechaza el formato | Confirmá que elegiste la cuenta correcta y que el archivo respeta la estructura del banco |
+| El archivo supera el límite | Exportá un período más corto o reducí el archivo para que no supere 20 MB |
+| Aparecen duplicados omitidos | Buscá los movimientos que ya habían sido importados; no repitas la carga a ciegas |
+| Aparecen advertencias | Conservá el original y compará sus filas con los movimientos importados |
+| Un ingreso no aparece | Revisá filtros, duplicados y filas inválidas en [Casos frecuentes](/docs/guides/conciliacion-bancaria-casos-frecuentes#un-movimiento-del-archivo-no-aparece) |
+
+<Warning>
+  Podés eliminar un extracto de Fint únicamente cuando terminó de procesarse y ninguno de sus movimientos fue conciliado. La acción también elimina esos movimientos de la vista de Fint y no se puede deshacer.
+</Warning>
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Conciliar un ingreso" icon="link" href="/docs/guides/conciliacion-bancaria">
+    Asigná un responsable y revisá la orden sugerida
+  </Card>
+  <Card title="Casos frecuentes" icon="circle-question" href="/docs/guides/conciliacion-bancaria-casos-frecuentes">
+    Varias personas, mora y filas que no aparecen
+  </Card>
+  <Card title="Configurar otra cuenta" icon="building-columns" href="/docs/guides/conciliacion-bancaria-cuentas">
+    Registrá el origen de otro banco
+  </Card>
+</CardGroup>
