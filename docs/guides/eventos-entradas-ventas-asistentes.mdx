@@ -1,0 +1,155 @@
+---
+title: 'Entradas, ventas y asistentes'
+description: 'Seguí resultados, gestioná entradas y organizá la admisión de un evento'
+---
+
+Después de publicar, usá **Estadísticas** para seguir resultados y **Asistentes** para operar cada entrada. La configuración del evento sigue a cargo del administrador.
+
+<Info>
+  **Estadísticas** está disponible para administradores. El rol **Acomodador de evento** puede consultar y operar los asistentes de los eventos que tenga asignados.
+</Info>
+
+## Entender las métricas
+
+La vista **Estadísticas** permite combinar uno o varios eventos. Siempre muestra unidades vendidas, entradas vigentes y admisión. Cuando hay información financiera disponible, también muestra el monto bruto total.
+
+<CardGroup cols={2}>
+  <Card title="Monto bruto total" icon="dollar-sign">
+    Total confirmado y no reembolsado. Incluye cargos agregados y descuenta los descuentos aplicados.
+  </Card>
+  <Card title="Unidades vendidas" icon="cart-shopping">
+    Cantidad de productos comprados: entradas individuales y combos.
+  </Card>
+  <Card title="Entradas vigentes" icon="ticket">
+    Entradas emitidas que no están canceladas, comparadas con el aforo si lo configuraste.
+  </Card>
+  <Card title="Admisión" icon="user-check">
+    Entradas admitidas sobre el total de entradas vigentes.
+  </Card>
+</CardGroup>
+
+El monto bruto no descuenta comisiones, impuestos ni retenciones del procesador. Consultá esos importes en el detalle del proveedor de pagos.
+
+Una compra de un combo cuenta como una unidad vendida, pero puede emitir varias entradas. Usá el detalle por tipo para distinguir entradas individuales de las incluidas en combos.
+
+El gráfico muestra la evolución de ventas. Debajo podés alternar entre el detalle por producto y el detalle de entradas vigentes.
+
+<img src="/docs/images/eventos/estadisticas-evento.png" alt="Estadísticas de un evento con unidades vendidas, entradas vigentes y admisión" />
+
+## Buscar y filtrar entradas
+
+En **Asistentes**, cada fila muestra la referencia, el evento, el tipo de entrada, el comprador, el asistente, la fecha y el estado.
+
+Podés buscar por evento, comprador, asistente, referencia o tipo de entrada. También podés filtrar por evento, entrada y estado.
+
+Los estados operativos son:
+
+- **No admitido:** la entrada está vigente y todavía no se registró el ingreso.
+- **Admitido:** el ingreso ya fue registrado.
+- **Cancelado:** la entrada dejó de estar vigente.
+
+En la App de Admisión, estos estados se muestran como **Sin registrar**, **Registrado** y **Cancelado**, respectivamente.
+
+### Exportar como administrador
+
+Presioná **Exportar** para descargar hasta 10.000 entradas o limitar el archivo a un evento. Si activás el filtro de fecha, también podés indicar un período.
+
+## Revisar el detalle de una entrada
+
+Abrí una fila para consultar:
+
+- QR, si el tipo de entrada lo genera, y estado actual.
+- Referencia, evento, fecha, monto y origen manual u online.
+- Actividad de la entrada.
+- Orden y datos de facturación asociados.
+- Datos del asistente y respuestas adicionales.
+- Datos del comprador.
+
+El administrador puede reenviar el email al comprador o al asistente cuando están disponibles el destinatario y el PDF correspondiente.
+
+También podés compartir el PDF individual por WhatsApp si existe un teléfono válido, o descargar el PDF individual y el de la compra completa cuando estén disponibles.
+
+## Crear una entrada manual
+
+Esta acción permite al administrador registrar una entrada fuera del checkout público. Usa un evento activo y un tipo de entrada que ya existe.
+
+<Steps>
+  <Step title="Abrí el alta">
+    En **Asistentes**, presioná **Crear entrada**.
+  </Step>
+  <Step title="Elegí el evento y el tipo">
+    Seleccioná un evento activo. Después elegí uno de sus tipos de entrada existentes.
+  </Step>
+  <Step title="Completá los datos">
+    Ingresá nombre, apellido, documento, email y teléfono. Completá también los campos personalizados obligatorios que correspondan.
+  </Step>
+  <Step title="Registrá el pago">
+    Elegí efectivo, débito, crédito o transferencia y confirmá la fecha del pago.
+  </Step>
+  <Step title="Creá la entrada">
+    Revisá el importe y presioná **Crear Ticket**. El resultado puede tardar unos segundos en aparecer en el listado.
+  </Step>
+</Steps>
+
+<Info>
+  **Crear entrada** registra una operación con un tipo existente. Para crear o cambiar un tipo de entrada, editá la configuración del evento.
+</Info>
+
+## Admitir asistentes
+
+Si el tipo genera QR, cada entrada emitida tiene un código para identificarla. Podés escanearlo desde **Asistentes** o usar la App de Admisión.
+
+Si no podés escanear, buscá la entrada por sus datos y abrí el detalle. Verificá al asistente antes de presionar **Admitir**.
+
+La acción **Habilitar entrada** devuelve una entrada admitida al estado **No admitido**. Usala sólo cuando necesites corregir un registro de ingreso.
+
+<Card title="App de Admisión" icon="mobile" href="/docs/guides/app-admision">
+  Prepará dispositivos, buscá entradas y resolvé incidencias durante el ingreso.
+</Card>
+
+## Cancelaciones y devoluciones
+
+**Cancelar entrada** cambia el ticket a **Cancelado**. Esta acción no equivale a devolver el dinero. Antes del evento, verificá el estado y el procedimiento de admisión con el equipo responsable.
+
+Para una compra online, gestioná el reembolso según el procedimiento del procesador correspondiente.
+
+Después, verificá en Fint el estado del pago y de las entradas asociadas. Si no se actualizaron como esperabas, conservá la referencia de la operación y contactá a soporte.
+
+La guía de [Pagos](/docs/guides/pagos#devoluciones-y-contracargos) explica el seguimiento de devoluciones y contracargos.
+
+## Comunicaciones y facturación
+
+Desde [Mensajería](/docs/guides/mensajeria), podés enviar novedades a compradores de eventos. Cuando corresponda, el mensaje puede incluir las entradas con QR.
+
+La emisión fiscal no se activa por crear un evento. Depende de que la organización tenga ARCA y reglas de facturación configuradas.
+
+<CardGroup cols={2}>
+  <Card title="Facturación" icon="file-invoice" href="/docs/guides/facturacion">
+    Revisá reglas, comprobantes y estados.
+  </Card>
+  <Card title="Configurar ARCA" icon="building-columns" href="/docs/guides/facturacion-arca">
+    Prepará la integración fiscal de la organización.
+  </Card>
+</CardGroup>
+
+## Qué conservan las entradas emitidas
+
+Editar el evento, sus tipos, combos, descuentos o preguntas cambia las ventas futuras. Las operaciones ya realizadas conservan sus importes, comprador, asistente y respuestas.
+
+Algunos datos visibles, como el nombre del evento o del tipo de entrada, pueden reflejar la configuración vigente cuando se consulta o regenera un PDF.
+
+Las acciones sobre una entrada concreta, como admitirla o cancelarla, sí actualizan su estado y quedan registradas en su actividad.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Crear y publicar" icon="calendar-plus" href="/docs/guides/eventos-crear-publicar">
+    Volvé a la preparación del evento.
+  </Card>
+  <Card title="Miembros y roles" icon="users-gear" href="/docs/guides/miembros-y-roles">
+    Definí el acceso del equipo.
+  </Card>
+  <Card title="Mensajería" icon="envelope" href="/docs/guides/mensajeria">
+    Enviá recordatorios y novedades.
+  </Card>
+</CardGroup>

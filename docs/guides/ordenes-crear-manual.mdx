@@ -1,0 +1,91 @@
+---
+title: 'Crear una Orden Manual'
+description: 'Registrá un cobro puntual con un monto o con items disponibles'
+---
+
+Una orden manual sirve para registrar un cobro puntual sin crear una liquidación masiva.
+
+<Info>
+  Crear una orden manual requiere el rol **Administrador**.
+</Info>
+
+## 1. Abrir la creación
+
+Entrá en **Órdenes**, abrí la pestaña del mismo nombre y seleccioná **Crear**.
+
+La primera pantalla pide elegir un tipo:
+
+<CardGroup cols={2}>
+  <Card title="Venta online" icon="cart-shopping">
+    Permite ingresar un monto manual o asignar items de Venta online de pago único.
+  </Card>
+  <Card title="Liquidación" icon="layer-group">
+    Permite asignar items de Liquidación a una orden individual.
+  </Card>
+</CardGroup>
+
+La elección define qué items y opciones aparecen. No crea una liquidación masiva.
+
+<img src="/docs/images/solicitudes-pago/crear-orden-tipo.png" alt="Selector entre una orden manual de Venta online y una orden de Liquidación" />
+
+## 2. Completar los datos
+
+Seleccioná el cliente y revisá la fecha de emisión. Después completá una descripción y elegí la fecha de vencimiento.
+
+La **descripción** y la **fecha de vencimiento** son obligatorias en este formulario.
+
+<Warning>
+  Si falta el cliente, la descripción, el vencimiento o un importe válido, Fint no guarda la orden.
+</Warning>
+
+## 3. Definir el importe
+
+Si elegiste **Venta online**, seleccioná una de estas opciones:
+
+- **Monto manual**: ingresá un importe mayor que cero.
+- **Asignar item**: elegí al menos un item activo de Venta online con pago único.
+
+Los items con stock controlado y agotado no se pueden seleccionar. Los items recurrentes no aparecen en este selector.
+
+<Warning>
+  Crear una orden manual no reserva ni descuenta stock. El stock solo se usa aquí para impedir que selecciones un item controlado que ya está agotado.
+</Warning>
+
+Si elegiste **Liquidación**, agregá al menos un item de Liquidación disponible. En este tipo no aparece la opción Monto manual.
+
+<Info>
+  Actualmente, las órdenes creadas con este formulario se registran en **ARS**.
+</Info>
+
+{/* TODO(captura): Mostrar una orden de Venta online completa con cliente, descripción, vencimiento y Monto manual. */}
+
+<img src="/docs/images/solicitudes-pago/crear-orden.png" alt="Formulario Crear factura de Venta online en Colegio Modelo, con monto manual y la vista previa todavía vacía" />
+
+{/* TODO(captura): Mostrar una orden individual de tipo Liquidación con un item de cuota escolar. */}
+
+## 4. Revisar y guardar
+
+La vista previa se actualiza con los datos del formulario. Revisá cliente, descripción, vencimiento e importe antes de continuar.
+
+El formulario incluye el control **Enviar por correo electrónico**. Dejalo desactivado si solo querés crear el registro.
+
+Seleccioná **Guardar** para crear la orden. Después podés encontrarla en el listado por número, cliente o descripción.
+
+## Importar varias órdenes (avanzado)
+
+La importación puede registrar pagos, activar reglas de facturación ARCA y almacenar el archivo fuente en un servicio remoto.
+
+Antes de usarla, leé la sección [Importar desde Excel](/docs/guides/ordenes-gestionar#importar-desde-excel-avanzado). No la trates como una repetición masiva de este formulario.
+
+<img src="/docs/images/solicitudes-pago/importar-ordenes.png" alt="Modal Importar órdenes de pago con el modelo de Excel disponible para descargar" />
+
+## Próximos pasos
+
+<CardGroup cols={2}>
+  <Card title="Gestionar órdenes" icon="list" href="/docs/guides/ordenes-gestionar">
+    Consultá el resultado y abrí su detalle.
+  </Card>
+  <Card title="Registrar pagos" icon="credit-card" href="/docs/guides/pagos#registrar-pagos-manuales">
+    Asociá un cobro recibido fuera de línea.
+  </Card>
+</CardGroup>

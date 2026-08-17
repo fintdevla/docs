@@ -1,0 +1,276 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Fint",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentacion",
+        "groups": [
+          {
+            "group": "Comenzar",
+            "pages": [
+              "docs/introduction"
+            ]
+          },
+          {
+            "group": "Panel de Control",
+            "pages": [
+              "docs/guides/dashboard"
+            ]
+          },
+          {
+            "group": "Gestión de Clientes",
+            "pages": [
+              "docs/guides/clientes",
+              "docs/guides/clientes-crear-importar",
+              "docs/guides/clientes-familias-responsables",
+              "docs/guides/clientes-estados",
+              "docs/guides/portal-contacto"
+            ]
+          },
+          {
+            "group": "Cobranzas",
+            "pages": [
+              {
+                "group": "Items y descuentos",
+                "pages": [
+                  "docs/guides/items-descuentos",
+                  "docs/guides/items-liquidaciones",
+                  "docs/guides/items-venta-online-stock",
+                  "docs/guides/descuentos"
+                ]
+              },
+              {
+                "group": "Órdenes y liquidaciones",
+                "pages": [
+                  "docs/guides/solicitudes-pago",
+                  "docs/guides/ordenes-gestionar",
+                  "docs/guides/ordenes-crear-manual",
+                  "docs/guides/liquidaciones-crear-revisar",
+                  "docs/guides/liquidaciones-corregir-enviar-cancelar"
+                ]
+              },
+              {
+                "group": "Conciliación bancaria",
+                "pages": [
+                  "docs/guides/conciliacion-bancaria-cuentas",
+                  "docs/guides/conciliacion-bancaria-extractos",
+                  "docs/guides/conciliacion-bancaria",
+                  "docs/guides/conciliacion-bancaria-casos-frecuentes"
+                ]
+              },
+              "docs/guides/cobrar-en-fint",
+              "docs/guides/pagos",
+              "docs/guides/facturacion"
+            ]
+          },
+          {
+            "group": "Canales de Venta",
+            "pages": [
+              {
+                "group": "Punto de Venta",
+                "pages": [
+                  "docs/guides/punto-de-venta",
+                  {
+                    "group": "Preparación",
+                    "pages": [
+                      "docs/guides/pos-configuracion",
+                      "docs/guides/pos-cajas-dispositivos"
+                    ]
+                  },
+                  {
+                    "group": "Operación diaria",
+                    "pages": [
+                      "docs/guides/pos-venta",
+                      "docs/guides/pos-descuentos",
+                      "docs/guides/pos-cobros"
+                    ]
+                  },
+                  {
+                    "group": "Seguimiento",
+                    "pages": [
+                      "docs/guides/pos-ventas-reportes"
+                    ]
+                  }
+                ]
+              },
+              "docs/guides/links-pago",
+              "docs/guides/suscripciones",
+              {
+                "group": "Eventos",
+                "pages": [
+                  "docs/guides/eventos",
+                  "docs/guides/eventos-crear-publicar",
+                  "docs/guides/eventos-entradas-ventas-asistentes",
+                  "docs/guides/app-admision",
+                  "docs/guides/meta-pixel"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Comunicación",
+            "pages": [
+              "docs/guides/mensajeria"
+            ]
+          },
+          {
+            "group": "Configuración",
+            "pages": [
+              "docs/guides/configuracion",
+              "docs/guides/configuracion-general",
+              "docs/guides/configuracion-etiquetas",
+              "docs/guides/configuracion-campos",
+              "docs/guides/miembros-y-roles",
+              "docs/guides/configuracion-recordatorios",
+              "docs/guides/configuracion-mora",
+              "docs/guides/configuracion-integraciones",
+              "docs/guides/configuracion-funcionalidades",
+              "docs/guides/configuracion-desarrolladores",
+              "docs/guides/conectar-mercado-pago",
+              "docs/guides/facturacion-arca"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Desarrolladores",
+        "groups": [
+          {
+            "group": "Comenzar",
+            "pages": [
+              "developers/introduction"
+            ]
+          },
+          {
+            "group": "Contactos",
+            "pages": [
+              "developers/contact/introduction",
+              "developers/contact/life-cycle",
+              "developers/contact/active-status",
+              "developers/contact/portal"
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "developers/webhooks/1_introduction",
+              "developers/webhooks/2_configuration_and_handling",
+              "developers/webhooks/3_structure",
+              "developers/webhooks/4_events",
+              "developers/webhooks/5_security"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Comenzar",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Contactos",
+            "pages": [
+              "api-reference/contactos/obtener-contactos-paginados",
+              "api-reference/contactos/crear-un-nuevo-contacto",
+              "api-reference/contactos/obtener-contacto-por-id",
+              "api-reference/contactos/eliminar-contacto-por-id",
+              "api-reference/contactos/actualizar-contacto-por-id",
+              "api-reference/contactos/obtener-contacto-por-referencia-externa",
+              "api-reference/contactos/agregar-o-eliminar-items-a-un-contacto",
+              "api-reference/contactos/agregar-o-eliminar-items-a-un-contacto-por-documento",
+              "api-reference/contactos/agregar-o-eliminar-tags-a-un-contacto-por-documento",
+              "api-reference/contactos/agregar-o-eliminar-tags-a-un-contacto-por-id",
+              "api-reference/contactos/obtener-estados-activos-para-contactos",
+              "api-reference/contactos/crear-estado-activo",
+              "api-reference/contactos/crear-una-nota-para-un-contacto",
+              "api-reference/contactos/eliminar-una-nota-de-un-contacto"
+            ]
+          },
+          {
+            "group": "Etiquetas",
+            "pages": [
+              "api-reference/etiquetas/obtener-etiquetas-paginadas",
+              "api-reference/etiquetas/crear-nueva-etiqueta"
+            ]
+          },
+          {
+            "group": "Facturas",
+            "pages": [
+              "api-reference/facturas/crear-una-nueva-factura",
+              "api-reference/facturas/obtener-facturas-paginadas",
+              "api-reference/facturas/obtener-una-factura-por-id",
+              "api-reference/facturas/eliminar-una-factura"
+            ]
+          },
+          {
+            "group": "Pagos",
+            "pages": [
+              "api-reference/pagos/obtener-pago-por-id"
+            ]
+          },
+          {
+            "group": "Eventos",
+            "pages": [
+              "api-reference/eventos/buscar-tickets-por-email-del-asistente",
+              "api-reference/eventos/buscar-compras-por-email-del-comprador",
+              "api-reference/eventos/buscar-compras-por-payment-id",
+              "api-reference/eventos/obtener-ticket-de-evento-por-referencia",
+              "api-reference/eventos/actualizar-información-del-asistente-del-ticket",
+              "api-reference/eventos/crear-tickets-manualmente-admin",
+              "api-reference/eventos/obtener-campos-personalizados-de-un-evento"
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "api-reference/webhook/obtener-lista-de-webhooks",
+              "api-reference/webhook/crear-un-nuevo-webhook",
+              "api-reference/webhook/obtener-webhook-por-id",
+              "api-reference/webhook/actualizar-webhook-por-id",
+              "api-reference/webhook/eliminar-webhook-por-id",
+              "api-reference/webhook/obtener-lista-de-registros-de-webhook",
+              "api-reference/webhook/obtener-registro-de-webhook-por-id"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "api": {
+    "openapi": "https://dev.api.fint.app/api/v1/api-docs"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Soporte",
+        "href": "mailto:soporte@fint.app"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Acceder",
+      "href": "https://admin.fint.app"
+    }
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/fint-latam/"
+    }
+  }
+}

@@ -1,130 +1,152 @@
 ---
 title: 'Pagos'
-description: 'Historial y gestión de todos los pagos recibidos'
+description: 'Consultá lo cobrado, registrá pagos manuales y exportá el historial'
 ---
 
-Acá ves todos los pagos recibidos y gestionás devoluciones, exportaciones y pagos manuales.
+Pagos es el historial de lo que ya entró. Una [orden](/docs/guides/solicitudes-pago) registra lo que hay que cobrar; un pago registra el cobro, ya sea online o cargado a mano.
 
-{/* Video desactualizado — descomentar cuando se regrabe
+<Info>
+  Esta guía describe la vista **Administrador**. Registrar, eliminar y exportar son acciones administrativas.
+</Info>
 
-## Tutorial en Video
-
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.loom.com/embed/ecacb709579c45189f96421922f802e9"
-  title="Tutorial Pagos"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
-></iframe>
-
-*/}
-
-## Listado de Pagos
-
-El listado muestra todos los pagos con: cliente, fecha, concepto, medio de pago, importe y estado. Los pagos manuales se distinguen con la marca **(M)** junto al medio de pago.
-
-Usá el **buscador** para encontrar pagos por nombre del cliente, número de transacción, concepto o monto. También podés filtrar por **medio de pago** (tarjeta, transferencia, efectivo), **origen** (Manual u Online), **registrado por** (qué admin lo registró) y **etiquetas** del cliente.
-
-<img src="/docs/images/pagos/listado.png" alt="Listado de pagos con medio de pago, marca de pago manual y estado" />
-
-### Estados de un Pago
+## Cómo se organiza
 
 <CardGroup cols={3}>
-  <Card title="Exitoso" icon="check-circle">
-    El pago se acreditó. Todo pago nace en este estado.
+  <Card title="Listado" icon="list">
+    Buscá por cliente, concepto o referencia y filtrá por medio, origen, quién lo registró o etiquetas.
   </Card>
-
-  <Card title="Reembolsado" icon="rotate-left">
-    El pago fue devuelto desde el procesador
+  <Card title="Detalle" icon="receipt">
+    Abrí un pago para ver importe, medio, estado, quién pagó y las órdenes cubiertas.
   </Card>
-
-  <Card title="Contracargo" icon="exclamation-triangle">
-    El pagador desconoció el pago ante su tarjeta
+  <Card title="Exportar" icon="file-export">
+    Descargá Excel o PDF eligiendo un rango y si filtrás por la fecha del cobro o por la de registro.
   </Card>
 </CardGroup>
 
-## Detalle del Pago
+```mermaid
+flowchart LR
+  A[Orden] --> B[Pago]
+  B --> C[Historial]
+  B --> D[Comprobante fiscal opcional]
+```
 
-Al hacer clic en un pago, accedés a su detalle completo. La información varía según el tipo:
+El comprobante fiscal no nace con el pago. Si tu organización usa ARCA, se gestiona después desde [Facturación](/docs/guides/facturacion).
+
+## Listado
+
+El listado muestra cliente, fecha, concepto, medio de pago, importe y estado. Los pagos cargados a mano se distinguen con **(M)** junto al medio.
+
+El buscador recorre el nombre del cliente, el concepto, la descripción y la referencia del pago.
+
+También podés filtrar por:
+
+- **Medio de pago**
+- **Origen**: Manual u Online
+- **Registrado por**, cuando el pago es manual
+- **Etiquetas** del cliente
+
+<img src="/docs/images/pagos/listado.png" alt="Listado de pagos de Colegio Modelo filtrado por Cuota, con cobros manuales en estado Exitoso" />
+
+### Estados
+
+<CardGroup cols={3}>
+  <Card title="Exitoso" icon="check-circle">
+    El pago quedó acreditado. Es el estado habitual de un cobro confirmado.
+  </Card>
+  <Card title="Reembolsado" icon="rotate-left">
+    El procesador devolvió el pago y Fint lo refleja como VOIDED.
+  </Card>
+  <Card title="Contracargo" icon="exclamation-triangle">
+    El pagador desconoció el cobro ante su tarjeta.
+  </Card>
+</CardGroup>
+
+## Detalle del pago
+
+Al hacer clic en una fila se abre el detalle. La información cambia según el origen:
 
 <Tabs>
-  <Tab title="Pago Manual">
-    Un pago manual muestra: fecha real del pago, fecha de registro en Fint, importe, medio de pago (con indicador "Manual"), estado, quién lo registró, quién pagó y el cliente asociado.
+  <Tab title="Pago manual">
+    Muestra la fecha del cobro, la fecha en que se registró en Fint, el importe, el medio con la marca Manual, el estado, quién lo registró, quién pagó y el cliente asociado.
 
-    También muestra las **órdenes de pago** cubiertas (si fue pago total o parcial).
+    También lista las **órdenes de pago** cubiertas, con el importe imputado a cada una.
 
-    <img src="/docs/images/pagos/pago-detalle.png" alt="Detalle de un pago manual: quién lo registró, quién pagó y las órdenes cubiertas" />
+    <img src="/docs/images/pagos/pago-detalle.png" alt="Detalle de un pago en efectivo manual: fecha del cobro, fecha de registro, quién lo cargó y la orden cubierta" />
 
-    Si registraste un pago por error, podés eliminarlo con el botón **"Eliminar pago manual"**. Esto revierte el pago y restaura el estado de las órdenes asociadas.
+    Si el pago se cargó por error, usá **Eliminar pago manual**. Eso revierte el cobro y vuelve a dejar pendiente lo imputado a las órdenes.
 
     <Warning>
-      Solo los pagos **manuales** se pueden eliminar. Los pagos online deben revertirse desde el procesador de pago.
+      Solo se pueden eliminar pagos **manuales**. Si el pago ya tiene comprobantes emitidos, Fint bloquea la eliminación.
     </Warning>
   </Tab>
 
-  <Tab title="Pago Online">
-    Un pago online muestra: fecha de procesamiento, importe, medio de pago, estado, **número de referencia** (clic para verlo en Mercado Pago/Stripe), quién pagó y el cliente asociado.
+  <Tab title="Pago online">
+    Muestra la fecha de procesamiento, el importe, el medio, el estado, la referencia del procesador, quién pagó y el cliente asociado.
 
-    También muestra las **órdenes de pago** cubiertas.
+    También lista las órdenes cubiertas.
 
     <Info>
-      Los pagos online **no se pueden eliminar** desde Fint. Consultá [Devoluciones y Contracargos](#devoluciones-y-contracargos) para más información.
+      Los pagos online no se eliminan desde Fint. El estado cambia cuando el procesador informa un reembolso o un contracargo.
     </Info>
   </Tab>
 </Tabs>
 
-## Registrar Pagos Manuales
+## Registrar un pago manual
 
-Para registrar un pago en efectivo, transferencia u otro medio fuera de línea:
+Usalo para un cobro en efectivo, transferencia u otro medio que no pasó por el checkout online.
 
 <Steps>
   <Step title="Abrí la orden">
-    Entrá a la orden del cliente (desde el módulo de [Órdenes](/docs/guides/solicitudes-pago) o desde el perfil del cliente).
+    Entrá desde [Órdenes](/docs/guides/ordenes-gestionar) o desde el perfil del cliente.
   </Step>
-  <Step title="Registrá el pago">
-    En la sección **Pagos** del detalle de la orden, hacé clic en **+** y completá los datos: medio de pago (efectivo, tarjeta de débito/crédito o transferencia), fecha y monto. El monto viene precargado con el total pendiente (mora incluida), y podés bajarlo para registrar un **pago parcial**. También elegís qué **contacto** de pago lo realizó.
+  <Step title="Cargá el cobro">
+    En la sección **Pagos** del detalle, usá **+**. Completá medio, fecha y monto. El monto viene precargado con el total pendiente, mora incluida, y podés bajarlo para un **pago parcial**. También elegís qué contacto realizó el pago.
 
-    <img src="/docs/images/pagos/registrar-pago.png" alt="Modal Registrar pago con el monto pendiente precargado" />
+    <img src="/docs/images/pagos/registrar-pago.png" alt="Modal Registrar pago con el monto pendiente precargado, la orden asociada y el contacto de pago" />
   </Step>
   <Step title="Confirmá">
-    Esto actualiza el estado de la orden y el pago aparece inmediatamente en el historial.
+    El pago aparece en el historial y la orden actualiza su pendiente.
   </Step>
 </Steps>
 
 <Info>
-  En un pago parcial, el monto se imputa **primero al capital** de la orden; los intereses por mora se cobran recién cuando el capital queda cubierto. Al registrar un pago parcial sobre una orden vencida, la mora acumulada se congela para no seguir corriendo sobre lo ya pagado.
+  En un pago parcial, el dinero cubre primero el capital. La mora recién se cobra cuando el capital queda cubierto. Si la orden ya estaba vencida, Fint congela la mora acumulada en ese momento para que no siga corriendo sobre lo ya pagado.
 </Info>
 
-## Devoluciones y Contracargos
+## Devoluciones y contracargos
 
-Las devoluciones se gestionan desde el **procesador de pago** (Mercado Pago, Stripe, Pagos Online). Fint escucha los eventos del procesador y actualiza el sistema automáticamente:
+Las devoluciones se gestionan en el **procesador** (Mercado Pago, Stripe, Pagos Online u otro conectado). Fint escucha esos eventos y actualiza el pago:
 
-- **Reembolso**: Fint actualiza el estado del pago. Si estaba asociado a entradas de un evento, las entradas se cancelan.
-- **Contracargo**: Fint detecta los contracargos y los refleja en el sistema.
+- **Reembolso**: el pago pasa a Reembolsado.
+- **Contracargo**: el pago pasa a Contracargo.
 
-## Exportar a Excel
+No hay una acción de reembolso dentro del módulo Pagos.
 
-Hacé clic en **"Exportar"** para descargar los pagos en formato Excel. Podés elegir un **rango de fechas** y si filtrar por la **fecha en que se ejecutó el pago** (fecha real) o la **fecha en que se creó en Fint** (fecha de registro).
+## Exportar
+
+**Exportar** abre un modal para elegir el rango **Desde / Hasta** y el tipo de fecha:
+
+- **En la que se ejecutó el pago**: la fecha real del cobro
+- **En la que se creó el pago**: la fecha de registro en Fint
+
+Podés descargar **Excel** o **PDF**.
 
 <Info>
-  Para pagos manuales, la fecha de ejecución puede ser diferente a la de registro (ej: recibiste un pago el 1 de marzo pero lo registraste el 5).
+  En un pago manual, la fecha de ejecución puede ser distinta de la de registro. Por ejemplo, recibiste el dinero el 1 de marzo y lo cargaste el 5.
 </Info>
 
-La exportación respeta los filtros activos en el listado (medio de pago, origen, registrado por, etiquetas).
+La exportación usa ese rango y, si llegaste al listado desde un evento, también respeta ese recorte. No copia los filtros de medio, origen o etiquetas que tengas activos en la tabla.
 
-## Próximos Pasos
+## Próximos pasos
 
 <CardGroup cols={3}>
-  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    Facturas pendientes de cobro
+  <Card title="Órdenes" icon="file-invoice" href="/docs/guides/ordenes-gestionar">
+    Revisá deudas y registrá el cobro desde la orden
   </Card>
-  <Card title="Panel de Inicio" icon="chart-line" href="/docs/guides/dashboard">
-    Métricas generales
+  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    Cómo pagan las familias sin que vos cargues el cobro
   </Card>
-  <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
-    Pagos por enlaces públicos
+  <Card title="Facturación" icon="file-lines" href="/docs/guides/facturacion">
+    Emití el comprobante fiscal sobre el pago
   </Card>
 </CardGroup>

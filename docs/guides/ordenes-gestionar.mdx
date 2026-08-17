@@ -1,0 +1,117 @@
+---
+title: 'Gestionar Órdenes'
+description: 'Buscá órdenes, interpretá sus estados y revisá su detalle'
+---
+
+Entrá en **Órdenes** y abrí la pestaña del mismo nombre para consultar las órdenes disponibles en el listado general.
+
+<Info>
+  Esta guía describe la vista **Administrador**. Importar, exportar, cancelar órdenes y registrar pagos manuales requieren ese rol.
+</Info>
+
+## Leer el listado
+
+Cada fila muestra el número de orden, la descripción, el vencimiento, el cliente, el importe y el estado.
+
+El buscador reconoce el número de orden, el cliente, la descripción y el nombre de la liquidación. También podés filtrar las órdenes disponibles por **Estado** y **Etiquetas**.
+
+<Warning>
+  Las órdenes canceladas no aparecen en el listado general. Aunque la opción **Cancelada** figure en el filtro, no las recupera en la versión actual.
+</Warning>
+
+<Info>
+  Las órdenes de Evento que siguen Por Cobrar tampoco aparecen en este listado. Consultalas desde el flujo de [Eventos](/docs/guides/eventos) correspondiente.
+</Info>
+
+Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar**.
+
+<img src="/docs/images/solicitudes-pago/ordenes-listado.png" alt="Listado de órdenes de Colegio Modelo, con cuotas de septiembre 2026 por cobrar y ventas de tienda escolar pagadas" />
+
+<Warning>
+  No uses la eliminación en lote. El flujo actual no protege de forma consistente las órdenes con Pago parcial y puede informar éxito aunque alguna operación falle.
+</Warning>
+
+## Estados de una orden
+
+<CardGroup cols={3}>
+  <Card title="Por Cobrar" icon="clock">
+    Conserva un importe pendiente de pago.
+  </Card>
+  <Card title="Pagada" icon="check-circle">
+    El importe quedó cubierto en su totalidad.
+  </Card>
+  <Card title="Pago parcial" icon="circle-half-stroke">
+    Tiene un pago registrado y todavía conserva saldo pendiente.
+  </Card>
+  <Card title="Bonificada" icon="gift">
+    Sus items y descuentos dejaron el total en cero.
+  </Card>
+  <Card title="Vencida" icon="exclamation-triangle">
+    Es un filtro para órdenes Por Cobrar cuya fecha ya pasó.
+  </Card>
+</CardGroup>
+
+<Info>
+  **Vencida** no es un estado independiente. En el listado actual, el filtro considera órdenes Por Cobrar con una fecha anterior a hoy.
+</Info>
+
+## Abrir el detalle
+
+Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones dependen del origen y del estado de la orden.
+
+- **Actividad** reúne los cambios registrados.
+- **Pagos** muestra los cobros asociados y permite registrar uno cuando corresponde.
+- **Items** desglosa cargos, descuentos y total.
+- **Detalle** muestra importe, estado, fechas y descripción o liquidación de origen.
+- **Entradas** aparece cuando la orden tiene compras de un evento asociadas.
+
+<img src="/docs/images/solicitudes-pago/orden-detalle.png" alt="Detalle de la orden POR8LICE-0000 de Valentina Gómez: cuota de septiembre 2026 por cobrar, $55.000" />
+
+## Revisar vencimiento y mora
+
+Cuando corresponde, el detalle separa el importe base, el saldo pendiente y el interés por mora.
+
+La mora depende de que el item permita generarla y de las reglas definidas en [Configuración](/docs/guides/configuracion#intereses-por-mora).
+
+En una orden **Por Cobrar** o todavía no enviada, el detalle puede mostrar el control de mora si alguno de sus items la admite.
+
+{/* TODO(captura): Mostrar una orden vencida con descuento e interés por mora, usando el mismo dataset 2027 del resto de las guías. */}
+
+## Registrar un pago
+
+Desde **Pagos**, usá el botón **+** para registrar un cobro manual cuando la orden esté Por Cobrar o tenga Pago parcial.
+
+Consultá medios, importe pendiente y comportamiento de pagos parciales en la [guía de Pagos](/docs/guides/pagos#registrar-pagos-manuales).
+
+## Exportar
+
+Usá **Exportar** para descargar las órdenes. El modal permite elegir fechas, items, etiquetas, liquidaciones y estados antes de generar el archivo.
+
+## Importar desde Excel (avanzado)
+
+La importación crea varias órdenes desde el modelo `.xlsx` disponible en el modal. No es una versión masiva del formulario manual: algunas columnas ejecutan acciones adicionales.
+
+<Warning>
+  Si una fila incluye **Fecha Pago** y **Medio de Pago**, Fint crea la orden como Pagada y registra el pago. Ese evento puede activar una regla automática de facturación ARCA.
+</Warning>
+
+<Warning>
+  El archivo fuente queda almacenado en el servicio remoto de archivos configurado para Fint. No se usa solo de forma temporal durante la importación.
+</Warning>
+
+Antes de seleccionar **Importar**, revisá todas las filas y las reglas de facturación de la organización. Si solo querés crear órdenes pendientes, dejá vacías ambas columnas de pago.
+
+Descargá siempre el modelo actual desde el modal. El importador acepta archivos `.xlsx`.
+
+<img src="/docs/images/solicitudes-pago/importar-ordenes.png" alt="Modal Importar órdenes de pago, con la opción de descargar el modelo de Excel y sin archivo seleccionado" />
+
+## Próximos pasos
+
+<CardGroup cols={2}>
+  <Card title="Crear una orden manual" icon="pen" href="/docs/guides/ordenes-crear-manual">
+    Registrá un cobro puntual.
+  </Card>
+  <Card title="Liquidar un período" icon="layer-group" href="/docs/guides/liquidaciones-crear-revisar">
+    Prepará órdenes en lote desde items asignados.
+  </Card>
+</CardGroup>

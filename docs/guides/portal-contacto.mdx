@@ -1,21 +1,21 @@
 ---
 title: 'Portal de Contacto'
-description: 'Donde los contactos consultan deudas, pagan online y descargan comprobantes'
+description: 'Donde los responsables consultan deudas, pagan online y descargan comprobantes'
 ---
 
-El Portal de Contacto es la página que ven tus clientes y sus contactos. Desde ahí consultan su estado de cuenta, pagan online y descargan comprobantes.
+El Portal de Contacto es la página que usan los responsables de pago. Desde ahí consultan el estado de cuenta de las personas vinculadas, pagan online y descargan comprobantes.
 
 ## Acceso
 
-Cada contacto accede a través de un **link único** — no necesita registro ni contraseña.
+Cada responsable accede a través de un **link único** — no necesita registro ni contraseña.
 
 <CardGroup cols={2}>
-  <Card title="Enviar por email" icon="envelope">
-    Desde el perfil del cliente, enviá el enlace automáticamente.
+  <Card title="Ir al portal" icon="arrow-up-right-from-square">
+    Desde **Contactos** en el perfil del cliente, abrí el menú del responsable y elegí esta acción.
   </Card>
 
-  <Card title="Compartir manualmente" icon="share">
-    Copiá el enlace y compartilo por WhatsApp, SMS o cualquier medio.
+  <Card title="Enviar por email" icon="envelope">
+    En el mismo menú, elegí **Enviar mail con link al portal** si el responsable tiene email.
   </Card>
 </CardGroup>
 
@@ -23,21 +23,23 @@ Cada contacto accede a través de un **link único** — no necesita registro ni
   Si un contacto tiene **varios hijos** en la institución, ve el estado de cuenta de todos en un **portal unificado**.
 </Info>
 
-Si el contacto pierde el link, puede recuperarlo desde la página de la institución ingresando su **número de documento**: el portal lo busca y lo redirige a su estado de cuenta.
+<img src="/docs/images/clientes/portal-familia.png" alt="Perfil del Portal de Contacto con Paula Montes y los estudiantes Sofía y Tomás" />
+
+Si el contacto pierde el link, puede recuperarlo desde la página de la institución con su **número de documento**. Si la búsqueda encuentra más de un portal, la persona puede tener que elegir el acceso correspondiente.
 
 ## ¿Qué puede hacer el contacto?
 
 ### Consultar deudas
 
-El responsable de pago ve en tiempo real: saldo pendiente, facturas vencidas, próximos vencimientos e intereses acumulados. Si una factura está vencida, el monto ya incluye el **recargo por mora** calculado al momento.
+El responsable de pago consulta el saldo pendiente, las facturas vencidas, los próximos vencimientos y los intereses acumulados. Si una factura está vencida, el monto ya incluye el **recargo por mora** calculado al momento.
 
 <img src="/docs/images/portal-contacto/pendientes.png" alt="Portal de contacto: factura vencida con recargo por mora incluido" />
 
 ### Pagar online
 
-1. Seleccioná una, varias, o todas las facturas pendientes
-2. Elegí el método de pago (tarjeta, transferencia, Rapipago, Pago Fácil — según el procesador que tengas [configurado](/docs/guides/configuracion))
-3. Completá el pago con confirmación inmediata
+1. Seleccioná una o más facturas sin saltear las pendientes más antiguas
+2. Elegí uno de los medios de pago que la institución tenga [configurado](/docs/guides/configuracion)
+3. Completá el recorrido del medio elegido y esperá la confirmación del pago
 
 <img src="/docs/images/portal-contacto/medios-pago.png" alt="Selección del medio de pago en el portal" />
 
@@ -47,36 +49,36 @@ El responsable de pago ve en tiempo real: saldo pendiente, facturas vencidas, pr
 
 ### Descargar comprobantes
 
-Historial completo de pagos realizados con descarga de recibos PDF y detalle de cada factura emitida.
+En **Historial** aparecen las facturas pagadas o bonificadas. Cuando hay un comprobante disponible, podés descargar el emitido por Fint o el fiscal de ARCA, según la configuración.
 
 <img src="/docs/images/portal-contacto/historial.png" alt="Historial de facturas pagadas en el portal" />
 
 ### Actualizar datos
 
-El responsable puede modificar su email, teléfono y dirección de facturación.
+El Portal muestra una acción para editar los datos del responsable. La edición de email sin un número de WhatsApp registrado tiene una limitación conocida; verificá ambos datos desde **Contactos** antes de compartir el acceso.
 
 ## Personalización
 
-El portal muestra el **logo y nombre** de tu institución, configurados en [Configuración](/docs/guides/configuracion). También muestra tu email y WhatsApp de soporte.
+El portal muestra el **logo y nombre** de tu institución, configurados en [Configuración](/docs/guides/configuracion). También puede mostrar tu email y WhatsApp de soporte, si están configurados.
 
 ## Notificaciones
 
 Cuando se realiza un pago desde el portal:
 
-1. El contacto recibe email de confirmación con recibo adjunto
-2. El pago aparece inmediatamente en tu [módulo de Pagos](/docs/guides/pagos)
-3. Se dispara el webhook `payment.created` si tenés [integraciones](/developers/webhooks/1_introduction) configuradas
+1. El contacto puede recibir un email de confirmación; el comprobante no se adjunta y se descarga desde **Historial**
+2. El pago se registra en tu [módulo de Pagos](/docs/guides/pagos) cuando queda confirmado
+3. Se dispara el webhook `payment.created` si configuraste un webhook suscripto a ese evento
 
-## Próximos Pasos
+## Próximos pasos
 
 <CardGroup cols={3}>
-  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
-    Gestioná perfiles y enviá enlaces
+  <Card title="Familias y responsables" icon="users" href="/docs/guides/clientes-familias-responsables">
+    Definí quién accede a cada portal
   </Card>
-  <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
-    Personalizá tu marca
+  <Card title="Cobrar en Fint" icon="wallet" href="/docs/guides/cobrar-en-fint">
+    Elegí portal, carga manual u otro canal
   </Card>
   <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
-    Visualizá pagos recibidos
+    Consultá los cobros confirmados
   </Card>
 </CardGroup>

@@ -1,0 +1,94 @@
+---
+title: 'Crear e importar clientes'
+description: 'Cargá un cliente manualmente o incorporá una nómina desde Excel'
+---
+
+Al terminar esta guía, vas a tener clientes visibles en el listado y sabrás qué comprobar antes de empezar a asignarles items y órdenes.
+
+## Elegí el método de carga
+
+<Tabs>
+  <Tab title="Alta manual" icon="user-plus">
+    Usala para una persona o para corregir un caso puntual desde la interfaz.
+  </Tab>
+  <Tab title="Importación" icon="file-import">
+    Usala para cargar una nómina preparada con la plantilla de Fint en formato `.xlsx`.
+  </Tab>
+</Tabs>
+
+## Crear un cliente manualmente
+
+<Steps>
+  <Step title="Abrí el formulario">
+    Entrá a **Clientes**, presioná **Crear** y elegí **Crear cliente**. Si el módulo se llama Estudiantes, la opción usa ese nombre.
+  </Step>
+  <Step title="Completá los datos">
+    Ingresá nombre y apellido. Son los únicos datos obligatorios para habilitar el alta. El documento y el email son opcionales.
+  </Step>
+  <Step title="Revisá antes de crear">
+    Confirmá la escritura del nombre y buscá a la persona en el listado si podría existir. El alta manual no garantiza la detección de duplicados por documento o email.
+  </Step>
+  <Step title="Creá el perfil">
+    Presioná **Crear cliente**. Fint agrega el registro y lo deja disponible para abrirlo desde el listado.
+  </Step>
+</Steps>
+
+<img src="/docs/images/clientes/crear-cliente.png" alt="Formulario Crear estudiante con Sofía Montes y el email opcional, en modo oscuro" />
+
+<Info>
+  Crear un cliente no crea automáticamente un responsable de pago ni un acceso al portal. Hacé esa configuración desde **Contactos** en el perfil.
+</Info>
+
+Después del alta, abrí el perfil para agregar etiquetas, completar datos y [organizar responsables o familiares](/docs/guides/clientes-familias-responsables).
+
+## Importar una nómina desde Excel
+
+La importación acepta archivos `.xlsx`. El archivo debe respetar la plantilla disponible en el modal; no hay una pantalla posterior para mapear columnas.
+
+<Warning>
+  La importación interpreta cada dato por su posición. Descargá la plantilla actual y conservá el orden de las columnas al completarla.
+</Warning>
+
+<Steps>
+  <Step title="Descargá el modelo">
+    Entrá a **Clientes**, presioná **Crear → Importar excel** y elegí **Descargar modelo de Excel**.
+  </Step>
+  <Step title="Completá la plantilla">
+    Cargá cada fila siguiendo los ejemplos y requisitos del archivo. No cambies el orden de las columnas.
+  </Step>
+  <Step title="Seleccioná el archivo">
+    Volvé a **Importar clientes**, elegí el `.xlsx` completo y comprobá que el nombre aparezca como archivo seleccionado.
+  </Step>
+  <Step title="Definí el email de bienvenida">
+    Si activás esta opción, los responsables de pago importados que tengan email pueden recibir el enlace a su Portal de Contacto.
+  </Step>
+  <Step title="Iniciá la importación">
+    Presioná **Importar**. Fint procesa la carga de forma asincrónica; que el archivo haya sido aceptado no confirma por sí solo que todas las filas terminaron correctamente.
+  </Step>
+</Steps>
+
+<img src="/docs/images/clientes/importar-excel.png" alt="Modal de importación con acceso a la plantilla, archivo XLSX y opción de bienvenida" />
+
+## Comprobar el resultado
+
+Después de iniciar la importación, volvé al listado y buscá algunos registros del inicio, del medio y del final de la planilla. Comprobá que estén creados antes de continuar con la configuración.
+
+Abrí esos perfiles y verificá nombre, documento, etiquetas y responsables. Si Fint informa errores de filas o columnas, corregí el archivo y reintentá la carga.
+
+<Info>
+  El email de bienvenida corresponde al responsable de pago con email. No supone que cada cliente tenga un correo propio ni reemplaza la comprobación del portal.
+</Info>
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Familias y responsables" icon="users" href="/docs/guides/clientes-familias-responsables">
+    Definí quién paga y qué clientes están relacionados.
+  </Card>
+  <Card title="Condición y estado" icon="circle-check" href="/docs/guides/clientes-estados">
+    Aprendé a seguir altas, bajas y situación financiera.
+  </Card>
+  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
+    Asigná los conceptos que correspondan.
+  </Card>
+</CardGroup>

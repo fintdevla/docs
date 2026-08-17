@@ -1,0 +1,116 @@
+---
+title: 'Venta online y stock'
+description: 'Prepará productos o servicios para Links de Pago y Punto de Venta'
+---
+
+Un item de **Venta online** sirve para ofrecer un producto o servicio en un Link de Pago o en el Punto de Venta.
+
+El canal y la vigencia deben ser compatibles. Un Link de Pago admite cobro único o recurrente; el catálogo del Punto de Venta usa items de pago único.
+
+## Elegir el destino
+
+<CardGroup cols={3}>
+  <Card title="Link de pago único" icon="link">
+    El comprador elige el item y lo paga una sola vez.
+  </Card>
+  <Card title="Link recurrente" icon="repeat">
+    La compra inicia una suscripción mensual o anual.
+  </Card>
+  <Card title="Punto de Venta" icon="cash-register">
+    El item debe ser de Venta online, estar configurado como pago único y tener stock disponible.
+  </Card>
+</CardGroup>
+
+## Crear el item
+
+<Steps>
+  <Step title="Abrí el alta">
+    Entrá a **Items**, presioná **Crear item** y elegí **Venta online**.
+  </Step>
+  <Step title="Presentá el producto">
+    Escribí un nombre claro y una descripción breve. Sumá una imagen si también querés identificarlo visualmente en el Punto de Venta.
+  </Step>
+  <Step title="Definí precio y stock">
+    Ingresá un monto mayor que cero y el stock inicial disponible.
+  </Step>
+  <Step title="Elegí la vigencia">
+    Usá pago único para una compra aislada o configurá una recurrencia mensual o anual para una suscripción.
+  </Step>
+  <Step title="Guardá">
+    Elegí **Guardar** o **Guardar como borrador** según el estado que necesites.
+  </Step>
+</Steps>
+
+<img src="/docs/images/items-descuentos/item-venta-online-stock.png" alt="Buzo institucional configurado para Venta online con descripción, precio, imagen y stock" />
+
+## Elegir la vigencia
+
+<Tabs>
+  <Tab title="Pago único">
+    El comprador paga una vez. En Venta online no elegís un mes: el cobro ocurre al momento de la compra.
+  </Tab>
+  <Tab title="Recurrente">
+    Elegí frecuencia mensual o anual y una duración definida o indefinida. El ciclo empieza cuando la persona compra.
+  </Tab>
+</Tabs>
+
+Si la duración es definida, indicá la cantidad de ciclos. La interfaz admite hasta 24.
+
+<Warning>
+  Para usar el item en el Punto de Venta, elegí **Pago único**. Los items recurrentes corresponden al flujo de suscripciones de Links de Pago.
+</Warning>
+
+## Gestionar el stock
+
+Al crear el item, **Stock disponible** registra la existencia inicial. Usá un número entero igual o mayor que cero.
+
+Después del alta, abrí el item y presioná **Editar** junto al stock. Ingresá el nuevo valor final; Fint registra la diferencia como aumento o disminución.
+
+La opción **Ver historial de stock** muestra los movimientos administrativos y los generados por compras.
+
+<img src="/docs/images/items-descuentos/editar-stock.png" alt="Modal para cambiar el valor final de stock de un producto" />
+
+El historial también identifica quién realizó cada ajuste. Por ese motivo, revisalo dentro de Fint y evitá compartir una captura sin comprobar antes los datos visibles.
+
+<Info>
+  Si el stock llega a cero, el producto no puede agregarse a una venta del Punto de Venta. Actualizalo antes de continuar.
+</Info>
+
+## Publicar en un canal
+
+Crear el item no lo agrega automáticamente a una página o caja.
+
+<Tabs>
+  <Tab title="Link de Pago">
+    Abrí o creá un Link de Pago y agregá el item a su lista de artículos. Consultá [Links de Pago](/docs/guides/links-pago).
+  </Tab>
+  <Tab title="Punto de Venta">
+    Abrí la configuración del POS y agregá el item al catálogo. Consultá [Configurar el Punto de Venta](/docs/guides/pos-configuracion#agregarlos-al-pos).
+  </Tab>
+</Tabs>
+
+## Cambiar el monto de un item recurrente
+
+Cambiar el monto de un item actualiza el importe de las suscripciones activas que lo usan. Revisá esas suscripciones y el impacto esperado antes de guardar el nuevo valor.
+
+Consultá [Suscripciones](/docs/guides/suscripciones) para seguir los cobros recurrentes.
+
+## Diferencia con una entrada
+
+Una entrada pertenece al tipo **Entrada de eventos**. Tiene opciones específicas para QR, datos del asistente y email, y después se incorpora a una página de evento.
+
+Si estás preparando entradas, seguí [Crear y publicar tu primer evento](/docs/guides/eventos-crear-publicar#2-agregar-tipos-de-entrada).
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
+    Publicá una compra única o recurrente.
+  </Card>
+  <Card title="Configurar el POS" icon="cash-register" href="/docs/guides/pos-configuracion">
+    Incorporá productos de pago único al catálogo.
+  </Card>
+  <Card title="Descuentos" icon="percent" href="/docs/guides/descuentos#descuento-de-venta-online">
+    Prepará beneficios reutilizables para el Punto de Venta.
+  </Card>
+</CardGroup>

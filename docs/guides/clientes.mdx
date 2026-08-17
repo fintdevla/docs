@@ -1,129 +1,99 @@
 ---
 title: 'Clientes'
-description: 'Gestioná clientes, responsables de pago y su información'
+description: 'Organizá clientes, responsables de pago y seguimiento de cobranzas'
 ---
 
-Acá gestionás a todos tus clientes: datos personales, etiquetas, items asignados y estado financiero.
+Clientes reúne a las personas a las que les cobrás. Desde este módulo podés cargar sus datos, organizar vínculos, asignar items y consultar su situación de pago.
 
 <Info>
-  Si tenés activado el módulo de **Cuotas institucionales** (en [Funcionalidades](/docs/guides/configuracion#funcionalidades)), este módulo se llama **Estudiantes** en toda la aplicación. Es el mismo módulo — solo cambia el nombre.
+  Si tenés activado **Cuotas institucionales**, este módulo se llama **Estudiantes** en la aplicación. Es el mismo espacio de trabajo; sólo cambia el nombre visible.
 </Info>
 
-<img src="/docs/images/clientes/listado.png" alt="Listado de clientes con etiquetas y estado financiero" />
+La gestión completa del módulo está disponible para administradores. El rol Cajero tiene un alta reducida dentro del Punto de Venta, cuando necesita asociar una venta.
 
-{/* Video desactualizado — descomentar cuando se regrabe
+<img src="/docs/images/clientes/listado.png" alt="Listado de estudiantes de Colegio Modelo filtrado por Montes, con Sofía y Tomás etiquetados como Ingresantes 2027 y sin órdenes de pago" />
 
-## Tutorial en Video
+## Elegí qué necesitás hacer
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.loom.com/embed/49133a92b795484bb3bee64fb7dc5186"
-  title="Tutorial Clientes"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
-></iframe>
-
-*/}
-
-## Crear Clientes
-
-<Tabs>
-  <Tab title="Creación manual" icon="user-plus">
-    Para crear un cliente necesitás su **nombre y apellido**, y al menos un identificador: **email** o **documento** (DNI, CUIT, pasaporte, entre otros).
-
-    <img src="/docs/images/clientes/crear-cliente.png" alt="Formulario de creación manual de un cliente" />
-
-    <Info>
-      Si ya existe un cliente con el mismo email o documento, el sistema no permite crear un duplicado.
-    </Info>
-  </Tab>
-
-  <Tab title="Importación masiva" icon="file-import">
-    Importá múltiples clientes desde un archivo **Excel o CSV**.
-
-    <Steps>
-      <Step title="Descargá el modelo">
-        Usá el botón **"Descargar modelo de Excel"** para obtener la plantilla con las columnas correctas.
-      </Step>
-      <Step title="Completá el archivo">
-        Organizá los datos en columnas: nombre, apellido, email, documento, etc.
-      </Step>
-      <Step title="Subí el archivo">
-        Desde el módulo de Clientes, hacé clic en **"+ Crear" > "Importar excel"** y seleccioná tu archivo.
-      </Step>
-      <Step title="Revisá y confirmá">
-        Verificá que los datos se hayan mapeado correctamente antes de confirmar.
-      </Step>
-    </Steps>
-
-    <img src="/docs/images/clientes/importar-excel.png" alt="Modal de importación de clientes desde Excel" />
-
-    <Info>
-      Podés activar la opción **"Enviar email de bienvenida"** para que cada cliente importado reciba automáticamente un email con el enlace a su [Portal de Contacto](/docs/guides/portal-contacto).
-    </Info>
-  </Tab>
-
-  <Tab title="Exportar" icon="file-export">
-    Exportá tu listado de clientes a **Excel** con filtros opcionales por etiquetas, condición (activo/inactivo) o items asignados.
-  </Tab>
-</Tabs>
-
-## Perfil del Cliente
-
-Al hacer clic en un cliente, accedés a su perfil completo:
-
-<img src="/docs/images/clientes/perfil.png" alt="Perfil del cliente: detalle, items y familia asociada" />
-
-- **Detalle**: Información personal (nombre, documento, email, teléfono, etiquetas) y dos indicadores clave: la **condición** (que controlás vos) y el **estado** financiero (calculado automáticamente).
-- **Items**: Los [items y descuentos](/docs/guides/items-descuentos) asignados para el período seleccionado. Desde acá podés asignar nuevos.
-- **Familia asociada**: Clientes relacionados (ej: hermanos en la misma institución). Permite vincular clientes entre sí para gestionar las cuentas compartidas de una familia.
-- **Contactos**: Los **responsables de pago** del cliente (ej: papá, mamá). Un cliente puede ser su propio responsable o tener múltiples. Sus datos son esenciales para la [facturación con ARCA](/docs/guides/facturacion-arca) y para el acceso al [Portal de Contacto](/docs/guides/portal-contacto).
-- **Órdenes**: Historial de todas las solicitudes de pago del cliente.
-
-<img src="/docs/images/clientes/perfil-familia.png" alt="Familia asociada, contactos responsables de pago y órdenes del cliente" />
-- **Actividad**: Registro cronológico de todas las acciones realizadas sobre el cliente.
-- **Notas**: Comentarios internos visibles solo para el equipo administrativo.
-
-## Condición y Baja
-
-La **condición** del cliente la controlás vos manualmente:
-
-- **Activo**: Recibe recordatorios, accede al portal y se le generan facturas.
-- **Inactivo**: No recibe recordatorios, no accede al portal y no se le generan nuevas facturas.
-
-La baja es **reversible**: si el cliente vuelve, lo reactivás y recupera todo su historial.
-
-## Estado Financiero
-
-El **estado** se calcula automáticamente según las facturas del cliente:
-
-<CardGroup cols={3}>
-  <Card title="Al día" icon="check-circle">
-    Todas sus facturas están pagadas
+<CardGroup cols={2}>
+  <Card title="Crear o importar clientes" icon="user-plus" href="/docs/guides/clientes-crear-importar">
+    Cargá una persona o incorporá una nómina desde la plantilla de Excel.
   </Card>
-
-  <Card title="Con pagos pendientes" icon="clock">
-    Tiene facturas emitidas pero no vencidas
+  <Card title="Organizar familias y responsables" icon="users" href="/docs/guides/clientes-familias-responsables">
+    Relacioná clientes entre sí y definí quién administra sus pagos.
   </Card>
-
-  <Card title="Con deudas" icon="exclamation-triangle">
-    Tiene facturas vencidas sin pagar
+  <Card title="Entender condición y estado" icon="circle-check" href="/docs/guides/clientes-estados">
+    Distinguí la baja administrativa de la situación financiera calculada por Fint.
+  </Card>
+  <Card title="Usar el Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    Conocé la experiencia donde los responsables consultan y pagan órdenes.
   </Card>
 </CardGroup>
 
-## Próximos Pasos
+## Cuatro conceptos para empezar
+
+<AccordionGroup>
+  <Accordion title="Cliente o estudiante">
+    Es la persona a la que se le asignan items y órdenes de pago. Si usás Cuotas institucionales, la interfaz la llama estudiante.
+  </Accordion>
+  <Accordion title="Responsable de pago">
+    En el perfil aparece dentro de **Contactos**. Es quien puede acceder al Portal de Contacto y gestionar pagos de uno o más clientes.
+  </Accordion>
+  <Accordion title="Familia asociada">
+    Relaciona perfiles de clientes, por ejemplo, hermanos. No crea un responsable de pago ni reemplaza la sección **Contactos**.
+  </Accordion>
+  <Accordion title="Condición y estado">
+    La **condición** es administrativa y la definís vos. El **estado** refleja las órdenes del cliente y Fint lo calcula automáticamente.
+  </Accordion>
+</AccordionGroup>
+
+## Recorrido recomendado
+
+<Steps>
+  <Step title="Cargá los clientes">
+    Usá el alta manual para casos individuales o la plantilla de Excel para una nómina. Después, comprobá los registros en el listado.
+  </Step>
+  <Step title="Completá cada perfil">
+    Revisá datos, etiquetas y los items que correspondan. El perfil concentra la información que vas a usar en cobranzas.
+  </Step>
+  <Step title="Definí los vínculos correctos">
+    Asociá otros clientes en **Familia asociada** y agregá responsables de pago en **Contactos**. Son relaciones diferentes.
+  </Step>
+  <Step title="Seguí la situación">
+    Usá la condición para administrar altas y bajas. Consultá el estado para saber si no hay órdenes, hay pagos pendientes, deuda o todo está al día.
+  </Step>
+</Steps>
+
+## Qué encontrás en un perfil
+
+Al abrir un cliente, podés revisar:
+
+- **Detalle**: nombre, documento, email, teléfono, condición, estado y etiquetas.
+- **Items**: conceptos asignados para el período seleccionado.
+- **Familia asociada** y **Contactos**: clientes relacionados y responsables de pago.
+- **Órdenes**: solicitudes de pago vinculadas al cliente.
+- **Actividad** y **Notas**: cambios registrados y comentarios internos.
+
+Según la configuración de tu organización, también pueden aparecer campos personalizados o integraciones específicas.
+
+<img src="/docs/images/clientes/perfil.png" alt="Perfil de Sofía Montes en Colegio Modelo, activa, sin órdenes de pago y con la etiqueta Ingresantes 2027" />
+
+## Buscar, filtrar y exportar
+
+En el listado podés buscar por nombre o documento. También podés filtrar por estado, etiquetas e items; algunas organizaciones suman filtros de campos personalizados.
+
+El botón **Exportar** genera un archivo de Excel. Antes de descargarlo, podés limitar el resultado por etiquetas, estado financiero e items.
+
+## Próximos pasos
 
 <CardGroup cols={3}>
   <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
-    Configurá qué se les cobra
+    Configurá qué conceptos vas a cobrar.
   </Card>
   <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    Generá facturas para tus clientes
+    Generá órdenes para tus clientes.
   </Card>
   <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
-    Donde los contactos pagan
+    Revisá cómo consultan y pagan los responsables.
   </Card>
 </CardGroup>

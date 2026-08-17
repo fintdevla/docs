@@ -55,14 +55,34 @@
       "group": "Gestión de Clientes",
       "pages": [
         "docs/guides/clientes",
+        "docs/guides/clientes-crear-importar",
+        "docs/guides/clientes-familias-responsables",
+        "docs/guides/clientes-estados",
         "docs/guides/portal-contacto"
       ]
     },
     {
       "group": "Cobranzas",
       "pages": [
-        "docs/guides/items-descuentos",
-        "docs/guides/solicitudes-pago",
+        {
+          "group": "Items y descuentos",
+          "pages": [
+            "docs/guides/items-descuentos",
+            "docs/guides/items-liquidaciones",
+            "docs/guides/items-venta-online-stock",
+            "docs/guides/descuentos"
+          ]
+        },
+        {
+          "group": "Órdenes y liquidaciones",
+          "pages": [
+            "docs/guides/solicitudes-pago",
+            "docs/guides/ordenes-gestionar",
+            "docs/guides/ordenes-crear-manual",
+            "docs/guides/liquidaciones-crear-revisar",
+            "docs/guides/liquidaciones-corregir-enviar-cancelar"
+          ]
+        },
         {
           "group": "Conciliación bancaria",
           "pages": [
@@ -72,6 +92,7 @@
             "docs/guides/conciliacion-bancaria-casos-frecuentes"
           ]
         },
+        "docs/guides/cobrar-en-fint",
         "docs/guides/pagos",
         "docs/guides/facturacion"
       ]
@@ -112,6 +133,8 @@
           "group": "Eventos",
           "pages": [
             "docs/guides/eventos",
+            "docs/guides/eventos-crear-publicar",
+            "docs/guides/eventos-entradas-ventas-asistentes",
             "docs/guides/app-admision",
             "docs/guides/meta-pixel"
           ]
@@ -128,7 +151,15 @@
       "group": "Configuración",
       "pages": [
         "docs/guides/configuracion",
+        "docs/guides/configuracion-general",
+        "docs/guides/configuracion-etiquetas",
+        "docs/guides/configuracion-campos",
         "docs/guides/miembros-y-roles",
+        "docs/guides/configuracion-recordatorios",
+        "docs/guides/configuracion-mora",
+        "docs/guides/configuracion-integraciones",
+        "docs/guides/configuracion-funcionalidades",
+        "docs/guides/configuracion-desarrolladores",
         "docs/guides/conectar-mercado-pago",
         "docs/guides/facturacion-arca"
       ]

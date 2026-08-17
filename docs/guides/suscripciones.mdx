@@ -1,58 +1,90 @@
 ---
 title: 'Suscripciones'
-description: 'Cobrá de forma recurrente con pagos periódicos automáticos'
+description: 'Seguí los cobros que se repiten después de una compra en un Link de Pago'
 ---
 
-Las suscripciones se generan automáticamente cuando un comprador adquiere un **item recurrente** desde un [Link de Pago](/docs/guides/links-pago). No es un tipo de link diferente — la recurrencia se configura en el item.
+Una **suscripción** nace cuando alguien compra un item **recurrente** desde un [Link de Pago](/docs/guides/links-pago). No es un tipo distinto de link: la diferencia está en el artículo.
 
-<Card title="Ver guía completa de Links de Pago y Suscripciones" icon="link" href="/docs/guides/links-pago#suscripciones">
-  Cómo funciona el cobro recurrente, gestionar suscripciones activas y diferencia con liquidaciones.
-</Card>
+Si el item es de pago único, hay una compra y listo. Si el item es mensual o anual, esa compra deja un cobro que se repite.
 
-## Ver suscripciones activas
+<Info>
+  Las suscripciones se ven en **Órdenes → Suscripciones**. No tienen un menú propio en la barra lateral.
+</Info>
 
-Las suscripciones se gestionan desde la tab **Suscripciones** dentro del módulo de [Órdenes](/docs/guides/solicitudes-pago). Ahí podés ver el listado completo con cliente, página de origen, intervalo, artículos y estado.
+## Qué ves en el listado
 
-<img src="/docs/images/suscripciones/listado.png" alt="Listado de suscripciones con página de origen, intervalo y estado" />
+Cada fila muestra el cliente, la página de origen, el intervalo, el artículo y el estado.
 
-Al hacer clic en una, ves su detalle: fecha de inicio, finalización, medio de pago, historial de facturas generadas, calendario de **próximas facturas** y el registro de actividad (cobros exitosos y fallidos incluidos).
+<img src="/docs/images/suscripciones/listado.png" alt="Listado de suscripciones dentro de Órdenes, con una inscripción activa al Taller de Ajedrez" />
 
-<img src="/docs/images/suscripciones/detalle.png" alt="Detalle de una suscripción: facturas emitidas y próximas facturas proyectadas" />
+Al abrir una suscripción ves:
+
+- fecha de inicio y de finalización
+- medio de pago
+- facturas ya generadas
+- próximas facturas
+- la actividad, con cobros que salieron bien y los que no
+
+<img src="/docs/images/suscripciones/detalle.png" alt="Detalle de una suscripción con facturas emitidas y próximas facturas" />
 
 ## Estados
 
 <CardGroup cols={2}>
   <Card title="Activa" icon="circle-check">
-    Genera una factura por período en la fecha que corresponde
+    Sigue generando el cobro del período.
   </Card>
   <Card title="Pendiente" icon="clock">
-    Creada pero con el primer cobro aún sin confirmar
+    Está creada y el primer cobro todavía no se confirmó.
   </Card>
   <Card title="Finalizada" icon="flag-checkered">
-    Completó todos sus ciclos de cobro
+    Completó los ciclos previstos.
   </Card>
   <Card title="Cancelada" icon="xmark">
-    Dada de baja por el administrador — no genera más órdenes
+    La dio de baja un administrador. No genera más órdenes.
   </Card>
 </CardGroup>
 
-## Casos de uso
+## Cómo se cobra cada período
 
-- **Cursos online**: Cobro mensual mientras el cliente esté inscripto
-- **Membresías**: Acceso a gimnasio, club o servicios
-- **Servicios adicionales**: Comedor, transporte, actividades extra
-- **Planes de pago**: Cuotas mensuales para matrículas
+El modo se elige en el link, en **Cobro**, y solo aparece si la organización usa Stripe o Mercado Pago.
 
-## Próximos Pasos
+<Tabs>
+  <Tab title="Enviar factura">
+    Es el valor inicial. En cada período Fint genera una orden. La persona la paga desde el [Portal de Contacto](/docs/guides/portal-contacto) o la registrás vos como [pago manual](/docs/guides/pagos#registrar-un-pago-manual).
+  </Tab>
+  <Tab title="Débito automático">
+    El interruptor **Debitar automáticamente todos los meses** intenta cobrar solo. Si el débito no se puede completar, Fint envía una factura. Un segundo interruptor decide si, después de los reintentos, se cancela la suscripción o se siguen emitiendo facturas con intereses.
+  </Tab>
+</Tabs>
+
+<Info>
+  Pagos360 no admite débito automático. Si el medio elegido fuera ese, Fint rechaza esa combinación.
+</Info>
+
+## Cancelar o cambiar el monto
+
+Desde el detalle, un administrador puede **cancelar** la suscripción. No encontramos una acción equivalente en el Portal de Contacto: hoy el seguimiento y la baja se hacen desde acá.
+
+Para cambiar el precio no se edita la suscripción. Se cambia el monto del **item**. Las próximas facturas se calculan con ese precio actual.
+
+## Cuándo usar una suscripción y cuándo una liquidación
+
+| Suscripciones | Liquidaciones |
+| --- | --- |
+| La persona se anota en una página pública | Vos generás las órdenes |
+| Sirve para un taller, comedor o extra opcional | Sirve para la cuota u otra obligación del período |
+| El ciclo empieza con la compra | El ciclo lo define el item de Liquidación |
+
+## Próximos pasos
 
 <CardGroup cols={3}>
   <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
-    Creá páginas de venta online
+    Publicá la página que origina la suscripción
   </Card>
-  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
-    Configurá items recurrentes
+  <Card title="Venta online" icon="tags" href="/docs/guides/items-venta-online-stock">
+    Configurá la vigencia mensual o anual del item
   </Card>
-  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    Gestioná las facturas generadas
+  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    Dónde el responsable paga la factura del período
   </Card>
 </CardGroup>

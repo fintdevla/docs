@@ -1,0 +1,193 @@
+---
+title: 'Crear y publicar tu primer evento'
+description: 'Configurá la página, las entradas y la experiencia de compra de un evento'
+---
+
+Esta guía acompaña al administrador desde el alta hasta la publicación. Al terminar, vas a tener una página activa para compartir y un recorrido claro para revisarla.
+
+## Antes de empezar
+
+Para vender entradas pagas online, conectá un procesador desde **Configuración → Integraciones**. No lo necesitás para guardar un borrador ni para usar entradas gratuitas o cargas manuales.
+
+<Card title="Conectar Mercado Pago" icon="credit-card" href="/docs/guides/conectar-mercado-pago">
+  Seguí el paso a paso si elegiste Mercado Pago como procesador.
+</Card>
+
+La comisión de Fint depende de la configuración de tu organización. La pantalla del evento muestra el porcentaje que corresponde antes de que elijas cómo presentarlo al comprador.
+
+## 1. Crear el evento
+
+Entrá a **Eventos** y presioná **Crear evento**. La creación y la edición están disponibles para administradores.
+
+Completá estos datos generales:
+
+- Título y subtítulo.
+- Fecha y hora de inicio y finalización, con la zona horaria correcta.
+- Nombre del recinto y dirección.
+- Descripción pública.
+- Imagen de portada, si querés mostrar una.
+- Email, WhatsApp y redes de contacto que correspondan.
+
+<img src="/docs/images/eventos/crear-evento.png" alt="Formulario del Festival de la Comunidad con sus datos generales completos antes de agregar la portada" />
+
+Para agregar la portada, presioná el recuadro de imagen y elegí un archivo. La selección muestra una vista previa local dentro del cuadro.
+
+<img src="/docs/images/eventos/seleccionar-portada.png" alt="Selector de portada con una imagen del Festival de la Comunidad lista para cargar" />
+
+Presioná **Guardar** dentro del selector para cargar la imagen y agregarla al formulario. Cerrar ese cuadro sin guardarla no la agrega al evento. Después, guardá el evento para conservar todos los cambios.
+
+<Tip>
+  Elegí la zona horaria del lugar del evento. Así la fecha se mantiene clara para el equipo y para quienes compran.
+</Tip>
+
+## 2. Agregar tipos de entrada
+
+Abrí **Entradas** y seleccioná tipos existentes. También podés usar **Crear nueva entrada** sin salir del editor.
+
+Cada tipo puede definir:
+
+- Nombre, descripción, precio y stock.
+- Generación de código QR.
+- Solicitud de nombre, apellido, documento en compras ARS y email del asistente.
+- Un texto propio para el email que acompaña las entradas.
+
+<img src="/docs/images/eventos/seleccionar-entradas.png" alt="Selector de tipos de entrada existentes dentro del editor del evento" />
+
+Si todavía no existe el tipo que necesitás, completá su nombre, descripción, precio y stock desde el mismo selector.
+
+<img src="/docs/images/eventos/nueva-entrada.png" alt="Formulario para crear un tipo de entrada sin salir del evento" />
+
+Antes de crearla, revisá si debe generar QR, pedir los datos del asistente o incluir un texto propio en el email.
+
+<img src="/docs/images/eventos/configurar-entrada.png" alt="Opciones de QR, datos del asistente y email para un tipo de entrada" />
+
+Las entradas gratuitas pueden publicarse sin procesador. Si asignás un precio y querés cobrarlas en la página pública, necesitás un procesador conectado.
+
+### Ordenar, agrupar y armar combos
+
+Podés ordenar los tipos y crear grupos para presentarlos con más claridad. Un grupo organiza la oferta; no cambia la cantidad de entradas que recibe el comprador.
+
+Un combo vende varias entradas juntas. Definí su nombre, descripción, precio, cantidad total y los tipos que puede incluir. También podés limitar cuántas unidades de cada tipo admite.
+
+<Info>
+  Un combo es una unidad comercial, pero puede emitir varias entradas. Por eso las unidades vendidas y las entradas vigentes pueden mostrar valores distintos.
+</Info>
+
+En la página pública, el comprador abre el combo y completa la cantidad indicada con los tipos habilitados. **Agregar** se activa cuando la selección queda completa.
+
+<img src="/docs/images/eventos/combo-familiar.png" alt="Selector público del Pack familiar con cuatro de cuatro entradas elegidas" />
+
+## 3. Agregar descuentos
+
+En **Descuentos**, seleccioná uno existente o creá uno para eventos. Puede ser un monto fijo o un porcentaje.
+
+Definí el código que usará el comprador y sobre qué entradas aplica. También podés establecer condiciones según los items incluidos en la orden.
+
+En este ejemplo, **Descuento familiar · 10%** ya está asociado al evento. Antes de publicar, verificá el nombre y el porcentaje.
+
+<img src="/docs/images/eventos/descuento-configurado.png" alt="Descuento familiar del 10% asociado al evento" />
+
+## 4. Configurar la experiencia de compra
+
+Abrí **Configuración** para revisar:
+
+- La ruta de la página pública.
+- Cómo se presenta el costo del servicio en ventas online y pagos manuales.
+- El tiempo de expiración del carrito.
+- El texto del email de confirmación.
+- El aforo total estimado.
+- La publicación en **Descubrir**.
+- El tracking con Meta, Google Analytics o Tag Manager.
+
+<Info>
+  El porcentaje de comisión no es fijo para todas las organizaciones. Usá el valor que muestra tu pantalla.
+</Info>
+
+La guía de [Tracking y analítica](/docs/guides/meta-pixel) explica cómo conectar las herramientas disponibles sin ingresar credenciales de inicio de sesión.
+
+## 5. Definir qué información pedir
+
+En **Pedido de información**, el nombre completo y el email del comprador son obligatorios. Podés activar o desactivar su documento y teléfono.
+
+Los datos base del asistente se definen en cada tipo de entrada. Esta decisión permite que un tipo solicite datos y otro no.
+
+Con **Agregar campo**, podés pedir información adicional al comprador o a los asistentes. Elegí el tipo de campo, si es obligatorio, si está activo y a qué entradas aplica.
+
+Los campos personalizados sirven para datos como restricciones alimentarias, talle o una selección propia del evento.
+
+Separá las preguntas del comprador de las de los asistentes. En este ejemplo, **¿Cómo conociste el festival?** se responde una vez por compra y **¿Qué taller creativo preferís?** se pide para la entrada del taller.
+
+<img src="/docs/images/eventos/campos-personalizados.png" alt="Campo opcional para el comprador y campo obligatorio para el asistente de la entrada con taller" />
+
+## 6. Completar las secciones extra
+
+Usá **Secciones extra** para cargar preguntas frecuentes y un mensaje destacado. El mensaje puede tener un color y un estado visible u oculto.
+
+Estas secciones son opcionales. Ayudan a responder dudas antes de la compra y a comunicar un aviso importante en la página.
+
+En la página pública, cada pregunta puede desplegar su respuesta sin abandonar la selección de entradas.
+
+<img src="/docs/images/eventos/preguntas-frecuentes.png" alt="Preguntas frecuentes del evento con la respuesta sobre el Pase General desplegada" />
+
+En el editor, los accesos a cada sección resumen cuántas entradas, combos, descuentos, campos y preguntas configuraste. Abrí cada sección para revisar su contenido antes de publicar.
+
+<img src="/docs/images/eventos/configuracion-completa-evento.png" alt="Editor del evento con resúmenes de dos entradas y un combo, un descuento, dos campos y tres preguntas con un mensaje activo" />
+
+## 7. Guardar o publicar
+
+<Tabs>
+  <Tab title="Guardar como borrador">
+    Conserva el evento en estado **Borrador** y no publica su página.
+  </Tab>
+  <Tab title="Guardar">
+    Crea el evento en estado **Activo** y publica la página.
+  </Tab>
+</Tabs>
+
+Fint no ofrece una vista previa separada. Después de guardar, abrí el evento y usá **Visitar** para revisar la página pública.
+
+<img src="/docs/images/eventos/evento-activo.png" alt="Detalle de un evento activo con las acciones Copiar link y Visitar" />
+
+<Warning>
+  No completes una compra sólo para “simular” el flujo. Al presionar **Continuar**, Fint crea una sesión; al confirmar después, crea una orden y entradas reales.
+</Warning>
+
+Si necesitás validar el recorrido completo, usá datos y un medio previstos para pruebas. Después comprobá el resultado en **Asistentes** y resolvé esas entradas como cualquier operación real.
+
+## Comprobación antes de compartir
+
+Desde **Visitar**, revisá:
+
+- Título, fecha, recinto, dirección y datos de contacto.
+- Descripción, imagen, mensaje destacado y preguntas frecuentes.
+- Tipos de entrada, precios, stock y combos.
+
+Después, volvé al editor y comprobá los campos solicitados al comprador y a cada asistente, el código y alcance de los descuentos y el procesador conectado si vas a recibir pagos online.
+
+<img src="/docs/images/eventos/pagina-publica-evento.png" alt="Página pública del Festival de la Comunidad con portada, mensaje destacado, entradas y combo familiar" />
+
+Podés recorrer la selección de entradas sin completar la compra. Detenete antes de confirmar si no querés crear una operación real.
+
+<img src="/docs/images/eventos/seleccion-entradas-publica.png" alt="Página pública del festival con un Pase General seleccionado antes de presionar Continuar" />
+
+## Editar después de publicar
+
+El administrador puede volver a **Editar** y guardar cambios. La nueva configuración se aplica a ventas futuras. Las operaciones ya realizadas conservan sus importes, comprador, asistente y respuestas.
+
+Algunos datos visibles, como el nombre del evento o del tipo de entrada, pueden reflejar la configuración vigente cuando se consulta o regenera un PDF.
+
+Para retirar la página, cambiá el estado a **Borrador** o archivá el evento. Los archivados aparecen en una lista separada y se pueden desarchivar.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Entradas y asistentes" icon="ticket" href="/docs/guides/eventos-entradas-ventas-asistentes">
+    Seguí ventas y prepará la operación.
+  </Card>
+  <Card title="App de Admisión" icon="mobile" href="/docs/guides/app-admision">
+    Organizá el control de ingreso.
+  </Card>
+  <Card title="Mensajería" icon="envelope" href="/docs/guides/mensajeria">
+    Comunicá novedades a los participantes.
+  </Card>
+</CardGroup>
