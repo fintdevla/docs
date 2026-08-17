@@ -1,0 +1,31 @@
+---
+title: 'Recordatorios'
+description: 'Emails automáticos unos días antes o después del vencimiento de una orden'
+---
+
+Los recordatorios están en **Configuración → Recordatorios**. Son emails que Fint envía solo, alrededor de la **fecha de vencimiento** de una orden.
+
+## Qué se puede configurar
+
+En la pantalla hay dos tipos:
+
+- **Antes del vencimiento**: se envía el día que resulta de restar N días a la fecha de vencimiento.
+- **Después del vencimiento**: se envía el día que resulta de sumar N días a esa fecha, si la orden sigue pendiente.
+
+Podés tener varios de cada tipo. Por ejemplo: 7 y 3 días antes, y 2, 7 y 14 días después.
+
+<img src="/docs/images/configuracion/recordatorios.png" alt="Lista de recordatorios antes y después del vencimiento" />
+
+Cada uno tiene:
+
+- **Estado**: Activo o Pausado
+- **Tipo**: Email
+- **Programado**: cuántos días antes o después
+
+<Info>
+  Solo salen si el cliente está **Activo**, tiene recordatorios habilitados y hay un contacto marcado para notificar. No se envían para órdenes de evento.
+</Info>
+
+<Warning>
+  No se disparan al crear la orden ni exactamente el día del vencimiento desde esta pantalla. El envío cae en la fecha calculada con esos N días.
+</Warning>

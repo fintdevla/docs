@@ -1,0 +1,21 @@
+---
+title: 'Intereses por mora'
+description: 'Reglas de recargo cuando una orden sigue impaga después del vencimiento'
+---
+
+En **Configuración → Intereses por mora** definís cómo se recarga una orden vencida. Las reglas se aplican **en orden**.
+
+## Qué tiene cada regla
+
+- **Inicio**: a partir de cuántos días después del vencimiento
+- **Duración**: durante cuántos días corre
+- **Monto**: porcentaje o importe fijo
+- **Base de cálculo**: sobre qué monto se calcula
+
+<img src="/docs/images/configuracion/intereses-mora-crear.png" alt="Formulario de una regla de mora con inicio, duración y monto" />
+
+La pantalla muestra el porcentaje como **tasa anual (TEA)**. El recargo de cada día se calcula sobre esa tasa: monto × días × porcentaje / 36000.
+
+<Warning>
+  Podés encadenar varias reglas. Revisá que el esquema cumpla la normativa que te aplica. Esta guía no interpreta esa normativa.
+</Warning>

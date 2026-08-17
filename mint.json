@@ -151,7 +151,15 @@
       "group": "Configuración",
       "pages": [
         "docs/guides/configuracion",
+        "docs/guides/configuracion-general",
+        "docs/guides/configuracion-etiquetas",
+        "docs/guides/configuracion-campos",
         "docs/guides/miembros-y-roles",
+        "docs/guides/configuracion-recordatorios",
+        "docs/guides/configuracion-mora",
+        "docs/guides/configuracion-integraciones",
+        "docs/guides/configuracion-funcionalidades",
+        "docs/guides/configuracion-desarrolladores",
         "docs/guides/conectar-mercado-pago",
         "docs/guides/facturacion-arca"
       ]

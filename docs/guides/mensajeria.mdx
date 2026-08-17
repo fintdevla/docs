@@ -1,122 +1,93 @@
 ---
 title: 'Mensajería'
-description: 'Enviá comunicados por email a tus clientes y responsables de pago'
+description: 'Armá un comunicado por email, elegí a quién va y revisá si llegó'
 ---
 
-Enviá emails masivos o individuales a tus clientes. Ideal para recordatorios de pago, avisos importantes o promociones.
+Mensajería sirve para enviar un email a un grupo de personas: estudiantes, sus contactos o gente de un evento.
 
-{/* Video desactualizado — descomentar cuando se regrabe
+No reemplaza a los [recordatorios automáticos](/docs/guides/configuracion-recordatorios). Acá el mensaje lo armás vos y lo enviás cuando querés.
 
-## Tutorial en Video
+<Info>
+  Hoy los comunicados salen **solo por email**. No se pueden adjuntar archivos; sí se pueden poner enlaces.
+</Info>
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.loom.com/embed/6e4e566b8adb4fb1b8631a8c39dd37bd"
-  title="Tutorial Mensajería"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
-></iframe>
+## Elegí a quién enviar
 
-*/}
-
-## Tipos de Destinatarios
-
-Al crear un mensaje, elegís a quién va dirigido:
+Al crear un comunicado, Fint pregunta el destino:
 
 <CardGroup cols={2}>
-  <Card title="Compradores/Asistentes de Eventos" icon="calendar">
-    Enviá mensajes a personas que compraron entradas a tus eventos.
+  <Card title="Estudiantes o contactos" icon="users">
+    Personas de cobranzas institucionales o de venta online. En la UI el nombre cambia si tenés **Cuotas institucionales**.
   </Card>
-
-  <Card title="Clientes" icon="users">
-    Enviá mensajes a clientes con items asignados (liquidación, venta online) o a sus responsables de pago.
+  <Card title="Eventos" icon="calendar">
+    Asistentes o compradores de un evento.
   </Card>
 </CardGroup>
 
-<img src="/docs/images/mensajeria/crear-tipo.png" alt="Selección del tipo de destinatario del comunicado" />
+<img src="/docs/images/mensajeria/crear-tipo.png" alt="Modal para elegir si el comunicado va a estudiantes y contactos o a un evento" />
 
 <Info>
-  Si el cliente tiene **responsables de pago** con email, el comunicado les llega a ellos; si no tiene, va directo al email del cliente. Antes de enviar, Fint te muestra qué destinatarios no tienen email cargado.
+  Si la persona tiene **contactos** con email, el mensaje va a esos contactos. Si no tiene, va al email de la ficha.
 </Info>
 
-## Crear y Enviar un Mensaje
+El aviso de emails faltantes aparece en el envío a estudiantes o contactos. En el flujo de eventos, Fint filtra a quienes no tienen email y no muestra ese modal.
+
+## Armar el mensaje
 
 <Steps>
-  <Step title="Elegí el tipo de destinatario">
-    Seleccioná si vas a enviar el mensaje a compradores de eventos o a clientes.
+  <Step title="Abrí un comunicado nuevo">
+    En **Mensajería**, usá **Nuevo Comunicado** y elegí el destino.
   </Step>
-
   <Step title="Seleccioná destinatarios">
-    Buscá y seleccioná los contactos específicos a quienes enviar el mensaje. Podés filtrar por etiquetas, items asignados o estado.
+    En estudiantes o contactos podés filtrar por **etiquetas**, **items** o **estado**.
+
+    En eventos los filtros son **por evento** y **por entrada**, y distinguís asistentes de compradores.
   </Step>
+  <Step title="Completá el contenido">
+    Cargá asunto, título, color y texto. A la derecha se ve la vista previa.
 
-  <Step title="Configurá el contenido">
-    Completá el **asunto**, **título**, elegí un **color** de paleta para el tema del email y escribí el **contenido** del mensaje. El **remitente** se toma del nombre y logo de tu organización (configurado en [Configuración](/docs/guides/configuracion)).
+    El remitente usa el nombre y el logo de [Configuración](/docs/guides/configuracion-general).
 
-    A medida que completás los campos, la vista previa de la derecha muestra cómo se verá el email final.
-
-    <img src="/docs/images/mensajeria/crear.png" alt="Compositor del comunicado con vista previa del email" />
+    <img src="/docs/images/mensajeria/crear.png" alt="Compositor del comunicado con asunto, título y vista previa" />
   </Step>
-
-  <Step title="Configuración extra (opcional)">
-    Según el tipo de destinatario tenés opciones adicionales:
-
-    - **Para Compradores de Eventos**: Podés activar **"Incluir Entrada QR"** para adjuntar el código QR de la entrada.
-    - **Para Clientes**: Podés activar **"Incluir botón al portal"** que agrega un botón al [Portal de Contacto](/docs/guides/portal-contacto) con texto personalizable (ej: "Ir al portal", "Ver mi cuenta").
-
-    <Info>
-      El botón al portal es útil para recordatorios de pago, ya que lleva al cliente directo a su estado de cuenta.
-    </Info>
+  <Step title="Sumá un botón, si sirve">
+    En estudiantes o contactos podés agregar un **botón al Portal**. En eventos podés incluir la **entrada QR**.
   </Step>
-
-  <Step title="Previsualizá y enviá">
-    Revisá cómo se ve el email en la vista previa antes de enviarlo.
+  <Step title="Revisá y enviá">
+    El listado no deja editar ni cancelar un comunicado ya enviado. Sí se puede **duplicar** para reutilizar el texto, sin copiar los destinatarios.
   </Step>
 </Steps>
 
-## Estadísticas
+## Después del envío
 
-Una vez enviado el mensaje, podés ver estadísticas detalladas:
+El listado muestra quién lo envió, el asunto, cuántos destinatarios y la fecha.
 
-<Frame>
-  <img src="/images/mensajeria/estadisticas-mensaje.png" alt="Vista de estadísticas de mensaje enviado" />
-</Frame>
+<img src="/docs/images/mensajeria/listado.png" alt="Listado de Mensajería en Colegio Modelo, todavía sin comunicados enviados" />
 
-Las métricas principales son: **total enviados**, **entregados** (llegaron correctamente), **abiertos** (el destinatario lo abrió), **clicks** (hizo clic en un enlace) y **rebotados** (no pudieron ser entregados). Cada métrica muestra su porcentaje.
+Al abrir un comunicado ves totales de **enviados**, **entregados**, **abiertos**, **clicks** y **rebotados**. Esos números se leen cuando abrís el detalle; no se refrescan solos en la pantalla.
 
-También podés ver el estado de cada destinatario individual: **Entregado** o **No enviado (bloqueado)** si el email es inválido.
+El estado de cada persona puede ser creado, enviado, entregado, abierto, clickeado, rebotado o queja. No hay solo dos estados.
 
-<Info>
-  Las estadísticas se actualizan en tiempo real. Podés usar esta información para hacer seguimiento de la efectividad de tus comunicaciones.
-</Info>
+<Warning>
+  El detalle de destinatarios está pensado para envíos a contactos. Un comunicado de evento puede mostrar mal esa lista. No lo uses todavía como prueba de que el evento llegó a cada comprador.
+</Warning>
 
-## Historial de Mensajes
+## Qué no promete esta guía
 
-El listado de mensajes enviados muestra quién lo envió, el asunto, la cantidad de destinatarios y la fecha de envío. Hacé clic en un mensaje para ver sus estadísticas y el listado de destinatarios.
+- Un tope mensual de envíos: el módulo no tiene cupo propio. El límite, si existe, es del proveedor de email.
+- Enviar solo a compradores de un evento: la pantalla lo ofrece, pero el API pide al menos un asistente.
+- WhatsApp: es otro flujo, no este compositor.
 
-Los comunicados enviados no se pueden editar ni cancelar, pero podés **duplicar** uno para reutilizarlo como base de un nuevo envío.
-
-## Límites y Restricciones
-
-<Info>
-  - Los mensajes se envían por **email** únicamente
-  - **No hay límite** de envíos mensuales
-  - **No se pueden adjuntar archivos**, pero podés incluir enlaces
-</Info>
-
-## Próximos Pasos
+## Próximos pasos
 
 <CardGroup cols={3}>
-  <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
-    Configurá recordatorios automáticos
+  <Card title="Recordatorios" icon="bell" href="/docs/guides/configuracion-recordatorios">
+    Emails automáticos de vencimiento
   </Card>
   <Card title="Clientes" icon="users" href="/docs/guides/clientes">
-    Gestioná información de contacto
+    Emails y contactos de cada ficha
   </Card>
-  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    Generá facturas para cobrar
+  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    A dónde lleva el botón del email
   </Card>
 </CardGroup>
