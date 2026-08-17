@@ -26,7 +26,7 @@
   },
   "tabs": [
     {
-      "name": "Documentacion",
+      "name": "Documentación",
       "url": "docs"
     },
     {
@@ -46,13 +46,13 @@
       ]
     },
     {
-      "group": "Panel de Control",
+      "group": "Inicio",
       "pages": [
         "docs/guides/dashboard"
       ]
     },
     {
-      "group": "Gestión de Clientes",
+      "group": "Estudiantes",
       "pages": [
         "docs/guides/clientes",
         "docs/guides/clientes-crear-importar",
@@ -84,8 +84,9 @@
           ]
         },
         {
-          "group": "Conciliación bancaria",
+          "group": "Conciliación",
           "pages": [
+            "docs/guides/conciliacion",
             "docs/guides/conciliacion-bancaria-cuentas",
             "docs/guides/conciliacion-bancaria-extractos",
             "docs/guides/conciliacion-bancaria",

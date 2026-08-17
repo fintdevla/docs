@@ -11,24 +11,30 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentacion",
+        "tab": "Documentación",
+        "icon": "book-open",
         "groups": [
           {
             "group": "Comenzar",
+            "icon": "play",
             "pages": [
               "docs/introduction"
             ]
           },
           {
-            "group": "Panel de Control",
+            "group": "Inicio",
+            "icon": "house",
+            "root": "docs/guides/dashboard",
             "pages": [
               "docs/guides/dashboard"
             ]
           },
           {
-            "group": "Gestión de Clientes",
+            "group": "Estudiantes",
+            "icon": "users",
+            "root": "docs/guides/clientes",
+            "directory": "card",
             "pages": [
-              "docs/guides/clientes",
               "docs/guides/clientes-crear-importar",
               "docs/guides/clientes-familias-responsables",
               "docs/guides/clientes-estados",
@@ -37,20 +43,30 @@
           },
           {
             "group": "Cobranzas",
+            "icon": "wallet",
             "pages": [
               {
-                "group": "Items y descuentos",
+                "group": "Cobrar en Fint",
+                "icon": "hand-holding-dollar",
+                "root": "docs/guides/cobrar-en-fint",
                 "pages": [
-                  "docs/guides/items-descuentos",
-                  "docs/guides/items-liquidaciones",
-                  "docs/guides/items-venta-online-stock",
-                  "docs/guides/descuentos"
+                  "docs/guides/cobrar-en-fint"
+                ]
+              },
+              {
+                "group": "Pagos",
+                "icon": "credit-card",
+                "root": "docs/guides/pagos",
+                "pages": [
+                  "docs/guides/pagos"
                 ]
               },
               {
                 "group": "Órdenes y liquidaciones",
+                "icon": "file-invoice",
+                "root": "docs/guides/solicitudes-pago",
+                "directory": "card",
                 "pages": [
-                  "docs/guides/solicitudes-pago",
                   "docs/guides/ordenes-gestionar",
                   "docs/guides/ordenes-crear-manual",
                   "docs/guides/liquidaciones-crear-revisar",
@@ -58,7 +74,10 @@
                 ]
               },
               {
-                "group": "Conciliación bancaria",
+                "group": "Conciliación",
+                "icon": "book",
+                "root": "docs/guides/conciliacion",
+                "directory": "accordion",
                 "pages": [
                   "docs/guides/conciliacion-bancaria-cuentas",
                   "docs/guides/conciliacion-bancaria-extractos",
@@ -66,65 +85,77 @@
                   "docs/guides/conciliacion-bancaria-casos-frecuentes"
                 ]
               },
-              "docs/guides/cobrar-en-fint",
-              "docs/guides/pagos",
-              "docs/guides/facturacion"
+              {
+                "group": "Items y descuentos",
+                "icon": "tags",
+                "root": "docs/guides/items-descuentos",
+                "directory": "card",
+                "pages": [
+                  "docs/guides/items-liquidaciones",
+                  "docs/guides/items-venta-online-stock",
+                  "docs/guides/descuentos"
+                ]
+              },
+              {
+                "group": "Facturación",
+                "icon": "file-lines",
+                "root": "docs/guides/facturacion",
+                "directory": "accordion",
+                "pages": [
+                  "docs/guides/facturacion-arca"
+                ]
+              }
             ]
           },
           {
-            "group": "Canales de Venta",
+            "group": "Canales de venta",
+            "icon": "store",
             "pages": [
-              {
-                "group": "Punto de Venta",
-                "pages": [
-                  "docs/guides/punto-de-venta",
-                  {
-                    "group": "Preparación",
-                    "pages": [
-                      "docs/guides/pos-configuracion",
-                      "docs/guides/pos-cajas-dispositivos"
-                    ]
-                  },
-                  {
-                    "group": "Operación diaria",
-                    "pages": [
-                      "docs/guides/pos-venta",
-                      "docs/guides/pos-descuentos",
-                      "docs/guides/pos-cobros"
-                    ]
-                  },
-                  {
-                    "group": "Seguimiento",
-                    "pages": [
-                      "docs/guides/pos-ventas-reportes"
-                    ]
-                  }
-                ]
-              },
               "docs/guides/links-pago",
               "docs/guides/suscripciones",
               {
                 "group": "Eventos",
+                "icon": "calendar",
+                "root": "docs/guides/eventos",
+                "directory": "card",
+                "expanded": true,
                 "pages": [
-                  "docs/guides/eventos",
                   "docs/guides/eventos-crear-publicar",
                   "docs/guides/eventos-entradas-ventas-asistentes",
                   "docs/guides/app-admision",
                   "docs/guides/meta-pixel"
+                ]
+              },
+              {
+                "group": "Punto de venta",
+                "icon": "cash-register",
+                "root": "docs/guides/punto-de-venta",
+                "directory": "accordion",
+                "expanded": true,
+                "pages": [
+                  "docs/guides/pos-configuracion",
+                  "docs/guides/pos-cajas-dispositivos",
+                  "docs/guides/pos-venta",
+                  "docs/guides/pos-descuentos",
+                  "docs/guides/pos-cobros",
+                  "docs/guides/pos-ventas-reportes"
                 ]
               }
             ]
           },
           {
             "group": "Comunicación",
+            "icon": "envelope",
             "pages": [
               "docs/guides/mensajeria"
             ]
           },
           {
             "group": "Configuración",
+            "icon": "cog",
+            "root": "docs/guides/configuracion",
+            "directory": "accordion",
             "pages": [
-              "docs/guides/configuracion",
               "docs/guides/configuracion-general",
               "docs/guides/configuracion-etiquetas",
               "docs/guides/configuracion-campos",
@@ -132,10 +163,9 @@
               "docs/guides/configuracion-recordatorios",
               "docs/guides/configuracion-mora",
               "docs/guides/configuracion-integraciones",
-              "docs/guides/configuracion-funcionalidades",
-              "docs/guides/configuracion-desarrolladores",
               "docs/guides/conectar-mercado-pago",
-              "docs/guides/facturacion-arca"
+              "docs/guides/configuracion-funcionalidades",
+              "docs/guides/configuracion-desarrolladores"
             ]
           }
         ]
@@ -267,6 +297,9 @@
       "label": "Acceder",
       "href": "https://admin.fint.app"
     }
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
   },
   "footer": {
     "socials": {
