@@ -1,129 +1,125 @@
 ---
 title: 'Links de Pago'
-description: 'Publicá productos o servicios para cobrar online, con opción de pago único o suscripción'
+description: 'Publicá una página para vender un taller, un producto o un servicio y cobrar online'
 ---
 
-Creá páginas de pago para vender productos, servicios, cursos o membresías. Compartí el link y cobrá online.
+Un **link de pago** es una página pública. La compartís y la persona elige qué comprar. No hace falta que esa persona ya exista como cliente en Fint.
 
-{/* Video desactualizado — descomentar cuando se regrabe
+Sirve para un taller, un producto de la tienda o un servicio extra. No reemplaza a las [cuotas institucionales](/docs/guides/solicitudes-pago): esas las generás vos. Acá se inscribe quien quiere.
 
-## Tutorial en Video
+<Info>
+  Antes de armar el link, creá los artículos como items de **Venta online** en [Items](/docs/guides/items-venta-online-stock). El link no crea el producto: solo lo ofrece.
+</Info>
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.loom.com/embed/a75e6012ddcd4d35b36d2ba783757da9"
-  title="Tutorial Links de Pago"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
-></iframe>
+## Cómo se organiza
 
-*/}
+<CardGroup cols={3}>
+  <Card title="Crear" icon="plus">
+    Definí el nombre interno, el título visible, la descripción, la dirección web y los artículos.
+  </Card>
+  <Card title="Publicar" icon="globe">
+    **Guardar** deja el link **Activo**. **Guardar como borrador** lo guarda sin publicarlo.
+  </Card>
+  <Card title="Compartir" icon="share">
+    Desde el listado podés **Visitar**, **Editar**, **Duplicar** o **Eliminar**.
+  </Card>
+</CardGroup>
 
-## Crear un Link de Pago
+## Recorrido
+
+```mermaid
+flowchart LR
+  A[Item de Venta online] --> B[Link de pago]
+  B --> C[Página pública]
+  C --> D[Compra]
+  D --> E[Orden y pago]
+```
 
 <Steps>
-  <Step title="Datos generales">
-    Ingresá un **nombre de la página** (uso interno, no visible al comprador) y opcionalmente una **fecha de expiración** para que el link deje de estar disponible automáticamente.
+  <Step title="Prepará los artículos">
+    Usá items de Venta online. Pueden ser de pago único o recurrentes. Un item recurrente, al comprarse, inicia una [suscripción](/docs/guides/suscripciones).
   </Step>
-
-  <Step title="Personalizá la página">
-    Completá el **título** visible, una **descripción** (hasta 264 caracteres), subí una **imagen de portada** (1200 x 630 px recomendado) y definí la **dirección web** personalizada del link (ej: `tuinstitucion.fint.app/mi-curso`).
-
-    La **vista previa** de la derecha muestra en tiempo real cómo se verá la página pública.
-
-    <img src="/docs/images/links-pago/crear.png" alt="Formulario de creación de un link de pago con vista previa en vivo" />
+  <Step title="Creá el link">
+    En **Links de pago**, usá **+ Crear link de pago**. Completá cómo se ve la página y qué artículos ofrece.
   </Step>
-
-  <Step title="Agregá artículos">
-    Hacé clic en **"+ Agregar artículo"** y seleccioná los items de tipo "Venta online" creados en [Items y Descuentos](/docs/guides/items-descuentos). Podés agregar varios artículos al mismo link — el comprador elige uno al momento de la compra.
-
-    Opcionalmente, asigná **etiquetas** al link. Cuando alguien compra, se crea un nuevo cliente y contacto en Fint, y se le asignan automáticamente esas etiquetas.
-
-    <img src="/docs/images/links-pago/crear-articulos.png" alt="Selección de artículos de venta online para el link" />
-  </Step>
-
-  <Step title="Configurá la facturación (opcional)">
-    Para items recurrentes podés activar un **día fijo de emisión**: todas las facturas se emiten el día indicado de cada mes, sin importar cuándo se suscribió el contacto. También podés definir los **días hasta el vencimiento** después de la emisión.
-  </Step>
-
-  <Step title="Mensaje de confirmación (opcional)">
-    Activá el toggle **"Agregar texto al finalizar el proceso"** para configurar un mensaje que verá el comprador al completar el pago (instrucciones, próximos pasos, etc.).
-  </Step>
-
-  <Step title="Publicá">
-    Cuando esté listo, hacé clic en **"Guardar"** para publicar o **"Guardar como borrador"** si todavía no querés que esté disponible.
+  <Step title="Publicá y compartí">
+    Cuando esté **Activo**, copiá la dirección o usá **Visitar** para ver lo mismo que ve el comprador.
   </Step>
 </Steps>
 
-## Listado y Estados
+## Crear el link
 
-El listado de links muestra el nombre interno, título visible, fecha de expiración y estado. Los links pueden estar en estado **Activa** (disponible para compras) o como borrador.
+El formulario tiene el contenido a la izquierda y una **vista previa** a la derecha.
 
-<img src="/docs/images/links-pago/listado.png" alt="Listado de links de pago con su estado" />
+<img src="/docs/images/links-pago/crear.png" alt="Formulario Crear link de pago con el taller Curso de Robótica y la vista previa de la página pública" />
 
-## Compartir
+<Steps>
+  <Step title="General">
+    El **nombre de la página** es interno: aparece en tu listado, no en la página pública. La **fecha de expiración** es opcional. Si la cargás, tiene que ser posterior a hoy.
+  </Step>
+  <Step title="Personalización">
+    El **título** es lo que ve el comprador. La **descripción** admite formato y muestra un contador de 264 caracteres. La **imagen de portada** recomienda 1200 × 630. La **dirección web** completa la URL de tu institución, por ejemplo `tuinstitucion.fint.app/curso-robotica`.
+  </Step>
+  <Step title="Artículos y etiquetas">
+    Con **+ Agregar artículo** elegís items de Venta online. Podés sumar más de uno. En el formulario actual, el comprador elige un artículo al pagar.
 
-Una vez publicado, compartí tu link por email, WhatsApp, redes sociales o integralo en tu sitio web. El comprador ve una página con tu logo, el título, la descripción y los artículos disponibles para seleccionar y pagar.
+    Si asignás **etiquetas**, Fint se las pone al cliente y al contacto que se crean cuando alguien compra.
 
----
+    <img src="/docs/images/links-pago/crear-articulos.png" alt="Selector de artículos de Venta online para sumar al link" />
+  </Step>
+  <Step title="Cobro, si tu procesador lo permite">
+    La sección **Cobro** aparece cuando la organización usa **Stripe** o **Mercado Pago**. El interruptor **Debitar automáticamente todos los meses** cambia el recaudo de las suscripciones: o se intenta el débito solo, o se envía una factura en cada período.
+  </Step>
+  <Step title="Facturación, si hay recurrencia">
+    **Día fijo de emisión** hace que las facturas de una suscripción salgan el mismo día de cada mes, sin importar cuándo se inscribió la persona. **Días hasta el vencimiento** cuenta desde esa emisión.
+  </Step>
+  <Step title="Confirmación">
+    **Agregar texto al finalizar el proceso** muestra un mensaje extra cuando el pago termina. Sirve para una indicación o un próximo paso.
+  </Step>
+  <Step title="Guardá">
+    **Guardar** publica el link como **Activo**. **Guardar como borrador** lo deja guardado sin publicarlo. En un link ya creado, el menú de estado permite pasar de **Activo** a **Borrador** o al revés.
+  </Step>
+</Steps>
 
-## Suscripciones
+<Warning>
+  El recuadro de descripción dice “opcional”, pero al guardar Fint pide un texto de al menos tres caracteres. Completalo antes de publicar.
+</Warning>
 
-Las suscripciones **no son un tipo de link diferente**. Se crean desde el mismo formulario de Link de Pago. La diferencia está en el **item**: si agregás un item con cobro recurrente, al comprarlo se genera una suscripción automáticamente. La descripción del item le explica al comprador que es una suscripción y su duración.
+## Listado y estados
 
-Esto significa que en un mismo link podés mezclar items de pago único e items recurrentes.
+El listado muestra el nombre interno, el título, la fecha de expiración y el estado.
 
-### ¿Cómo funciona el cobro recurrente?
+<img src="/docs/images/links-pago/listado.png" alt="Listado de links de pago con Taller de Ajedrez y Curso de Robótica en estado Activa" />
 
-El modo de cobro se configura en el link, en la sección **Cobro**:
+<CardGroup cols={2}>
+  <Card title="Activa" icon="circle-check">
+    La página está publicada y puede recibir compras.
+  </Card>
+  <Card title="Borrador" icon="pen">
+    El link está guardado y todavía no se ofrece al público.
+  </Card>
+</CardGroup>
 
-<Tabs>
-  <Tab title="Débito automático" icon="credit-card">
-    Con la opción **"Debitar automáticamente todos los meses"**, el cobro de cada período es automático: con **Stripe**, Fint debita la tarjeta guardada (con reintentos si falla); con **Mercado Pago**, el débito lo maneja la suscripción de MP. Si el cobro falla tras todos los reintentos, podés elegir que la suscripción se cancele sola o que se sigan emitiendo facturas con intereses.
-  </Tab>
+En cada fila, el menú permite **Visitar**, **Editar**, **Duplicar página** o **Eliminar**. Al eliminar, Fint avisa que ya no vas a recibir nuevas suscripciones en esa página.
 
-  <Tab title="Enviar factura" icon="file-invoice">
-    Fint **genera y envía una factura** en cada período. El cliente la paga desde el [Portal de Contacto](/docs/guides/portal-contacto) o presencialmente.
-  </Tab>
-</Tabs>
+## Qué pasa cuando alguien compra
 
-### Configuración de la suscripción
+1. Se crea o se reconoce a la persona como cliente.
+2. Se genera una [orden](/docs/guides/solicitudes-pago) y, si el cobro se confirma, un [pago](/docs/guides/pagos).
+3. Si el artículo era recurrente, también queda una [suscripción](/docs/guides/suscripciones).
 
-La recurrencia se configura en el item desde [Items y Descuentos](/docs/guides/items-descuentos#vigencia):
-- **Frecuencia**: Mensual o anual
-- **Duración**: Indefinida o cantidad de cobros específica
+El primer slice de esta guía no recorre el checkout hasta el final. Eso queda para cuando el cobro se pueda probar en local sin dejar residuos.
 
-### Gestionar suscripciones activas
-
-Desde el [panel de suscripciones](/docs/guides/suscripciones) podés ver el detalle de cada una y **cancelarla** definitivamente — no se generan más órdenes de pago.
-
-Para **modificar el monto** no se edita la suscripción: se cambia el precio del **item** en [Items y Descuentos](/docs/guides/items-descuentos), y el nuevo valor se propaga automáticamente a todas las suscripciones activas que lo usan (aplica desde el próximo período).
-
-<Info>
-  El cliente no puede cancelar directamente — solo el administrador puede hacerlo.
-</Info>
-
-### ¿Cuándo usar suscripciones vs liquidaciones?
-
-| Suscripciones | Liquidaciones |
-|---------------|---------------|
-| El cliente se inscribe voluntariamente | Vos generás las facturas |
-| Cobro automático (Stripe) o factura periódica | El cliente paga cada factura |
-| Ideal para servicios opcionales | Ideal para cuotas obligatorias |
-
-## Próximos Pasos
+## Próximos pasos
 
 <CardGroup cols={3}>
-  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
-    Creá items de tipo "Venta online"
+  <Card title="Venta online" icon="tags" href="/docs/guides/items-venta-online-stock">
+    Creá los artículos que el link va a ofrecer
+  </Card>
+  <Card title="Suscripciones" icon="repeat" href="/docs/guides/suscripciones">
+    Seguimiento cuando el item es recurrente
   </Card>
   <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
-    Pagos recibidos por links
-  </Card>
-  <Card title="Eventos" icon="calendar" href="/docs/guides/eventos">
-    Otra forma de vender online
+    Dónde aparece el cobro después de la compra
   </Card>
 </CardGroup>

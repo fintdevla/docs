@@ -1,0 +1,122 @@
+---
+title: 'Descuentos'
+description: 'Configurá beneficios de monto fijo o porcentaje para cada canal de Fint'
+---
+
+Un descuento reduce el importe de una orden o compra. Puede restar un **monto fijo** o calcular un **porcentaje** sobre los items que definas.
+
+El tipo del descuento determina dónde se usa. Elegilo antes de configurar su alcance.
+
+## Elegir el tipo
+
+<CardGroup cols={3}>
+  <Card title="Liquidación" icon="file-invoice">
+    Se asigna a clientes y se evalúa cuando generás sus órdenes en una liquidación.
+  </Card>
+  <Card title="Venta online" icon="cash-register">
+    Queda disponible como descuento guardado para usar durante una venta en el Punto de Venta.
+  </Card>
+  <Card title="Eventos" icon="ticket">
+    Funciona como un código que el comprador ingresa en el checkout del evento.
+  </Card>
+</CardGroup>
+
+<Info>
+  Un descuento de Venta online no funciona como cupón en el checkout público de Links de Pago. Para ese tipo, el canal compatible es el Punto de Venta.
+</Info>
+
+## Crear un descuento
+
+<Steps>
+  <Step title="Abrí la pestaña Descuentos">
+    Entrá a **Items → Descuentos** y presioná **Crear descuento**.
+  </Step>
+  <Step title="Elegí el tipo">
+    Seleccioná Liquidación, Venta online o Entrada de eventos según el lugar donde se aplicará.
+  </Step>
+  <Step title="Definí el valor">
+    Escribí un nombre y elegí entre monto fijo o porcentaje. Ingresá un valor mayor que cero.
+  </Step>
+  <Step title="Configurá el alcance">
+    Indicá si aplica siempre o sobre todos los items, sólo algunos, o todos excepto los seleccionados.
+  </Step>
+  <Step title="Completá el canal">
+    Configurá clientes y vigencia para Liquidación, stock para Venta online o código y restricciones para Eventos.
+  </Step>
+  <Step title="Guardá">
+    Usá **Guardar** para dejarlo activo o **Guardar como borrador** para revisarlo después.
+  </Step>
+</Steps>
+
+<img src="/docs/images/items-descuentos/catalogo-descuentos-2027.png" alt="Listado de descuentos de ejemplo para liquidaciones y ventas institucionales" />
+
+## Monto fijo o porcentaje
+
+<Tabs>
+  <Tab title="Monto fijo">
+    Resta una suma definida. Podés hacerlo siempre o exigir que la orden incluya —o no incluya— determinados items.
+  </Tab>
+  <Tab title="Porcentaje">
+    Calcula una proporción sobre todos los items, sólo algunos o todos excepto los seleccionados.
+  </Tab>
+</Tabs>
+
+<Info>
+  **Ejemplo:** una orden incluye Cuota escolar por $15.000 y Comedor por $3.000. Un 10% aplicado sólo a la cuota descuenta $1.500; el total queda en $16.500.
+</Info>
+
+## Descuento de Liquidación
+
+Configurá su vigencia igual que la del concepto al que acompaña: pago único, mensual o anual. Para una duración definida, indicá la cantidad de ciclos.
+
+Después seleccioná los clientes que reciben el beneficio. La liquidación evalúa los descuentos activos, asignados y vigentes junto con los items de cada perfil.
+
+**Ejemplo:** “Beca académica 50%” aplicada a Cuota escolar 2027 para los clientes becados.
+
+<img src="/docs/images/items-descuentos/descuento-liquidacion.png" alt="Beca por hermanos del 20 por ciento configurada sobre la cuota escolar y asignada a dos estudiantes" />
+
+## Descuento de Venta online
+
+Este tipo crea un beneficio guardado para el Punto de Venta. Dejalo activo y con stock disponible para poder aplicarlo durante una venta.
+
+Podés exigir una cantidad mínima de productos y decidir qué productos cuentan para alcanzar ese mínimo. El alcance del descuento se configura por separado.
+
+Los items de monto libre no cuentan para activar la condición de cantidad.
+
+Primero definí el valor del descuento y la cantidad mínima que debe llevar la venta.
+
+<img src="/docs/images/items-descuentos/descuento-cantidad-productos.png" alt="Descuento del 5 por ciento que exige dos prendas institucionales para activarse" />
+
+Después elegí qué productos cuentan para alcanzar ese mínimo. En este ejemplo, son Buzo institucional 2027 y Remera institucional 2027.
+
+<img src="/docs/images/items-descuentos/productos-descuento-cantidad.png" alt="Selector de productos del descuento con Buzo institucional 2027 y Remera institucional 2027 elegidos" />
+
+Consultá [Descuentos en el Punto de Venta](/docs/guides/pos-descuentos) para ver descuentos guardados, manuales y combinaciones.
+
+## Descuento de Eventos
+
+Definí un código que el comprador pueda ingresar en el checkout, como `PREVENTA10`. El código debe identificar un único descuento dentro de tu organización.
+
+Además del alcance por items, podés restringir el total mínimo o máximo de la compra. Si el descuento es porcentual, también podés limitar el monto máximo descontado.
+
+Después agregá el descuento al evento correspondiente. Seguí el flujo en [Crear y publicar un evento](/docs/guides/eventos-crear-publicar#3-agregar-descuentos).
+
+## Importar descuentos de Liquidación
+
+Desde la pestaña Descuentos podés abrir **Importar Excel** y descargar el modelo actual. En la plantilla, un monto negativo se interpreta como descuento y sólo es válido para Liquidación.
+
+La importación no configura clientes, condiciones ni códigos. Revisá cada descuento importado y completá esos datos antes de usarlo.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Items para liquidaciones" icon="layer-group" href="/docs/guides/items-liquidaciones">
+    Prepará los conceptos sobre los que se aplican las becas.
+  </Card>
+  <Card title="Descuentos en POS" icon="cash-register" href="/docs/guides/pos-descuentos">
+    Aplicá beneficios guardados y manuales durante una venta.
+  </Card>
+  <Card title="Eventos" icon="calendar-days" href="/docs/guides/eventos">
+    Publicá entradas y códigos de descuento.
+  </Card>
+</CardGroup>

@@ -1,0 +1,80 @@
+---
+title: 'Crear y Revisar una Liquidación'
+description: 'Prepará órdenes por período desde items asignados a clientes activos'
+---
+
+Una liquidación prepara órdenes para un período. Fint toma los items de Liquidación aplicables y sus descuentos, y agrupa en una orden los conceptos de cada cliente activo.
+
+<Info>
+  Crear y administrar liquidaciones requiere el rol **Administrador**.
+
+  La pestaña Liquidaciones depende del módulo de cuotas institucionales y del acceso de tu cuenta. Si no aparece, revisá la disponibilidad con el administrador de tu organización.
+</Info>
+
+## Antes de empezar
+
+Verificá estos puntos:
+
+- Los [items de Liquidación](/docs/guides/items-liquidaciones) están activos y vigentes para el período.
+- Cada item está asignado a los clientes que correspondan.
+- Los [descuentos](/docs/guides/descuentos) tienen el alcance y las condiciones correctas.
+- Los clientes que deban recibir una orden están activos.
+
+Un cliente sin items aplicables no genera una orden. Un cliente inactivo tampoco se incluye.
+
+## 1. Crear la liquidación
+
+Entrá en **Órdenes**, abrí la pestaña **Liquidaciones** y seleccioná **Nueva Liquidación**.
+
+Completá:
+
+- **Nombre**: una referencia clara, como “Cuotas marzo 2027”.
+- **Período**: el mes al que corresponden los items.
+- **Fecha de vencimiento**: el límite de pago de las órdenes.
+
+La fecha de vencimiento no puede ser anterior al período. Si elegís una fecha anterior a hoy, el formulario avisa que las órdenes se crearán vencidas.
+
+Mientras exista una liquidación **Pendiente** o **Enviando** para el período, no podés crear otra para el mismo mes.
+
+<Info>
+  Actualmente, las órdenes generadas por una liquidación se registran en **ARS**.
+</Info>
+
+<img src="/docs/images/ordenes-liquidaciones/nueva-liquidacion-marzo-2027.png" alt="Formulario Nueva Liquidación con Cuotas marzo 2027 y vencimiento del 10 de marzo" />
+
+## 2. Entender el estado Pendiente
+
+Al crearla, la liquidación aparece como **Pendiente**. Esta etapa permite revisar sus órdenes antes de iniciar el envío.
+
+El listado muestra nombre, período, cantidad de clientes, monto a cobrar y estado. El filtro **Estado** ofrece Pendiente y Enviado; el filtro **Período** usa los meses disponibles.
+
+{/* TODO(captura): Mostrar liquidaciones 2027 con estados Pendiente, Enviada y Cancelada, usando nombres y períodos coherentes. */}
+
+## 3. Revisar las órdenes
+
+Abrí la liquidación Pendiente. El detalle muestra sus órdenes y permite buscarlas por cliente.
+
+También podés filtrar por etiquetas. Cada fila muestra cliente, importe, cantidad de items y estado.
+
+Seleccioná una orden para revisar sus items, descuentos, total, vencimiento y estado.
+
+{/* TODO(captura): Mostrar el detalle real de una liquidación Pendiente con su tabla de órdenes, buscador y filtro de etiquetas. */}
+
+{/* TODO(captura): Mostrar una orden de la liquidación con Cuota escolar 2027 y Beca por hermanos 2027 aplicada. */}
+
+## 4. Decidir cómo continuar
+
+Si los clientes, items o importes no coinciden con lo esperado, no inicies el envío.
+
+Usá la guía de [corrección, envío y cancelación](/docs/guides/liquidaciones-corregir-enviar-cancelar) para revisar cada caso y conocer qué conserva el sistema al cancelar.
+
+## Próximos pasos
+
+<CardGroup cols={2}>
+  <Card title="Corregir y continuar" icon="pen-to-square" href="/docs/guides/liquidaciones-corregir-enviar-cancelar">
+    Corregí items, validá importes y elegí entre enviar, eliminar o cancelar.
+  </Card>
+  <Card title="Gestionar órdenes" icon="list" href="/docs/guides/ordenes-gestionar">
+    Consultá estados, vencimientos y pagos.
+  </Card>
+</CardGroup>

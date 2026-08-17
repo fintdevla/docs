@@ -1,0 +1,108 @@
+---
+title: 'Condición y estado de un cliente'
+description: 'Administrá altas y bajas y entendé la situación financiera calculada por Fint'
+---
+
+La condición indica si vas a seguir gestionando al cliente como activo. El estado resume sus órdenes de pago. Separarlos evita interpretar una baja administrativa como si fuera una deuda.
+
+## Condición y estado
+
+<CardGroup cols={2}>
+  <Card title="Condición" icon="user-check">
+    La elegís vos. Define si el cliente está activo o inactivo para la operación futura.
+  </Card>
+  <Card title="Estado" icon="chart-simple">
+    Lo calcula Fint según las órdenes del cliente y sus vencimientos. No se selecciona manualmente.
+  </Card>
+</CardGroup>
+
+Ambos valores aparecen en **Detalle** dentro del perfil. También podés filtrar el listado por estado financiero.
+
+## Dar de baja a un cliente
+
+<Steps>
+  <Step title="Abrí el perfil">
+    Buscá al cliente en el listado y desplegá **Detalle**.
+  </Step>
+  <Step title="Cambiá la condición">
+    Presioná el valor de **Condición** y elegí una condición inactiva.
+  </Step>
+  <Step title="Revisá las consecuencias">
+    Fint muestra una confirmación. Comprobá que querés detener nuevas órdenes y recordatorios antes de continuar.
+  </Step>
+  <Step title="Confirmá la baja">
+    El cliente deja el listado principal y pasa a la vista de inactivos.
+  </Step>
+</Steps>
+
+<img src="/docs/images/clientes/confirmar-baja.png" alt="Confirmación de baja con sus efectos sobre órdenes y recordatorios" />
+
+Al darlo de baja:
+
+- Fint no genera órdenes de pago nuevas para ese cliente.
+- Las órdenes existentes no se eliminan.
+- Fint deja de enviarle recordatorios.
+- El acceso actual al portal y las órdenes ya creadas se conservan.
+
+<Warning>
+  Si el cliente tiene una suscripción activa, Fint puede impedir la baja. Resolvé primero esa suscripción y repetí el cambio de condición.
+</Warning>
+
+## Reactivar un cliente
+
+<Steps>
+  <Step title="Abrí la vista de inactivos">
+    En **Clientes**, abrí el menú de opciones junto a **Crear** y elegí **Ver clientes inactivos** o **Ver estudiantes inactivos**.
+  </Step>
+  <Step title="Buscá y abrí el perfil">
+    Seleccioná el registro que querés recuperar.
+  </Step>
+  <Step title="Elegí una condición activa">
+    Cambiá **Condición** por una opción activa. El cliente vuelve al listado principal con su historial.
+  </Step>
+</Steps>
+
+<img src="/docs/images/clientes/listado-inactivos.png" alt="Listado de estudiantes inactivos para buscar y reactivar una ficha" />
+
+## Archivar o eliminar
+
+Desde el listado podés seleccionar uno o más clientes y presionar **Archivar**. Esta acción los pasa a inactivos y se puede revertir con la reactivación.
+
+**Eliminar** es una acción distinta. Aparece en el menú de la selección y la confirmación indica que elimina también los datos asociados.
+
+<Warning>
+  La eliminación no se puede deshacer. Usá **Archivar** si sólo necesitás retirar clientes del trabajo cotidiano y conservar la posibilidad de reactivarlos.
+</Warning>
+
+## Estados financieros
+
+<AccordionGroup>
+  <Accordion title="Sin órdenes de pago">
+    El cliente todavía no tiene órdenes registradas.
+  </Accordion>
+  <Accordion title="Pago pendiente">
+    Tiene al menos una orden sin pagar que todavía no venció y ninguna deuda vencida.
+  </Accordion>
+  <Accordion title="Con deuda">
+    Tiene al menos una orden vencida que sigue impaga.
+  </Accordion>
+  <Accordion title="Al día">
+    Tiene órdenes registradas, pero no quedan importes pendientes de pago.
+  </Accordion>
+</AccordionGroup>
+
+El estado puede cambiar cuando se crea una orden, llega su vencimiento o se registra un pago. Consultalo como resultado de la cobranza, no como una clasificación manual.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
+    Volvé al mapa general del módulo.
+  </Card>
+  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
+    Entendé qué operaciones modifican el estado.
+  </Card>
+  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    Revisá qué órdenes conserva el responsable.
+  </Card>
+</CardGroup>

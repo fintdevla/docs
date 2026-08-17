@@ -1,0 +1,84 @@
+---
+title: 'Corregir, Enviar o Cancelar una Liquidación'
+description: 'Revisá una liquidación pendiente y elegí la acción segura para continuar'
+---
+
+Tomá una decisión solo después de revisar clientes, items, descuentos e importes en el detalle de la liquidación.
+
+<Info>
+  Corregir, enviar, eliminar o cancelar una liquidación requiere el rol **Administrador**.
+</Info>
+
+## Corregir una liquidación Pendiente
+
+Abrí una orden de la liquidación y compará sus items con la configuración esperada para ese cliente y período.
+
+Si falta un item, usá el botón **+** de la sección **Items** y elegí uno disponible.
+
+Si sobra un item, usá la **X** junto a ese renglón. La confirmación advierte que también se desvinculará del cliente y que esto puede afectar futuras liquidaciones.
+
+<Warning>
+  No des por eliminada una orden solo porque quitaste su último item. Volvé al detalle de la liquidación y comprobá el resultado antes de continuar.
+</Warning>
+
+Si el importe es incorrecto, revisá el item y los descuentos asignados. Después regresá a la liquidación y verificá nuevamente el desglose y el total.
+
+{/* TODO(captura): Mostrar el detalle de una orden Pendiente con el botón para agregar items y la confirmación de desvinculación. */}
+
+## Revisar casos especiales
+
+- Una orden con items cuyo total es cero se convierte en **Bonificada** al procesar la liquidación.
+- Una orden con total negativo impide iniciar el envío.
+
+Si aparece un error por monto negativo, corregí los descuentos o items y volvé a revisar el total.
+
+{/* TODO(captura): Mostrar el mensaje real de monto negativo solo después de reproducirlo de forma determinista en un entorno de documentación. */}
+
+## Iniciar el envío
+
+Cuando la liquidación esté Pendiente y la revisión sea correcta, seleccioná **Enviar liquidación**.
+
+El cuadro de confirmación indica que la acción generará y enviará las órdenes de pago. Elegí **Enviar** solo cuando el período esté listo para procesarse.
+
+La liquidación pasa por **Enviando** y luego por **Enviada**. Las órdenes con importe pasan de no enviadas a **Por Cobrar**; las que tienen total cero por sus items quedan **Bonificadas**.
+
+Esta guía no valida la entrega de notificaciones. Si tu operación depende del correo, comprobalo por separado en un entorno habilitado.
+
+{/* TODO(captura): Mostrar el cuadro Confirmar envío de liquidación, con el nombre y período visibles detrás. */}
+
+## Eliminar una liquidación Pendiente
+
+Mientras la liquidación está **Pendiente**, el detalle muestra **Eliminar**.
+
+Usá esta acción si no querés procesar esa preparación. Después de eliminarla, volvés al listado de liquidaciones.
+
+No confundas esta acción con cancelar una liquidación ya Enviada.
+
+## Cancelar una liquidación Enviada
+
+En una liquidación **Enviada**, el detalle muestra **Cancelar liquidación**.
+
+Al confirmar, la liquidación pasa a **Cancelada**. Sus órdenes Por Cobrar pasan a Cancelada. Las órdenes Pagadas, con Pago parcial o Bonificadas se conservan.
+
+<Info>
+  La cancelación cambia estados. No elimina las órdenes ni los pagos conservados.
+</Info>
+
+<Warning>
+  Las órdenes que pasan a Cancelada no aparecen en el listado general de Órdenes y el filtro Cancelada no las recupera en la versión actual.
+</Warning>
+
+La acción no está disponible mientras la liquidación figura como **Enviando**.
+
+{/* TODO(captura): Mostrar la confirmación de Cancelar liquidación y otra vista con el estado Cancelada, sin ejecutar el flujo sobre datos reales. */}
+
+## Próximos pasos
+
+<CardGroup cols={2}>
+  <Card title="Revisar órdenes conservadas" icon="list" href="/docs/guides/ordenes-gestionar">
+    Consultá las órdenes Pagadas, con Pago parcial o Bonificadas que se conservaron.
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Revisá cobros y pagos parciales asociados.
+  </Card>
+</CardGroup>

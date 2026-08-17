@@ -1,0 +1,108 @@
+---
+title: 'Items para liquidaciones'
+description: 'Configurá cuotas y otros conceptos que vas a asignar a clientes y liquidar en lote'
+---
+
+Un item de **Liquidación** es un concepto que Fint puede incluir en las órdenes de tus clientes. Por ejemplo: Cuota escolar 2027, Matrícula 2027 o Comedor mensual.
+
+Al terminar esta guía, vas a tener el concepto, su calendario y sus clientes asignados listos para generar una liquidación.
+
+## Antes de empezar
+
+Definí estas tres cosas:
+
+- El nombre y monto del concepto.
+- Si se cobra una vez, todos los meses o todos los años.
+- A qué clientes debe aplicarse.
+
+<Info>
+  Un item recurrente de Liquidación no crea una suscripción. La recurrencia indica en qué períodos una liquidación puede incluirlo.
+</Info>
+
+## Crear el item
+
+<Steps>
+  <Step title="Abrí el alta">
+    Entrá a **Items**, presioná **Crear item** y elegí **Liquidación**.
+  </Step>
+  <Step title="Completá el concepto">
+    Escribí un nombre que después puedas reconocer en una orden, como “Cuota escolar 2027”, e ingresá un monto mayor que cero.
+  </Step>
+  <Step title="Definí la mora">
+    Activá **Generar intereses por mora** sólo si este concepto debe acumular el interés configurado por tu organización cuando una orden vence.
+  </Step>
+  <Step title="Configurá la vigencia">
+    Elegí pago único o recurrente. Si es recurrente, definí frecuencia, mes de inicio y duración.
+  </Step>
+  <Step title="Seleccioná clientes">
+    En la sección de clientes, presioná **Seleccionar** y marcá los perfiles a los que corresponde el concepto.
+  </Step>
+  <Step title="Guardá">
+    Usá **Guardar** para dejarlo activo o **Guardar como borrador** si todavía necesitás revisarlo.
+  </Step>
+</Steps>
+
+<img src="/docs/images/items-descuentos/item-liquidacion-recurrente.png" alt="Cuota escolar 2027 configurada como item de liquidación mensual con mora y diez ciclos" />
+
+## Configurar la vigencia
+
+<Tabs>
+  <Tab title="Pago único">
+    Elegí el **mes de cobro**. El item aplica una sola vez, cuando generás la liquidación de ese período.
+  </Tab>
+  <Tab title="Mensual">
+    Elegí el mes de inicio. Después definí una cantidad de cuotas o una duración indefinida.
+  </Tab>
+  <Tab title="Anual">
+    Elegí el mes de inicio. Fint vuelve a considerar el item una vez por año, durante la cantidad de ciclos indicada o de forma indefinida.
+  </Tab>
+</Tabs>
+
+Cuando la duración es definida, la interfaz admite hasta 24 ciclos. Leé el resumen que aparece debajo de la vigencia antes de guardar.
+
+## Asignar clientes
+
+La sección de clientes aparece en el formulario cuando el tipo es Liquidación. Podés seleccionar uno o varios perfiles y volver a editar la selección después.
+
+<img src="/docs/images/items-descuentos/clientes-asignados.png" alt="Selector con Sofía y Tomás asignados a la cuota escolar 2027" />
+
+La asignación indica quién puede recibir el concepto en una liquidación. No crea una orden de inmediato.
+
+También podés administrar items desde el perfil de un cliente. Si quitás una asignación, revisá por separado las órdenes que ya hayan sido generadas.
+
+## Qué ocurre al liquidar
+
+Para el período elegido, Fint considera los items de Liquidación que estén activos, asignados al cliente y vigentes en ese mes.
+
+Después agrupa los conceptos aplicables en una orden por cliente. Los descuentos de Liquidación asignados a ese perfil se evalúan en el mismo proceso.
+
+Consultá [Órdenes y Liquidaciones](/docs/guides/solicitudes-pago) para ejecutar el período y revisar el resultado antes de cobrar.
+
+## Intereses por mora
+
+El selector del item indica si ese concepto participa del cálculo de mora. La tasa y la forma de cálculo se definen a nivel de organización.
+
+Antes de activar la opción, comprobá la configuración en [Intereses por mora](/docs/guides/configuracion#intereses-por-mora).
+
+## Si un concepto no aparece
+
+Revisá, en este orden:
+
+1. Que el item tenga estado **Activo**.
+2. Que el período esté dentro de su vigencia.
+3. Que el cliente esté seleccionado en el item.
+4. Que no exista ya una orden del mismo período que debas revisar.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Crear descuentos" icon="percent" href="/docs/guides/descuentos#descuento-de-liquidacion">
+    Aplicá becas u otros beneficios a clientes seleccionados.
+  </Card>
+  <Card title="Liquidar un período" icon="file-invoice" href="/docs/guides/solicitudes-pago">
+    Generá y controlá las órdenes resultantes.
+  </Card>
+  <Card title="Organizar clientes" icon="users" href="/docs/guides/clientes">
+    Revisá perfiles, estados y asignaciones.
+  </Card>
+</CardGroup>

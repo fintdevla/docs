@@ -1,232 +1,109 @@
 ---
 title: 'Items y Descuentos'
-description: 'Configurá los conceptos que forman parte de las cuotas y los descuentos aplicables'
+description: 'Elegí y configurá los conceptos que Fint cobrará o descontará en cada canal'
 ---
 
-Los **items** son los conceptos que cobrás: cuotas, matrículas, productos o entradas. Los **descuentos** reducen esos importes.
+Un **item** representa algo que cobrás. Un **descuento** reduce el importe de una orden o una compra.
 
-Cada item pertenece a un tipo: liquidación, venta online o eventos. El [Punto de Venta](/docs/guides/punto-de-venta) reutiliza los items de **Venta online** con pago único para su catálogo presencial.
+Antes de crearlo, definí dónde lo vas a usar. Esa elección determina su vigencia, cómo llega al comprador y qué campos vas a completar.
 
-{/* Video desactualizado — descomentar cuando se regrabe
+<Info>
+  La administración de Items y Descuentos corresponde al rol **Administrador**. Las opciones visibles dependen de los módulos habilitados para tu organización.
+</Info>
 
-## Tutorial en Video
+<img src="/docs/images/items-descuentos/catalogo-items-2027.png" alt="Listado de items de ejemplo con cuotas y productos institucionales de 2027" />
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.loom.com/embed/f72e64d12b124f0cb26aab8a02f29dbb"
-  title="Tutorial Items y Descuentos"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
-></iframe>
-
-*/}
-
-## Items
-
-Un item es un concepto de cobro. Según su tipo, se asigna a clientes, se publica en un canal de venta o se agrega a una venta presencial.
-
-<img src="/docs/images/items-descuentos/listado.png" alt="Listado de items: cuotas de liquidación y productos de venta online, con estado y stock" />
-
-### Tipos de Item
+## Elegí el tipo de item
 
 <CardGroup cols={3}>
-  <Card title="Para Liquidación" icon="file-invoice">
-    Cuotas y conceptos que vas a facturar masivamente a tus clientes. Se incluyen automáticamente cuando ejecutás una [liquidación](/docs/guides/solicitudes-pago).
+  <Card title="Liquidación" icon="file-invoice" href="/docs/guides/items-liquidaciones">
+    Usalo para cuotas, matrículas y otros conceptos que asignás a clientes antes de generar órdenes en lote.
   </Card>
-
-  <Card title="Para Venta Online" icon="cart-shopping">
-    Productos o servicios que vendas a través de [Links de Pago](/docs/guides/links-pago) o del [Punto de Venta](/docs/guides/punto-de-venta). Para el POS deben tener vigencia de pago único.
+  <Card title="Venta online" icon="cart-shopping" href="/docs/guides/items-venta-online-stock">
+    Usalo para productos o servicios de Links de Pago y para el catálogo del Punto de Venta.
   </Card>
-
-  <Card title="Para Evento" icon="calendar">
-    Entradas y tickets que vendas a través de [Eventos](/docs/guides/eventos). Incluye validación QR y control de asistentes.
+  <Card title="Entrada de eventos" icon="ticket" href="/docs/guides/eventos-crear-publicar#2-agregar-tipos-de-entrada">
+    Usalo para entradas que después vas a incorporar a un evento. El alta incluye stock y opciones para los asistentes.
   </Card>
 </CardGroup>
 
-### Campos según el tipo
+## Cómo se relacionan las piezas
 
-<Tabs>
-  <Tab title="Liquidación">
-    Cada item de liquidación tiene **nombre**, **monto** y un toggle para **generar intereses por mora** en caso de pago tardío.
-  </Tab>
+```mermaid
+flowchart LR
+  A[Item] --> B{Tipo}
+  B --> C[Liquidación]
+  B --> D[Venta online]
+  B --> E[Entrada de evento]
+  C --> F[Clientes y liquidaciones]
+  D --> G[Links de Pago o POS]
+  E --> H[Página de evento]
+```
 
-  <Tab title="Venta Online">
-    Además de nombre y monto, los items de venta online tienen:
-    - **Imagen**: Foto del producto (se muestra en el checkout)
-    - **Descripción**: Texto visible en la página de compra
-    - **Stock disponible**: Cantidad de unidades disponibles
+El tipo se define al crear el item. Revisalo antes de guardar: al editar un item existente, la interfaz mantiene su tipo original.
 
-    Un item de venta online puede ser de **pago único** o **recurrente**. El segundo genera una [suscripción](/docs/guides/links-pago#suscripciones) con cobro periódico.
+## Items y descuentos son listas diferentes
 
-    Configurá esta opción en la [vigencia](#vigencia) del item.
-  </Tab>
+En la parte superior del módulo encontrás dos pestañas:
 
-  <Tab title="Entrada de eventos">
-    Además de nombre, monto, imagen, descripción y stock, las entradas tienen opciones exclusivas:
-    - **Generar código QR**: Cada entrada genera un QR único para validación
-    - **Solicitar información al asistente**: Pide nombre, apellido y email del asistente
-    - **Incluir texto en email con las entradas**: Mensaje personalizado que se envía con los tickets
+- **Items** contiene los conceptos de cobro.
+- **Descuentos** contiene reducciones de monto fijo o porcentual.
 
-    <Info>
-      Los códigos QR se usan para validar el ingreso al evento. Podés escanearlos desde la app móvil de Fint.
-    </Info>
-  </Tab>
-</Tabs>
+Ambas listas muestran el estado y permiten buscar por nombre. En Items también podés filtrar por tipo.
 
-### Crear un item de Venta online
+## Estados
 
-Para usar un producto en el Punto de Venta:
+Al crear un item o descuento, **Guardar** lo deja activo. **Guardar como borrador** conserva la configuración con estado Borrador.
 
-<Steps>
-  <Step title="Abrí el alta de items">
-    Entrá a **Items**, presioná **Crear item** y elegí **Venta online** como tipo.
-  </Step>
-  <Step title="Completá el producto">
-    Ingresá un nombre claro, el monto y el stock disponible. También podés sumar una imagen y una descripción para identificarlo mejor.
-  </Step>
-  <Step title="Elegí pago único">
-    En **Vigencia**, seleccioná **Pago único**. Los items recurrentes no se ofrecen en el catálogo del Punto de Venta.
-  </Step>
-  <Step title="Publicalo o guardalo como borrador">
-    Presioná **Guardar** para crearlo activo. Si todavía no querés publicarlo, usá **Guardar como borrador** y activalo desde el menú (⋯) cuando esté listo.
-  </Step>
-</Steps>
+Desde el menú de cada registro podés editarlo, duplicarlo, cambiar su estado o eliminarlo. Antes de modificar uno que ya usaste, revisá en qué canal está asociado.
 
-<img src="/docs/images/items-descuentos/crear-venta-online.png" alt="Alta de un item de Venta online con nombre, descripción, monto, stock y vigencia de pago único" />
+## Vigencia
 
-Después, [agregalo al catálogo del Punto de Venta](/docs/guides/pos-configuracion#agregarlos-al-pos).
+La vigencia responde dos preguntas: si el cobro ocurre una sola vez o se repite, y durante cuántos ciclos debe hacerlo.
 
-### Estados: Borrador vs Activo
+- En **Liquidación**, también elegís el mes desde el que aplica.
+- En **Venta online**, el ciclo empieza cuando la persona compra.
+- Las entradas se administran dentro de la vigencia de su evento.
 
-Al crear un item, elegís su estado con la acción final: **Guardar** lo deja activo y **Guardar como borrador** conserva la configuración para publicarla después. Antes de asociarlo a clientes, liquidaciones o un punto de venta, activalo.
+Consultá los ejemplos de [items para liquidaciones](/docs/guides/items-liquidaciones#configurar-la-vigencia) o de [venta online](/docs/guides/items-venta-online-stock#elegir-la-vigencia).
 
-Para activar un item, hacé clic en el menú (⋯) y seleccioná **"Activar item"**.
+## Crear un item de Venta online
 
-### Vigencia
+Elegí este tipo para publicar un producto o servicio en un Link de Pago, o para incorporarlo a un Punto de Venta.
 
-Definí cuándo aplica el item (para items de **Liquidación** y **Venta online** — las entradas de evento no llevan vigencia propia, valen para su evento):
-
-<Tabs>
-  <Tab title="Pago Único">
-    El item se cobra una sola vez en una fecha específica. Solo configurás el **mes de cobro**.
-  </Tab>
-
-  <Tab title="Pago Recurrente">
-    El item se cobra periódicamente. Configurás:
-    - **Frecuencia**: Mensual o Anual
-    - **Mes de inicio**: Desde qué mes comienza a cobrarse
-    - **Tipo de duración**: **Definida** (cantidad de cuotas específica) o **Indefinida** (se cobra siempre)
-    - **Cantidad de cuotas**: Si elegiste duración definida, cuántas veces se cobra
-
-    <Info>
-      **Ejemplo**: Item "Cuota Mensual" con frecuencia Mensual, inicio en Marzo 2024, duración definida de 10 cuotas → Se cobrará desde Marzo 2024 hasta Diciembre 2024 inclusive.
-    </Info>
-  </Tab>
-</Tabs>
-
-<img src="/docs/images/items-descuentos/crear.png" alt="Creación de un item de liquidación con vigencia recurrente" />
-
-### Importar desde Excel
-
-Importá múltiples items desde un archivo Excel: hacé clic en **"Importar Excel"**, descargá el modelo con las columnas correctas, completalo y subilo.
-
-### Duplicar Items
-
-Si necesitás crear un item similar a uno existente, usá la opción **"Duplicar item"** del menú (⋯). Esto crea una copia exacta que podés modificar.
+El Punto de Venta admite items de Venta online con **pago único**. Encontrás el alta completa y la gestión de existencias en [Venta online y stock](/docs/guides/items-venta-online-stock).
 
 ## Descuentos
 
-Un descuento reduce el monto final de la solicitud de pago. Puede ser un **valor fijo** (ej: $5.000) o un **porcentaje** (ej: 10%).
+Un descuento puede corresponder a Liquidación, Venta online o Eventos. El canal define si se asigna a clientes, se aplica en el POS o funciona como código en un evento.
 
-<Info>
-  Los descuentos de tipo **Venta online** no se ingresan como cupón en el checkout público de Links de Pago, pero los descuentos activos de ese tipo sí se pueden aplicar desde el [Punto de Venta](/docs/guides/pos-descuentos).
-</Info>
+Antes de crearlo, revisá alcance, vigencia y condiciones en la [guía de Descuentos](/docs/guides/descuentos).
 
-Funcionan distinto según el canal:
+## Importar desde Excel
 
-- **En liquidaciones**: el descuento se **asigna al cliente** (igual que un item) y se aplica automáticamente en cada orden que genera la liquidación.
-- **En eventos**: funcionan como **códigos de descuento** que el comprador ingresa en el checkout — no se asignan a nadie de antemano.
-- **En el Punto de Venta**: el cajero elige uno o varios descuentos guardados para la orden. También puede combinarlos con descuentos manuales creados durante la venta.
+Usá **Importar Excel** para altas masivas y descargá siempre el modelo actual desde el modal. El importador acepta archivos `.xlsx`.
 
-Cada descuento tiene un **nombre** identificativo (ej: "Beca Académica 50%"), un **valor** (fijo o porcentaje) y la configuración de **a qué items aplica** (específicos o a todos).
+La plantilla crea la configuración básica. No incluye imágenes, asignaciones a clientes, mora, condiciones de descuento ni códigos de cupón; completá esos datos después desde cada registro.
 
-Algunos ejemplos: becas académicas o deportivas, descuento por hermanos, pago anticipado, pago en efectivo.
+<Warning>
+  Revisá el canal, el estado, la vigencia y el stock de los registros importados antes de asociarlos a una liquidación o canal de venta.
+</Warning>
 
-<img src="/docs/images/items-descuentos/descuentos.png" alt="Listado de descuentos con porcentaje y clientes asignados" />
+<img src="/docs/images/items-descuentos/importar-items.png" alt="Modal para descargar el modelo de Excel y seleccionar un archivo de items" />
 
-<Info>
-  **Ejemplo**: Un cliente tiene cuota mensual ($15.000) + salida escolar ($3.000). Si el descuento por pago en efectivo (10%) aplica solo a la cuota, el total será $13.500 + $3.000 = $16.500.
-</Info>
+## Próximos pasos
 
-Al crear un descuento, usá **Guardar** para dejarlo activo o **Guardar como borrador** para publicarlo más adelante.
-
-### Condición de cantidad para el Punto de Venta
-
-En un descuento de tipo **Venta online**, podés activar **Requerir una cantidad mínima de productos**. Configurás:
-
-- La cantidad mínima de unidades.
-- Qué productos cuentan para alcanzar esa cantidad. Si no elegís ninguno, cuentan todos los productos de la orden.
-- Por separado, los items sobre los que se calcula el descuento.
-
-Los items de monto libre no cuentan para activar la condición de cantidad.
-
-Esta separación permite, por ejemplo, exigir dos prendas y aplicar un 5% sobre toda la compra. Consultá [Descuentos en el Punto de Venta](/docs/guides/pos-descuentos) para ver alcance, activación y múltiples descuentos.
-
-<img src="/docs/images/items-descuentos/condicion-cantidad-pos.png" alt="Condición de cantidad de un descuento de Venta online con dos prendas seleccionadas" />
-
-## Asignar a Clientes (solo Liquidación)
-
-La asignación item–cliente existe **únicamente para items y descuentos de Liquidación**. Esta relación alimenta las [liquidaciones](/docs/guides/solicitudes-pago).
-
-Al liquidar un período, Fint genera una orden para cada cliente con los items asignados. Sin asignación, no hay orden.
-
-Los items de otros tipos **no se asignan previamente**:
-
-- **Venta online**: el item puede publicarse en un [Link de Pago](/docs/guides/links-pago) o agregarse al catálogo del [Punto de Venta](/docs/guides/punto-de-venta). El comprador queda registrado al realizar la compra.
-- **Entrada de eventos**: se compra desde la página pública del [evento](/docs/guides/eventos), completando los datos del comprador y los asistentes en ese momento.
-
-Por eso, al crear un item, la sección **Clientes** solo aparece si el tipo es Liquidación.
-
-Para los items de liquidación, podés asignar de varias formas:
-
-<CardGroup cols={3}>
-  <Card title="Individual" icon="user">
-    Selección manual uno por uno desde el perfil del cliente o desde el item
+<CardGroup cols={2}>
+  <Card title="Items para liquidaciones" icon="layer-group" href="/docs/guides/items-liquidaciones">
+    Prepará cuotas, matrículas y asignaciones a clientes.
   </Card>
-
-  <Card title="Por etiquetas" icon="tags">
-    Todos los de un grado, carrera o nivel (ej: todos los de "3er año")
+  <Card title="Venta online y stock" icon="boxes-stacked" href="/docs/guides/items-venta-online-stock">
+    Configurá productos para Links de Pago y Punto de Venta.
   </Card>
-
-  <Card title="Búsqueda filtrada" icon="filter">
-    Buscá clientes por nombre, etiquetas o estado y seleccioná múltiples
+  <Card title="Descuentos" icon="percent" href="/docs/guides/descuentos">
+    Definí el valor, el alcance y el canal de cada beneficio.
   </Card>
-</CardGroup>
-
-<Info>
-  Al asignar un item desde su panel, podés buscar clientes y filtrarlos por etiquetas. Se muestra un contador de cuántos clientes están seleccionados antes de confirmar.
-</Info>
-
-<img src="/docs/images/items-descuentos/asignar-clientes.png" alt="Selector de clientes con filtro por etiquetas al asignar un item de liquidación" />
-
-Para quitar un item de un cliente, entrá al perfil del cliente, ubicá el item en la sección "Items" y eliminalo. El item deja de facturarse en las próximas liquidaciones.
-
-## Próximos Pasos
-
-<CardGroup cols={3}>
-  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    Usá los items en liquidaciones
-  </Card>
-  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
-    Asigná items a clientes
-  </Card>
-  <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
-    Venta online de items
-  </Card>
-  <Card title="Punto de Venta" icon="cash-register" href="/docs/guides/punto-de-venta">
-    Venta presencial de productos
+  <Card title="Eventos" icon="calendar-days" href="/docs/guides/eventos">
+    Creá entradas y publicalas en una página de evento.
   </Card>
 </CardGroup>
