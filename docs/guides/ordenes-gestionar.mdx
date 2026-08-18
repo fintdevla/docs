@@ -81,11 +81,21 @@ En una orden **Por Cobrar** o todavía no enviada, el detalle puede mostrar el c
 
 {/* TODO(captura): Mostrar una orden vencida con descuento e interés por mora, usando el mismo dataset 2027 del resto de las guías. */}
 
+## Cancelar una orden
+
+En el detalle de una orden **Por Cobrar** aparece **Cancelar**. El diálogo se llama **Cancelar orden de pago** y avisa que **la orden no podrá ser abonada**.
+
+Si la orden nació de una [liquidación](/docs/guides/liquidaciones-corregir-enviar-cancelar), el diálogo también ofrece **Desuscribir al alumno del item**. Marcá esa casilla solo si no querés que vuelva a liquidarse ese concepto.
+
+La cancelación no elimina pagos ya registrados. Las órdenes canceladas **no aparecen** en el listado general. El filtro **Cancelada** figura en la interfaz, pero en la versión actual no las recupera.
+
+Para cancelar **todas** las órdenes Por Cobrar de un lote, usá **Cancelar liquidación** en una liquidación Enviada. No es lo mismo que cancelar una orden suelta.
+
 ## Registrar un pago
 
 Desde **Pagos**, usá el botón **+** para registrar un cobro manual cuando la orden esté Por Cobrar o tenga Pago parcial.
 
-Consultá medios, importe pendiente y comportamiento de pagos parciales en la [guía de Pagos](/docs/guides/pagos#registrar-pagos-manuales).
+Consultá medios, importe pendiente y comportamiento de pagos parciales en la [guía de Pagos](/docs/guides/pagos#registrar-un-pago-manual). Para deshacer un cobro cargado a mano, [eliminá el pago manual](/docs/guides/pagos#cancelar-o-eliminar-un-pago).
 
 ## Exportar
 

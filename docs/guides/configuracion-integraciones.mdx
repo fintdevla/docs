@@ -1,31 +1,75 @@
 ---
 title: 'Integraciones'
-description: 'Conectá un procesador de pago u otra plataforma desde Configuración'
+description: 'Qué se conecta desde Fint, qué hay que pedir al equipo y qué cambia al activar cada una'
 ---
 
-**Configuración → Integraciones** muestra las conexiones disponibles y su estado.
+**Configuración → Integraciones** muestra tres bloques: **procesador de pagos**, **facturación** y **plataformas de aprendizaje**.
 
-<img src="/docs/images/configuracion/integraciones.png" alt="Tarjetas de integraciones de pago y facturación" />
+<Frame>
+  <img src="/docs/images/configuracion/integraciones.png" alt="Tarjetas de integraciones de pago y facturación" />
+</Frame>
+
+Una organización usa **un solo procesador de pagos** a la vez. Si ya hay uno Activo, las demás tarjetas de cobro muestran **Contactarse para activar**: el cambio lo hace el equipo de Fint, o primero hay que **Desconectar** el procesador actual cuando la tarjeta lo permite.
+
+Teachable y ARCA no ocupan ese lugar: se conectan aparte del procesador.
+
+## Qué se conecta solo y qué se pide a Fint
+
+| Conexión | ¿Se activa desde la tarjeta? | Para qué |
+| --- | --- | --- |
+| [Mercado Pago](/docs/guides/conectar-mercado-pago) | Sí. **Conectar** abre la autorización en Mercado Pago. | Cobro online en Argentina y Uruguay. En Argentina, también Point y QR del Punto de Venta. |
+| [Pagos360](/docs/guides/conectar-pagos360) | Sí, si todavía no hay otro procesador. Pedís la API Key. | Cobros con efectivo, transferencias y tarjetas en Argentina. |
+| [Nuvei](/docs/guides/conectar-nuvei) | Sí, si todavía no hay otro procesador. Pedís credenciales server. | Cobros con tarjeta en dólares para Ecuador. |
+| **Stripe** | No. La tarjeta está visible, pero el alta no se completa sola. | Cobros internacionales en dólares. |
+| **Pagos Online** | No. La tarjeta está visible, pero el alta no se completa sola. | Cobros online. La tarjeta no abre un formulario: el alta la hace Fint. |
+| [Teachable](/docs/guides/teachable) | Sí. Pedís la API Key de Teachable. | Inscribir estudiantes en cursos cuando se cobra un item asociado, o a mano desde el perfil. |
+| **ARCA** | **Activar ARCA** abre la configuración fiscal. Ese módulo se está reescribiendo. | Facturación electrónica sobre pagos. |
+
+Si la tarjeta dice **Contactarse para activar**, o si ya tienen un procesador y necesitan otro, escribí a [soporte@fint.app](mailto:soporte@fint.app). No hay un formulario oculto: el equipo de Fint hace el cambio.
 
 ## Procesadores de pago
 
-La pantalla lista:
+### Mercado Pago
 
-- **Mercado Pago**
-- **Pagos Online**
-- **Stripe**
-- **Pagos360**
-- **Nuvei**
+Es la conexión más usada. La guía completa está en [Conectar Mercado Pago](/docs/guides/conectar-mercado-pago): autorizar, ver la cuenta vinculada, plazos y comisión, Point/QR y desconectar.
 
-El estado visible puede ser Activo, No conectado, Conectar, Contactarse para activar o, en ARCA, Activar.
+### Pagos360
 
-Para Mercado Pago hay una guía propia: [Conectar Mercado Pago](/docs/guides/conectar-mercado-pago).
+Cobros en Argentina. Desde la tarjeta se pega la **API Key**. Después se puede **Actualizar API Key**. La pantalla **no** ofrece Desconectar. El detalle está en [Conectar Pagos360](/docs/guides/conectar-pagos360).
+
+Pagos360 **no admite débito automático** de suscripciones. Si el link tiene ese interruptor, Fint rechaza la combinación.
+
+### Nuvei
+
+Cobros con tarjeta en dólares para organizaciones de Ecuador. Pedís ambiente, Server App Code y Server App Key. Fint muestra una **Callback URL** que hay que enviarle a Nuvei. Se puede actualizar y desconectar. El detalle está en [Conectar Nuvei](/docs/guides/conectar-nuvei).
+
+### Stripe y Pagos Online
+
+Las tarjetas aparecen para que sepas que Fint las soporta. **No las conectes desde acá.** Pedí la activación a Fint. Cuando estén activas, el cobro online del portal, los links y los eventos usa ese procesador, igual que con Mercado Pago.
 
 ## Otras conexiones
 
-- **ARCA**: facturación electrónica. Esa parte se está reescribiendo; no la detallamos acá.
-- **Teachable**: cursos online.
+### Teachable
 
-<Info>
-  No todas las tarjetas se pueden activar solas. Si el botón dice **Contactarse para activar**, el alta no es self-serve.
-</Info>
+No cobra. Conecta Fint con tu escuela de cursos. Después asociás un curso a un item de **Venta online** y, cuando esa orden se paga, Fint inscribe a la persona. También se puede inscribir o dar de baja desde el perfil. Guía: [Teachable](/docs/guides/teachable).
+
+### ARCA
+
+Facturación electrónica. Se está reescribiendo. La guía vigente, si ya la usás, está en [ARCA](/docs/guides/facturacion-arca).
+
+## Próximos pasos
+
+<CardGroup cols={2}>
+  <Card title="Mercado Pago" icon="credit-card" href="/docs/guides/conectar-mercado-pago">
+    Autorizar la cuenta y cobrar online
+  </Card>
+  <Card title="Pagos360" icon="building-columns" href="/docs/guides/conectar-pagos360">
+    API Key para cobros en Argentina
+  </Card>
+  <Card title="Nuvei" icon="globe" href="/docs/guides/conectar-nuvei">
+    Credenciales y callback para Ecuador
+  </Card>
+  <Card title="Teachable" icon="graduation-cap" href="/docs/guides/teachable">
+    Cursos, inscripción al pagar y gestión en el perfil
+  </Card>
+</CardGroup>

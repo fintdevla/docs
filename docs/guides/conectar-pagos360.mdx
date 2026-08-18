@@ -1,0 +1,53 @@
+---
+title: 'Conectar Pagos360'
+description: 'Vinculá Pagos360 con la API Key para cobrar en Argentina'
+---
+
+Pagos360 sirve para cobrar en **Argentina** con efectivo, transferencias y tarjetas. La conexión se hace desde Fint pegando la API Key que te da Pagos360.
+
+<Info>
+  Una organización tiene **un solo procesador de pagos**. Si ya está activo Mercado Pago, Nuvei u otro, la tarjeta de Pagos360 dice **Contactarse para activar**. En ese caso escribí a [soporte@fint.app](mailto:soporte@fint.app).
+</Info>
+
+## Antes de empezar
+
+Necesitás una cuenta de Pagos360 y la **API Key** que te entrega esa plataforma. Fint no crea esa cuenta.
+
+## Conectar
+
+<Steps>
+  <Step title="Abrí Integraciones">
+    Entrá a **Configuración → Integraciones** y ubicá la tarjeta **Pagos360**.
+  </Step>
+  <Step title="Conectar">
+    Si no hay otro procesador activo, el botón es **Conectar**. Se abre un formulario.
+  </Step>
+  <Step title="Pegá la API Key">
+    El campo es obligatorio. Guardá.
+  </Step>
+</Steps>
+
+Cuando queda activa, la tarjeta muestra el **ambiente** (sandbox o production) y el botón **Actualizar API Key** por si Pagos360 te da una clave nueva.
+
+La pantalla **no** tiene Desconectar. Si hay que sacar Pagos360 o pasar a otro procesador, pedilo a Fint.
+
+## Qué cambia al conectar
+
+- El cobro online del [Portal](/docs/guides/portal-contacto), de un [link de pago](/docs/guides/links-pago) o de un [evento](/docs/guides/eventos) usa Pagos360.
+- Las confirmaciones llegan por la integración. No hay que configurar un webhook a mano en Fint.
+- **No** habilita débito automático de [suscripciones](/docs/guides/suscripciones). Si el link tiene **Debitar automáticamente todos los meses**, Fint rechaza esa combinación con Pagos360.
+- **No** habilita Point ni QR del Punto de Venta. Eso es de [Mercado Pago](/docs/guides/conectar-mercado-pago) en Argentina.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Integraciones" icon="plug" href="/docs/guides/configuracion-integraciones">
+    Mapa de todas las conexiones
+  </Card>
+  <Card title="Suscripciones" icon="repeat" href="/docs/guides/suscripciones">
+    Qué no se puede debitar solo con Pagos360
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Dónde aparece el cobro
+  </Card>
+</CardGroup>

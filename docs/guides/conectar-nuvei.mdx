@@ -1,0 +1,56 @@
+---
+title: 'Conectar Nuvei'
+description: 'Cargá las credenciales server y la callback URL para cobrar con tarjeta en Ecuador'
+---
+
+Nuvei (Paymentez) sirve para cobrar **con tarjeta en dólares** en organizaciones de **Ecuador**.
+
+<Info>
+  Una organización tiene **un solo procesador de pagos**. Si ya hay otro Activo, esta tarjeta dice **Contactarse para activar**. Escribí a [soporte@fint.app](mailto:soporte@fint.app).
+</Info>
+
+## Antes de empezar
+
+Nuvei te entrega las credenciales **server**:
+
+- **Ambiente**: sandbox o production
+- **Server App Code**
+- **Server App Key**
+
+Fint no genera esas claves.
+
+## Conectar
+
+<Steps>
+  <Step title="Abrí Integraciones">
+    Entrá a **Configuración → Integraciones** y ubicá la tarjeta **Nuvei**.
+  </Step>
+  <Step title="Conectar o actualizar">
+    Si no hay otro procesador, usá **Conectar**. El título del formulario es **Conectar o actualizar Nuvei**.
+  </Step>
+  <Step title="Completá ambiente y credenciales server">
+    Elegí el ambiente e ingresá el Server App Code y el Server App Key.
+  </Step>
+  <Step title="Enviá la Callback URL a Nuvei">
+    Después de guardar, la tarjeta muestra una **Callback URL**. Esa dirección hay que mandársela a Nuvei para que avise los cobros. Sin ese paso, Fint no recibe las confirmaciones.
+  </Step>
+</Steps>
+
+Con la conexión activa podés **Actualizar credenciales** o **Desconectar**.
+
+## Qué cambia al conectar
+
+- El cobro online del portal, los links y los eventos usa Nuvei.
+- **No** es el procesador de Argentina. Para ARS usá Mercado Pago o Pagos360.
+- **No** habilita Point ni QR.
+
+## Próximos pasos
+
+<CardGroup cols={2}>
+  <Card title="Integraciones" icon="plug" href="/docs/guides/configuracion-integraciones">
+    Qué se conecta solo y qué se pide a Fint
+  </Card>
+  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
+    Dónde queda el cobro confirmado
+  </Card>
+</CardGroup>

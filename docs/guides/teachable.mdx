@@ -1,0 +1,79 @@
+---
+title: 'Teachable'
+description: 'Conectá tu escuela de cursos, asociá un item y administrá las inscripciones'
+---
+
+Teachable no cobra. Conecta Fint con tu escuela de cursos para **inscribir** a un estudiante cuando se paga un item de Venta online asociado, o para hacerlo **a mano** desde el perfil.
+
+La conexión vive en **Configuración → Integraciones**, en el bloque **Plataformas de aprendizaje**. No pisa al procesador de pagos: podés tener Mercado Pago y Teachable al mismo tiempo.
+
+## Conectar
+
+<Steps>
+  <Step title="Pedí la API Key en Teachable">
+    En tu cuenta de Teachable, generá una API Key. Fint la valida contra Teachable antes de guardar.
+  </Step>
+  <Step title="Abrí Integraciones">
+    Entrá a **Configuración → Integraciones** y ubicá **Teachable**.
+  </Step>
+  <Step title="Conectar">
+    Completá la **API Key** y un nombre interno, por ejemplo “Mi Integración Teachable”.
+  </Step>
+</Steps>
+
+Desde la misma tarjeta se puede **Desconectar**.
+
+## Asociar un curso a un item
+
+Cuando Teachable está activo, el formulario de un item muestra **Curso de Teachable (opcional)**.
+
+<Steps>
+  <Step title="Creá o editá un item de Venta online">
+    El selector no aparece en items de Liquidación ni en entradas de evento. El tipo tiene que ser **Venta online**.
+  </Step>
+  <Step title="Elegí el curso">
+    Se abre la lista de cursos de tu escuela. También podés dejar **Sin curso asociado**.
+  </Step>
+  <Step title="Fecha de expiración, si aplica">
+    Es opcional. Si la cargás, Fint indica que esa persona se **desinscribe** del curso en esa fecha. Si no hay fecha, el acceso queda permanente.
+  </Step>
+</Steps>
+
+## Qué pasa cuando se cobra
+
+Si un item de **Venta online** tiene curso y la **orden queda Pagada**, Fint intenta inscribir en Teachable a la persona de esa orden (nombre, apellido y email).
+
+Esto no corre sobre una cuota de liquidación ni sobre una entrada de evento.
+
+Si la inscripción automática no ocurrió, usá la inscripción manual del perfil. No hace falta volver a cobrar.
+
+## Gestionar cursos en el perfil
+
+En el detalle del estudiante, con Teachable conectado, aparece **Cursos de Teachable**.
+
+- **Nuevo**: inscribe a un curso de la escuela, con o sin fecha de expiración.
+- Estados visibles: **Inscripto**, **Expirado**, **No inscripto**.
+- **Desinscribir** saca a la persona del curso.
+- **Reinscribir** la vuelve a anotar.
+
+La actividad del perfil registra altas y bajas como **Inscripción en Teachable**.
+
+## Qué no hace esta integración
+
+- No reemplaza al [Portal](/docs/guides/portal-contacto) ni al cobro. El dinero sigue entrando por el procesador de pagos.
+- No se activa sola: sin API Key no hay selector de cursos.
+- El cambio de condición del estudiante (baja administrativa) **no** tiene un comportamiento documentado igual para todas las organizaciones. Si necesitás sacar a alguien del curso, usá **Desinscribir** en el perfil.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Integraciones" icon="plug" href="/docs/guides/configuracion-integraciones">
+    Dónde se conecta y se desconecta
+  </Card>
+  <Card title="Venta online" icon="cart-shopping" href="/docs/guides/items-venta-online-stock">
+    El tipo de item que admite curso
+  </Card>
+  <Card title="Estudiantes" icon="users" href="/docs/guides/clientes">
+    El perfil donde se inscribe a mano
+  </Card>
+</CardGroup>

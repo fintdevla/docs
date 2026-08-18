@@ -73,10 +73,10 @@ Al hacer clic en una fila se abre el detalle. La información cambia según el o
 
     <img src="/docs/images/pagos/pago-detalle.png" alt="Detalle de un pago en efectivo manual: fecha del cobro, fecha de registro, quién lo cargó y la orden cubierta" />
 
-    Si el pago se cargó por error, usá **Eliminar pago manual**. Eso revierte el cobro y vuelve a dejar pendiente lo imputado a las órdenes.
+    Si el pago se cargó por error, usá **Eliminar pago manual**. Eso es la forma de **cancelar o deshacer un cobro cargado a mano**: revierte el importe y vuelve a dejar pendiente lo imputado a las órdenes.
 
     <Warning>
-      Solo se pueden eliminar pagos **manuales**. Si el pago ya tiene comprobantes emitidos, Fint bloquea la eliminación.
+      Solo se pueden eliminar pagos **manuales**. Fint bloquea la acción si el pago no es manual o si ya tiene **comprobantes emitidos**. El botón se llama **Eliminar pago manual**, no Cancelar.
     </Warning>
   </Tab>
 
@@ -112,6 +112,30 @@ Usalo para un cobro en efectivo, transferencia u otro medio que no pasó por el 
 <Info>
   En un pago parcial, el dinero cubre primero el capital. La mora recién se cobra cuando el capital queda cubierto. Si la orden ya estaba vencida, Fint congela la mora acumulada en ese momento para que no siga corriendo sobre lo ya pagado.
 </Info>
+
+## Cancelar o eliminar un pago
+
+No hay un botón que diga **Cancelar pago**.
+
+| Qué querés hacer | Qué usar |
+| --- | --- |
+| Deshacer un cobro que cargaste a mano | En el detalle, **Eliminar pago manual** |
+| Devolver un cobro online | Hacer el reembolso en el **procesador** (Mercado Pago, Pagos360, Nuvei u otro). Fint lo refleja como Reembolsado |
+| El pagador desconoció el cobro | El procesador informa el contracargo. Fint lo refleja como Contracargo |
+
+<Steps>
+  <Step title="Abrí el pago">
+    Entrá a **Pagos**, buscá el cobro y abrí el detalle.
+  </Step>
+  <Step title="Comprobá que sea manual">
+    Junto al medio debe verse **(M)** o la marca Manual. Si es online, no aparece **Eliminar pago manual**.
+  </Step>
+  <Step title="Eliminar pago manual">
+    Confirmá. El dinero deja de estar imputado y la orden vuelve a Por Cobrar o a Pago parcial, según lo que quede.
+  </Step>
+</Steps>
+
+Si Fint dice que no se puede eliminar, suele ser porque **ya hay un comprobante de ARCA** sobre ese pago. Primero hay que resolver el comprobante; no fuerces la baja.
 
 ## Devoluciones y contracargos
 
