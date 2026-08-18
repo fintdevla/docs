@@ -7,7 +7,7 @@ Las reglas viven en **Conciliación → Reglas**. Se evalúan al importar un ext
 
 Una regla **no concilia sola**. No registra el pago ni cierra la orden. Solo prepara el movimiento: asigna el responsable, una categoría, una nota o lo marca como ignorado. Después, Fint sugiere órdenes y vos confirmás.
 
-<img src="/docs/images/conciliacion-bancaria/regla-de-identificacion.png" alt="Listado de reglas con el auto-match por documento y una regla que asigna contacto si la descripción contiene cooperativa" />
+<img src="/docs/images/conciliacion-bancaria/regla-de-identificacion.png" alt="Listado de reglas con el auto-match por documento y una regla para transferencias familiares" />
 
 ## Qué hace Fint aunque no crees reglas
 
@@ -27,7 +27,7 @@ Cuando hay coincidencia, el movimiento queda asignado y Fint arma sugerencias co
   </Step>
 
   <Step title="Nombrala">
-    Usá un nombre que describa el caso, por ejemplo **Transferencias de la cooperativa**. La descripción es opcional.
+    Usá un nombre que describa el caso, por ejemplo **Transferencias familiares**. La descripción es opcional.
   </Step>
 
   <Step title="Definí cuándo se aplica">
@@ -44,9 +44,9 @@ Cuando hay coincidencia, el movimiento queda asignado y Fint arma sugerencias co
     - **Agregar nota**: un texto que queda en el movimiento.
     - **Ignorar transacción**: el movimiento no entra a revisión. Usalo para débitos o filas que no son un cobro.
 
-    En el ejemplo, la descripción **contiene** “cooperativa” y la acción es asignar el contacto cuyo documento coincide con el de la transferencia.
+    En el ejemplo, la descripción **contiene** “transferencia familiar” y la acción es asignar el contacto cuyo documento coincide con el de la transferencia.
 
-    <img src="/docs/images/conciliacion-bancaria/regla-de-identificacion-formulario.png" alt="Formulario de una regla habilitada: si la descripción contiene cooperativa, asignar el contacto por documento" />
+    <img src="/docs/images/conciliacion-bancaria/regla-de-identificacion-formulario.png" alt="Formulario de una regla habilitada: si la descripción contiene transferencia familiar, asignar el contacto por documento" />
   </Step>
 
   <Step title="Definí el alcance">
