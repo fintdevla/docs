@@ -1,6 +1,6 @@
 ---
 title: 'Casos frecuentes de conciliación bancaria'
-description: 'Resolvé transferencias que cubren varias órdenes, mora puntual y movimientos que no aparecen'
+description: 'Resolvé transferencias que cubren varias órdenes, mora puntual, importes de más y movimientos que no aparecen'
 ---
 
 Esta guía amplía el [recorrido básico de conciliación bancaria](/docs/guides/conciliacion-bancaria) con situaciones frecuentes.
@@ -120,6 +120,83 @@ Para que aparezca este desglose, la institución debe tener [intereses por mora 
   La quita desactiva **Genera mora** en esa orden. No cambia otras órdenes, pero permanece aunque reviertas la conciliación. Si necesitás cobrarla otra vez, abrí la orden y volvé a habilitar **Genera mora**.
 </Warning>
 
+## Quedó un importe de más
+
+Hay dos situaciones distintas. No uses el mismo camino para las dos.
+
+- Una **transferencia suelta** por el excedente: la cuota del mes ya cerró y después entra otro movimiento, por ejemplo **\$1.000,00**.
+- Un **excedente dentro de la misma transferencia** de la cuota: transfirieron más de lo que debían y, al conciliar esa cuota, sobra diferencia.
+
+Hoy Fint no arrastra solo un saldo a favor hacia las próximas conciliaciones. El crédito no aparece automáticamente el mes siguiente. Mientras tanto, podés resolverlo con los tres caminos de esta sección.
+
+### Dejá la transferencia suelta y aplicala a la próxima cuota
+
+Usá este camino cuando el excedente es un movimiento aparte y la cuota de ese mes ya está pagada.
+
+No hace falta crear un saldo a favor ni adelantar la factura del mes siguiente.
+
+<Steps>
+  <Step title="Dejá el movimiento pendiente">
+    Asigná el responsable si todavía no está, y no lo concilies. El movimiento puede seguir **En revisión**.
+  </Step>
+  <Step title="Esperá la orden del mes siguiente">
+    Cuando exista esa orden **Por Cobrar**, abrí el movimiento. Fint muestra las órdenes pendientes de las personas vinculadas a ese responsable, aunque la transferencia sea de un mes anterior.
+  </Step>
+  <Step title="Aplicá primero esos pesos">
+    Seleccioná solo la orden nueva y presioná **Conciliar pago parcial**.
+
+    Fint registra un pago por el importe de la transferencia y deja la orden en **Pago parcial**, con el resto pendiente. Cuando entre el resto de la cuota, conciliá ese segundo movimiento contra el saldo que quedó.
+  </Step>
+</Steps>
+
+<Info>
+  En el ejemplo de **\$1.000,00** sueltos, esos mil se aplican primero a la cuota siguiente. El mes no tiene que “encontrarlos” solo: los aplicás vos cuando la orden ya existe.
+</Info>
+
+### Registrá un saldo a favor y hacé el descuento a mano
+
+Usá este camino cuando, al conciliar una cuota, la transferencia es **mayor** que las órdenes seleccionadas.
+
+<Steps>
+  <Step title="Conciliá la cuota">
+    Seleccioná las órdenes que cubre la transferencia. El resumen va a mostrar una diferencia a favor.
+  </Step>
+  <Step title="Creá la factura por la diferencia">
+    Confirmá **Crear factura por la diferencia**. El nombre por defecto es **Saldo a favor**; podés cambiar la descripción.
+
+    Fint crea esa orden, la deja **Pagada** en la misma conciliación y registra el pago por transferencia.
+  </Step>
+  <Step title="Llevalo vos a la próxima cuota">
+    El saldo a favor no se descuenta solo el mes siguiente. Anotalo y, cuando exista la próxima orden, agregale a mano un descuento por ese importe. Recién ahí la cuota nueva cierra por el neto.
+  </Step>
+</Steps>
+
+<Warning>
+  La factura **Saldo a favor** sirve para dejar asentado el crédito. No aparece como sugerencia automática en la conciliación del mes siguiente. Si no hacen el descuento a mano, el crédito queda registrado pero no se consume.
+</Warning>
+
+### Generá ya la orden del mes siguiente
+
+Usá este camino cuando todavía están conciliando el mes actual, saben que sobran pesos y quieren dejarlos imputados ahora.
+
+<Steps>
+  <Step title="Creá la orden siguiente">
+    Desde el movimiento podés usar **Crear factura**, o crear la orden desde [Órdenes](/docs/guides/ordenes-gestionar). Tiene que quedar **Por Cobrar** y vinculada a la misma persona o familia.
+  </Step>
+  <Step title="Conciliá este mes y el siguiente juntos">
+    Seleccioná la cuota actual y la nueva.
+
+    Si la transferencia cubre toda la primera y solo una parte de la segunda, Fint pide **Conciliar con una factura parcial**: elegí cuál orden queda parcial. La del mes actual debe quedar cubierta; la diferencia se aplica a la siguiente.
+  </Step>
+  <Step title="El mes que viene partís de un pago parcial">
+    La orden nueva queda **Pago parcial**. Cuando entre el resto, conciliá ese movimiento contra el saldo pendiente. Si otra vez pagan de más, podés repetir el mismo esquema.
+  </Step>
+</Steps>
+
+<Info>
+  Si la cuota de este mes ya está pagada y solo quedó un movimiento suelto, no hace falta este camino: usá [Dejá la transferencia suelta y aplicala a la próxima cuota](#deja-la-transferencia-suelta-y-aplicala-a-la-proxima-cuota).
+</Info>
+
 ## Un movimiento del archivo no aparece
 
 Que el archivo tenga más filas que la pantalla no implica necesariamente que se haya perdido un ingreso.
@@ -149,8 +226,7 @@ Con esos datos se puede distinguir una fila omitida por el formato, un duplicado
 
 ## Casos que todavía no cubre esta guía
 
-- Una transferencia que deja una orden parcialmente pagada.
-- Diferencias que generan un saldo adicional.
+- Un saldo a favor que se consuma solo en las próximas conciliaciones.
 - Deudas de varios períodos y mora sobre órdenes parcialmente pagadas.
 - Reglas automáticas de identificación y conciliación.
 
