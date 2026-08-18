@@ -228,13 +228,81 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
 
     Con esos datos se puede distinguir una fila omitida por el formato, un duplicado o un problema de importación sin volver a cargar el archivo a ciegas.
   </Accordion>
+
+  <Accordion title="¿Cómo concilio deudas de varios períodos?" id="deudas-de-varios-periodos">
+    Después de asignar el responsable, Fint muestra las órdenes **Por cobrar** y **Pago parcial** de todas las personas vinculadas. No importa si son de meses distintos.
+
+    La sugerencia prefiere un combo del **mismo mes**. Si el importe solo cierra juntando meses, puede proponer ese combo con menos certeza, o no proponerlo: en ese caso seleccioná las órdenes a mano.
+
+    <Steps>
+      <Step title="Asigná el responsable">
+        Abrí el movimiento y asigná a quien transfirió. Fint reúne las órdenes pendientes de esa familia, también las de períodos anteriores.
+      </Step>
+
+      <Step title="Revisá qué meses cubre la transferencia">
+        Seleccioná únicamente las órdenes incluidas en el comprobante.
+
+        Si Fint sugiere un grupo, comprobá mes, persona e importe antes de aceptarlo. Un importe que cae entre el capital y el capital más mora de un mes suele ser ese mes, no una mezcla.
+      </Step>
+
+      <Step title="Si no alcanza para todas">
+        Cuando la transferencia cubre algunas órdenes enteras y deja una incompleta, Fint pide **Conciliar con una factura parcial**. Elegí cuál orden queda en **Pago parcial**. Las demás deben quedar cubiertas.
+
+        Si al pagar las demás por completo no sobra para dejar una sola orden parcial, sacá alguna de la selección.
+      </Step>
+
+      <Step title="Conciliá">
+        Confirmá el **Total a conciliar** y presioná **Conciliar**. Las órdenes cubiertas quedan **Pagadas**. La que no cierra queda **Pago parcial** con el resto pendiente.
+      </Step>
+    </Steps>
+
+    <Warning>
+      No agregues otra orden solo para completar el importe. Si sobra diferencia, usá [¿Qué hago si quedó un importe de más?](#quedo-un-importe-de-mas).
+    </Warning>
+  </Accordion>
+
+  <Accordion title="¿Qué pasa con la mora si la orden queda en pago parcial?" id="mora-sobre-ordenes-parcialmente-pagadas">
+    Un pago parcial **primero cubre el capital**. La mora recién empieza a cobrarse cuando el capital de esa orden ya está cubierto.
+
+    Si la transferencia es posterior al vencimiento y no alcanza para cancelar la orden, Fint **congela** la mora a la fecha del movimiento. Los días siguientes no la siguen aumentando.
+
+    <Steps>
+      <Step title="Revisá el desglose">
+        En **Conciliar**, la orden muestra el capital y la línea **Incluye mora** con la fecha usada para calcularla.
+
+        Si el importe no cubre todo, el resumen deja un restante. Ese restante incluye la mora que no se pagó todavía.
+      </Step>
+
+      <Step title="Conciliá el parcial">
+        Presioná **Conciliar pago parcial**. La orden pasa a **Pago parcial**. El movimiento queda **Conciliada**.
+      </Step>
+
+      <Step title="El próximo pago usa la mora congelada">
+        Cuando entre el resto, Fint vuelve a mostrar esa orden. La mora pendiente es la que quedó congelada, menos lo que ya se hubiera aplicado. No se recalcula al día de hoy.
+      </Step>
+    </Steps>
+
+    En una orden **Pago parcial** no podés apagar **Genera mora**. Si la institución no quiere cobrar esa mora, revertí la conciliación, quitá la mora sobre la orden pendiente y volvé a conciliar.
+
+    Si revertís el parcial, la mora se descongela y vuelve a calcularse con las reglas vigentes.
+
+    <Info>
+      La fecha que congela la mora es la del movimiento, no el día en que conciliás. Si esa fecha está mal, corregila como en [¿La fecha del movimiento define la mora?](#la-fecha-del-movimiento-define-la-mora).
+    </Info>
+  </Accordion>
+
+  <Accordion title="¿El saldo a favor se descuenta solo el mes siguiente?" id="saldo-a-favor-no-se-consume-solo">
+    No. Hoy Fint no arrastra un crédito hacia las próximas conciliaciones.
+
+    La factura **Saldo a favor** deja asentado el excedente como una orden **Pagada**. No aparece como sugerencia el mes siguiente ni se resta sola de la cuota nueva.
+
+    Mientras tanto, elegí uno de estos caminos:
+
+    - [Dejá la transferencia suelta y aplicala a la próxima cuota](#deja-la-transferencia-suelta-y-aplicala-a-la-proxima-cuota) si el excedente es un movimiento aparte.
+    - [Registrá un saldo a favor y hacé el descuento a mano](#registra-un-saldo-a-favor-y-hace-el-descuento-a-mano) si el excedente está dentro de la misma transferencia.
+    - [Generá ya la orden del mes siguiente](#genera-ya-la-orden-del-mes-siguiente) si todavía estás conciliando este mes y querés imputar el resto ahora.
+  </Accordion>
 </AccordionGroup>
-
-## Todavía no cubiertos
-
-- Un saldo a favor que se consuma solo en las próximas conciliaciones.
-- Deudas de varios períodos y mora sobre órdenes parcialmente pagadas.
-- Reglas automáticas de identificación y conciliación.
 
 ## Próximos pasos
 
@@ -242,8 +310,8 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
   <Card title="Conciliar un ingreso" icon="link" href="/docs/guides/conciliacion-bancaria">
     Volvé al recorrido principal paso a paso
   </Card>
-  <Card title="Subir un extracto" icon="file-arrow-up" href="/docs/guides/conciliacion-bancaria-extractos">
-    Revisá importación, duplicados y avance
+  <Card title="Reglas de identificación" icon="wand-magic-sparkles" href="/docs/guides/conciliacion-bancaria-reglas">
+    Asigná un responsable apenas entra el extracto
   </Card>
   <Card title="Órdenes" icon="file-invoice" href="/docs/guides/solicitudes-pago">
     Consultá vencimientos, saldos y estados

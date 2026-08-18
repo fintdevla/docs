@@ -1,0 +1,87 @@
+---
+title: 'Reglas de identificación'
+description: 'Asigná un responsable o una categoría apenas entra el extracto'
+---
+
+Las reglas viven en **Conciliación → Reglas**. Se evalúan al importar un extracto y cuando Fint vuelve a identificar un movimiento.
+
+Una regla **no concilia sola**. No registra el pago ni cierra la orden. Solo prepara el movimiento: asigna el responsable, una categoría, una nota o lo marca como ignorado. Después, Fint sugiere órdenes y vos confirmás.
+
+## Qué hace Fint aunque no crees reglas
+
+Si el extracto trae documento de origen (CUIT o DNI), Fint intenta reconocer al responsable comparándolo con:
+
+- El documento del responsable de pago.
+- El documento de un estudiante vinculado.
+- El documento de un pagador asociado.
+
+Cuando hay coincidencia, el movimiento queda asignado y Fint arma sugerencias con las órdenes pendientes de esa familia. Si no hay documento o hay varios posibles, el movimiento sigue **En revisión** para que lo asignes a mano.
+
+## Crear una regla
+
+<Steps>
+  <Step title="Abrí Reglas">
+    Entrá a **Conciliación → Reglas** y presioná **Nueva regla**.
+  </Step>
+
+  <Step title="Nombrala">
+    Usá un nombre que describa el caso, por ejemplo **Transferencias de la cooperativa**. La descripción es opcional.
+  </Step>
+
+  <Step title="Definí cuándo se aplica">
+    Agregá al menos una condición. Podés exigir que se cumplan **todas** o **cualquiera**.
+
+    Los campos más útiles son la **descripción** del movimiento, el **monto**, la **dirección** (entrada o salida), el **CUIT**, el **CBU**, el **documento** o el **nombre** de origen.
+  </Step>
+
+  <Step title="Elegí qué hace">
+    Una regla puede hacer una o más de estas acciones:
+
+    - **Asignar contacto**: un responsable fijo, o el contacto cuyo documento coincida con el de la transferencia.
+    - **Asignar categoría**: Transferencia, comisión, tarjeta, impuesto u otra categoría de la institución.
+    - **Agregar nota**: un texto que queda en el movimiento.
+    - **Ignorar transacción**: el movimiento no entra a revisión. Usalo para débitos o filas que no son un cobro.
+  </Step>
+
+  <Step title="Definí el alcance">
+    Si hay más de una cuenta, podés aplicarla a **todas** o solo a algunas. Con una sola cuenta, Fint no muestra este paso.
+  </Step>
+
+  <Step title="Guardá">
+    Dejá la regla **habilitada** y presioná **Crear Regla**. La próxima carga de extracto ya la usa.
+  </Step>
+</Steps>
+
+<Info>
+  Si varias reglas coinciden con el mismo movimiento, Fint aplica **solo la primera**. El resto no se ejecuta.
+</Info>
+
+## Ejemplos
+
+| Caso | Condición | Acción |
+| --- | --- | --- |
+| Siempre es la misma familia | La descripción contiene el apellido o el alias | Asignar ese responsable |
+| El banco manda el CUIT | El documento de origen coincide | Asignar el contacto por documento |
+| No es un cobro | La descripción contiene “COMISION” o “IMPUESTO” | Ignorar la transacción |
+
+## Qué no hace una regla
+
+- No confirma la conciliación ni crea el pago.
+- No elige sola las órdenes: eso lo hace la sugerencia y lo revisás vos.
+- No consume un saldo a favor del mes anterior.
+
+Para el recorrido de un ingreso ya identificado, consultá [Conciliar un ingreso](/docs/guides/conciliacion-bancaria). Para combinaciones que no cierran exactas, [Preguntas frecuentes](/docs/guides/conciliacion-bancaria-casos-frecuentes).
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Subir un extracto" icon="file-arrow-up" href="/docs/guides/conciliacion-bancaria-extractos">
+    Importá movimientos y dejá que las reglas se apliquen
+  </Card>
+  <Card title="Conciliar un ingreso" icon="link" href="/docs/guides/conciliacion-bancaria">
+    Revisá la sugerencia y confirmá el pago
+  </Card>
+  <Card title="Preguntas frecuentes" icon="circle-question" href="/docs/guides/conciliacion-bancaria-casos-frecuentes">
+    Varios períodos, mora parcial e importes de más
+  </Card>
+</CardGroup>
