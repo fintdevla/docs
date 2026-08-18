@@ -1,230 +1,236 @@
 ---
-title: 'Casos frecuentes de conciliación bancaria'
-description: 'Resolvé transferencias que cubren varias órdenes, mora puntual, importes de más y movimientos que no aparecen'
+title: 'Preguntas frecuentes'
+description: 'Situaciones habituales al conciliar un ingreso bancario'
 ---
 
-Esta guía amplía el [recorrido básico de conciliación bancaria](/docs/guides/conciliacion-bancaria) con situaciones frecuentes.
+Esta página amplía el [recorrido básico](/docs/guides/conciliacion-bancaria). Abrí el caso que te toca; el resto puede quedar cerrado.
 
-Antes de conciliar, verificá siempre el responsable, las personas alcanzadas, las órdenes seleccionadas y el **Total a conciliar**.
+Antes de conciliar, verificá el responsable, las personas alcanzadas, las órdenes seleccionadas y el **Total a conciliar**.
 
-## Una transferencia cubre órdenes de dos personas
+<AccordionGroup>
+  <Accordion title="¿Cómo concilio una transferencia que cubre a dos personas?" id="una-transferencia-cubre-ordenes-de-dos-personas">
+    Una persona puede transferir el total de órdenes que pertenecen a distintos integrantes de una familia.
 
-Una persona puede transferir el total de órdenes que pertenecen a distintos integrantes de una familia.
+    Para conciliarlas juntas, ambas personas deben estar vinculadas al mismo responsable de pago en Fint.
 
-Para conciliarlas juntas, ambas personas deben estar vinculadas al mismo responsable de pago en Fint.
+    <Steps>
+      <Step title="Asigná el responsable">
+        Abrí el movimiento y asigná a la persona que realizó el pago.
 
-<Steps>
-  <Step title="Asigná el responsable">
-    Abrí el movimiento y asigná a la persona que realizó el pago.
+        Fint reúne las órdenes pendientes de todas las personas vinculadas a ese responsable. Cada orden indica a quién pertenece.
+      </Step>
 
-    Fint reúne las órdenes pendientes de todas las personas vinculadas a ese responsable. Cada orden indica a quién pertenece.
-  </Step>
+      <Step title="Revisá las órdenes">
+        Seleccioná únicamente las órdenes incluidas en la transferencia.
 
-  <Step title="Revisá las órdenes">
-    Seleccioná únicamente las órdenes incluidas en la transferencia.
+        Si Fint encuentra una combinación exacta, puede mostrarlas ya seleccionadas con la etiqueta **Recomendado**.
 
-    Si Fint encuentra una combinación exacta, puede mostrarlas ya seleccionadas con la etiqueta **Recomendado**.
+        En este ejemplo, las órdenes de **\$40.000,00** y **\$60.000,00** suman una transferencia de **\$100.000,00**.
 
-    En este ejemplo, las órdenes de **\$40.000,00** y **\$60.000,00** suman una transferencia de **\$100.000,00**.
+        <img src="/docs/images/conciliacion-bancaria/ordenes-de-dos-personas-seleccionadas.png" alt="Dos órdenes de personas diferentes seleccionadas para conciliar una transferencia exacta de cien mil pesos" />
+      </Step>
 
-    <img src="/docs/images/conciliacion-bancaria/ordenes-de-dos-personas-seleccionadas.png" alt="Dos órdenes de personas diferentes seleccionadas para conciliar una transferencia exacta de cien mil pesos" />
-  </Step>
+      <Step title="Conciliá y verificá">
+        Confirmá que **Total a conciliar** coincida con el movimiento y presioná **Conciliar**.
 
-  <Step title="Conciliá y verificá">
-    Confirmá que **Total a conciliar** coincida con el movimiento y presioná **Conciliar**.
+        Fint registra un único pago por transferencia, deja ambas órdenes **Pagadas** y cambia el movimiento a **Conciliada**.
+      </Step>
+    </Steps>
 
-    Fint registra un único pago por transferencia, deja ambas órdenes **Pagadas** y cambia el movimiento a **Conciliada**.
-  </Step>
-</Steps>
+    <Warning>
+      Si una orden no aparece, comprobá primero que su titular esté vinculado al responsable asignado y que la orden continúe pendiente. No concilies otra orden solo para completar el importe.
+    </Warning>
+  </Accordion>
 
-<Warning>
-  Si una orden no aparece, comprobá primero que su titular esté vinculado al responsable asignado y que la orden continúe pendiente. No concilies otra orden solo para completar el importe.
-</Warning>
+  <Accordion title="¿La fecha del movimiento define la mora?" id="la-fecha-del-movimiento-define-la-mora">
+    Para una orden pendiente sin pagos anteriores, Fint calcula la mora a la fecha guardada en el movimiento bancario.
 
-## La fecha del movimiento define la mora
+    La fecha de carga del archivo y el día en que conciliás no reemplazan esa fecha.
 
-Para una orden pendiente sin pagos anteriores, Fint calcula la mora a la fecha guardada en el movimiento bancario.
+    | Dato | Fecha del ejemplo | Efecto |
+    | --- | --- | --- |
+    | Vencimiento de la cuota | 10 de julio de 2026 | Desde esta fecha se evalúa la configuración de mora |
+    | Transferencia | 9 de julio de 2026 | No genera mora porque ocurrió antes del vencimiento |
+    | Carga y conciliación | Días o meses después | No cambia la fecha usada para calcular la mora |
 
-La fecha de carga del archivo y el día en que conciliás no reemplazan esa fecha.
+    Si la transferencia ocurrió el **13 de julio**, Fint muestra la mora calculada hasta ese día. El importe depende de la configuración de la institución.
 
-| Dato | Fecha del ejemplo | Efecto |
-| --- | --- | --- |
-| Vencimiento de la cuota | 10 de julio de 2026 | Desde esta fecha se evalúa la configuración de mora |
-| Transferencia | 9 de julio de 2026 | No genera mora porque ocurrió antes del vencimiento |
-| Carga y conciliación | Días o meses después | No cambia la fecha usada para calcular la mora |
+    Antes de continuar, distinguí por qué querés cambiar el resultado:
 
-Si la transferencia ocurrió el **13 de julio**, Fint muestra la mora calculada hasta ese día. El importe depende de la configuración de la institución.
+    - Si la fecha del movimiento es incorrecta, corregila con respaldo del banco.
+    - Si la fecha es correcta pero la institución decide no cobrar la mora, quitá la mora de esa orden.
 
-Antes de continuar, distinguí por qué querés cambiar el resultado:
+    <AccordionGroup>
+      <Accordion title="Corregir la fecha de una transferencia" id="corregir-la-fecha-de-una-transferencia">
+        Usá este camino cuando el movimiento quedó fechado después del día en que la persona realmente transfirió.
 
-- Si la fecha del movimiento es incorrecta, corregila con respaldo del banco.
-- Si la fecha es correcta pero la institución decide no cobrar la mora, quitá la mora de esa orden.
+        <Steps>
+          <Step title="Revertí la conciliación">
+            Si el movimiento ya está **Conciliada**, bajá hasta **Acciones**, presioná **Revertir conciliación** y confirmá.
 
-### Corregir la fecha de una transferencia
+            Fint desvincula el pago y vuelve a dejar disponible la orden. La fecha no se puede cambiar mientras el movimiento continúa conciliado.
+          </Step>
 
-Usá este camino cuando el movimiento quedó fechado después del día en que la persona realmente transfirió.
+          <Step title="Actualizá la fecha">
+            En **Detalle**, presioná la fecha, elegí el día respaldado por el extracto o comprobante y agregá el motivo del cambio.
+          </Step>
 
-<Steps>
-  <Step title="Revertí la conciliación">
-    Si el movimiento ya está **Conciliada**, bajá hasta **Acciones**, presioná **Revertir conciliación** y confirmá.
+          <Step title="Revisá la nueva sugerencia">
+            Fint vuelve a calcular las órdenes y la mora con la fecha corregida.
 
-    Fint desvincula el pago y vuelve a dejar disponible la orden. La fecha no se puede cambiar mientras el movimiento continúa conciliado.
-  </Step>
+            Si una cuota vencía el 10 y la transferencia ocurrió el 9, el total vuelve a ser únicamente el capital.
+          </Step>
 
-  <Step title="Actualizá la fecha">
-    En **Detalle**, presioná la fecha, elegí el día respaldado por el extracto o comprobante y agregá el motivo del cambio.
-  </Step>
+          <Step title="Volvé a conciliar">
+            Comprobá el responsable, la orden y el total antes de presionar **Conciliar** otra vez.
+          </Step>
+        </Steps>
 
-  <Step title="Revisá la nueva sugerencia">
-    Fint vuelve a calcular las órdenes y la mora con la fecha corregida.
+        <Warning>
+          No cambies la fecha para evitar una mora válida. La fecha del movimiento debe coincidir con la evidencia bancaria; para una excepción comercial, usá la quita individual.
+        </Warning>
+      </Accordion>
 
-    Si una cuota vencía el 10 y la transferencia ocurrió el 9, el total vuelve a ser únicamente el capital.
-  </Step>
+      <Accordion title="Quitar la mora de una sola orden" id="quitar-la-mora-de-una-sola-orden">
+        Usá este camino cuando la transferencia fue posterior al vencimiento, pero la institución decide no cobrar la mora de esa cuota.
 
-  <Step title="Volvé a conciliar">
-    Comprobá el responsable, la orden y el total antes de presionar **Conciliar** otra vez.
-  </Step>
-</Steps>
+        Para que aparezca este desglose, la institución debe tener [intereses por mora configurados](/docs/guides/configuracion#intereses-por-mora) y la orden debe generar mora.
 
-<Warning>
-  No cambies la fecha para evitar una mora válida. La fecha del movimiento debe coincidir con la evidencia bancaria; para una excepción comercial, usá la quita individual.
-</Warning>
+        <Steps>
+          <Step title="Revisá el desglose">
+            En **Conciliar**, ubicá la orden correcta y la línea **Incluye mora**, que también indica la fecha usada para calcularla.
 
-### Quitar la mora de una sola orden
+            En el ejemplo, la transferencia es de **\$90.000,00** y la orden suma **\$90.450,00** con mora. Antes de quitarla, el resumen deja **\$450,00** pendientes.
 
-Usá este camino cuando la transferencia fue posterior al vencimiento, pero la institución decide no cobrar la mora de esa cuota.
-
-Para que aparezca este desglose, la institución debe tener [intereses por mora configurados](/docs/guides/configuracion#intereses-por-mora) y la orden debe generar mora.
-
-<Steps>
-  <Step title="Revisá el desglose">
-    En **Conciliar**, ubicá la orden correcta y la línea **Incluye mora**, que también indica la fecha usada para calcularla.
-
-    En el ejemplo, la transferencia es de **\$90.000,00** y la orden suma **\$90.450,00** con mora. Antes de quitarla, el resumen deja **\$450,00** pendientes.
-
-    <img src="/docs/images/conciliacion-bancaria/mora-antes-de-eliminar.png" alt="Orden por noventa mil cuatrocientos cincuenta pesos con cuatrocientos cincuenta pesos de mora calculada al 13 de julio" />
-  </Step>
-
-  <Step title="Eliminá la mora">
-    Presioná la cruz junto al importe de mora. Fint vuelve a calcular esa orden y el **Total a conciliar**.
-
-    Confirmá que el total coincida con el capital transferido antes de continuar.
-  </Step>
-
-  <Step title="Conciliá">
-    Presioná **Conciliar** y verificá el pago asociado y el estado de la orden.
-  </Step>
-</Steps>
-
-<Warning>
-  La quita desactiva **Genera mora** en esa orden. No cambia otras órdenes, pero permanece aunque reviertas la conciliación. Si necesitás cobrarla otra vez, abrí la orden y volvé a habilitar **Genera mora**.
-</Warning>
-
-## Quedó un importe de más
-
-Hay dos situaciones distintas. No uses el mismo camino para las dos.
-
-- Una **transferencia suelta** por el excedente: la cuota del mes ya cerró y después entra otro movimiento, por ejemplo **\$1.000,00**.
-- Un **excedente dentro de la misma transferencia** de la cuota: transfirieron más de lo que debían y, al conciliar esa cuota, sobra diferencia.
-
-Hoy Fint no arrastra solo un saldo a favor hacia las próximas conciliaciones. El crédito no aparece automáticamente el mes siguiente. Mientras tanto, podés resolverlo con los tres caminos de esta sección.
-
-### Dejá la transferencia suelta y aplicala a la próxima cuota
-
-Usá este camino cuando el excedente es un movimiento aparte y la cuota de ese mes ya está pagada.
-
-No hace falta crear un saldo a favor ni adelantar la factura del mes siguiente.
-
-<Steps>
-  <Step title="Dejá el movimiento pendiente">
-    Asigná el responsable si todavía no está, y no lo concilies. El movimiento puede seguir **En revisión**.
-  </Step>
-  <Step title="Esperá la orden del mes siguiente">
-    Cuando exista esa orden **Por Cobrar**, abrí el movimiento. Fint muestra las órdenes pendientes de las personas vinculadas a ese responsable, aunque la transferencia sea de un mes anterior.
-  </Step>
-  <Step title="Aplicá primero esos pesos">
-    Seleccioná solo la orden nueva y presioná **Conciliar pago parcial**.
-
-    Fint registra un pago por el importe de la transferencia y deja la orden en **Pago parcial**, con el resto pendiente. Cuando entre el resto de la cuota, conciliá ese segundo movimiento contra el saldo que quedó.
-  </Step>
-</Steps>
-
-<Info>
-  En el ejemplo de **\$1.000,00** sueltos, esos mil se aplican primero a la cuota siguiente. El mes no tiene que “encontrarlos” solo: los aplicás vos cuando la orden ya existe.
-</Info>
-
-### Registrá un saldo a favor y hacé el descuento a mano
-
-Usá este camino cuando, al conciliar una cuota, la transferencia es **mayor** que las órdenes seleccionadas.
-
-<Steps>
-  <Step title="Conciliá la cuota">
-    Seleccioná las órdenes que cubre la transferencia. El resumen va a mostrar una diferencia a favor.
-  </Step>
-  <Step title="Creá la factura por la diferencia">
-    Confirmá **Crear factura por la diferencia**. El nombre por defecto es **Saldo a favor**; podés cambiar la descripción.
-
-    Fint crea esa orden, la deja **Pagada** en la misma conciliación y registra el pago por transferencia.
-  </Step>
-  <Step title="Llevalo vos a la próxima cuota">
-    El saldo a favor no se descuenta solo el mes siguiente. Anotalo y, cuando exista la próxima orden, agregale a mano un descuento por ese importe. Recién ahí la cuota nueva cierra por el neto.
-  </Step>
-</Steps>
-
-<Warning>
-  La factura **Saldo a favor** sirve para dejar asentado el crédito. No aparece como sugerencia automática en la conciliación del mes siguiente. Si no hacen el descuento a mano, el crédito queda registrado pero no se consume.
-</Warning>
-
-### Generá ya la orden del mes siguiente
-
-Usá este camino cuando todavía están conciliando el mes actual, saben que sobran pesos y quieren dejarlos imputados ahora.
-
-<Steps>
-  <Step title="Creá la orden siguiente">
-    Desde el movimiento podés usar **Crear factura**, o crear la orden desde [Órdenes](/docs/guides/ordenes-gestionar). Tiene que quedar **Por Cobrar** y vinculada a la misma persona o familia.
-  </Step>
-  <Step title="Conciliá este mes y el siguiente juntos">
-    Seleccioná la cuota actual y la nueva.
-
-    Si la transferencia cubre toda la primera y solo una parte de la segunda, Fint pide **Conciliar con una factura parcial**: elegí cuál orden queda parcial. La del mes actual debe quedar cubierta; la diferencia se aplica a la siguiente.
-  </Step>
-  <Step title="El mes que viene partís de un pago parcial">
-    La orden nueva queda **Pago parcial**. Cuando entre el resto, conciliá ese movimiento contra el saldo pendiente. Si otra vez pagan de más, podés repetir el mismo esquema.
-  </Step>
-</Steps>
-
-<Info>
-  Si la cuota de este mes ya está pagada y solo quedó un movimiento suelto, no hace falta este camino: usá [Dejá la transferencia suelta y aplicala a la próxima cuota](#deja-la-transferencia-suelta-y-aplicala-a-la-proxima-cuota).
-</Info>
-
-## Un movimiento del archivo no aparece
-
-Que el archivo tenga más filas que la pantalla no implica necesariamente que se haya perdido un ingreso.
-
-Revisá estas causas antes de volver a cargar el extracto:
-
-| Qué revisar | Qué sucede | Qué hacer |
-| --- | --- | --- |
-| Búsqueda, estado, banco o fechas | El movimiento puede estar oculto | Elegí **Todos**, borrá la búsqueda y usá **Limpiar todo** si hay filtros visibles |
-| Mensaje de carga con duplicados | Fint reconoce un movimiento ya importado y no crea otra copia | Buscá el movimiento original por fecha, importe o responsable |
-| Fila sin fecha | Fint no puede tratarla como un movimiento | Volvé a exportar el período con fecha e importe completos |
-| Fila vacía o con importe cero | No se considera un movimiento bancario | Compará contra las filas que realmente tienen fecha e importe |
-| Egreso o débito | Actualmente **Movimientos** muestra solo ingresos conciliables | No vuelvas a importarlo como cobro; revisá el total de egresos en **Extractos** |
-
-<Info>
-  La tarjeta del extracto conserva el total de movimientos importados y, cuando existen, los duplicados omitidos y las advertencias. También separa ingresos, egresos y el avance de revisión.
-</Info>
-
-Si sigue faltando un **ingreso válido**, guardá el archivo original y registrá:
-
-- El banco y la cuenta seleccionada.
-- El nombre del archivo y la hora de carga.
-- La fecha, el importe y el concepto de una fila que no aparece.
-- Los movimientos importados, duplicados y advertencias que muestra la tarjeta.
-
-Con esos datos se puede distinguir una fila omitida por el formato, un duplicado o un problema de importación sin volver a cargar el archivo a ciegas.
-
-## Casos que todavía no cubre esta guía
+            <img src="/docs/images/conciliacion-bancaria/mora-antes-de-eliminar.png" alt="Orden por noventa mil cuatrocientos cincuenta pesos con cuatrocientos cincuenta pesos de mora calculada al 13 de julio" />
+          </Step>
+
+          <Step title="Eliminá la mora">
+            Presioná la cruz junto al importe de mora. Fint vuelve a calcular esa orden y el **Total a conciliar**.
+
+            Confirmá que el total coincida con el capital transferido antes de continuar.
+          </Step>
+
+          <Step title="Conciliá">
+            Presioná **Conciliar** y verificá el pago asociado y el estado de la orden.
+          </Step>
+        </Steps>
+
+        <Warning>
+          La quita desactiva **Genera mora** en esa orden. No cambia otras órdenes, pero permanece aunque reviertas la conciliación. Si necesitás cobrarla otra vez, abrí la orden y volvé a habilitar **Genera mora**.
+        </Warning>
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="¿Qué hago si quedó un importe de más?" id="quedo-un-importe-de-mas">
+    Hay dos situaciones distintas. No uses el mismo camino para las dos.
+
+    - Una **transferencia suelta** por el excedente: la cuota del mes ya cerró y después entra otro movimiento, por ejemplo **\$1.000,00**.
+    - Un **excedente dentro de la misma transferencia** de la cuota: transfirieron más de lo que debían y, al conciliar esa cuota, sobra diferencia.
+
+    Hoy Fint no arrastra solo un saldo a favor hacia las próximas conciliaciones. El crédito no aparece automáticamente el mes siguiente. Mientras tanto, podés resolverlo con estos caminos.
+
+    <AccordionGroup>
+      <Accordion title="Dejá la transferencia suelta y aplicala a la próxima cuota" id="deja-la-transferencia-suelta-y-aplicala-a-la-proxima-cuota">
+        Usá este camino cuando el excedente es un movimiento aparte y la cuota de ese mes ya está pagada.
+
+        No hace falta crear un saldo a favor ni adelantar la factura del mes siguiente.
+
+        <Steps>
+          <Step title="Dejá el movimiento pendiente">
+            Asigná el responsable si todavía no está, y no lo concilies. El movimiento puede seguir **En revisión**.
+          </Step>
+          <Step title="Esperá la orden del mes siguiente">
+            Cuando exista esa orden **Por Cobrar**, abrí el movimiento. Fint muestra las órdenes pendientes de las personas vinculadas a ese responsable, aunque la transferencia sea de un mes anterior.
+          </Step>
+          <Step title="Aplicá primero esos pesos">
+            Seleccioná solo la orden nueva y presioná **Conciliar pago parcial**.
+
+            Fint registra un pago por el importe de la transferencia y deja la orden en **Pago parcial**, con el resto pendiente. Cuando entre el resto de la cuota, conciliá ese segundo movimiento contra el saldo que quedó.
+          </Step>
+        </Steps>
+
+        <Info>
+          En el ejemplo de **\$1.000,00** sueltos, esos mil se aplican primero a la cuota siguiente. El mes no tiene que “encontrarlos” solo: los aplicás vos cuando la orden ya existe.
+        </Info>
+      </Accordion>
+
+      <Accordion title="Registrá un saldo a favor y hacé el descuento a mano" id="registra-un-saldo-a-favor-y-hace-el-descuento-a-mano">
+        Usá este camino cuando, al conciliar una cuota, la transferencia es **mayor** que las órdenes seleccionadas.
+
+        <Steps>
+          <Step title="Conciliá la cuota">
+            Seleccioná las órdenes que cubre la transferencia. El resumen va a mostrar una diferencia a favor.
+          </Step>
+          <Step title="Creá la factura por la diferencia">
+            Confirmá **Crear factura por la diferencia**. El nombre por defecto es **Saldo a favor**; podés cambiar la descripción.
+
+            Fint crea esa orden, la deja **Pagada** en la misma conciliación y registra el pago por transferencia.
+          </Step>
+          <Step title="Llevalo vos a la próxima cuota">
+            El saldo a favor no se descuenta solo el mes siguiente. Anotalo y, cuando exista la próxima orden, agregale a mano un descuento por ese importe. Recién ahí la cuota nueva cierra por el neto.
+          </Step>
+        </Steps>
+
+        <Warning>
+          La factura **Saldo a favor** sirve para dejar asentado el crédito. No aparece como sugerencia automática en la conciliación del mes siguiente. Si no hacen el descuento a mano, el crédito queda registrado pero no se consume.
+        </Warning>
+      </Accordion>
+
+      <Accordion title="Generá ya la orden del mes siguiente" id="genera-ya-la-orden-del-mes-siguiente">
+        Usá este camino cuando todavía están conciliando el mes actual, saben que sobran pesos y quieren dejarlos imputados ahora.
+
+        <Steps>
+          <Step title="Creá la orden siguiente">
+            Desde el movimiento podés usar **Crear factura**, o crear la orden desde [Órdenes](/docs/guides/ordenes-gestionar). Tiene que quedar **Por Cobrar** y vinculada a la misma persona o familia.
+          </Step>
+          <Step title="Conciliá este mes y el siguiente juntos">
+            Seleccioná la cuota actual y la nueva.
+
+            Si la transferencia cubre toda la primera y solo una parte de la segunda, Fint pide **Conciliar con una factura parcial**: elegí cuál orden queda parcial. La del mes actual debe quedar cubierta; la diferencia se aplica a la siguiente.
+          </Step>
+          <Step title="El mes que viene partís de un pago parcial">
+            La orden nueva queda **Pago parcial**. Cuando entre el resto, conciliá ese movimiento contra el saldo pendiente. Si otra vez pagan de más, podés repetir el mismo esquema.
+          </Step>
+        </Steps>
+
+        <Info>
+          Si la cuota de este mes ya está pagada y solo quedó un movimiento suelto, no hace falta este camino: usá [Dejá la transferencia suelta y aplicala a la próxima cuota](#deja-la-transferencia-suelta-y-aplicala-a-la-proxima-cuota).
+        </Info>
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="¿Por qué un movimiento del archivo no aparece?" id="un-movimiento-del-archivo-no-aparece">
+    Que el archivo tenga más filas que la pantalla no implica necesariamente que se haya perdido un ingreso.
+
+    Revisá estas causas antes de volver a cargar el extracto:
+
+    | Qué revisar | Qué sucede | Qué hacer |
+    | --- | --- | --- |
+    | Búsqueda, estado, banco o fechas | El movimiento puede estar oculto | Elegí **Todos**, borrá la búsqueda y usá **Limpiar todo** si hay filtros visibles |
+    | Mensaje de carga con duplicados | Fint reconoce un movimiento ya importado y no crea otra copia | Buscá el movimiento original por fecha, importe o responsable |
+    | Fila sin fecha | Fint no puede tratarla como un movimiento | Volvé a exportar el período con fecha e importe completos |
+    | Fila vacía o con importe cero | No se considera un movimiento bancario | Compará contra las filas que realmente tienen fecha e importe |
+    | Egreso o débito | Actualmente **Movimientos** muestra solo ingresos conciliables | No vuelvas a importarlo como cobro; revisá el total de egresos en **Extractos** |
+
+    <Info>
+      La tarjeta del extracto conserva el total de movimientos importados y, cuando existen, los duplicados omitidos y las advertencias. También separa ingresos, egresos y el avance de revisión.
+    </Info>
+
+    Si sigue faltando un **ingreso válido**, guardá el archivo original y registrá:
+
+    - El banco y la cuenta seleccionada.
+    - El nombre del archivo y la hora de carga.
+    - La fecha, el importe y el concepto de una fila que no aparece.
+    - Los movimientos importados, duplicados y advertencias que muestra la tarjeta.
+
+    Con esos datos se puede distinguir una fila omitida por el formato, un duplicado o un problema de importación sin volver a cargar el archivo a ciegas.
+  </Accordion>
+</AccordionGroup>
+
+## Todavía no cubiertos
 
 - Un saldo a favor que se consuma solo en las próximas conciliaciones.
 - Deudas de varios períodos y mora sobre órdenes parcialmente pagadas.
