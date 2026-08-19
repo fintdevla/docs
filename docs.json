@@ -112,7 +112,7 @@
                 "icon": "calendar",
                 "root": "docs/guides/eventos",
                 "directory": "card",
-                "expanded": true,
+                "expanded": false,
                 "pages": [
                   "docs/guides/eventos-crear-publicar",
                   "docs/guides/eventos-entradas-ventas-asistentes",
@@ -125,7 +125,7 @@
                 "icon": "cash-register",
                 "root": "docs/guides/punto-de-venta",
                 "directory": "accordion",
-                "expanded": true,
+                "expanded": false,
                 "pages": [
                   "docs/guides/pos-configuracion",
                   "docs/guides/pos-cajas-dispositivos",
