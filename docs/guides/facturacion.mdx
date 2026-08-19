@@ -83,10 +83,10 @@ La pestaña **Reglas de facturación** solo aparece cuando ARCA ya está conecta
 | **Tipo de comprobante** | Factura, Recibo o **Ambos**. | **Ambos** puede emitir factura **y** recibo sobre el mismo pago. |
 | **Fecha de inicio** | La UI la pide. En la emisión inmediata el criterio práctico es el pago que entra ahora. | Si “no factura lo viejo”, no es un bug: lo anterior se emite a mano. |
 | **Punto de venta** | El de **Web Services** que ARCA habilitó. | Si la lista está vacía, el punto no es WS o ARCA no lo devolvió. |
-| **Origen** | Online, Manual o Ambos. | Un cobro cargado a mano no entra en una regla solo Online. |
+| **Origen** | Online, Manual o Ambos. | El campo está en la regla. Hoy el job **no** lo usa para filtrar cobros: un pago manual también puede entrar en una regla marcada Online. |
 | **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Mercado Pago, efectivo. **Todos** marca o destilda el grupo. | Un POS en efectivo no entra si la regla no tiene Efectivo. |
 | **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto, Exportación, Turista. | El tipo sale del documento del responsable / padrón, no de un campo que elijas en el pago. |
-| **Momento** | **Inmediata** o **Día específico** (lunes a domingo). | El día específico junta y emite ese día; no es “a las 00:00 puntual de ARCA”. |
+| **Momento** | **Inmediata** o **Día específico** (lunes a domingo). | En la práctica solo corre **Inmediata**. Día específico está en la pantalla; no hay un job que emita solo ese día. |
 | **Concepto** | Servicios, Productos o ambos. | Va al comprobante fiscal. |
 | **Alícuota** | 0% (Exento), 2.5%, 5%, 10.5%, 21%, 27%. | La recomendada del onboarding usa **0% (Exento)**. Confirmarlo con el contador. |
 | **Activar regla** | Encendida o apagada. | Apagada = no corre. El pago puede quedar “salteado”. |
@@ -155,12 +155,11 @@ Si no hay email, Fint **no falla la factura**: el comprobante se emite igual y e
 
 Recién con el comprobante **Procesado** y el PDF generado. Un envío ya registrado no se vuelve a mandar (`already-sent`).
 
-Asuntos que ve la familia:
+Así se ve el mail de una factura. El PDF va adjunto y también se descarga del botón.
 
-- Factura: *Tu factura ya está disponible*
-- Recibo: *Tu recibo ya está disponible*
-- Nota de crédito: *Se emitió una nota de crédito*
-- Nota de débito: *Se emitió una nota de débito*
+<img src="/docs/images/emails/billing-document.png" alt="Mail Tu factura ya está disponible: Factura B 0001-00000482, $ 95.000, Cuota marzo 2027, botón Descargar comprobante" />
+
+Asuntos: *Tu factura ya está disponible* · *Tu recibo ya está disponible* · *Se emitió una nota de crédito* · *Se emitió una nota de débito*.
 
 El PDF también queda en el [Portal de Contacto](/docs/guides/portal-contacto) cuando está procesado, aunque el mail esté apagado.
 
@@ -207,13 +206,13 @@ En el detalle:
 
 <img src="/docs/images/facturacion/10-pago-comprobante-error.png" alt="Pago con comprobante en error y aviso para corregir el padrón de ARCA" />
 
-Ante un **Error**, corregí el dato (CUIT, punto de venta, condición) y volvé a emitir a mano. No se “reprocesa” solo el mismo intento.
+Ante un **Error**, corregí el dato (CUIT, punto de venta, condición) y usá **Reintentar la emisión** en el detalle del pago. No hace falta cargar otro comprobante si el intento se puede reenviar.
 
 ## Casos frecuentes
 
 <AccordionGroup>
   <Accordion title="El pago no se facturó solo">
-    Revisá que haya una regla **Activa** cuyo método y tipo de cliente coincidan. Si el detalle dice que las reglas saltearon el pago, emití a mano o ajustá la regla.
+    Revisá que haya una regla **Activa** cuyo método y tipo de cliente coincidan. Si el detalle dice que las reglas saltearon el pago, emití a mano o ajustá la regla. Si el comprobante quedó en **Error**, primero **Reintentar la emisión**.
   </Accordion>
   <Accordion title="ARCA rechazó el CUIT">
     El padrón no reconoce el documento del responsable. Corregilo en el contacto y volvé a emitir. No hace falta revertir el pago.

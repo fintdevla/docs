@@ -30,7 +30,7 @@ Al crear un comunicado, Fint pregunta el destino:
   Si la persona tiene **contactos** con email, el mensaje va a esos contactos. Si no tiene, va al email de la ficha.
 </Info>
 
-El aviso de emails faltantes aparece en el envío a estudiantes o contactos. En el flujo de eventos, Fint filtra a quienes no tienen email y no muestra ese modal.
+El aviso de emails faltantes aparece en el envío a estudiantes o contactos. En **asistentes** de un evento, Fint deja afuera a quienes no tienen email. En **compradores**, la lista puede incluir filas sin mail: no asumas que ese filtro corre igual.
 
 ## Armar el mensaje
 
@@ -66,7 +66,11 @@ El listado muestra quién lo envió, el asunto, cuántos destinatarios y la fech
 
 Al abrir un comunicado ves totales de **enviados**, **entregados**, **abiertos**, **clicks** y **rebotados**. Esos números se leen cuando abrís el detalle; no se refrescan solos en la pantalla.
 
-El estado de cada persona puede ser creado, enviado, entregado, abierto, clickeado, rebotado o queja. No hay solo dos estados.
+El comunicado sale desde **updates.fint.app** (el resto de los mails van por **mail.fint.app**). Así lo ve la familia:
+
+<img src="/docs/images/emails/new-message.png" alt="Comunicado Reunión de familias del Colegio Modelo, con botón Ir al portal" />
+
+El estado de cada persona puede ser creado, enviado, entregado, abierto, clickeado, rebotado, queja o **no enviado (bloqueado)**. No hay solo dos estados.
 
 <Warning>
   El detalle de destinatarios está pensado para envíos a contactos. Un comunicado de evento puede mostrar mal esa lista. No lo uses todavía como prueba de que el evento llegó a cada comprador.
