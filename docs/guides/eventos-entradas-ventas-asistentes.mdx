@@ -11,7 +11,7 @@ Después de publicar, usá **Estadísticas** para seguir resultados y **Asistent
 
 ## Entender las métricas
 
-La vista **Estadísticas** permite combinar uno o varios eventos. En pantalla ves **Monto bruto**, **Unidades vendidas**, **Entradas activas** y **Admisión**.
+La pestaña **Estadísticas** abre una pantalla titulada **Reportes**. Podés combinar uno o varios eventos. Ves **Monto bruto**, **Unidades vendidas**, **Entradas activas** y **Admisión**. Debajo del gráfico **Evolución de ventas** están las pestañas **Ventas** y **Entradas activas**.
 
 <CardGroup cols={2}>
   <Card title="Monto bruto" icon="dollar-sign">
@@ -59,11 +59,11 @@ Presioná **Exportar** para descargar hasta 10.000 entradas o limitar el archivo
 Abrí una fila para consultar:
 
 - QR, si el tipo de entrada lo genera, y estado actual.
-- Referencia, evento, fecha, monto y origen manual u online.
+- **ID Ticket** (en la tabla es **#**), **Evento**, **Fecha de compra**, **Monto** y **Origen** (**Manual** u **Online**).
 - **Actividad** de la entrada.
-- Orden y datos de facturación asociados.
-- Datos del asistente y respuestas adicionales.
-- Datos del comprador.
+- El acordeón **Pago**, **Pagos** u **Orden**, según cuántos cobros haya.
+- **Asistentes** e **Información adicional**.
+- **Comprador**.
 
 En **Actividad** ves quién **generó la entrada**, la **admitió**, la **habilitó**, la **canceló** o **editó datos** del asistente o del comprador. El actor puede ser una **persona** del equipo, **Web**, **Fint** o **API**. Si hay más de cinco eventos, **Ver actividad completa** abre el listado entero.
 
@@ -71,7 +71,7 @@ En **Actividad** ves quién **generó la entrada**, la **admitió**, la **habili
 
 El administrador puede reenviar el email al comprador o al asistente cuando están disponibles el destinatario y el PDF correspondiente.
 
-También podés compartir el PDF individual por WhatsApp si existe un teléfono válido, o descargar el PDF individual y el de la compra completa cuando estén disponibles.
+También están **Reenviar al asistente**, **Reenviar al comprador**, **Enviar por WhatsApp**, **Descargar PDF individual** y **Descargar PDF de todas las entradas**.
 
 ## Crear una entrada manual
 
@@ -84,14 +84,11 @@ Esta acción permite al administrador registrar una entrada fuera del checkout p
   <Step title="Elegí el evento y el tipo">
     Seleccioná un evento activo. Después elegí uno de sus tipos de entrada existentes.
   </Step>
-  <Step title="Completá los datos">
-    Ingresá nombre, apellido, documento, email y teléfono. Completá también los campos personalizados obligatorios que correspondan.
-  </Step>
-  <Step title="Registrá el pago">
-    Elegí efectivo, débito, crédito o transferencia y confirmá la fecha del pago.
+  <Step title="Completá datos y pago">
+    En **Datos del Asistente** cargás nombre, apellido, documento, email y teléfono. En la misma pantalla está **Información de Pago**: **Efectivo**, **Tarjeta de débito**, **Tarjeta de crédito** o **Transferencia**, y **Fecha de Pago**.
   </Step>
   <Step title="Creá la entrada">
-    Revisá el importe y presioná **Crear Ticket**. El resultado puede tardar unos segundos en aparecer en el listado.
+    Presioná **Crear Ticket**. El resultado puede tardar unos segundos en aparecer en el listado.
   </Step>
 </Steps>
 

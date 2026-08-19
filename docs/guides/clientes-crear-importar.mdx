@@ -23,7 +23,7 @@ Al terminar esta guía, vas a tener clientes visibles en el listado y sabrás qu
     Entrá a **Clientes**, presioná **Crear** y elegí **Crear cliente**. Si el módulo se llama Estudiantes, la opción usa ese nombre.
   </Step>
   <Step title="Completá los datos">
-    Ingresá nombre y apellido. Son los únicos datos obligatorios para habilitar el alta. El documento y el email son opcionales.
+    El primer campo es **Documento** (DNI, CUIT u otro), con el texto **Ingresá CUIT o DNI para autocompletar los datos**. Después van **Nombre**, **Apellido** y **Email (opcional)**. Para habilitar **Crear cliente** / **Crear estudiante** alcanzan nombre y apellido.
   </Step>
   <Step title="Revisá antes de crear">
     Confirmá la escritura del nombre y buscá a la persona en el listado si podría existir. El alta manual no garantiza la detección de duplicados por documento o email.
@@ -54,13 +54,13 @@ La importación acepta archivos `.xlsx`. El archivo debe respetar la plantilla d
     Entrá a **Clientes**, presioná **Crear → Importar excel** y elegí **Descargar modelo de Excel**.
   </Step>
   <Step title="Completá la plantilla">
-    Cargá cada fila siguiendo los ejemplos y requisitos del archivo. No cambies el orden de las columnas.
+    Cada fila necesita **Nombre Estudiante**, **Apellido Estudiante**, **Nombre Pagador**, **Tipo Documento** y **Documento** del pagador. Si falta uno, Fint responde **El campo … es requerido**. Siempre hay un responsable por fila. No cambies el orden de las columnas.
   </Step>
   <Step title="Seleccioná el archivo">
     Volvé a **Importar clientes**, elegí el `.xlsx` completo y comprobá que el nombre aparezca como archivo seleccionado.
   </Step>
-  <Step title="Definí el email de bienvenida">
-    Si activás esta opción, los responsables de pago importados que tengan email pueden recibir el enlace a su Portal de Contacto.
+  <Step title="Revisá el email de bienvenida">
+    El interruptor **Enviar email de bienvenida** viene prendido. Si lo dejás así, los responsables importados con email reciben el enlace al Portal de Contacto. Podés apagarlo.
   </Step>
   <Step title="Iniciá la importación">
     Presioná **Importar**. Fint procesa la carga de forma asincrónica; que el archivo haya sido aceptado no confirma por sí solo que todas las filas terminaron correctamente.

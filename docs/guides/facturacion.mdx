@@ -86,8 +86,8 @@ La pestaña **Reglas de facturación** solo aparece cuando ARCA ya está conecta
 | **Origen** | Online, Manual o Ambos. | El campo está en la regla. Hoy el job **no** lo usa para filtrar cobros: un pago manual también puede entrar en una regla marcada Online. |
 | **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Mercado Pago, efectivo. **Todos** marca o destilda el grupo. | Un POS en efectivo no entra si la regla no tiene Efectivo. |
 | **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto, Exportación, Turista. | El tipo sale del documento del responsable / padrón, no de un campo que elijas en el pago. |
-| **Momento** | **Inmediata** o **Día específico** (lunes a domingo). | En la práctica solo corre **Inmediata**. Día específico está en la pantalla; no hay un job que emita solo ese día. |
-| **Concepto** | Servicios, Productos o ambos. | Va al comprobante fiscal. |
+| **Momento de facturación** | **Inmediata** o **Día específico** (lunes a domingo). | En la práctica solo corre **Inmediata**. Día específico está en la pantalla; no hay un job que emita solo ese día. |
+| **Concepto** | **Servicios**, **Productos** o **Productos y Servicios**. | Va al comprobante fiscal. |
 | **Alícuota** | 0% (Exento), 2.5%, 5%, 10.5%, 21%, 27%. | La recomendada del onboarding usa **0% (Exento)**. Confirmarlo con el contador. |
 | **Activar regla** | Encendida o apagada. | Apagada = no corre. El pago puede quedar “salteado”. |
 | **Enviar comprobante por email** | Si está on, Fint manda el PDF cuando el comprobante está **Procesado**. | La regla recomendada nace **apagada**. Ver [Email del comprobante](#email-del-comprobante). |
