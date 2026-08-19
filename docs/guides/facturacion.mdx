@@ -1,130 +1,188 @@
 ---
 title: 'Facturación'
-description: 'Emití comprobantes electrónicos de ARCA sobre tus pagos, de forma automática con reglas o manual'
+description: 'Reglas automáticas, emisión a mano y notas de crédito sobre un pago'
 ---
 
-Con la integración de [ARCA](/docs/guides/facturacion-arca) activa, Fint emite comprobantes electrónicos (facturas, notas de crédito y débito, recibos) directamente sobre los **pagos** que recibís. Podés automatizarlo con reglas o emitir manualmente desde cada pago.
+Con [ARCA conectado](/docs/guides/facturacion-arca), Fint emite el comprobante **sobre el pago**: primero entra el cobro y después sale la factura, el recibo o la nota.
 
 <Info>
-  Todo lo de esta guía requiere tener la integración con ARCA configurada. Si todavía no la tenés, empezá por la [guía de configuración de ARCA](/docs/guides/facturacion-arca).
+  Si todavía no terminaste **Tu factura, en tres pasos**, esta guía no aplica. Empezá por [Conectar ARCA](/docs/guides/facturacion-arca).
 </Info>
 
-## Conceptos clave
+## Conceptos
 
-En Fint, los comprobantes **siempre están asociados a un pago**: primero se registra el cobro (online o manual) y sobre ese pago se emite el comprobante.
-
-### Tipos de comprobante
+El comprobante siempre apunta a un **pago**. No se factura una orden suelta.
 
 <CardGroup cols={2}>
   <Card title="Factura" icon="file-invoice">
-    El comprobante principal de la operación
+    El comprobante principal de ese cobro
   </Card>
   <Card title="Recibo" icon="receipt">
     Comprobante electrónico con CAE, alternativa a la factura
   </Card>
-  <Card title="Nota de Crédito" icon="rotate-left">
-    Anula o reduce una factura o recibo existente
+  <Card title="Nota de crédito" icon="rotate-left">
+    Anula o reduce una factura o un recibo
   </Card>
-  <Card title="Nota de Débito" icon="circle-plus">
-    Aumenta el importe de una factura existente
+  <Card title="Nota de débito" icon="circle-plus">
+    Aumenta el importe de una factura
   </Card>
 </CardGroup>
 
-### La letra no se elige: se calcula
+### La letra no se elige
 
-Fint determina automáticamente si el comprobante es **A**, **B** o **C** según la condición fiscal tuya (el emisor) y la del receptor:
+Fint calcula **A**, **B** o **C** (y en casos puntuales **E**) según tu condición y la del receptor:
 
-- Si sos **Responsable Inscripto**: emitís **A** a Responsables Inscriptos y Monotributistas, y **B** a Consumidores Finales y Exentos.
-- Si sos **Monotributista** o **Exento**: emitís siempre **C**.
+- Si sos **Responsable Inscripto**: **A** a Responsable Inscripto y Monotributista, **B** a Consumidor Final y Exento.
+- Si sos **Monotributista** o **Exento**: en el día a día es **C**. Exportación puede ir por **E**; un turista extranjero, por **B** o **C**.
 
-### ¿A nombre de quién sale el comprobante?
+### A nombre de quién
 
-Se factura al **contacto de pago** (responsable) del pago, con su tipo y número de documento. Si el documento es un CUIT/CUIL de 11 dígitos, Fint consulta el **padrón de ARCA** para deducir su condición fiscal (Responsable Inscripto, Monotributista, Exento). Si no puede determinarla, factura como **Consumidor Final**.
+Se factura al **contacto de pago** (el responsable), con su tipo y número de documento.
+
+Si el documento es un CUIT/CUIL de 11 dígitos, Fint consulta el padrón de ARCA. Si no puede determinar la condición, trata al receptor como **Consumidor Final**.
 
 <Warning>
-  Verificá que tus contactos de pago tengan el documento cargado y correcto: sin documento válido el comprobante no se puede emitir.
+  Un documento mal cargado es la causa más frecuente de error. Revisá el CUIT o DNI del responsable antes de reintentar.
 </Warning>
 
-## Facturación automática con reglas
+## Facturación automática
 
-En **Configuración → Facturación → Reglas de facturación** definís reglas para que los pagos se facturen solos. Cada regla configura:
+En **Configuración → Facturación → Reglas de facturación** (también desde el paso 3 de [Conectar ARCA](/docs/guides/facturacion-arca)).
 
-- **Nombre** de la regla y **fecha de inicio** (se facturan los pagos recibidos a partir de esa fecha)
-- **Tipo de comprobante**: Factura, Recibo o Ambos
-- **Punto de venta**: los puntos habilitados se traen directo de ARCA
-- **Origen** del pago: Online, Manual o Ambos
-- **Métodos de pago**: elegí cuáles facturar (tarjetas, transferencia, efectivo, Mercado Pago, etc.)
-- **Tipos de cliente**: Consumidor Final, Monotributista, Responsable Inscripto, entre otros
-- **Momento de facturación**: Inmediata (al registrarse el pago) o un día específico de la semana
-- **Concepto** (Servicios, Productos o ambos) y **Alícuota** de IVA
+Cada regla define:
 
-Cada regla puede estar **Activa** o **Pausada**.
+| Campo | Qué decide |
+| --- | --- |
+| Nombre y fecha de inicio | Desde cuándo se considera |
+| Tipo | Factura, Recibo o Ambos |
+| Punto de venta | Solo puntos de **Web Services** que ARCA ya habilitó |
+| Origen | Online, Manual o Ambos |
+| Métodos | Tarjeta, transferencia, efectivo, Mercado Pago, etc. |
+| Tipos de cliente | Consumidor Final, Monotributista, Responsable Inscripto, Exportación, Turista |
+| Momento | **Inmediata** o un **día específico** de la semana |
+| Concepto y alícuota | Servicios, productos o ambos; 0% a 27% |
 
-### Cómo se aplican
+La regla puede estar **Activa** o **Pausada**.
 
-Cuando entra un pago, Fint recorre tus reglas activas y aplica **la primera que coincida** con el método de pago y el tipo de cliente — una sola regla por pago. Si ninguna regla coincide, el pago queda sin facturar (siempre podés emitir manualmente después).
+<img src="/docs/images/facturacion/09-regla-preset.png" alt="Formulario de una regla nueva precargada como Facturar todos los cobros con punto de venta Web Services" />
+
+### Cómo se elige la regla
+
+Cuando entra un pago, Fint recorre las reglas **activas** y aplica **la primera que coincide** con el método y el tipo de cliente. Una sola regla por pago.
+
+Si ninguna coincide, el pago queda sin comprobante. En el detalle vas a ver que las reglas **saltearon este pago**. Siempre podés emitir a mano.
+
+<img src="/docs/images/facturacion/11-pago-salteado-regla.png" alt="Detalle de un pago que las reglas activas saltearon" />
 
 <Info>
-  Empezá simple: una regla "Inmediata" con tipo Factura, todos los métodos de pago online y todos los tipos de cliente cubre la mayoría de los casos. Coordiná con tu contador el punto de venta y la alícuota.
+  La regla recomendada del onboarding cubre todos los métodos y clientes, con IVA 0% (Exento). Coordiná con tu contador el punto de venta y la alícuota antes de dejarla así.
 </Info>
 
-## Emisión manual
+<Warning>
+  Si una regla es **Ambos** (factura y recibo), puede emitir los dos sobre el mismo pago. Si no es lo que querés, dejá un solo tipo.
+</Warning>
 
-Para facturar un pago puntual (o emitir una nota de crédito/débito), desde el detalle del pago:
+## Emitir a mano
+
+Sirve para un cobro que las reglas no tomaron, para un pago viejo o para una excepción.
 
 <Steps>
   <Step title="Abrí el pago">
-    En **Pagos**, hacé clic en el pago que querés facturar y ubicá la sección **Comprobantes**.
+    En **Pagos**, entrá al cobro y bajá a **Comprobantes**.
 
     <img src="/docs/images/facturacion/pago-comprobantes.png" alt="Sección Comprobantes en el detalle de un pago" />
   </Step>
-
-  <Step title="Registrá el comprobante">
-    Con el botón **+** se abre el modal **"Registrar comprobante"**: elegí el tipo (Factura, Nota de Crédito, Nota de Débito o Recibo), la fecha, el concepto, el punto de venta y el monto (viene precargado con el total del pago, editable). Para una Factura elegís también la alícuota de IVA; para una Nota de Crédito o Débito, el comprobante al que aplica.
+  <Step title="Registrar comprobante">
+    El **+** abre **Registrar comprobante**. Elegí **Factura** o **Recibo**, la fecha, el concepto, el punto de venta y el monto (viene el total del pago; lo podés editar). En una factura también elegís la alícuota.
   </Step>
-
   <Step title="Confirmá">
-    Fint envía la solicitud a ARCA y el comprobante queda asociado al pago, con su CAE y PDF descargable.
+    Fint envía el pedido a ARCA. Si sale bien, el comprobante queda **Procesado**, con CAE y PDF.
   </Step>
 </Steps>
 
-Reglas a tener en cuenta:
+La fecha no puede ser de más de **10 días hacia atrás**: es el tope que acepta ARCA.
 
-- Un pago admite **una factura válida**; si necesitás corregirla, emitís una **Nota de Crédito**.
-- La Nota de Crédito requiere una factura o recibo previo; la Nota de Débito, una factura.
-- No se puede emitir una nota sobre otra nota.
+Un pago admite **una factura válida**. Si ya hay una, el modal no ofrece otra factura: para corregirla emitís una **Nota de crédito**.
 
-### ¿Cómo se anula una factura?
+Desde **Facturación activa** también está el atajo **Facturar un pago a mano**, que abre **Pagos**.
 
-Por normativa de ARCA una factura **no se anula**: se emite una **Nota de Crédito por el total**, que la cancela fiscalmente. Ambos comprobantes quedan registrados.
+## Nota de crédito a mano
 
-## Estados y seguimiento
+Por normativa, una factura **no se borra**. Se cancela con una nota de crédito.
 
-En el listado de **Pagos**, cada pago facturado muestra badges con sus comprobantes: **F** (Factura), **NC** (Nota de Crédito), **ND** (Nota de Débito), **R** (Recibo) — en **verde** si fue procesado por ARCA, en **rojo** si hubo un error.
+<Steps>
+  <Step title="Abrí el pago de la factura">
+    Tiene que haber una factura o un recibo (que no sea **E**) en estado válido. Si el comprobante está en **Error** o **Cancelado**, no sirve de referencia.
+  </Step>
+  <Step title="Elegí Nota de crédito">
+    En **Registrar comprobante**, el tipo pasa a **Nota de crédito**. Fint pide **a qué comprobante aplica**.
+  </Step>
+  <Step title="Revisá el importe">
+    El monto viene el de la factura. Si ponés menos, es una nota parcial. Si es el total, la factura queda cancelada fiscalmente y ambos quedan en el pago.
+  </Step>
+  <Step title="Confirmá">
+    ARCA autoriza la nota. El PDF queda en el mismo pago y, si correspondía, en el [Portal de Contacto](/docs/guides/portal-contacto).
+  </Step>
+</Steps>
 
-Dentro del pago, cada comprobante muestra su estado:
+La **Nota de débito** solo se emite sobre una **factura** (no sobre un recibo ni sobre otra nota). Tampoco se emite una nota sobre otra nota.
 
-| Estado | Significado |
-|---|---|
-| **Pendiente** | En proceso de emisión |
-| **Procesado** | Emitido correctamente, con CAE — PDF disponible para descargar |
-| **Error** | ARCA rechazó la emisión — el detalle del error se ve en el tooltip del estado |
-| **Cancelado** | Comprobante sin efecto |
+## Estados
 
-Ante un **Error** (CUIT inválido, punto de venta no habilitado, datos fiscales incompletos), corregí el problema y volvé a emitir el comprobante manualmente desde el mismo pago.
+En el listado de **Pagos**, cada cobro facturado muestra **F**, **NC**, **ND** o **R**:
 
-Los comprobantes procesados también quedan disponibles para el responsable de pago en su [Portal de Contacto](/docs/guides/portal-contacto).
+- **Verde**: ARCA lo procesó.
+- **Rojo**: hubo un error.
 
-## Próximos Pasos
+En el detalle:
+
+| Estado | Qué significa |
+| --- | --- |
+| Pendiente | Todavía se está emitiendo |
+| Procesado | Tiene CAE. El PDF se puede descargar |
+| Error | ARCA lo rechazó. El motivo está en el aviso |
+| Cancelado | El comprobante no tiene efecto |
+
+<img src="/docs/images/facturacion/10-pago-comprobante-error.png" alt="Pago con comprobante en error y aviso para corregir el padrón de ARCA" />
+
+Ante un **Error**, corregí el dato (CUIT, punto de venta, condición) y volvé a emitir a mano. No se “reprocesa” solo el mismo intento.
+
+## Casos frecuentes
+
+<AccordionGroup>
+  <Accordion title="El pago no se facturó solo">
+    Revisá que haya una regla **Activa** cuyo método y tipo de cliente coincidan. Si el detalle dice que las reglas saltearon el pago, emití a mano o ajustá la regla.
+  </Accordion>
+  <Accordion title="ARCA rechazó el CUIT">
+    El padrón no reconoce el documento del responsable. Corregilo en el contacto y volvé a emitir. No hace falta revertir el pago.
+  </Accordion>
+  <Accordion title="Hay que anular una factura">
+    Emití una **Nota de crédito** por el total sobre esa factura. Quedan los dos comprobantes. No existe “borrar factura” en ARCA.
+  </Accordion>
+  <Accordion title="Hay que facturar solo una parte">
+    En **Registrar comprobante** cambiá el monto. El resto del pago puede quedar sin facturar, o cubrirse después con otro comprobante permitido (por ejemplo un recibo, si la regla o el modal lo habilitan).
+  </Accordion>
+  <Accordion title="La familia no ve el PDF">
+    El comprobante tiene que estar **Procesado**. Si está en error o pendiente, el portal no lo ofrece. También tiene que ser el responsable de ese pago.
+  </Accordion>
+  <Accordion title="¿Puedo tener varios puntos de venta?">
+    Sí, si ARCA los tiene habilitados como Web Services. Cada regla elige uno. Con varios puntos, el onboarding no activa la regla recomendada: la creás a mano.
+  </Accordion>
+  <Accordion title="¿Qué comprobantes emite Fint?">
+    Facturas y recibos A, B, C (y E cuando corresponde), más notas de crédito y débito. No hay Recibo X en este flujo.
+  </Accordion>
+</AccordionGroup>
+
+## Próximos pasos
 
 <CardGroup cols={3}>
-  <Card title="Configurar ARCA" icon="file-invoice" href="/docs/guides/facturacion-arca">
-    Certificados y autorización, paso a paso
+  <Card title="Conectar ARCA" icon="link" href="/docs/guides/facturacion-arca">
+    Datos, certificado y primera regla
   </Card>
   <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
-    Donde viven los comprobantes
+    Historial y comprobantes de cada cobro
   </Card>
-  <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
-    Información fiscal de tu organización
+  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
+    Donde la familia descarga el PDF
   </Card>
 </CardGroup>
