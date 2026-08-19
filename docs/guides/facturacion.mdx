@@ -5,9 +5,31 @@ description: 'Reglas automáticas, emisión a mano y notas de crédito sobre un 
 
 Con [ARCA conectado](/docs/guides/facturacion-arca), Fint emite el comprobante **sobre el pago**: primero entra el cobro y después sale la factura, el recibo o la nota.
 
+Esta página es el mapa operativo: reglas, mail, emisión a mano y qué hacer cuando algo falla. Sirve para operar y para soporte.
+
 <Info>
   Si todavía no terminaste **Tu factura, en tres pasos**, esta guía no aplica. Empezá por [Conectar ARCA](/docs/guides/facturacion-arca).
 </Info>
+
+## Recorrido completo
+
+<Steps>
+  <Step title="Conectar ARCA">
+    Datos fiscales, certificado y al menos una regla. Sin eso no hay emisión.
+  </Step>
+  <Step title="Entra un pago">
+    Online, manual o POS. El comprobante no nace de la orden: nace del **pago**.
+  </Step>
+  <Step title="Fint busca una regla activa">
+    Recorre las reglas de arriba hacia abajo y usa **la primera que coincide**. Si ninguna calza, el pago queda sin facturar.
+  </Step>
+  <Step title="ARCA autoriza">
+    El comprobante pasa a **Procesado** (con CAE y PDF) o a **Error**.
+  </Step>
+  <Step title="Se envía el mail, si está prendido">
+    Recién cuando el PDF fiscal está listo. Si la regla o el alta manual tienen **Enviar comprobante por email** apagado, no sale correo.
+  </Step>
+</Steps>
 
 ## Conceptos
 
@@ -45,26 +67,32 @@ Si el documento es un CUIT/CUIL de 11 dígitos, Fint consulta el padrón de ARCA
   Un documento mal cargado es la causa más frecuente de error. Revisá el CUIT o DNI del responsable antes de reintentar.
 </Warning>
 
-## Facturación automática
+## Configuración de las reglas
 
 En **Configuración → Facturación → Reglas de facturación** (también desde el paso 3 de [Conectar ARCA](/docs/guides/facturacion-arca)).
 
-Cada regla define:
-
-| Campo | Qué decide |
-| --- | --- |
-| Nombre y fecha de inicio | Desde cuándo se considera |
-| Tipo | Factura, Recibo o Ambos |
-| Punto de venta | Solo puntos de **Web Services** que ARCA ya habilitó |
-| Origen | Online, Manual o Ambos |
-| Métodos | Tarjeta, transferencia, efectivo, Mercado Pago, etc. |
-| Tipos de cliente | Consumidor Final, Monotributista, Responsable Inscripto, Exportación, Turista |
-| Momento | **Inmediata** o un **día específico** de la semana |
-| Concepto y alícuota | Servicios, productos o ambos; 0% a 27% |
-
-La regla puede estar **Activa** o **Pausada**.
+La pestaña **Reglas de facturación** solo aparece cuando ARCA ya está conectado.
 
 <img src="/docs/images/facturacion/09-regla-preset.png" alt="Formulario de una regla nueva precargada como Facturar todos los cobros con punto de venta Web Services" />
+
+### Cada campo
+
+| Campo en pantalla | Qué hace | Qué mirar en soporte |
+| --- | --- | --- |
+| **Nombre** | Solo etiqueta. No cambia la lógica. | Sirve para el aviso de reglas que se pisan. |
+| **Tipo de comprobante** | Factura, Recibo o **Ambos**. | **Ambos** puede emitir factura **y** recibo sobre el mismo pago. |
+| **Fecha de inicio** | La UI la pide. En la emisión inmediata el criterio práctico es el pago que entra ahora. | Si “no factura lo viejo”, no es un bug: lo anterior se emite a mano. |
+| **Punto de venta** | El de **Web Services** que ARCA habilitó. | Si la lista está vacía, el punto no es WS o ARCA no lo devolvió. |
+| **Origen** | Online, Manual o Ambos. | Un cobro cargado a mano no entra en una regla solo Online. |
+| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Mercado Pago, efectivo. **Todos** marca o destilda el grupo. | Un POS en efectivo no entra si la regla no tiene Efectivo. |
+| **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto, Exportación, Turista. | El tipo sale del documento del responsable / padrón, no de un campo que elijas en el pago. |
+| **Momento** | **Inmediata** o **Día específico** (lunes a domingo). | El día específico junta y emite ese día; no es “a las 00:00 puntual de ARCA”. |
+| **Concepto** | Servicios, Productos o ambos. | Va al comprobante fiscal. |
+| **Alícuota** | 0% (Exento), 2.5%, 5%, 10.5%, 21%, 27%. | La recomendada del onboarding usa **0% (Exento)**. Confirmarlo con el contador. |
+| **Activar regla** | Encendida o apagada. | Apagada = no corre. El pago puede quedar “salteado”. |
+| **Enviar comprobante por email** | Si está on, Fint manda el PDF cuando el comprobante está **Procesado**. | La regla recomendada nace **apagada**. Ver [Email del comprobante](#email-del-comprobante). |
+
+Si dos reglas activas comparten tipo, origen, un método y un tipo de cliente, Fint muestra un aviso: *esta regla se pisa con…*. No bloquea el guardado. En la práctica gana **la primera que coincide**; el riesgo es facturar dos veces o no saber cuál corrió.
 
 ### Cómo se elige la regla
 
@@ -75,12 +103,8 @@ Si ninguna coincide, el pago queda sin comprobante. En el detalle vas a ver que 
 <img src="/docs/images/facturacion/11-pago-salteado-regla.png" alt="Detalle de un pago que las reglas activas saltearon" />
 
 <Info>
-  La regla recomendada del onboarding cubre todos los métodos y clientes, con IVA 0% (Exento). Coordiná con tu contador el punto de venta y la alícuota antes de dejarla así.
+  La regla **Facturar todos los cobros** del onboarding cubre todos los métodos y clientes, IVA 0%, y **no** envía el mail. Activá **Enviar comprobante por email** si la institución quiere que salga solo.
 </Info>
-
-<Warning>
-  Si una regla es **Ambos** (factura y recibo), puede emitir los dos sobre el mismo pago. Si no es lo que querés, dejá un solo tipo.
-</Warning>
 
 ## Emitir a mano
 
@@ -104,7 +128,41 @@ La fecha no puede ser de más de **10 días hacia atrás**: es el tope que acept
 
 Un pago admite **una factura válida**. Si ya hay una, el modal no ofrece otra factura: para corregirla emitís una **Nota de crédito**.
 
+En el mismo modal está **Enviar comprobante por email**. Se manda cuando el PDF está listo, no al confirmar el clic.
+
 Desde **Facturación activa** también está el atajo **Facturar un pago a mano**, que abre **Pagos**.
+
+## Email del comprobante
+
+Hay **un** interruptor, en dos lugares:
+
+| Dónde | Texto | Default |
+| --- | --- | --- |
+| La regla | **Enviar comprobante por email** · “Se enviará cuando el PDF fiscal esté disponible.” | La recomendada nace **off** |
+| Registrar comprobante (factura o recibo) | El mismo texto | Off, salvo que lo prendas |
+| Registrar comprobante (nota de crédito o débito) | **Notificación heredada** | No se elige: copia lo que tenía el comprobante original |
+
+En la tarjeta de la regla, soporte ve **Email del comprobante**: “Se envía automáticamente” o “No se envía”.
+
+### A quién le llega
+
+- Cobro de cuota / liquidación / pago suelto: al **email del responsable de pago**.
+- Compra de evento: al **email del comprador** de esa orden.
+
+Si no hay email, Fint **no falla la factura**: el comprobante se emite igual y el mail se saltea. En logs queda `recipient-email-missing`.
+
+### Cuándo sale
+
+Recién con el comprobante **Procesado** y el PDF generado. Un envío ya registrado no se vuelve a mandar (`already-sent`).
+
+Asuntos que ve la familia:
+
+- Factura: *Tu factura ya está disponible*
+- Recibo: *Tu recibo ya está disponible*
+- Nota de crédito: *Se emitió una nota de crédito*
+- Nota de débito: *Se emitió una nota de débito*
+
+El PDF también queda en el [Portal de Contacto](/docs/guides/portal-contacto) cuando está procesado, aunque el mail esté apagado.
 
 ## Nota de crédito a mano
 
@@ -126,6 +184,10 @@ Por normativa, una factura **no se borra**. Se cancela con una nota de crédito.
 </Steps>
 
 La **Nota de débito** solo se emite sobre una **factura** (no sobre un recibo ni sobre otra nota). Tampoco se emite una nota sobre otra nota.
+
+El mail de la nota **no se configura aparte**: si la factura original tenía el envío prendido, la nota también se manda; si no, no. El switch queda en **Notificación heredada**.
+
+Si el importe de la nota no es el de la factura, el modal avisa que va a quedar una diferencia entre ambos comprobantes.
 
 ## Estados
 
@@ -170,6 +232,21 @@ Ante un **Error**, corregí el dato (CUIT, punto de venta, condición) y volvé 
   </Accordion>
   <Accordion title="¿Qué comprobantes emite Fint?">
     Facturas y recibos A, B, C (y E cuando corresponde), más notas de crédito y débito. No hay Recibo X en este flujo.
+  </Accordion>
+  <Accordion title="La familia no recibió el mail de la factura">
+    Tres chequeos, en este orden: 1) la regla o el alta manual tienen **Enviar comprobante por email** prendido (la recomendada nace apagada); 2) el comprobante está **Procesado**, no en error; 3) el responsable (o el comprador del evento) tiene email. El PDF igual puede estar en el portal.
+  </Accordion>
+  <Accordion title="La nota de crédito no mandó mail">
+    La nota hereda el flag de la factura o el recibo original. Si esa factura se emitió sin mail, la nota tampoco sale. No hay un switch propio en la nota.
+  </Accordion>
+  <Accordion title="Hay dos reglas y no sabemos cuál corrió">
+    Gana la primera activa que coincide. Si se pisan, Fint avisa al guardar. Para soporte: mirá método, origen y tipo de cliente del pago y comparalo con cada regla de arriba hacia abajo.
+  </Accordion>
+  <Accordion title="Facturó un cobro en efectivo que no queríamos">
+    La regla tiene **Efectivo** marcado (o **Todos**). Sacá ese método o creá una regla más chica y pausá la amplia.
+  </Accordion>
+  <Accordion title="El punto de venta no aparece">
+    Tiene que ser de **Web Services** y ARCA tiene que devolverlo. El de factura en línea o controlador fiscal no sirve. Validá la conexión en [Conectar ARCA](/docs/guides/facturacion-arca).
   </Accordion>
 </AccordionGroup>
 
