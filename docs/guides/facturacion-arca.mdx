@@ -65,6 +65,8 @@ Hay tres momentos: **Generar el pedido**, **Firmarlo y subirlo**, **Probar la co
 
 Si regenerás, el pedido anterior **deja de servir**. Hay que firmar el nuevo y volver a subir el certificado.
 
+<img src="/docs/images/facturacion/03b-confirmacion-regenerar.png" alt="Confirmación: el pedido anterior deja de servir antes de generar uno nuevo" />
+
 ### Firmalo en ARCA
 
 Repetí este trámite con el CUIT de la institución, no con el de una persona.
@@ -75,18 +77,25 @@ Repetí este trámite con el CUIT de la institución, no con el de una persona.
       <Step title="Adherí el servicio">
         Entrá al [Portal de Clave Fiscal](https://auth.afip.gob.ar/contribuyente_/login.xhtml). Adherí **Administración de Certificados Digitales** (ARCA → Servicios Interactivos).
 
+        <img src="/images/arca/01-portal-clave-fiscal.png" alt="Portal de Clave Fiscal" />
         <img src="/images/arca/02-adherir-servicio.png" alt="Botón Adherir Servicio en el portal de Clave Fiscal" />
+        <img src="/images/arca/03-seleccionar-certificados-digitales.png" alt="Seleccionar Administración de Certificados Digitales" />
       </Step>
       <Step title="Agregá el alias">
         En **Administración de Certificados Digitales**, presioná **Agregar alias**. El alias es el que copiaste en Fint, sin cambiar una letra.
+
+        <img src="/images/arca/04-agregar-alias.png" alt="Agregar alias en Administración de Certificados Digitales" />
       </Step>
       <Step title="Subí el pedido">
         En **Examinar**, elegí el archivo que descargaste de Fint y confirmá.
 
         <img src="/images/arca/05-subir-csr.png" alt="Pantalla de ARCA para subir el pedido de certificado" />
+        <img src="/images/arca/06-lista-certificados.png" alt="Lista de certificados digitales en ARCA" />
       </Step>
       <Step title="Descargá el certificado">
         Abrí el alias, descargá el archivo **.crt** y guardalo. Ese es el que vas a subir a Fint.
+
+        <img src="/images/arca/07-descargar-certificado.png" alt="Descargar el certificado .crt generado en ARCA" />
       </Step>
     </Steps>
   </Tab>
@@ -98,6 +107,8 @@ Repetí este trámite con el CUIT de la institución, no con el de una persona.
     <Steps>
       <Step title="Nueva Relación">
         En **Administrador de Relaciones de Clave Fiscal**, elegí **Nueva Relación** y buscá el servicio.
+
+        <img src="/images/arca/08-nueva-relacion-buscar.png" alt="Nueva Relación y Buscar en el Administrador de Relaciones" />
       </Step>
       <Step title="WebServices">
         Navegá a **ARCA → WebServices** y elegí el servicio.
@@ -106,6 +117,10 @@ Repetí este trámite con el CUIT de la institución, no con el de una persona.
       </Step>
       <Step title="Representante">
         En **Buscar**, elegí el alias que acabás de crear. Confirmá la relación y la autorización.
+
+        <img src="/images/arca/10-buscar-representante.png" alt="Buscar el alias como representante de la relación" />
+        <img src="/images/arca/11-confirmar-relacion.png" alt="Confirmar la nueva relación en ARCA" />
+        <img src="/images/arca/12-confirmar-autorizacion.png" alt="Confirmar la autorización del WebService" />
       </Step>
     </Steps>
   </Tab>
@@ -114,6 +129,8 @@ Repetí este trámite con el CUIT de la institución, no con el de una persona.
 <Info>
   En Fint, **Ver guía paso a paso** abre el mismo recorrido con las capturas del portal.
 </Info>
+
+<img src="/docs/images/facturacion/04-guia-certificado.png" alt="Guía paso a paso abierta en Fint: alias Fint Facturacion, Abrir ARCA y Subir certificado" />
 
 ### Subí el certificado y probá
 
@@ -146,6 +163,10 @@ Si hay un solo punto de venta, Fint propone **Activar la regla recomendada**: fa
 
 <img src="/docs/images/facturacion/06a-regla-recomendada.png" alt="Paso de regla con el botón Activar la regla recomendada" />
 
+Cuando la activás, el paso se marca listo y podés seguir al detalle impreso o a **Reglas de facturación**.
+
+<img src="/docs/images/facturacion/06b-regla-activada.png" alt="Onboarding después de activar la regla recomendada" />
+
 Si hay varios puntos, o querés otro esquema, entrá a **Ajustarla a mano** / **Reglas de facturación**. El formulario llega precargado como **Facturar todos los cobros**.
 
 Cómo se aplica esa regla y cómo emitir a mano está en [Facturación](/docs/guides/facturacion).
@@ -164,11 +185,17 @@ También podés incluir o no el nombre del estudiante en el detalle.
 
 <img src="/docs/images/facturacion/05-detalle-impreso-onboarding.png" alt="Paso opcional del detalle impreso con la vista previa de la factura" />
 
+<img src="/docs/images/facturacion/08-detalle-nombre-off.png" alt="El mismo detalle con el nombre del estudiante apagado" />
+
 ## Facturación activa
 
 Cuando los tres pasos están listos, la pantalla pasa a **Facturación activa**. Ahí ves el último comprobante, el vencimiento del certificado, **Ver comprobantes** y **Facturar un pago a mano**.
 
 <img src="/docs/images/facturacion/06-facturacion-activa.png" alt="Panel Facturación activa con último comprobante, certificado y atajos" />
+
+**Ver estado** abre el certificado: vencimiento, **Reemplazar certificado** y otra vez **Probar la conexión**.
+
+<img src="/docs/images/facturacion/07-estado-certificado.png" alt="Estado del certificado con los tres momentos en verde y la fecha de vencimiento" />
 
 ## Preguntas frecuentes
 
