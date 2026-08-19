@@ -8,14 +8,14 @@ Con [ARCA conectado](/docs/guides/facturacion-arca), Fint emite el comprobante *
 Esta página es el mapa operativo: reglas, mail, emisión a mano y qué hacer cuando algo falla. Sirve para operar y para soporte.
 
 <Info>
-  Si todavía no terminaste **Tu factura, en tres pasos**, esta guía no aplica. Empezá por [Conectar ARCA](/docs/guides/facturacion-arca).
+  Si todavía no terminaste **Tu factura, en cuatro pasos**, esta guía no aplica. Empezá por [Conectar ARCA](/docs/guides/facturacion-arca).
 </Info>
 
 ## Recorrido completo
 
 <Steps>
   <Step title="Conectar ARCA">
-    Datos fiscales, certificado y al menos una regla. Sin eso no hay emisión.
+    Datos fiscales, certificado, punto de venta de Web Services y al menos una regla. Sin eso no hay emisión.
   </Step>
   <Step title="Entra un pago">
     Online, manual o POS. El comprobante no nace de la orden: nace del **pago**.
@@ -69,7 +69,7 @@ Si el documento es un CUIT/CUIL de 11 dígitos, Fint consulta el padrón de ARCA
 
 ## Configuración de las reglas
 
-En **Configuración → Facturación → Reglas de facturación** (también desde el paso 3 de [Conectar ARCA](/docs/guides/facturacion-arca)).
+En **Configuración → Facturación → Reglas de facturación** (también desde el paso 4 de [Conectar ARCA](/docs/guides/facturacion-arca)).
 
 La pestaña **Reglas de facturación** solo aparece cuando ARCA ya está conectado.
 
@@ -82,7 +82,7 @@ La pestaña **Reglas de facturación** solo aparece cuando ARCA ya está conecta
 | **Nombre** | Solo etiqueta. No cambia la lógica. | Sirve para el aviso de reglas que se pisan. |
 | **Tipo de comprobante** | Factura, Recibo o **Ambos**. | **Ambos** puede emitir factura **y** recibo sobre el mismo pago. |
 | **Fecha de inicio** | La UI la pide. En la emisión inmediata el criterio práctico es el pago que entra ahora. | Si “no factura lo viejo”, no es un bug: lo anterior se emite a mano. |
-| **Punto de venta** | El de **Web Services** que ARCA habilitó. | Si la lista está vacía, el punto no es WS o ARCA no lo devolvió. |
+| **Punto de venta** | El de **Web Services** que ARCA habilitó. | Si no hay ninguno, el editor muestra un aviso amarillo y te manda a crearlo. No deja un listado vacío. |
 | **Origen** | Online, Manual o Ambos. | El campo está en la regla. Hoy el job **no** lo usa para filtrar cobros: un pago manual también puede entrar en una regla marcada Online. |
 | **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Mercado Pago, efectivo. **Todos** marca o destilda el grupo. | Un POS en efectivo no entra si la regla no tiene Efectivo. |
 | **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto, Exportación, Turista. | El tipo sale del documento del responsable / padrón, no de un campo que elijas en el pago. |
@@ -245,7 +245,7 @@ Ante un **Error**, corregí el dato (CUIT, punto de venta, condición) y usá **
     La regla tiene **Efectivo** marcado (o **Todos**). Sacá ese método o creá una regla más chica y pausá la amplia.
   </Accordion>
   <Accordion title="El punto de venta no aparece">
-    Tiene que ser de **Web Services** y ARCA tiene que devolverlo. El de factura en línea o controlador fiscal no sirve. Validá la conexión en [Conectar ARCA](/docs/guides/facturacion-arca).
+    Tiene que ser de **Web Services** y ARCA tiene que devolverlo. El de factura en línea o controlador fiscal no sirve. Si el CUIT no tiene ninguno, el editor muestra un aviso amarillo y te manda al [paso 3 de Conectar ARCA](/docs/guides/facturacion-arca).
   </Accordion>
 </AccordionGroup>
 
@@ -253,7 +253,7 @@ Ante un **Error**, corregí el dato (CUIT, punto de venta, condición) y usá **
 
 <CardGroup cols={3}>
   <Card title="Conectar ARCA" icon="link" href="/docs/guides/facturacion-arca">
-    Datos, certificado y primera regla
+    Datos, certificado, punto de venta y primera regla
   </Card>
   <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
     Historial y comprobantes de cada cobro
