@@ -163,12 +163,31 @@ Si no tiene, ves **Falta crearlo en ARCA**, las instrucciones y el botón **Ya l
 
 <img src="/docs/images/facturacion/12-paso-punto-de-venta.png" alt="Paso 3 Punto de venta pendiente: instrucciones de Web Services en ARCA y botón Ya lo creé, verificar" />
 
+El alta se hace en el portal de ARCA, con el CUIT de la institución.
+
 <Steps>
-  <Step title="Entrá al portal de ARCA">
-    Buscá **Administración de puntos de venta y domicilios**.
+  <Step title="Abrí el servicio">
+    Entrá al [Portal de Clave Fiscal](https://auth.afip.gob.ar/contribuyente_/login.xhtml). Buscá **puntos de** y abrí **Administración de puntos de venta y domicilios**.
+
+    <img src="/images/arca/13-buscar-puntos-de-venta.png" alt="Portal ARCA: búsqueda puntos de, resultado Administración de puntos de venta y domicilios" />
   </Step>
-  <Step title="Agregá un punto de venta">
-    Como sistema de facturación elegí la opción de **Web Services**. Según tu condición puede decir “Factura Electrónica – Monotributo – Web Services” o “RECE para aplicativo y web services”.
+  <Step title="Agregá uno nuevo">
+    Entrá a **A/B/M de puntos de venta** y presioná agregar. En **Sistema** elegí la opción de **Web Services** según tu condición. El de factura en línea o controlador fiscal no sirve.
+
+    <Tabs>
+      <Tab title="Monotributo">
+        **Factura Electronica - Monotributo - Web Services**.
+
+        <img src="/images/arca/14-alta-monotributo.png" alt="Alta de punto de venta en ARCA: Sistema Factura Electronica - Monotributo - Web Services" />
+      </Tab>
+      <Tab title="Responsable inscripto">
+        **RECE para aplicativo y web services**.
+
+        <img src="/images/arca/15-alta-responsable-inscripto.jpg" alt="Alta de punto de venta en ARCA: Sistema RECE para aplicativo y web services" />
+      </Tab>
+    </Tabs>
+
+    Si no aparece el domicilio, hay que regularizarlo en ARCA antes. Confirmá con **Aceptar**.
   </Step>
   <Step title="Volvé a Fint">
     Tocá **Ya lo creé, verificar**. ARCA a veces tarda unos minutos en mostrarlo.
@@ -226,7 +245,7 @@ Cuando los cuatro pasos están listos, la pantalla pasa a **Facturación activa*
     No, si completás el flujo self-serve: generás el pedido, lo firmás en ARCA, lo subís y probás la conexión. Solo escribinos si la conexión la cargó Fint o si hay que renovar esas credenciales.
   </Accordion>
   <Accordion title="¿Puedo usar el punto de venta de factura en línea?">
-    No. Fint solo emite contra un punto de venta de **Web Services**.
+    No. En **Sistema** tiene que decir **Web Services** (monotributo) o **RECE para aplicativo y web services** (responsable inscripto). El de factura en línea o controlador fiscal no sirve.
   </Accordion>
   <Accordion title="¿Puedo tener varios puntos de venta?">
     Sí, si ARCA los tiene habilitados para Web Services. Cada regla elige uno. Con varios puntos Fint no activa la regla recomendada sola: la armás a mano.
