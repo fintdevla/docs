@@ -18,14 +18,7 @@
             "group": "Comenzar",
             "icon": "play",
             "pages": [
-              "docs/introduction"
-            ]
-          },
-          {
-            "group": "Inicio",
-            "icon": "house",
-            "root": "docs/guides/dashboard",
-            "pages": [
+              "docs/introduction",
               "docs/guides/dashboard"
             ]
           },
