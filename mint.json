@@ -42,12 +42,7 @@
     {
       "group": "Comenzar",
       "pages": [
-        "docs/introduction"
-      ]
-    },
-    {
-      "group": "Inicio",
-      "pages": [
+        "docs/introduction",
         "docs/guides/dashboard"
       ]
     },

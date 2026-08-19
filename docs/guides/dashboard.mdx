@@ -1,75 +1,41 @@
 ---
 title: 'Inicio'
-description: 'La foto general de tu cobranza: pagos recibidos, cobrado vs. adeudado y evolución mensual'
+description: 'La primera pantalla: el checklist para empezar y, después, los gráficos de cobranza'
 ---
 
-Al entrar a Fint, la pantalla de **Inicio** muestra la evolución de tu cobranza de un vistazo. Se arma con tus órdenes y pagos.
+Al entrar, **Inicio** se titula **Bienvenido a Fint**. Es el mismo recorrido de [la bienvenida](/docs/introduction), visto en la app.
 
 <Info>
-  El **administrador** ve este panel. Un **cajero** entra directo al Punto de Venta. Un **acomodador de evento** entra a Eventos. Si la organización está solo para Eventos, Fint también abre Eventos.
+  El **administrador** ve este panel. Un **cajero** entra al Punto de Venta. Un **acomodador de evento** entra a Eventos.
 </Info>
 
-{/* Video desactualizado — descomentar cuando se regrabe
+## Mientras configurás
 
-## Tutorial en Video
+La pantalla pide cinco pasos, en orden: datos generales, procesador de pagos, ARCA (si está prendido), un evento o una liquidación, y el primer pago. Cada uno se tilda solo.
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.loom.com/embed/c0f0bd3f1599479fa46a50ea75e0b422"
-  title="Tutorial Panel de Inicio"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem', margin: '20px 0' }}
-></iframe>
+<img src="/docs/images/dashboard/inicio-onboarding.png" alt="Inicio: Bienvenido a Fint, checklist Completar datos generales, Conectar procesador, Conectar con ARCA, Crear evento o liquidación, Recibir un pago" />
 
-*/}
+**Explorá más funcionalidades** son atajos para prender un canal que todavía no usás. El interruptor de cada módulo está en [Funcionalidades](/docs/guides/configuracion-funcionalidades).
 
-## Primeros pasos
+Cuando el checklist se completa, Inicio pasa a los gráficos.
 
-Mientras tu organización se está configurando, el Inicio muestra una **guía de primeros pasos** con el checklist para empezar a cobrar: completar los datos generales, conectar un procesador de pagos, conectar ARCA, crear tu primer evento o liquidación y recibir el primer pago. A medida que completás cada paso, se va marcando solo.
-
-<img src="/docs/images/dashboard/inicio-onboarding.png" alt="Checklist de primeros pasos del panel de inicio" />
-
-Cuando el checklist se completa, el Inicio pasa a mostrar los gráficos de cobranza.
-
-Mientras tanto puede aparecer **Explorá más funcionalidades**: atajos para prender un canal que todavía no usás (eventos, POS, links). No reemplaza [Funcionalidades](/docs/guides/configuracion-funcionalidades).
-
-## Los gráficos
+## Cuando ya cobrás
 
 <CardGroup cols={2}>
   <Card title="Pagos recibidos" icon="credit-card">
-    La plata que entró en los **últimos 30 días**: el total del período y la evolución día por día.
+    Lo que entró en los **últimos 30 días**, día por día.
   </Card>
-
   <Card title="Cobrado últimos 12 meses" icon="chart-line">
-    Dos series mensuales: **Total cobrado** y **Total adeudado** (lo que sigue pendiente de cada mes). Es el gráfico para detectar meses con cobranza floja.
+    **Total cobrado** vs **Total adeudado**, mes a mes.
   </Card>
-
   <Card title="Órdenes de pago creadas" icon="file-invoice">
-    El total facturado por mes en los últimos 12 meses (cobrado + adeudado), para ver la evolución de tu facturación.
+    Lo facturado por mes (cobrado + adeudado) en el último año.
   </Card>
-
   <Card title="Porcentual cobrado" icon="percent">
-    Qué porcentaje de lo facturado efectivamente cobraste, mes a mes. Un termómetro rápido de la salud de la cobranza.
+    Qué parte de lo facturado efectivamente cobraste.
   </Card>
 </CardGroup>
 
-<Info>
-  Los gráficos de 12 meses se agrupan por la **fecha de emisión** de la orden. El “cobrado” de ese mes es el pendiente de las órdenes ya marcadas pagadas o parciales, no el importe que entró en abril.
-</Info>
+Los gráficos de 12 meses se agrupan por la **fecha de emisión** de la orden, no por el día en que entró el pago.
 
-## Próximos Pasos
-
-<CardGroup cols={3}>
-  <Card title="Clientes" icon="users" href="/docs/guides/clientes">
-    Gestioná la información de tus clientes
-  </Card>
-  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    El detalle de cada factura
-  </Card>
-  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
-    Historial completo de transacciones
-  </Card>
-</CardGroup>
+El detalle de cada cobro está en [Pagos](/docs/guides/pagos). El de cada deuda, en [Órdenes](/docs/guides/solicitudes-pago).

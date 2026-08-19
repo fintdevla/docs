@@ -1,121 +1,67 @@
 ---
 title: 'Bienvenido a Fint'
-description: 'Gestión de cobranzas inteligente para instituciones educativas'
+sidebarTitle: 'Bienvenido'
+description: 'Qué es Fint y por dónde empezar a cobrar'
 ---
 
-Fint es la plataforma de gestión de cobranzas para colegios, universidades, academias y todo tipo de instituciones educativas: cuotas, venta online, eventos y suscripciones, con cobro online y seguimiento de deuda en un solo lugar.
+Fint cobra en un solo lugar: cuotas, venta online, eventos y el mostrador. Las familias pagan desde el [Portal de Contacto](/docs/guides/portal-contacto). Vos ves qué está pendiente y qué ya entró.
 
-## ¿Cómo funciona Fint?
+## Dos maneras de cobrar
 
-Hay dos maneras de cobrar, y las podés combinar:
+Las podés combinar.
 
 <CardGroup cols={2}>
-  <Card title="Cobranza institucional (cuotas)" icon="file-invoice">
-    Definís tus [items](/docs/guides/items-descuentos) (cuota, comedor, matrícula) y se los asignás a tus estudiantes. Cada mes ejecutás una [liquidación](/docs/guides/solicitudes-pago) que genera una orden de pago por estudiante — con descuentos e [intereses por mora](/docs/guides/configuracion-mora) aplicados automáticamente.
+  <Card title="Cuotas institucionales" icon="file-invoice" href="/docs/guides/items-liquidaciones">
+    Items asignados a estudiantes. Una [liquidación](/docs/guides/solicitudes-pago) arma la orden de cada mes.
   </Card>
-
-  <Card title="Canales de venta" icon="cart-shopping">
-    Publicás [links de pago](/docs/guides/links-pago) para venta online y [suscripciones](/docs/guides/suscripciones), o vendés entradas con [eventos](/docs/guides/eventos). Acá no asignás nada: la gente compra desde una página pública.
+  <Card title="Canales de venta" icon="cart-shopping" href="/docs/guides/cobrar-en-fint">
+    [Links](/docs/guides/links-pago), [eventos](/docs/guides/eventos) o [Punto de Venta](/docs/guides/punto-de-venta). La gente compra; Fint crea la orden.
   </Card>
 </CardGroup>
 
-Vengan de donde vengan, todos los cobros terminan en el mismo lugar: las **[órdenes](/docs/guides/solicitudes-pago)** (lo que hay que cobrar) y los **[pagos](/docs/guides/pagos)** (lo que ya entró). Las familias consultan y pagan desde su [Portal de Contacto](/docs/guides/portal-contacto), y si tenés [ARCA conectado](/docs/guides/facturacion-arca), los comprobantes se [emiten solos con reglas](/docs/guides/facturacion).
+Todo termina en las mismas [órdenes](/docs/guides/solicitudes-pago) y los mismos [pagos](/docs/guides/pagos). Cómo elegir el canal está en [Cobrar en Fint](/docs/guides/cobrar-en-fint).
 
-## Primeros pasos
+## Empezá por acá
+
+Es el mismo checklist que ves en **Inicio** la primera vez.
 
 <Steps>
-  <Step title="Configurá tu organización">
-    Nombre, marca, equipo y recordatorios en [Configuración](/docs/guides/configuracion).
+  <Step title="Completar datos generales">
+    Nombre, logo y datos de soporte en [General y marca](/docs/guides/configuracion-general).
   </Step>
-  <Step title="Conectá un procesador de pagos">
-    Por ejemplo [Mercado Pago](/docs/guides/conectar-mercado-pago), para cobrar online.
+  <Step title="Conectar procesador de pagos">
+    Mercado Pago, Stripe o Pagos Online. El recorrido de Mercado Pago está en [Conectar Mercado Pago](/docs/guides/conectar-mercado-pago).
   </Step>
-  <Step title="Cargá estudiantes e items">
-    Importá tus [estudiantes](/docs/guides/clientes) desde Excel y creá tus [items y descuentos](/docs/guides/items-descuentos).
+  <Step title="Conectar con ARCA">
+    Si facturás en Argentina: [Conectar ARCA](/docs/guides/facturacion-arca). En el panel aparece cuando el módulo está prendido.
   </Step>
-  <Step title="Hacé tu primer cobro">
-    Ejecutá tu primera [liquidación](/docs/guides/solicitudes-pago), o publicá un [link de pago](/docs/guides/links-pago) o [evento](/docs/guides/eventos).
+  <Step title="Crear evento o realizar liquidación">
+    Un [evento](/docs/guides/eventos) o tu primera [liquidación](/docs/guides/liquidaciones-crear-revisar).
+  </Step>
+  <Step title="Recibir un pago">
+    El checklist se cierra con el primer cobro. Cómo entra el dinero: [Cobrar en Fint](/docs/guides/cobrar-en-fint).
   </Step>
 </Steps>
 
-Cada guía incluye capturas reales de la aplicación.
+Cómo se ve ese checklist en la app está en [Inicio](/docs/guides/dashboard).
 
-## Todas las guías
+## Después
 
-El menú de la izquierda sigue este mismo mapa.
-
-### Estudiantes
+El menú de la izquierda es el mapa. Estos cuatro cubren el día a día:
 
 <CardGroup cols={2}>
   <Card title="Estudiantes" icon="users" href="/docs/guides/clientes">
-    Perfiles, etiquetas, responsables y estado de pago
+    Quién paga y quién estudia
   </Card>
-  <Card title="Portal de Contacto" icon="house-user" href="/docs/guides/portal-contacto">
-    Donde las familias consultan deudas y pagan
+  <Card title="Órdenes y pagos" icon="wallet" href="/docs/guides/solicitudes-pago">
+    Lo pendiente y lo que ya entró
   </Card>
-</CardGroup>
-
-### Cobranzas
-
-<CardGroup cols={2}>
-  <Card title="Cobrar en Fint" icon="wallet" href="/docs/guides/cobrar-en-fint">
-    Elegí portal, carga manual u otro canal
-  </Card>
-  <Card title="Pagos" icon="credit-card" href="/docs/guides/pagos">
-    Todo lo cobrado: online, manual y conciliado
-  </Card>
-  <Card title="Órdenes y Liquidaciones" icon="file-invoice" href="/docs/guides/solicitudes-pago">
-    Lo que hay que cobrar y cómo se genera en lote
-  </Card>
-  <Card title="Conciliación" icon="book" href="/docs/guides/conciliacion">
-    Relacioná un ingreso del banco con una orden
-  </Card>
-  <Card title="Items y Descuentos" icon="tags" href="/docs/guides/items-descuentos">
-    Lo que cobrás y las reducciones que aplicás
-  </Card>
-  <Card title="Facturación" icon="file-lines" href="/docs/guides/facturacion">
-    Comprobantes de ARCA sobre un pago
-  </Card>
-</CardGroup>
-
-### Canales de venta
-
-<CardGroup cols={2}>
-  <Card title="Links de Pago" icon="link" href="/docs/guides/links-pago">
-    Vendé productos y servicios online
-  </Card>
-  <Card title="Suscripciones" icon="repeat" href="/docs/guides/suscripciones">
-    Cobros recurrentes que nacen de un link
-  </Card>
-  <Card title="Eventos" icon="calendar" href="/docs/guides/eventos">
-    Entradas con QR, admisión y seguimiento
-  </Card>
-  <Card title="Punto de Venta" icon="cash-register" href="/docs/guides/punto-de-venta">
-    El mostrador presencial: caja, orden y cobro
-  </Card>
-</CardGroup>
-
-### Comunicación y configuración
-
-<CardGroup cols={2}>
-  <Card title="Inicio" icon="house" href="/docs/guides/dashboard">
-    La evolución de tu cobranza de un vistazo
-  </Card>
-  <Card title="Mensajería" icon="envelope" href="/docs/guides/mensajeria">
-    Comunicados por email con estadísticas
+  <Card title="Canales" icon="store" href="/docs/guides/cobrar-en-fint">
+    Portal, link, evento o mostrador
   </Card>
   <Card title="Configuración" icon="cog" href="/docs/guides/configuracion">
-    Marca, equipo, recordatorios, mora e integraciones
-  </Card>
-  <Card title="Conectar Mercado Pago" icon="credit-card" href="/docs/guides/conectar-mercado-pago">
-    Vinculá tu cuenta y cobrá online
+    Equipo, recordatorios y módulos
   </Card>
 </CardGroup>
 
-## Para Desarrolladores
-
-Si necesitás integrar Fint con otros sistemas, visitá la [documentación para desarrolladores](/developers/introduction) y la [referencia de la API](/api-reference/introduction).
-
-## Soporte
-
-¿Necesitás ayuda? Contactá a nuestro equipo en [soporte@fint.app](mailto:soporte@fint.app).
+¿Ayuda? [soporte@fint.app](mailto:soporte@fint.app). Integraciones: [desarrolladores](/developers/introduction).
