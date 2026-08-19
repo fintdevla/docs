@@ -32,9 +32,9 @@ El monto bruto no descuenta comisiones, impuestos ni retenciones del procesador.
 
 Una compra de un combo cuenta como una unidad vendida, pero puede emitir varias entradas. Usá el detalle por tipo para distinguir entradas individuales de las incluidas en combos.
 
-El gráfico muestra la evolución de ventas. Debajo podés alternar entre el detalle por producto y el detalle de entradas vigentes.
+El gráfico muestra la evolución de ventas. Debajo podés alternar entre el detalle por producto y el de entradas activas.
 
-<img src="/docs/images/eventos/estadisticas-evento.png" alt="Estadísticas de un evento con unidades vendidas, entradas vigentes y admisión" />
+<img src="/docs/images/eventos/estadisticas-evento.png" alt="Estadísticas: monto bruto, unidades vendidas, entradas activas, admisión y evolución de ventas por día" />
 
 ## Buscar y filtrar entradas
 
@@ -60,10 +60,14 @@ Abrí una fila para consultar:
 
 - QR, si el tipo de entrada lo genera, y estado actual.
 - Referencia, evento, fecha, monto y origen manual u online.
-- Actividad de la entrada.
+- **Actividad** de la entrada.
 - Orden y datos de facturación asociados.
 - Datos del asistente y respuestas adicionales.
 - Datos del comprador.
+
+En **Actividad** ves quién **generó la entrada**, la **admitió**, la **habilitó**, la **canceló** o **editó datos** del asistente o del comprador. El actor puede ser una **persona** del equipo, **Web**, **Fint** o **API**. Si hay más de cinco eventos, **Ver actividad completa** abre el listado entero.
+
+<img src="/docs/images/eventos/actividad-entrada.png" alt="Actividad de una entrada: Demo Terminal editó datos, admitió, habilitó y canceló la entrada, con Ver actividad completa" />
 
 El administrador puede reenviar el email al comprador o al asistente cuando están disponibles el destinatario y el PDF correspondiente.
 
