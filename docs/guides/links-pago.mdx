@@ -65,7 +65,7 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
   <Step title="Artículos y etiquetas">
     Con **+ Agregar artículo** elegís items de Venta online. Podés sumar más de uno. En el formulario actual, el comprador elige un artículo al pagar.
 
-    Si asignás **etiquetas**, Fint se las pone al cliente y al contacto que se crean cuando alguien compra.
+    Si asignás **etiquetas**, Fint se las pone al **cliente** que se crea con la compra. El responsable de pago no las hereda.
 
     <Frame>
       <img src="/docs/images/links-pago/crear-articulos.png" alt="Selector de artículos para el link, con Buzo institucional 2027 y Remera institucional 2027 entre las opciones de Colegio Modelo" />
@@ -74,7 +74,7 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
   <Step title="Cobro, si tu procesador lo permite">
     La sección **Cobro** aparece cuando la organización usa **Stripe** o **Mercado Pago**. El interruptor **Debitar automáticamente todos los meses** cambia el recaudo de las suscripciones: o se intenta el débito solo, o se envía una factura en cada período.
   </Step>
-  <Step title="Facturación, si hay recurrencia">
+  <Step title="Facturación">
     **Día fijo de emisión** hace que las facturas de una suscripción salgan el mismo día de cada mes, sin importar cuándo se inscribió la persona. **Días hasta el vencimiento** cuenta desde esa emisión.
   </Step>
   <Step title="Confirmación">
@@ -118,13 +118,19 @@ En cada fila, el menú permite **Visitar**, **Editar**, **Duplicar página** o *
 
 El comprador elige un artículo y pulsa **Continuar**. Ahí empieza el checkout: se identifican sus datos y se cobra. Esta guía no recorre ese cobro.
 
+Si el link está vencido, la página pública dice **Link de pago expirado**. No se puede comprar.
+
 ## Qué pasa cuando alguien compra
 
 1. Se crea o se reconoce a la persona como cliente.
 2. Se genera una [orden](/docs/guides/solicitudes-pago) y, si el cobro se confirma, un [pago](/docs/guides/pagos).
 3. Si el artículo era recurrente, también queda una [suscripción](/docs/guides/suscripciones).
 
-Esta guía no recorre el checkout hasta el final. El cobro queda para cuando se pueda probar en local sin dejar residuos.
+Esta guía no recorre el checkout con procesador real. Si eligieron **transferencia** o un **cupón offline**, sí se puede mostrar el mail que reciben para terminar el pago:
+
+<img src="/docs/images/emails/finish-payment-transfer.png" alt="Mail con CVU, alias COLEGIO.MODELO y el monto a transferir a Colegio Modelo" />
+
+<img src="/docs/images/emails/finish-payment-offline.png" alt="Mail con el cupón para pagar $ 24.000 en Rapipago" />
 
 ## Próximos pasos
 
