@@ -27,8 +27,9 @@ El módulo tiene tres áreas en la interfaz: **Eventos**, **Asistentes** y **Est
 
 ## Conceptos que conviene distinguir
 
-- Un **tipo de entrada** define nombre, precio, stock y si genera QR, entre otras opciones.
-- Un **combo** vende varias entradas juntas con su propio nombre, precio y cantidad.
+- Un **tipo de entrada** define nombre, precio, **stock** y si genera QR. Con stock 0 no se vende.
+- Un **combo** vende varias entradas juntas. No tiene stock propio: usa el de cada tipo. Los descuentos del evento **no aplican a combos**.
+- Un **cupón de evento** también tiene stock: sin unidades, el código no se aplica.
 - Una **entrada emitida** pertenece a una compra y a un asistente. Puede tener QR si así se configuró su tipo.
 - El **comprador** paga la orden. El **asistente** usa la entrada. Pueden ser personas distintas.
 

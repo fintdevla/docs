@@ -22,8 +22,22 @@ El tipo del descuento determina dónde se usa. Elegilo antes de configurar su al
 </CardGroup>
 
 <Info>
-  Un descuento de Venta online no funciona como cupón en el checkout público de Links de Pago. Para ese tipo, el canal compatible es el Punto de Venta.
+  Un descuento de Venta online no funciona como cupón en el checkout público de Links de Pago ni en un evento. Cada tipo sirve en un solo canal.
 </Info>
+
+## Dónde está el stock
+
+Sin stock **no se vende y el descuento no se aplica**. El número 0 no significa “ilimitado”.
+
+| Qué | Dónde se carga | Qué corta cuando llega a 0 |
+| --- | --- | --- |
+| Producto de Venta online | **Items →** el producto | No entra al POS ni al link |
+| Descuento de Venta online | **Items → Descuentos** (tipo Venta online) | No se puede usar en el POS |
+| Entrada de eventos | **Items →** el tipo de entrada, o al crearla en el evento | No se vende en la página ni en el alta manual |
+| Cupón de eventos | **Items → Descuentos** (tipo Eventos) | El código no se aplica en el checkout |
+| Combo | Eventos → combo | No tiene stock propio. Descuenta el de cada tipo incluido |
+
+En el listado de descuentos de eventos ves **usos confirmados**, no el stock. El stock está adentro del descuento: **Stock disponible**, **Editar** y **Ver historial de stock**.
 
 ## Crear un descuento
 
@@ -95,11 +109,17 @@ Consultá [Descuentos en el Punto de Venta](/docs/guides/pos-descuentos) para ve
 
 ## Descuento de Eventos
 
-Definí un código que el comprador pueda ingresar en el checkout, como `PREVENTA10`. El código debe identificar un único descuento dentro de tu organización.
+Es un **código de cupón** para el checkout del evento, no un descuento del POS. Ejemplo: `PREVENTA10`. El código tiene que ser único en la organización.
 
-Además del alcance por items, podés restringir el total mínimo o máximo de la compra. Si el descuento es porcentual, también podés limitar el monto máximo descontado.
+Tiene **Stock disponible**. Cada vez que alguien aplica el código, Fint reserva 1. Si el stock es **0**, el cupón **no funciona**.
 
-Después agregá el descuento al evento correspondiente. Seguí el flujo en [Crear y publicar un evento](/docs/guides/eventos-crear-publicar#3-agregar-descuentos).
+<Warning>
+  Hoy **no descuenta combos**. El porcentaje se calcula solo sobre entradas sueltas. Si el carrito es solo combos, el descuento porcentual queda en cero. Un monto fijo sí se resta del total de la compra, aunque haya combos. No hay un interruptor en pantalla para aplicarlo a las entradas de un combo.
+</Warning>
+
+Además del alcance por tipos de entrada, podés pedir un total mínimo o máximo. Si es porcentual, también podés limitar el monto máximo descontado.
+
+Después asociá el descuento **a ese evento**. Si no está en el evento, el código no aplica aunque tenga stock. El recorrido está en [Crear y publicar un evento](/docs/guides/eventos-crear-publicar#3-agregar-descuentos).
 
 ## Importar descuentos de Liquidación
 

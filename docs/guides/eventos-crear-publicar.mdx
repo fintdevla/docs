@@ -46,10 +46,12 @@ Abrí **Entradas** y seleccioná tipos existentes. También podés usar **Crear 
 
 Cada tipo puede definir:
 
-- Nombre, descripción, precio y stock.
+- Nombre, descripción, precio y **stock**.
 - Generación de código QR.
 - Solicitud de nombre, apellido, documento en compras ARS y email del asistente.
 - Un texto propio para el email que acompaña las entradas.
+
+El stock es el cupo de ese tipo. Con **0** no se vende: en la página pública y en el alta manual aparece **Sin stock**. No es ilimitado. Lo ves y lo editás en **Items** (el tipo de entrada): **Stock disponible**, **Editar** y **Ver historial de stock**. Un checkout abierto reserva unidades; si se cancela o vence el carrito, se liberan. Si cancelás o eliminás una entrada ya emitida, vuelve 1 al stock.
 
 <img src="/docs/images/eventos/seleccionar-entradas.png" alt="Selector de tipos de entrada existentes dentro del editor del evento" />
 
@@ -67,7 +69,13 @@ Las entradas gratuitas pueden publicarse sin procesador. Si asignás un precio y
 
 Podés ordenar los tipos y crear grupos para presentarlos con más claridad. Un grupo organiza la oferta; no cambia la cantidad de entradas que recibe el comprador.
 
-Un combo vende varias entradas juntas. Definí su nombre, descripción, precio, cantidad total y los tipos que puede incluir. También podés limitar cuántas unidades de cada tipo admite.
+Un combo vende varias entradas juntas. Definí su nombre, descripción, precio, **cantidad de entradas** del pack y los tipos que puede incluir. También podés limitar cuántas unidades de cada tipo admite.
+
+El combo **no tiene stock propio**. Cada tipo que elige el comprador descuenta el stock de esa entrada. Si un tipo está en 0, no se puede completar el combo.
+
+<Warning>
+  Los **descuentos del evento no aplican a combos**. El cupón porcentual se calcula solo sobre entradas sueltas. No uses un combo si necesitás que el código descuente esa compra.
+</Warning>
 
 <Info>
   Un combo es una unidad comercial, pero puede emitir varias entradas. Por eso las unidades vendidas y las entradas vigentes pueden mostrar valores distintos.
@@ -81,7 +89,9 @@ En la página pública, el comprador abre el combo y completa la cantidad indica
 
 En **Descuentos**, seleccioná uno existente o creá uno para eventos. Puede ser un monto fijo o un porcentaje.
 
-Definí el código que usará el comprador y sobre qué entradas aplica. También podés establecer condiciones según los items incluidos en la orden.
+Definí el **código**, el **stock** (sin stock el código no aplica) y sobre qué **entradas sueltas** aplica. El cupón no descuenta combos. También podés pedir un total mínimo o máximo.
+
+El stock del cupón se carga en **Items → Descuentos**, no en el editor del evento. En el listado ves **usos confirmados**; el número de stock está adentro del descuento.
 
 En este ejemplo, **Descuento familiar · 10%** ya está asociado al evento. Antes de publicar, verificá el nombre y el porcentaje.
 
@@ -95,7 +105,7 @@ Abrí **Configuración** para revisar:
 - Cómo se presenta el costo del servicio en ventas online y pagos manuales.
 - El tiempo de expiración del carrito.
 - El texto del email de confirmación.
-- El aforo total estimado.
+- El aforo total estimado. Es un techo del evento; no reemplaza el stock de cada tipo de entrada.
 - La publicación en **Descubrir**.
 - El tracking con Meta, Google Analytics o Tag Manager.
 
