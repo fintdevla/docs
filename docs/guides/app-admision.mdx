@@ -82,13 +82,13 @@ El estado indica si una entrada puede registrar su primer ingreso. Revisalo siem
 
 <CardGroup cols={3}>
   <Card title="Sin registrar" icon="circle-dot" color="#4A90E2">
-    El ingreso todavía no fue registrado. Verificá los datos antes de continuar.
+    El ingreso todavía no fue registrado. En Asistentes se llama **No admitido**.
   </Card>
   <Card title="Registrado" icon="circle-check" color="#27AE60">
-    El ingreso ya fue registrado. Tratá el caso como una posible entrada duplicada.
+    El ingreso ya fue registrado. En Asistentes se llama **Admitido**. Tratá el caso como una posible entrada duplicada.
   </Card>
   <Card title="Cancelado" icon="xmark" color="#C0392B">
-    La entrada fue anulada. No registres el ingreso sin consultar al responsable del evento.
+    La entrada fue anulada. No registres el ingreso. Un administrador puede **Habilitar entrada** para reactivarla: vuelve a Sin registrar. Eso no es un reembolso y no devuelve stock.
   </Card>
 </CardGroup>
 
@@ -149,10 +149,10 @@ Si el código no se puede leer, buscá la entrada desde el listado antes de toma
     Subí el brillo de la pantalla, limpiá la lente y mantené el código quieto. Si sigue sin leerse, buscá a la persona o el evento en **Tickets**.
   </Accordion>
   <Accordion title="La entrada ya figura Registrado">
-    No vuelvas a registrarla ni uses **Deshacer registro** para resolver el caso. Verificá la referencia y los datos, y consultá al responsable del evento.
+    No vuelvas a registrarla. Si el ingreso fue un error, el administrador usa **Habilitar entrada** en Asistentes (vuelve a Sin registrar). No es un reembolso.
   </Accordion>
   <Accordion title="La entrada figura Cancelado">
-    No registres el ingreso. Derivá el caso al responsable del evento para que confirme por qué fue anulada.
+    No registres el ingreso. Un administrador puede **Habilitar entrada** para reactivarla. Eso no devuelve stock ni genera un cobro nuevo.
   </Accordion>
   <Accordion title="No encontrás el evento o la entrada">
     Confirmá que usaste la cuenta correcta. Un administrador debe revisar si tu rol tiene acceso al evento correspondiente.

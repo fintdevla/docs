@@ -45,16 +45,26 @@ El responsable de pago consulta el saldo pendiente, las facturas vencidas, los p
 
 ### Pagar online
 
-1. Seleccioná una o más facturas sin saltear las pendientes más antiguas
-2. Elegí uno de los medios de pago que la institución tenga [configurado](/docs/guides/configuracion)
-3. Completá el recorrido del medio elegido y esperá la confirmación del pago
+1. Seleccioná una o más facturas sin saltear las pendientes más antiguas. El portal no deja pagar abril si marzo sigue impaga. **Más antigua** = vencimiento más viejo, aunque sea de otro hijo del mismo portal.
+
+Al abrir, vienen tildadas todas las **Por Cobrar** y **Pago parcial** que no tienen cupón o transferencia en curso. Las No Enviadas no aparecen. En el portal el monto es el pendiente **entero** (mora incluida): no hay “pagar $ de esta cuota”. Un pago parcial de importe lo carga el admin o [conciliación](/docs/guides/conciliacion).
+2. Elegí uno de los medios. No se arman en Configuración: salen del [procesador conectado](/docs/guides/configuracion-integraciones) y de las [cuentas bancarias](/docs/guides/conciliacion-bancaria-cuentas) marcadas como medio. Pagos Online suma tarjeta, Rapipago, Pago Fácil y Link Pagos. El alta manual en Órdenes es otra lista: Efectivo, débito, crédito o transferencia.
+3. Completá el recorrido del medio elegido
+
+No todos los medios dejan el cobro en el acto:
+
+- **Tarjeta / Mercado Pago:** el pago entra cuando el procesador confirma. Aparece en [Pagos](/docs/guides/pagos).
+- **Transferencia:** la familia informa el depósito (titular, CUIT, a veces un archivo). Eso **no crea un pago**. La orden queda con **Aprobación pendiente** / **Pago informado por transferencia**. El cobro se registra cuando [conciliás](/docs/guides/conciliacion) o cargás un [pago manual](/docs/guides/pagos).
+- **Rapipago, Pago Fácil, Link Pagos:** se genera un cupón. La orden sigue **Por Cobrar** hasta que el medio acredita. En el portal ves **Esperando pago** y **Ver cupón**.
+
+Si hay un intento pendiente, la familia no puede cambiar de medio hasta cancelar ese intento o que venza. El admin no tiene un botón equivalente en Órdenes.
 
 <Frame>
   <img src="/docs/images/portal-contacto/medios-pago.png" alt="Paso de transferencia bancaria en el portal de Colegio Modelo: pide titular y CUIT o CUIL, sin generar el pago" />
 </Frame>
 
 <Info>
-  Las facturas se pagan **de la más antigua a la más nueva**: el portal no permite pagar una factura si hay otras anteriores impagas.
+  Las facturas se pagan **de la más antigua a la más nueva** en el portal. Para saltear una cuota (cobrar abril con marzo impaga) hay que registrar un [pago manual](/docs/guides/pagos) sobre esa orden o [conciliar](/docs/guides/conciliacion) eligiendo esas órdenes. El portal no es el lugar.
 </Info>
 
 ### Descargar comprobantes
@@ -67,7 +77,7 @@ En **Historial** aparecen las facturas pagadas o bonificadas. Cuando hay un comp
 
 ### Actualizar datos
 
-El Portal muestra una acción para editar los datos del responsable. La edición de email sin un número de WhatsApp registrado tiene una limitación conocida; verificá ambos datos desde **Contactos** antes de compartir el acceso.
+El Portal muestra una acción para editar los datos del responsable. Si no hay WhatsApp en la ficha, cambiar el email desde el portal puede fallar. Completá teléfono y mail en **Contactos** del perfil antes de compartir el acceso. El estudiante no edita su propia ficha desde acá: el portal es del responsable.
 
 ## Personalización
 

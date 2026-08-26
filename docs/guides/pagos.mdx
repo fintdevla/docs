@@ -3,7 +3,9 @@ title: 'Pagos'
 description: 'Consultá lo cobrado, registrá pagos manuales y exportá el historial'
 ---
 
-Pagos es el historial de lo que ya entró. Una [orden](/docs/guides/solicitudes-pago) registra lo que hay que cobrar; un pago registra el cobro, ya sea online o cargado a mano.
+Pagos es el historial de lo que ya **entró**. Una [orden](/docs/guides/solicitudes-pago) registra lo que hay que cobrar; un pago registra el cobro, ya sea online o cargado a mano.
+
+Una transferencia **informada** en el portal no aparece acá hasta que la imputás. Un cupón de Rapipago o Pago Fácil tampoco: el pago nace cuando el medio acredita.
 
 <Info>
   Esta guía describe la vista **Administrador**. Registrar, eliminar y exportar son acciones administrativas.
@@ -34,7 +36,9 @@ El comprobante fiscal no nace con el pago. Si tu organización usa ARCA, se gest
 
 ## Listado
 
-El listado muestra cliente, fecha, concepto, medio de pago, importe y estado. Los pagos cargados a mano se distinguen con **(M)** junto al medio.
+El listado muestra cliente, fecha, concepto, medio de pago, importe y estado. Los pagos cargados a mano se distinguen con **(M)** junto al medio. Con ARCA, pueden aparecer pastillas **F** (factura), **R** (recibo), **NC** y **ND**. El alta del comprobante es en el detalle del pago, sección **Comprobantes**, no en un módulo aparte. Ver [Facturación](/docs/guides/facturacion).
+
+El **+** de Registrar pago imputa **una sola orden**. Un depósito que cubre varias cuotas o hermanos se registra desde el [portal](/docs/guides/portal-contacto) (la familia tilda varias) o desde [Conciliación](/docs/guides/conciliacion).
 
 El buscador recorre el nombre del cliente, el concepto, la descripción y la referencia del pago.
 
@@ -124,7 +128,7 @@ Las devoluciones se gestionan en el **procesador** (Mercado Pago, Stripe, Pagos 
 - **Reembolso**: el pago pasa a Reembolsado.
 - **Contracargo**: el pago pasa a Contracargo.
 
-No hay una acción de reembolso dentro del módulo Pagos.
+No hay una acción de reembolso dentro del módulo Pagos. Tampoco en el [Punto de Venta](/docs/guides/pos-cobros). Si el cobro ya tiene factura, primero emití una [nota de crédito](/docs/guides/facturacion#nota-de-crédito-a-mano).
 
 ## Exportar
 

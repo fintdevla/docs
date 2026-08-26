@@ -3,7 +3,11 @@ title: 'Cobrar la venta'
 description: 'Usá efectivo, transferencia, Point, QR o un pago combinado y resolvé excepciones'
 ---
 
-Después de presionar **Continuar al pago**, Fint crea una sesión temporal, reserva la orden y muestra únicamente los medios disponibles para la caja elegida.
+Después de presionar **Continuar al pago**, Fint crea una sesión temporal, reserva la orden y muestra únicamente los medios disponibles para la caja elegida. El contador dura **15 minutos**. No se configura en **Config**. **Volver** cancela la sesión y libera el stock.
+
+Si hay que devolver un cobro, se gestiona en el panel del procesador. Si ya salió un comprobante, el recorrido fiscal está en [Facturación](/docs/guides/facturacion).
+
+El ticket del Point no es el PDF de ARCA. El comprobante, si corresponde, nace del **pago** con una [regla](/docs/guides/facturacion).
 
 <img src="/docs/images/punto-de-venta/metodos-pago.png" alt="Medios de pago disponibles en el checkout del POS" />
 
@@ -147,6 +151,10 @@ Al completar el cobro aparece **La venta se registró correctamente**, el nombre
 <img src="/docs/images/punto-de-venta/venta-completada.png" alt="Confirmación de una venta registrada correctamente" />
 
 Presioná **Crear otra orden** para limpiar el resumen y volver al catálogo.
+
+La venta queda como una [orden](/docs/guides/ordenes-gestionar) (origen POS, descripción = nombre del punto de venta, vencimiento +24 h) y como uno o más [pagos](/docs/guides/pagos). No manda la orden por email. Si el contacto tiene mail, puede salir *Se acreditó tu pago…*. El PDF de ARCA, si hay regla, nace de ese pago. El ticket del Point no es ese PDF.
+
+**Operación #** de la pantalla de gracias es el de Mercado Pago (Point/QR). En efectivo o transferencia no aparece. Un Point pagado con tarjeta entra a la regla como tarjeta o débito, no como “Point”. Un QR con plata en cuenta entra como Mercado Pago. Un combinado puede emitir un comprobante por cada parte.
 
 ## Próximos pasos
 

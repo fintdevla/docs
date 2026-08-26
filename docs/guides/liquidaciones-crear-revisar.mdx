@@ -34,7 +34,7 @@ Completá:
 
 La fecha de vencimiento no puede ser anterior al período. Si elegís una fecha anterior a hoy, el formulario avisa que las órdenes se crearán vencidas.
 
-Mientras exista una liquidación **Pendiente** o **Enviando** para el período, no podés crear otra para el mismo mes.
+Mientras exista una liquidación **Pendiente** o **Enviando** para el período, no podés crear otra para el mismo mes. Si esa liquidación ya está **Enviada** o **Cancelada**, sí podés volver a liquidar el mes: Fint **no** vuelve a incluir conceptos que ya tienen una orden cobrada, parcial o bonificada. Las **Por Cobrar** que cancelaste sí pueden volver a salir. Si no queda nada, el alta dice **No se encontraron items para el período seleccionado**.
 
 <Info>
   Actualmente, las órdenes generadas por una liquidación se registran en **ARS**.
@@ -46,7 +46,17 @@ Mientras exista una liquidación **Pendiente** o **Enviando** para el período, 
 
 Al crearla, la liquidación aparece como **Pendiente**. Esta etapa permite revisar sus órdenes antes de iniciar el envío.
 
+El set de **clientes queda fijado al crear**. Un alumno que asignás después **no entra** a esa liquidación: hay que guardar el item (recalcula las órdenes de ese lote) o borrar y recrear. El **+** de una orden suma un concepto a un cliente que ya está; no crea una orden nueva.
+
+El **precio** de un item se ve en vivo mientras está Pendiente. Las órdenes ya **Enviadas** no se recálculan: el nuevo monto vale para lo que sigue.
+
+Las becas se acumulan: cada porcentaje se calcula sobre los cargos fijos, no sobre el resultado de la otra.
+
 El listado muestra nombre, período, cantidad de clientes, monto a cobrar y estado. El filtro **Estado** ofrece Pendiente y Enviado; el filtro **Período** usa los meses disponibles.
+
+**Pendiente** = lote armado, todavía no sale al portal. **Enviando** = se están generando las órdenes. **Enviada** = las órdenes ya salieron. **Cancelada** = lote dado de baja.
+
+La fecha de vencimiento la cargás al crear el lote y aplica a todas las órdenes. El formulario propone el **día 10** del mes del período.
 
 <img src="/docs/images/solicitudes-pago/liquidaciones-listado.png" alt="Listado de liquidaciones de Colegio Modelo: Cuota Julio 2026 pendiente y Cuota Junio 2026 enviada" />
 

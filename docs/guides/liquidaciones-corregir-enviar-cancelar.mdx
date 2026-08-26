@@ -17,6 +17,8 @@ Si falta un item, usá el botón **+** de la sección **Items** y elegí uno dis
 
 Si sobra un item, usá la **X** junto a ese renglón. La confirmación advierte que también se desvinculará del cliente y que esto puede afectar futuras liquidaciones.
 
+En una liquidación **Pendiente** podés sumar o sacar items: esas órdenes todavía no se pagan. Si ya está **Enviada** y la familia arrancó un pago por transferencia o cupón, Fint bloquea el alta o baja de items con **Intento de pago en progreso**. Hay que cancelar el intento en el [portal](/docs/guides/portal-contacto) o esperar a que venza. Un cobro con tarjeta no deja este bloqueo. Mientras figura **Enviando**, no se edita nada.
+
 <Warning>
   No des por eliminada una orden solo porque quitaste su último item. Volvé al detalle de la liquidación y comprobá el resultado antes de continuar.
 </Warning>
@@ -40,7 +42,7 @@ Cuando la liquidación esté Pendiente y la revisión sea correcta, seleccioná 
 
 El cuadro de confirmación indica que la acción generará y enviará las órdenes de pago. Elegí **Enviar** solo cuando el período esté listo para procesarse.
 
-La liquidación pasa por **Enviando** y luego por **Enviada**. Las órdenes con importe pasan de no enviadas a **Por Cobrar**; las que tienen total cero por sus items quedan **Bonificadas**.
+La liquidación pasa por **Enviando** y luego por **Enviada**. Fint congela el desglose de esa corrida y le pone número a cada orden. Las órdenes con importe pasan de no enviadas a **Por Cobrar**; las que tienen total cero por sus items quedan **Bonificadas**. Una orden que se quedó sin items **no sale**: se elimina. **Enviando** no se puede cancelar ni editar.
 
 Cada responsable con email recibe este correo, con las órdenes de su familia y el botón al portal. Si no hay email, la orden se crea igual y el mail se saltea.
 

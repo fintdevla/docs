@@ -40,11 +40,13 @@ Al abrir una suscripción ves:
     Completó los ciclos previstos.
   </Card>
   <Card title="Cancelada" icon="xmark">
-    La dio de baja un administrador. No genera más órdenes.
+    La dio de baja un administrador. **Cancelar suscripción** borra las órdenes **Por Cobrar** de esa suscripción y deja de debitar. Las Pagadas y con Pago parcial quedan. Si hay que cobrar el período abierto, registralo **antes**.
   </Card>
 </CardGroup>
 
 ## Cómo se cobra cada período
+
+El vencimiento de cada orden del ciclo usa **Días hasta el vencimiento** del link. Si está vacío, son **10 días** desde la emisión.
 
 El modo se elige en el link, en **Cobro**, y solo aparece si la organización usa Stripe o Mercado Pago.
 

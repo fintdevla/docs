@@ -16,6 +16,12 @@ En **Configuración → Intereses por mora** definís cómo se recarga una orden
 
 La pantalla muestra el porcentaje como **tasa anual (TEA)**. El recargo de cada día se calcula sobre esa tasa: monto × días × porcentaje / 36000.
 
+Las reglas van en **tramos que no se pisan**. Fint rechaza dos reglas que cubren el mismo día. **Inicio** = días después del vencimiento. **Duración** = cuántos días corre esa regla. **Porcentaje** = TEA diaria sobre bruto o neto. **Fijo** = ese importe por día.
+
+La regla **no corre sola**. Cada [item de liquidación](/docs/guides/items-liquidaciones) (y también un item de Venta online) tiene el interruptor **Generar intereses por mora**, apagado por default. Si está apagado, la orden no acumula recargo. En una orden **Por Cobrar** también está el switch **Genera mora**. No corre sobre órdenes de **evento**.
+
+**Días hasta el vencimiento** de un [link de pago](/docs/guides/links-pago) no es mora: solo define cuándo vence cada factura de la suscripción.
+
 <Warning>
   Podés encadenar varias reglas. Revisá que el esquema cumpla la normativa que te aplica. Esta guía no interpreta esa normativa.
 </Warning>

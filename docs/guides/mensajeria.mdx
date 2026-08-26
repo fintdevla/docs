@@ -5,7 +5,7 @@ description: 'Armá un comunicado por email, elegí a quién va y revisá si lle
 
 Mensajería sirve para enviar un email a un grupo de personas: estudiantes, sus contactos o gente de un evento.
 
-No reemplaza a los [recordatorios automáticos](/docs/guides/configuracion-recordatorios). Acá el mensaje lo armás vos y lo enviás cuando querés.
+No reemplaza a los [recordatorios automáticos](/docs/guides/configuracion-recordatorios). Acá el mensaje lo armás vos y lo enviás cuando querés. El compositor vive **solo en este módulo**. El perfil del estudiante no tiene un botón para mandar un comunicado a esa ficha: filtrá por etiquetas, items o estado acá.
 
 <Info>
   Hoy los comunicados salen **solo por email**. No se pueden adjuntar archivos; sí se pueden poner enlaces.
@@ -30,7 +30,7 @@ Al crear un comunicado, Fint pregunta el destino:
   Si la persona tiene **contactos** con email, el mensaje va a esos contactos. Si no tiene, va al email de la ficha.
 </Info>
 
-El aviso de emails faltantes aparece en el envío a estudiantes o contactos. En **asistentes** de un evento, Fint deja afuera a quienes no tienen email. En **compradores**, la lista puede incluir filas sin mail: no asumas que ese filtro corre igual.
+El aviso de emails faltantes aparece en el envío a estudiantes o contactos. En **asistentes** de un evento, Fint deja afuera a quienes no tienen email.
 
 ## Armar el mensaje
 
@@ -72,14 +72,9 @@ El comunicado sale desde **updates.fint.app** (el resto de los mails van por **m
 
 El estado de cada persona puede ser creado, enviado, entregado, abierto, clickeado, rebotado, queja o **no enviado (bloqueado)**. No hay solo dos estados.
 
-<Warning>
-  El detalle de destinatarios está pensado para envíos a contactos. Un comunicado de evento puede mostrar mal esa lista. No lo uses todavía como prueba de que el evento llegó a cada comprador.
-</Warning>
-
 ## Qué no promete esta guía
 
 - Un tope mensual de envíos: el módulo no tiene cupo propio. El límite, si existe, es del proveedor de email.
-- Enviar solo a compradores de un evento: la pantalla lo ofrece, pero el API pide al menos un asistente.
 - WhatsApp: es otro flujo, no este compositor.
 
 ## Próximos pasos

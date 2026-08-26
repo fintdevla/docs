@@ -46,10 +46,15 @@ Abrí **Entradas** y seleccioná tipos existentes. También podés usar **Crear 
 
 Cada tipo puede definir:
 
-- Nombre, descripción, precio y stock.
+- Nombre, descripción, precio y **stock**.
 - Generación de código QR.
 - Solicitud de nombre, apellido, documento en compras ARS y email del asistente.
 - Un texto propio para el email que acompaña las entradas.
+- Campos extra del checkout (los del evento, no los de [Configuración → Campos](/docs/guides/configuracion-campos)). Ahí sí existe **Campo obligatorio**.
+
+El stock es el cupo de ese tipo. Con **0** no se vende: en la página pública y en el alta manual aparece **Sin stock**. No es ilimitado. Lo ves y lo editás en **Items** (el tipo de entrada): **Stock disponible**, **Editar** y **Ver historial de stock**. Un checkout abierto reserva unidades; si vence el carrito, se liberan.
+
+**Cancelar entrada** no devuelve stock. Anula el acceso (QR / admisión). Para reabrir cupo hay que **Editar** el stock en Items. **Habilitar entrada** sirve para deshacer una admisión **y** para reactivar una entrada **Cancelado**: vuelve a **No admitido**. No es un reembolso ni una entrada nueva.
 
 <img src="/docs/images/eventos/seleccionar-entradas.png" alt="Selector de tipos de entrada existentes dentro del editor del evento" />
 
@@ -67,7 +72,13 @@ Las entradas gratuitas pueden publicarse sin procesador. Si asignás un precio y
 
 Podés ordenar los tipos y crear grupos para presentarlos con más claridad. Un grupo organiza la oferta; no cambia la cantidad de entradas que recibe el comprador.
 
-Un combo vende varias entradas juntas. Definí su nombre, descripción, precio, cantidad total y los tipos que puede incluir. También podés limitar cuántas unidades de cada tipo admite.
+Un combo vende varias entradas juntas. Definí su nombre, descripción, precio, **cantidad de entradas** del pack y los tipos que puede incluir. También podés limitar cuántas unidades de cada tipo admite.
+
+El combo **no tiene stock propio**. Cada tipo que elige el comprador descuenta el stock de esa entrada. Si un tipo está en 0, no se puede completar el combo.
+
+<Warning>
+  Los **descuentos del evento no aplican a combos**. El cupón porcentual se calcula solo sobre entradas sueltas. No uses un combo si necesitás que el código descuente esa compra.
+</Warning>
 
 <Info>
   Un combo es una unidad comercial, pero puede emitir varias entradas. Por eso las unidades vendidas y las entradas vigentes pueden mostrar valores distintos.
@@ -81,7 +92,9 @@ En la página pública, el comprador abre el combo y completa la cantidad indica
 
 En **Descuentos**, seleccioná uno existente o creá uno para eventos. Puede ser un monto fijo o un porcentaje.
 
-Definí el código que usará el comprador y sobre qué entradas aplica. También podés establecer condiciones según los items incluidos en la orden.
+Definí el **código**, el **stock** (sin stock el código no aplica) y sobre qué **entradas sueltas** aplica. El cupón no descuenta combos. También podés pedir un total mínimo o máximo.
+
+El stock del cupón se carga en **Items → Descuentos**, no en el editor del evento. En el listado ves **usos confirmados**; el número de stock está adentro del descuento.
 
 En este ejemplo, **Descuento familiar · 10%** ya está asociado al evento. Antes de publicar, verificá el nombre y el porcentaje.
 
@@ -92,11 +105,11 @@ En este ejemplo, **Descuento familiar · 10%** ya está asociado al evento. Ante
 Abrí **Configuración** para revisar:
 
 - La ruta de la página pública.
-- Cómo se presenta el costo del servicio en ventas online y pagos manuales.
+- Cómo se presenta el **Costo del servicio** en ventas online y pagos manuales: **Incluido en la entrada** (queda dentro del precio) o **Discriminado** (se muestra aparte, con el porcentaje que cargues). Son dos controles distintos: uno para online y otro para el alta manual.
 - El tiempo de expiración del carrito.
 - El texto del email de confirmación.
-- El aforo total estimado.
-- La publicación en **Descubrir**.
+- El **Aforo total estimado**. No corta ventas ni altas: el cupo real es el stock de cada tipo. El aforo solo se usa en **Entradas activas** de Estadísticas. Vacío = sin número en ese recuadro.
+- **Mostrar en Descubrir**: el evento **Activo** puede aparecer en [fint.app/discover](https://fint.app/discover). No es la página propia; apagarlo no saca el link que ya compartiste.
 - El tracking con Meta, Google Analytics o Tag Manager.
 
 <Info>
@@ -111,7 +124,7 @@ En **Pedido de información**, el nombre completo y el email del comprador son o
 
 Los datos base del asistente se definen en cada tipo de entrada. Esta decisión permite que un tipo solicite datos y otro no.
 
-Con **Agregar campo**, podés pedir información adicional al comprador o a los asistentes. Elegí el tipo de campo, si es obligatorio, si está activo y a qué entradas aplica.
+Con **Agregar campo**, podés pedir información adicional. Tipos: Texto, Opciones, Checkbox, Número, Fecha, Teléfono, País. **Aplicar a**: todos los tickets, solo al comprador, o entradas específicas. Comprador = una vez por compra. Tickets = por asistente. **Campo obligatorio** y **Activo** (se muestra en la página) viven acá, no en [Configuración → Campos](/docs/guides/configuracion-campos). Las respuestas se ven y se editan en Asistentes.
 
 Los campos personalizados sirven para datos como restricciones alimentarias, talle o una selección propia del evento.
 
@@ -174,7 +187,11 @@ Podés recorrer la selección de entradas sin completar la compra. Detenete ante
 
 El administrador puede volver a **Editar** y guardar cambios. La nueva configuración se aplica a ventas futuras. Las operaciones ya realizadas conservan sus importes, comprador, asistente y respuestas.
 
-Algunos datos visibles, como el nombre del evento o del tipo de entrada, pueden reflejar la configuración vigente cuando se consulta o regenera un PDF.
+**Duplicar evento** copia la configuración a un evento nuevo (`Copia - …`) con otra URL. **Reusa los mismos tipos de entrada y descuentos**: el stock es compartido. Para cupos aparte, creá tipos nuevos.
+
+Pasada la **fecha y hora de finalización**, no hay checkout ni alta manual (`El evento ha finalizado`) hasta que extiendas esa fecha y el evento esté **Activo**. **Visitar** en Borrador no muestra página pública.
+
+El menú `…` también ofrece **Copiar link corto** y **Descargar QR** si hay URL corta. **Eliminar** aparece en archivados y borra el evento: no es desarchivar.
 
 Para retirar la página, cambiá el estado a **Borrador** o archivá el evento. Los archivados aparecen en una lista separada y se pueden desarchivar.
 

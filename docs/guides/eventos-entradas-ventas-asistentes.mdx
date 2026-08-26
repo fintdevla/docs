@@ -48,7 +48,9 @@ Los estados operativos son:
 - **Admitido:** el ingreso ya fue registrado.
 - **Cancelado:** la entrada dejó de estar vigente.
 
-En la App de Admisión, estos estados se muestran como **Sin registrar**, **Registrado** y **Cancelado**, respectivamente.
+En la [App de Admisión](/docs/guides/app-admision) se leen **Sin registrar**, **Registrado** y **Cancelado**. Es el mismo dato.
+
+**Habilitar entrada** deshace una admisión y también reactiva una **Cancelado**: vuelve a **No admitido**. No reembolsa y no devuelve stock. Para reabrir cupo hay que editar el stock en Items.
 
 ### Exportar como administrador
 
@@ -102,7 +104,7 @@ Si el tipo genera QR, cada entrada emitida tiene un código para identificarla. 
 
 Si no podés escanear, buscá la entrada por sus datos y abrí el detalle. Verificá al asistente antes de presionar **Admitir**.
 
-La acción **Habilitar entrada** devuelve una entrada admitida al estado **No admitido**. Usala sólo cuando necesites corregir un registro de ingreso.
+La acción **Habilitar entrada** devuelve el ticket a **No admitido**. Sirve para deshacer una admisión **y** para reactivar una entrada **Cancelado**. No es un reembolso ni una entrada nueva; el stock no cambia.
 
 <Card title="App de Admisión" icon="mobile" href="/docs/guides/app-admision">
   Prepará dispositivos, buscá entradas y resolvé incidencias durante el ingreso.
@@ -110,7 +112,7 @@ La acción **Habilitar entrada** devuelve una entrada admitida al estado **No ad
 
 ## Cancelaciones y devoluciones
 
-**Cancelar entrada** cambia el ticket a **Cancelado**. Esta acción no equivale a devolver el dinero. Antes del evento, verificá el estado y el procedimiento de admisión con el equipo responsable.
+**Cancelar entrada** pasa el ticket a **Cancelado**. No equivale a devolver el dinero **ni libera stock**. El QR deja de servir. Para volver a vender ese cupo, editá el stock en Items.
 
 Para una compra online, gestioná el reembolso según el procedimiento del procesador correspondiente.
 

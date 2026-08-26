@@ -17,10 +17,14 @@ La configuración es **por evento**: cada evento puede tener su propio píxel y 
   </Step>
 
   <Step title="Pegá tus IDs">
-    - **Meta Pixel ID**: el número de tu píxel (lo encontrás en el [Administrador de eventos de Meta](https://business.facebook.com/events_manager2), en la configuración del píxel o conjunto de datos).
-    - **Google Analytics ID** (`G-XXXXXXXXXX`) y/o **Google Tag Manager ID** (`GTM-XXXXXX`), si medís con Google.
+    Primero prendé el interruptor de tracking. Después:
 
-    Los campos de la API de Conversiones (Test Event Code y CAPI Access Token) podés dejarlos vacíos.
+    - **Google Analytics ID** (`G-XXXXXXXXXX`), si medís con GA4.
+    - **Meta Pixel ID**: solo el número del dataset (Events Manager). No es el ID de la página, de la cuenta publicitaria ni de la app. Tiene que ser numérico.
+    - **Token de acceso de Meta Conversions API** (recomendado): se habilita cuando el Pixel ID es numérico. Pegá el token de Events Manager → Dataset → Configuración → Conversions API. Es un campo de contraseña. Sin este token, el **Purchase** del navegador igual se dispara; el envío servidor (CAPI) no.
+    - **Google Tag Manager ID** (`GTM-XXXXXX`), opcional.
+
+    No pegues email ni contraseña de Meta.
   </Step>
 
   <Step title="Guardá">

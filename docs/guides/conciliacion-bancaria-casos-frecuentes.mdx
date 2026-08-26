@@ -8,6 +8,18 @@ Esta página amplía el [recorrido básico](/docs/guides/conciliacion-bancaria).
 Antes de conciliar, verificá el responsable, las personas alcanzadas, las órdenes seleccionadas y el **Total a conciliar**.
 
 <AccordionGroup>
+  <Accordion title="Concilié mal. ¿Cómo lo deshago?">
+    En el detalle del movimiento, **Acciones → Revertir conciliación**. Fint anula el pago que había creado y vuelve el movimiento a **En revisión** o **Con sugerencias**. Hay que revertir **antes** de cambiar la fecha o de borrar.
+  </Accordion>
+  <Accordion title="¿Por qué no veo débitos / egresos en Movimientos?">
+    **Movimientos** lista los ingresos. Los débitos (comisión, impuesto) se ven en la tarjeta del **extracto**. Para no revisarlos, armá una regla **Ignorar transacción** por la descripción antes de importar.
+  </Accordion>
+  <Accordion title="La transferencia no coincide con ninguna cuota. ¿Creo la orden acá?">
+    Sí: **Crear factura** arma la orden, la marca pagada con ese movimiento y lo deja **Conciliada**. Sirve para una donación, una inscripción o un ingreso sin cuota. Si la cuota ya existe, seleccionála: no dupliques.
+  </Accordion>
+  <Accordion title="Armé una regla y los movimientos viejos siguen Sin asignar">
+    La regla **no es retroactiva**. Corre al importar o al reabrir un movimiento sin contacto. Guardar no reprocesa el extracto. No auto-concilia: solo prepara (contacto, categoría, ignorar).
+  </Accordion>
   <Accordion title="¿Cómo concilio una transferencia que cubre a dos personas?" id="una-transferencia-cubre-ordenes-de-dos-personas">
     Una persona puede transferir el total de órdenes que pertenecen a distintos integrantes de una familia.
 
@@ -94,7 +106,7 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
       <Accordion title="Quitar la mora de una sola orden" id="quitar-la-mora-de-una-sola-orden">
         Usá este camino cuando la transferencia fue posterior al vencimiento, pero la institución decide no cobrar la mora de esa cuota.
 
-        Para que aparezca este desglose, la institución debe tener [intereses por mora configurados](/docs/guides/configuracion#intereses-por-mora) y la orden debe generar mora.
+        Para que aparezca este desglose, la institución debe tener [intereses por mora configurados](/docs/guides/configuracion-mora) y la orden debe generar mora.
 
         <Steps>
           <Step title="Revisá el desglose">
