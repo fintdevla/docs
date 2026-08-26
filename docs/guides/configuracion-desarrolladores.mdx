@@ -14,7 +14,7 @@ description: 'API keys y webhooks para conectar Fint con otro sistema'
   <Tab title="Webhooks">
     Un webhook avisa a una URL cuando ocurre un evento en Fint.
 
-    Al crearlo cargás la URL y los eventos. Hoy hay dos: **payment.created** (cuando un cobro queda acreditado) y **contact.status** (cuando cambia la condición o el estado del estudiante). Puede quedar **Activo** o **Pausado**. Fint no reenvía un evento fallido desde esta pantalla: mirá los registros en el detalle del webhook.
+    Al crearlo cargás la URL y los eventos. Hoy hay dos: **payment.created** (cuando un cobro queda acreditado) y **contact.status** (cuando cambia la condición o el estado del estudiante). Puede quedar **Activo** o **Pausado**. Los reintentos salen solos. El historial de cada entrega se consulta por [API](/api-reference/webhook/obtener-lista-de-registros-de-webhook), no desde esta pantalla.
 
     <img src="/docs/images/configuracion/desarrolladores-webhooks.png" alt="Pestaña Webhooks" />
   </Tab>
