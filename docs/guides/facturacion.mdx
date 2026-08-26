@@ -57,7 +57,7 @@ Fint calcula **A**, **B** o **C** según tu condición y la del receptor:
 - Si sos **Responsable Inscripto**: **A** a Responsable Inscripto y Monotributista, **B** a Consumidor Final y Exento.
 - Si sos **Monotributista** o **Exento**: en el día a día es **C**.
 
-Los tipos de cliente de la regla son **Consumidor Final**, **Monotributista** y **Responsable Inscripto**.
+Los tipos de cliente de la regla son **Consumidor Final**, **Monotributista**, **Responsable Inscripto** y **Exento**. **0% (Exento)** en alícuota es el IVA del renglón, no la condición del receptor.
 
 ### A nombre de quién
 
@@ -86,8 +86,8 @@ La pestaña **Reglas de facturación** solo aparece cuando ARCA ya está conecta
 | **Nombre** | Solo etiqueta. No cambia la lógica. | Sirve para el aviso de reglas que se pisan. |
 | **Tipo de comprobante** | Factura, Recibo o **Ambos**. | **Ambos** puede emitir factura **y** recibo sobre el mismo pago. |
 | **Punto de venta** | El de **Web Services** que ARCA habilitó. | Si no hay ninguno, el editor muestra un aviso amarillo y te manda a crearlo. |
-| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Mercado Pago, efectivo. **Todos** marca ese grupo. | POS efectivo = Efectivo; QR MP = Mercado Pago. |
-| **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto. | La regla recorre estos tipos. |
+| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Pago Mis Cuentas, Mercado Pago, efectivo, Pagos360 y Nuvei. **Todos** marca ese grupo. | Point y QR se guardan como tarjeta, débito o Mercado Pago. Pagos360, si se puede, también cae en esos medios; si no, usa Pagos360. |
+| **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto y Exento. | Un receptor Exento entra en **Todos**. |
 | **Momento de facturación** | **Inmediata** o **Día específico**. | Inmediata emite cuando entra el pago. |
 | **Concepto** | **Servicios**, **Productos** o **Productos y Servicios**. | Va al comprobante fiscal. |
 | **Alícuota** | 0% (Exento), 2.5%, 5%, 10.5%, 21%, 27%. | La recomendada del onboarding usa **0% (Exento)**. Confirmarlo con el contador. |
