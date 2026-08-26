@@ -5,7 +5,7 @@ description: 'Armá un comunicado por email, elegí a quién va y revisá si lle
 
 Mensajería sirve para enviar un email a un grupo de personas: estudiantes, sus contactos o gente de un evento.
 
-No reemplaza a los [recordatorios automáticos](/docs/guides/configuracion-recordatorios). Acá el mensaje lo armás vos y lo enviás cuando querés.
+No reemplaza a los [recordatorios automáticos](/docs/guides/configuracion-recordatorios). Acá el mensaje lo armás vos y lo enviás cuando querés. El compositor vive **solo en este módulo**. El perfil del estudiante no tiene un botón para mandar un comunicado a esa ficha: filtrá por etiquetas, items o estado acá.
 
 <Info>
   Hoy los comunicados salen **solo por email**. No se pueden adjuntar archivos; sí se pueden poner enlaces.
@@ -27,7 +27,7 @@ Al crear un comunicado, Fint pregunta el destino:
 <img src="/docs/images/mensajeria/crear-tipo.png" alt="Modal para elegir si el comunicado va a estudiantes y contactos o a un evento" />
 
 <Info>
-  Si la persona tiene **contactos** con email, el mensaje va a esos contactos. Si no tiene, va al email de la ficha.
+  Si la persona tiene **contactos** con email, el mismo texto llega a **todos** los que tengan mail (aunque el contacto no esté marcado para notificar). Si no tiene contactos, usa el email de la ficha. Si hay contactos y alguno no tiene mail, ese queda afuera: no hay fallback al mail del alumno.
 </Info>
 
 El aviso de emails faltantes aparece en el envío a estudiantes o contactos. En **asistentes** de un evento, Fint deja afuera a quienes no tienen email. En **compradores**, la lista puede incluir filas sin mail: no asumas que ese filtro corre igual.

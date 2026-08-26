@@ -51,7 +51,7 @@ Los items con stock controlado y agotado no se pueden seleccionar. Los items rec
   Crear una orden manual no reserva ni descuenta stock. El stock solo se usa aquí para impedir que selecciones un item controlado que ya está agotado.
 </Warning>
 
-Si elegiste **Liquidación**, agregá al menos un item de Liquidación disponible. En este tipo no aparece la opción Monto manual.
+Si elegiste **Liquidación**, agregá al menos un item de Liquidación disponible. En este tipo no aparece la opción Monto manual. Fint **asocia esos items al alumno** si no los tenía: la próxima liquidación masiva los va a incluir. La fecha de emisión tiene que caer en la vigencia; no podés repetir el mismo item el mismo día. Si el neto da 0, la orden nace **Bonificada**. La cantidad es siempre 1.
 
 <Info>
   Actualmente, las órdenes creadas con este formulario se registran en **ARS**.
@@ -69,7 +69,9 @@ La vista previa se actualiza con los datos del formulario. Revisá cliente, desc
 
 El formulario incluye el control **Enviar por correo electrónico**. Dejalo desactivado si solo querés crear el registro.
 
-Seleccioná **Guardar** para crear la orden. Después podés encontrarla en el listado por número, cliente o descripción.
+Seleccioná **Guardar** para crear la orden. Después podés encontrarla en el listado por número, cliente o descripción. El panel del detalle se titula **Orden de pago**.
+
+Guardar **no registra un cobro**. La orden nace **Por Cobrar**. Para asentar el dinero usá [Registrar un pago](/docs/guides/pagos#registrar-un-pago-manual) o [Conciliación](/docs/guides/conciliacion). Si tildás **Enviar por correo electrónico**, el responsable recibe el aviso de la deuda, no un comprobante fiscal.
 
 ## Importar varias órdenes (avanzado)
 

@@ -75,7 +75,7 @@ Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones depend
 
 Cuando corresponde, el detalle separa el importe base, el saldo pendiente y el interés por mora.
 
-La mora depende de que el item permita generarla y de las reglas definidas en [Configuración](/docs/guides/configuracion#intereses-por-mora).
+La mora depende de que el item permita generarla y de las reglas definidas en [Intereses por mora](/docs/guides/configuracion-mora).
 
 En una orden **Por Cobrar** o todavía no enviada, el detalle puede mostrar el control de mora si alguno de sus items la admite.
 
@@ -83,7 +83,11 @@ En una orden **Por Cobrar** o todavía no enviada, el detalle puede mostrar el c
 
 ## Cancelar una orden
 
-En el detalle, **Cancelar** da de baja esa orden (no el lote). Puede pedirte si también desuscribís los items. Las canceladas salen del listado general.
+En el detalle, **Cancelar** da de baja esa orden (no el lote) **solo si está Por Cobrar**. En **Pago parcial** el botón no aparece. Puede pedirte si también desuscribís los items. Las canceladas salen del listado general.
+
+Si la familia arrancó un pago por **transferencia o cupón** (Rapipago, Pago Fácil, Link Pagos) y el checkout sigue vigente, la orden muestra **Intento de pago en progreso** y no deja editar items. Hay que cancelar el intento en el portal o esperar a que venza. Un cobro con **tarjeta** no deja este bloqueo.
+
+También podés **Reenviar por email** (si no está Pagada/Bonificada), editar el **vencimiento** (no en Pagada ni Pago parcial) y el switch **Genera mora** en Por Cobrar.
 
 ## Registrar un pago
 
@@ -109,7 +113,18 @@ La importación crea varias órdenes desde el modelo `.xlsx` disponible en el mo
 
 Antes de seleccionar **Importar**, revisá todas las filas y las reglas de facturación de la organización. Si solo querés crear órdenes pendientes, dejá vacías ambas columnas de pago.
 
-Descargá siempre el modelo actual desde el modal. El importador acepta archivos `.xlsx`.
+Descargá siempre el modelo actual desde el modal. El importador acepta archivos `.xlsx`. Conservá los encabezados.
+
+| Bloque | Columnas | Para qué |
+| --- | --- | --- |
+| Contacto (responsable) | **Fint ID**, **Tipo Documento**, **Número Documento**, **Nombre Completo (Contacto)**, **Correo (Contacto)**, **WhatsApp (Contacto)** | Identifica o crea al pagador. Con **Fint ID** reusa uno existente. |
+| Estudiante | **Fint ID (Estudiante)**, documento, nombre, correo, WhatsApp, **Etiquetas** | Identifica o crea al alumno. |
+| Orden | **ID Factura**, **Monto**, **Descripción**, **Fa. Creación**, **Fecha Vto.**, **Referencia Externa** | El importe y el vencimiento de esa fila. |
+| Pago (opcional) | **Fecha Pago**, **Medio de Pago** | Si las dos tienen valor, la orden nace **Pagada**. Medios: Efectivo, Tarjeta de débito, Tarjeta de crédito, Transferencia. |
+
+<Warning>
+  Completar **Fecha Pago** y **Medio de Pago** no es “dejar nota”: registra el cobro. Si hay una [regla de ARCA](/docs/guides/facturacion) activa para ese medio, puede emitir el comprobante.
+</Warning>
 
 <Frame>
   <img src="/docs/images/solicitudes-pago/importar-ordenes.png" alt="Modal Importar órdenes de pago, con la opción de descargar el modelo de Excel y sin archivo seleccionado" />

@@ -36,6 +36,10 @@ Cuando el checklist se completa, Inicio pasa a los gráficos.
   </Card>
 </CardGroup>
 
-Los gráficos de 12 meses se agrupan por la **fecha de emisión** de la orden, no por el día en que entró el pago.
+Los gráficos de 12 meses se agrupan por la **fecha de emisión** de la orden, no por el día en que entró el pago. Entran Por Cobrar, Pagada, Pago parcial y Bonificada. Una orden de **evento** que sigue Por Cobrar **no** entra.
 
-El detalle de cada cobro está en [Pagos](/docs/guides/pagos). El de cada deuda, en [Órdenes](/docs/guides/solicitudes-pago).
+- **Pagos recibidos** suma cobros **Exitosos** de los últimos 30 días (cuotas, POS y eventos). Un reembolso o una transferencia informada (todavía no imputada) no cuenta.
+- **Cobrado últimos 12 meses** y **Órdenes de pago creadas** usan esas órdenes por mes de emisión. El recuadro de “cobrado” **no** es la suma de los pagos: hoy toma el pendiente de Pagada y Pago parcial (una Pagada suma 0). El detalle fino está en [Pagos](/docs/guides/pagos) y [Órdenes](/docs/guides/solicitudes-pago).
+- **Porcentual cobrado** se oculta en el celular. Las métricas de un evento están en [Estadísticas](/docs/guides/eventos-entradas-ventas-asistentes), no acá.
+
+Un **cajero** no ve este panel: entra al POS. Un **acomodador** entra a Eventos. Si la organización solo tiene Eventos prendido, Inicio también manda a Eventos. El paso ARCA del checklist aparece si esa funcionalidad está activa. Un procesador de prueba (FAKE) no tilda **Conectar procesador**.

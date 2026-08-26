@@ -23,7 +23,7 @@ Al terminar esta guía, vas a tener clientes visibles en el listado y sabrás qu
     Entrá a **Clientes**, presioná **Crear** y elegí **Crear cliente**. Si el módulo se llama Estudiantes, la opción usa ese nombre.
   </Step>
   <Step title="Completá los datos">
-    El primer campo es **Documento** (DNI, CUIT u otro), con el texto **Ingresá CUIT o DNI para autocompletar los datos**. Después van **Nombre**, **Apellido** y **Email (opcional)**. Para habilitar **Crear cliente** / **Crear estudiante** alcanzan nombre y apellido.
+    El primer campo es **Documento** (DNI, CUIT u otro), con el texto **Ingresá CUIT o DNI para autocompletar los datos**. Solo deja **números**: sirve para DNI o CUIT, no para un pasaporte con letras (eso se carga después en el perfil). Después van **Nombre**, **Apellido** y **Email (opcional)**. Para habilitar **Crear cliente** / **Crear estudiante** alcanzan nombre y apellido. Fint **no** frena si ese DNI o email ya existe.
   </Step>
   <Step title="Revisá antes de crear">
     Confirmá la escritura del nombre y buscá a la persona en el listado si podría existir. El alta manual no garantiza la detección de duplicados por documento o email.
@@ -54,7 +54,25 @@ La importación acepta archivos `.xlsx`. El archivo debe respetar la plantilla d
     Entrá a **Clientes**, presioná **Crear → Importar excel** y elegí **Descargar modelo de Excel**.
   </Step>
   <Step title="Completá la plantilla">
-    Cada fila necesita **Nombre Estudiante**, **Apellido Estudiante**, **Nombre Pagador**, **Tipo Documento** y **Documento** del pagador. Si falta uno, Fint responde **El campo … es requerido**. Siempre hay un responsable por fila. No cambies el orden de las columnas.
+    Cada fila es un estudiante **y** un responsable. Siempre hay un pagador por fila. Si falta un campo requerido, Fint responde **El campo … es requerido**. No cambies el orden de las columnas.
+
+    | Columna | Requerido | Qué guarda |
+    | --- | --- | --- |
+    | **Referencia Externa** | No | Un ID tuyo. No es el ID de Fint. |
+    | **Nombre Estudiante** / **Apellido Estudiante** | Sí | La ficha del alumno. |
+    | **Tipo documento** / **Documento** | No | DNI, CUIT u otro del estudiante. |
+    | **Email** (del estudiante) | No | Mail de la ficha. No abre el portal. |
+    | **Tag Grupo** / **Tag** | No | Crea o reusa etiquetas. **Tag Grupo** es el grupo (Nivel); **Tag** es el valor (Primario). |
+    | **Nombre Pagador** | Sí | Nombre completo del responsable. Fint lo parte en nombre y apellido. |
+    | **Tipo Documento** / **Documento** (pagador) | Sí | Documento del responsable. Sin esto no hay portal. |
+    | **Email** (pagador) | No | Hace falta si querés mandar el mail de bienvenida. |
+    | **Numero telefono** / **Direccion** / **Pais** | No | Datos del responsable. |
+
+    El interruptor **Enviar email de bienvenida** usa el mail del **pagador**, no el del estudiante.
+
+    **Nombre Pagador** va nombre y apellido **juntos** en esa celda. Fint los parte. **Tag** admite varias etiquetas separadas por coma.
+
+    Si el estudiante ya existe, Fint **no duplica** la ficha: suma un pagador nuevo o rechaza la fila si ese pagador ya estaba asociado (`El contacto con documento … ya existe y el pagador … ya esta asociado`).
   </Step>
   <Step title="Seleccioná el archivo">
     Volvé a **Importar clientes**, elegí el `.xlsx` completo y comprobá que el nombre aparezca como archivo seleccionado.
@@ -78,6 +96,8 @@ Abrí esos perfiles y verificá nombre, documento, etiquetas y responsables. Si 
 <Info>
   El email de bienvenida corresponde al responsable de pago con email. No supone que cada cliente tenga un correo propio ni reemplaza la comprobación del portal.
 </Info>
+
+Importar **no** arma **Familia asociada** entre hermanos. Si Sofía y Tomás pagan con el mismo DNI, el mismo responsable aparece en ambos perfiles. Para que figuren como familia hay que asociarlos a mano en [Familias y responsables](/docs/guides/clientes-familias-responsables).
 
 <img src="/docs/images/emails/welcome-client.png" alt="Mail de bienvenida a Carolina Montes: Colegio Modelo, botón para abrir el Portal de Contacto" />
 

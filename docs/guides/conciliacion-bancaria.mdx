@@ -9,6 +9,8 @@ En este recorrido, una transferencia de **$75.000,00** paga una única orden por
 
 Al completar el flujo, Fint registra un pago por transferencia, deja la orden como **Pagada** y cambia el movimiento a **Conciliada**.
 
+Después de asignar responsable, Fint arma **sugerencias**: combinaciones de cuotas del mismo mes (con o sin mora de esa fecha), las más viejas primero. No es magia de “una orden del mismo importe”. Ves hasta 3 lecturas. **Recalcular sugerencias** está en Acciones del movimiento.
+
 ```mermaid
 flowchart LR
   A[En revisión] --> B[Asignar responsable]

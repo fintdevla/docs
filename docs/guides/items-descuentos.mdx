@@ -86,12 +86,24 @@ Antes de crearlo, revisá alcance, vigencia y condiciones en la [guía de Descue
 
 ## Importar desde Excel
 
-Usá **Importar Excel** para altas masivas y descargá siempre el modelo actual desde el modal. El importador acepta archivos `.xlsx`.
+Usá **Importar Excel** para altas masivas y descargá siempre el modelo actual desde el modal. El importador acepta archivos `.xlsx`. Reconoce las columnas por el **nombre del encabezado**, no por la posición.
 
-La plantilla crea la configuración básica. No incluye imágenes, asignaciones a clientes, mora, condiciones de descuento ni códigos de cupón; completá esos datos después desde cada registro.
+| Columna | Requerido | Valores que acepta |
+| --- | --- | --- |
+| **Nombre** | Sí | El nombre del item. |
+| **Canal** | Sí | `Liquidacion`, `Venta online` o `Evento`. |
+| **Monto** | Sí | Precio. Acepta coma o punto. **Negativo** = descuento, y solo vale en Liquidación. |
+| **Descripcion** | No | Texto corto. |
+| **Estado** | No | `Activo` (default) o `Borrador`. |
+| **FechaInicio** | En liquidación, sí | Queda el día 1 de ese mes. |
+| **Frecuencia** | No | `Unica`, `Mensual` o `Anual`. Venta online y Evento importados salen siempre de pago único. |
+| **Cuotas** | En liquidación, sí | Cantidad de ciclos. El formulario corta en 24; el Excel no. No hay columna de indefinido. |
+| **StockInicial** | No | Solo Evento o Venta online. En liquidación se ignora. |
+
+La plantilla **no** importa descuentos, imágenes, clientes asignados, mora, combos ni códigos de cupón. Completá eso después, item por item.
 
 <Warning>
-  Revisá el canal, el estado, la vigencia y el stock de los registros importados antes de asociarlos a una liquidación o canal de venta.
+  Un descuento no se da de alta por esta planilla. Revisá canal, estado, vigencia y stock de cada item importado antes de liquidar o publicarlo.
 </Warning>
 
 <img src="/docs/images/items-descuentos/importar-items.png" alt="Modal para descargar el modelo de Excel y seleccionar un archivo de items" />

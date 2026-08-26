@@ -7,6 +7,8 @@ Una **suscripción** nace cuando alguien compra un item **recurrente** desde un 
 
 Si el item es de pago único, hay una compra y listo. Si el item es mensual o anual, esa compra deja un cobro que se repite.
 
+Si el link debitaba solo, la factura del período **igual se ve** en Pendientes del [portal](/docs/guides/portal-contacto). No indiques a la familia que la pague desde ahí mientras el débito esté activo: se puede duplicar el cobro. La baja la hace un administrador acá, no la familia.
+
 <Info>
   Las suscripciones se ven en **Órdenes → Suscripciones**. No tienen un menú propio en la barra lateral.
 </Info>
@@ -40,11 +42,13 @@ Al abrir una suscripción ves:
     Completó los ciclos previstos.
   </Card>
   <Card title="Cancelada" icon="xmark">
-    La dio de baja un administrador. No genera más órdenes.
+    La dio de baja un administrador. **Cancelar suscripción** borra las órdenes **Por Cobrar** de esa suscripción y deja de debitar. Las Pagadas y con Pago parcial quedan. Si hay que cobrar el período abierto, registralo **antes**.
   </Card>
 </CardGroup>
 
 ## Cómo se cobra cada período
+
+El vencimiento de cada orden del ciclo usa **Días hasta el vencimiento** del link. Si está vacío, son **10 días** desde la emisión.
 
 El modo se elige en el link, en **Cobro**, y solo aparece si la organización usa Stripe o Mercado Pago.
 

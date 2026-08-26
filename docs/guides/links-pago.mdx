@@ -72,10 +72,14 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
     </Frame>
   </Step>
   <Step title="Cobro, si tu procesador lo permite">
-    La sección **Cobro** aparece cuando la organización usa **Stripe** o **Mercado Pago**. El interruptor **Debitar automáticamente todos los meses** cambia el recaudo de las suscripciones: o se intenta el débito solo, o se envía una factura en cada período.
+    La sección **Cobro** aparece cuando la organización usa **Stripe** o **Mercado Pago**. El interruptor **Debitar automáticamente todos los meses** intenta el débito solo.
+
+    <Warning>
+      En Mercado Pago el débito **no funciona** si el item es de vigencia **indefinida**. El checkout dice «En este momento no es posible efectuar el pago». Usá N ciclos, o apagá el débito y enviá factura. Pagos360 y Nuvei tampoco debitan.
+    </Warning>
   </Step>
   <Step title="Facturación">
-    **Día fijo de emisión** hace que las facturas de una suscripción salgan el mismo día de cada mes, sin importar cuándo se inscribió la persona. **Días hasta el vencimiento** cuenta desde esa emisión.
+    **Día fijo de emisión** hace que las facturas de una suscripción salgan el mismo día de cada mes, sin importar cuándo se inscribió la persona. **Días hasta el vencimiento** cuenta desde esa emisión. Si lo dejás vacío, Fint usa **10 días**. No es la [mora](/docs/guides/configuracion-mora): es la fecha de vencimiento de cada orden del ciclo.
   </Step>
   <Step title="Confirmación">
     **Agregar texto al finalizar el proceso** muestra un mensaje extra cuando el pago termina. Sirve para una indicación o un próximo paso.
@@ -118,7 +122,9 @@ En cada fila, el menú permite **Visitar**, **Editar**, **Duplicar página** o *
 
 El comprador elige un artículo y pulsa **Continuar**. Ahí empieza el checkout: se identifican sus datos y se cobra. Esta guía no recorre ese cobro.
 
-Si el link está vencido, la página pública dice **Link de pago expirado**. No se puede comprar.
+Si el link está vencido, la página pública dice **Link de pago expirado**. No se puede comprar. La fecha corta a las **23:59** de ese día. Si no hay fecha, no vence.
+
+No hay tope de usos ni de compras. Cada compra crea o reconoce al cliente, genera una orden y, si el cobro se confirma, un pago. El **stock del item no se reserva** en este canal. Pasar el link a **Borrador** deja de publicarlo.
 
 ## Qué pasa cuando alguien compra
 
