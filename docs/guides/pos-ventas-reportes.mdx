@@ -12,9 +12,7 @@ Fint ofrece dos niveles de seguimiento:
 
 Entrá al punto de venta y elegí **Ventas**. La tabla muestra cliente, fecha, medio de pago, importe y estado.
 
-Al hacer clic en una venta **exitosa** se abre el mismo panel **Orden de pago** que en [Órdenes](/docs/guides/ordenes-gestionar): Actividad, Pagos, Items y Detalle. En la tabla la fila dice **Exitoso**; adentro el estado es **Pagada**. Es la misma orden. Una venta cobrada **no** imprime ticket, **no** reenvía esa orden por mail y **no** se anula desde el POS. El cajero solo consulta: no carga otro cobro ni cancela. Un intento **rechazado** no abre esa orden: abre **Intento de cobro** con el motivo y las referencias del proveedor.
-
-En efectivo no hay campo “con cuánto paga” ni vuelto: se registra el total. En Combinado, **Sobra** significa que te pasaste del total, no es el cambio. No hay cierre de caja ni conteo de efectivo: al final del día contrastá Ventas y Reportes (y el Excel) con el procesador.
+Al hacer clic en una venta se abre el panel **Orden de pago**: cliente, ítems, pagos y detalle. Un intento **rechazado** abre **Intento de cobro** con el motivo y las referencias del proveedor.
 
 <img src="/docs/images/punto-de-venta/ventas.png" alt="Listado de ventas del POS con búsqueda y filtros" />
 
@@ -89,10 +87,6 @@ El tablero incluye:
 ### Ver todos o un punto de venta
 
 El filtro **Punto de venta** es de selección múltiple. Si no elegís ninguno, el recuadro dice **Todos**. **Limpiar filtros** lo vacía. También hay un filtro **Producto**.
-
-Si filtrás **Producto**, **Unidades** y el ranking recortan a ese producto. **Total facturado**, **Órdenes**, **Ticket promedio**, **Medios** y **Descuentos** siguen siendo de esas órdenes **completas**. Un item de monto libre no entra al ranking. El Excel de Reportes respeta fechas, POS y ese filtro. El Excel del menú `…` de la tarjeta es otro archivo: sin columna de punto de venta y sin filtro de producto.
-
-En el tablero, una venta combinada se parte por medio. En el Excel de la tarjeta esa venta figura como **Combinado**. Reportes solo suma órdenes **Pagadas** o **Bonificadas**. Ventas muestra también rechazos si filtrás **Rechazado**.
 
 <Warning>
   Si mezclás puntos con distinta moneda, Fint muestra **No se pueden combinar estas ventas**. Elegí uno solo.

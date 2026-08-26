@@ -27,10 +27,10 @@ Al crear un comunicado, Fint pregunta el destino:
 <img src="/docs/images/mensajeria/crear-tipo.png" alt="Modal para elegir si el comunicado va a estudiantes y contactos o a un evento" />
 
 <Info>
-  Si la persona tiene **contactos** con email, el mismo texto llega a **todos** los que tengan mail (aunque el contacto no esté marcado para notificar). Si no tiene contactos, usa el email de la ficha. Si hay contactos y alguno no tiene mail, ese queda afuera: no hay fallback al mail del alumno.
+  Si la persona tiene **contactos** con email, el mensaje va a esos contactos. Si no tiene, va al email de la ficha.
 </Info>
 
-El aviso de emails faltantes aparece en el envío a estudiantes o contactos. En **asistentes** de un evento, Fint deja afuera a quienes no tienen email. En **compradores**, la lista puede incluir filas sin mail: no asumas que ese filtro corre igual.
+El aviso de emails faltantes aparece en el envío a estudiantes o contactos. En **asistentes** de un evento, Fint deja afuera a quienes no tienen email.
 
 ## Armar el mensaje
 
@@ -72,14 +72,9 @@ El comunicado sale desde **updates.fint.app** (el resto de los mails van por **m
 
 El estado de cada persona puede ser creado, enviado, entregado, abierto, clickeado, rebotado, queja o **no enviado (bloqueado)**. No hay solo dos estados.
 
-<Warning>
-  El detalle de destinatarios está pensado para envíos a contactos. Un comunicado de evento puede mostrar mal esa lista. No lo uses todavía como prueba de que el evento llegó a cada comprador.
-</Warning>
-
 ## Qué no promete esta guía
 
 - Un tope mensual de envíos: el módulo no tiene cupo propio. El límite, si existe, es del proveedor de email.
-- Enviar solo a compradores de un evento: la pantalla lo ofrece, pero el API pide al menos un asistente.
 - WhatsApp: es otro flujo, no este compositor.
 
 ## Próximos pasos

@@ -50,13 +50,13 @@ El set de **clientes queda fijado al crear**. Un alumno que asignás después **
 
 El **precio** de un item se ve en vivo mientras está Pendiente. Las órdenes ya **Enviadas** no se recálculan: el nuevo monto vale para lo que sigue.
 
-Las becas se acumulan: cada porcentaje se calcula sobre los cargos fijos, no sobre el resultado de la otra. El campo **cantidad mínima de productos** de un descuento **no aplica** en esta liquidación; solo vale en el POS.
+Las becas se acumulan: cada porcentaje se calcula sobre los cargos fijos, no sobre el resultado de la otra.
 
 El listado muestra nombre, período, cantidad de clientes, monto a cobrar y estado. El filtro **Estado** ofrece Pendiente y Enviado; el filtro **Período** usa los meses disponibles.
 
-Una liquidación **no** pasa a **Cobrada**. **Pendiente** = lote armado. **Enviando** = job en curso. **Enviada** = órdenes emitidas (Por Cobrar, Bonificada, Pagada, etc.). **Cancelada** = lote dado de baja. Después de Enviada, **Monto a cobrar** y la cantidad de clientes del listado son el total emitido, no lo que falta cobrar. El saldo se ve adentro, en las órdenes Por Cobrar.
+**Pendiente** = lote armado, todavía no sale al portal. **Enviando** = se están generando las órdenes. **Enviada** = las órdenes ya salieron. **Cancelada** = lote dado de baja.
 
-El item de liquidación **no** tiene “días hasta el vencimiento”. Esa fecha la cargás al crear el lote y aplica a todas las órdenes. El formulario propone el **día 10** del mes del período. Si hoy es el 15 o más, el período sugerido es el mes siguiente.
+La fecha de vencimiento la cargás al crear el lote y aplica a todas las órdenes. El formulario propone el **día 10** del mes del período.
 
 <img src="/docs/images/solicitudes-pago/liquidaciones-listado.png" alt="Listado de liquidaciones de Colegio Modelo: Cuota Julio 2026 pendiente y Cuota Junio 2026 enviada" />
 

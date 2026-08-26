@@ -5,11 +5,9 @@ description: 'Usá efectivo, transferencia, Point, QR o un pago combinado y reso
 
 Después de presionar **Continuar al pago**, Fint crea una sesión temporal, reserva la orden y muestra únicamente los medios disponibles para la caja elegida. El contador dura **15 minutos**. No se configura en **Config**. **Volver** cancela la sesión y libera el stock.
 
-<Warning>
-  Hoy **no hay reembolso desde el Punto de Venta**. Una venta cobrada no se anula acá. Si hace falta devolver, es en el panel del procesador (y en [Facturación](/docs/guides/facturacion) si ya salió comprobante).
-</Warning>
+Si hay que devolver un cobro, se gestiona en el panel del procesador. Si ya salió un comprobante, el recorrido fiscal está en [Facturación](/docs/guides/facturacion).
 
-El POS **no imprime factura**. El ticket del Point no es el PDF de ARCA. El comprobante, si corresponde, nace del **pago** con una [regla](/docs/guides/facturacion) que incluya Efectivo, Transferencia o Mercado Pago.
+El ticket del Point no es el PDF de ARCA. El comprobante, si corresponde, nace del **pago** con una [regla](/docs/guides/facturacion).
 
 <img src="/docs/images/punto-de-venta/metodos-pago.png" alt="Medios de pago disponibles en el checkout del POS" />
 
