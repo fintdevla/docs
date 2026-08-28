@@ -32,13 +32,78 @@ Usá un rol de operación para cada tarea. Reservá el rol de administrador para
     Para cajeros y acomodadores, completá las opciones que aparecen para ese rol antes de enviar la invitación.
   </Step>
   <Step title="Enviá la invitación">
-    La persona queda en **Invitaciones pendientes** hasta que acepte el email. Sus permisos se aplican al aceptar la invitación. Desde el menú de esa fila podés **Cancelar** la invitación.
+    Presioná **Enviar invitación**. Fint manda el correo y deja a la persona en **Invitaciones pendientes** hasta que acepte. Los permisos se aplican al aceptar. Desde el menú de esa fila podés **Cancelar invitación**.
   </Step>
 </Steps>
 
+<Frame>
+  <img src="/docs/images/configuracion/miembros-invitar.png" alt="Modal Invitar usuario a Colegio Modelo, email de Lucía Pérez y rol Administrador, con Enviar invitación habilitado" />
+</Frame>
+
+<Frame>
+  <img src="/docs/images/configuracion/miembros-invitacion-pendiente.png" alt="1 Invitaciones pendientes: lucia.perez@colegiomodelo.edu.ar como Administrador" />
+</Frame>
+
 Para sacar a alguien que ya aceptó: menú de la fila → **Expulsar miembro**. Para irte vos: **Salir de la organización**. Un cajero o acomodador no opera **Mensajería** ni **Links de pago**.
 
-<img src="/docs/images/emails/invitation-org.png" alt="Mail de invitación a Lucía Pérez para unirse a Colegio Modelo en Fint, con botón de aceptar" />
+## El correo de invitación
+
+El destinatario recibe un mail de `mail.fint.app` con el nombre del colegio y el botón **Aceptar Invitación**. Ese botón abre el enlace `/invitation/…` en el panel de Fint.
+
+<Frame>
+  <img src="/docs/images/emails/invitation-org.png" alt="Mail a Lucía Pérez: Te invitaron a colaborar en Colegio Modelo, con botón Aceptar Invitación" />
+</Frame>
+
+Si el correo no aparece, pedile que revise spam. Desde **Invitaciones pendientes** no hay un botón de reenvío en esa fila: hay que **Cancelar** y volver a invitar.
+
+## Aceptar la invitación
+
+El link del mail abre un modal con el colegio y el alcance del rol. Lo que sigue depende de si esa persona ya tiene una cuenta Fint.
+
+<Tabs>
+  <Tab title="No tiene cuenta">
+    El modal muestra **Crear cuenta**. No aparece **Iniciar sesión**.
+
+    <Frame>
+      <img src="/docs/images/configuracion/invitacion-sin-cuenta.png" alt="Modal de invitación a Colegio Modelo para quien no tiene cuenta, con botón Crear cuenta" />
+    </Frame>
+
+    El registro se titula **Completá tu registro**: pide nombre, apellido, email, WhatsApp opcional y contraseña. **No pide nombre de organización** — no está creando un colegio nuevo.
+
+    <Frame>
+      <img src="/docs/images/configuracion/invitacion-registro.png" alt="Registro Completá tu registro sin campo de organización, para aceptar la invitación a Colegio Modelo" />
+    </Frame>
+
+    Después del alta, Fint vuelve al mismo modal para **Aceptar** o **Rechazar**. Recién al aceptar entra al panel de ese colegio. Si rechaza, queda con cuenta y sin organización.
+
+    <Frame>
+      <img src="/docs/images/configuracion/invitacion-aceptar.png" alt="Modal de Colegio Modelo con Aceptar y Rechazar después de crear la cuenta" />
+    </Frame>
+  </Tab>
+  <Tab title="Ya está en otra organización">
+    El modal muestra **Iniciar sesión**. Esa persona ya tiene cuenta Fint (por ejemplo, administra otro colegio).
+
+    <Frame>
+      <img src="/docs/images/configuracion/invitacion-con-cuenta.png" alt="Modal de invitación a Colegio Modelo para quien ya tiene cuenta, con botón Iniciar sesión" />
+    </Frame>
+
+    Al ingresar con el email invitado, vuelve al modal para **Aceptar**. Si entra directo a su colegio, sin pasar por el mail, aparece una franja: **Tenés 1 invitación pendiente · Ver invitaciones**.
+
+    <Frame>
+      <img src="/docs/images/configuracion/invitacion-banner.png" alt="Inicio de Instituto Norte con la franja Tenés 1 invitación pendiente de Colegio Modelo" />
+    </Frame>
+
+    Ahí puede **Aceptar** o **Rechazar**. Si acepta, pasa a tener las dos organizaciones y puede cambiarlas desde el menú de cuenta.
+
+    <Frame>
+      <img src="/docs/images/configuracion/invitacion-banner-modal.png" alt="Diálogo Invitaciones pendientes con Colegio Modelo y botones Rechazar y Aceptar" />
+    </Frame>
+  </Tab>
+</Tabs>
+
+<Warning>
+  El mail tiene que coincidir con la cuenta. Si alguien está logueado con otro email, el modal dice que la invitación no corresponde y ofrece **Cambiar cuenta**.
+</Warning>
 
 ## Configurar un cajero para Punto de Venta
 
