@@ -84,7 +84,7 @@ Esta acción permite al administrador registrar una entrada fuera del checkout p
     En **Asistentes**, presioná **Crear entrada**.
   </Step>
   <Step title="Elegí el evento y el tipo">
-    Seleccioná un evento activo. Después elegí uno de sus tipos de entrada existentes.
+    Seleccioná un evento activo. Después elegí uno de sus tipos de entrada existentes, o un **combo** si el evento tiene packs configurados.
   </Step>
   <Step title="Completá datos y pago">
     En **Datos del Asistente** cargás nombre, apellido, documento, email y teléfono. En la misma pantalla está **Información de Pago**: **Efectivo**, **Tarjeta de débito**, **Tarjeta de crédito** o **Transferencia**, y **Fecha de Pago**.
@@ -94,9 +94,37 @@ Esta acción permite al administrador registrar una entrada fuera del checkout p
   </Step>
 </Steps>
 
+<img src="/docs/images/eventos/entrada-manual-datos.png" alt="Datos del Asistente del alta manual: formulario del asistente, Información de Pago con Efectivo y el precio de la entrada en el pie" />
+
 <Info>
-  **Crear entrada** registra una operación con un tipo existente. Para crear o cambiar un tipo de entrada, editá la configuración del evento.
+  **Crear entrada** registra una operación con un tipo existente. Para crear o cambiar un tipo de entrada o un combo, editá la configuración del evento.
 </Info>
+
+### Vender un combo de entradas
+
+Si el evento tiene combos activos, aparecen en el paso **Seleccionar Entrada**, debajo de los tipos individuales, con su precio y la cantidad de entradas que incluyen. Al elegir uno, el alta suma un paso para armarlo.
+
+<img src="/docs/images/eventos/entrada-manual-tipos.png" alt="Paso Seleccionar Entrada del alta manual: tipos individuales y la sección Combos con el Pack familiar de 4 entradas" />
+
+<Steps>
+  <Step title="Armá el combo">
+    Repartí las entradas del pack entre los tipos disponibles. Cada tipo tiene un tope propio y el total debe coincidir con la cantidad del combo. **Continuar** se habilita cuando la selección está completa.
+  </Step>
+  <Step title="Cargá al comprador y a cada asistente">
+    Completá los datos del comprador y, por cada entrada del combo, el nombre y apellido del asistente más su documento o email. Si el tipo de entrada tiene preguntas configuradas, se responden por asistente.
+  </Step>
+  <Step title="Confirmá la venta">
+    El precio es el del combo, no la suma de los tipos elegidos. Elegí el método de pago y presioná **Crear Ticket**: se emite una entrada por asistente, todas asociadas a la misma compra.
+  </Step>
+</Steps>
+
+<img src="/docs/images/eventos/entrada-manual-combo.png" alt="Paso Armar Combo del alta manual: Pack familiar de 4 entradas repartidas entre Pase general y Taller creativo, con el contador Seleccionadas 4/4" />
+
+Después de armar el combo, el formulario pide los datos del comprador y un bloque por cada entrada, identificado con su tipo.
+
+<img src="/docs/images/eventos/entrada-manual-combo-asistentes.png" alt="Datos de los Asistentes del combo: un bloque por entrada con nombre, apellido, documento y email de cada integrante de la familia Montes" />
+
+En **Asistentes**, cada entrada del combo aparece como una fila propia y se admite, habilita o cancela de forma individual.
 
 ## Admitir asistentes
 
