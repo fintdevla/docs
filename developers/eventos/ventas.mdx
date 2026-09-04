@@ -1,0 +1,71 @@
+---
+title: 'Ventas de eventos'
+description: 'Consultá las ventas de tus eventos vía API para armar dashboards y reportes externos'
+---
+
+El endpoint de ventas de eventos te devuelve cada compra confirmada con su detalle de entradas, combos, descuentos y comisiones. Está pensado para que puedas armar un dashboard o reporte externo — por ejemplo para tu equipo de marketing — sin necesidad de darles acceso a Fint.
+
+Se autentica con tu [API key](/developers/introduction), así que no requiere usuarios ni sesiones:
+
+```javascript
+const response = await fetch('https://api.fint.app/api/v1/event/sales?eventIds=12', {
+  headers: { 'x-api-key': 'TU_API_KEY' }
+});
+
+const { data, summary, total, hasNextPage } = await response.json();
+```
+
+Podés filtrar por `eventIds` (separados por coma) y por rango de fechas con `startDate` y `endDate`. La respuesta viene paginada (`page` y `limit`, hasta 500 ventas por página).
+
+## Qué es una venta
+
+Cada elemento de `data` es una **compra confirmada**: solo existen ventas cuyo pago fue exitoso, así que no vas a ver carritos abandonados ni pagos pendientes. Las ventas anuladas quedan excluidas automáticamente.
+
+Una venta incluye:
+
+- **`reference`**: La referencia de la compra (la misma que ve el comprador)
+- **`soldAt`**: La fecha de venta — ideal para armar la curva de ventas por día
+- **`items`**: El detalle de líneas de esa compra (ver abajo)
+- **`serviceCostAmount`** y **`totalAmount`**: El cargo por servicio y el total cobrado
+- **`fees`**: Las comisiones de esa venta (ver abajo)
+- **`manuallyCreated`**: `true` si son entradas de cortesía o carga manual, sin pago asociado
+
+<Info>
+  La suma de los `amount` de las líneas más `serviceCostAmount` siempre da `totalAmount`. Los descuentos vienen como líneas con monto negativo, así la cuenta cierra a simple vista.
+</Info>
+
+## Las líneas de una venta
+
+Cada línea de `items` tiene un `type`:
+
+- **`ITEM`**: Entradas individuales. `quantity` es la cantidad, `amount` el total de la línea y `ticketCount` cuántas entradas válidas se emitieron.
+- **`COMBO`**: Un combo vendido, con su precio real de paquete en `amount` y la cantidad de entradas que incluye en `ticketCount`. Cada combo comprado es una línea propia.
+- **`DISCOUNT`**: Un código de descuento aplicado, con `amount` negativo.
+
+## Comisiones y neto
+
+El bloque `fees` de cada venta desglosa a dónde fue la plata:
+
+- **`fintFeeAmount`**: La comisión de Fint, IVA incluido
+- **`processorFeeAmount`**: La comisión del medio de pago (sin impuestos ni la comisión de Fint)
+- **`processorTaxesAmount`**: Impuestos y retenciones del procesador (IIBB, SIRTAC, etc.)
+- **`netAmount`**: Lo que efectivamente te queda después de todo lo anterior
+
+<Warning>
+  Si `feeDataComplete` es `false`, el procesador de esa venta todavía no informó sus comisiones (o no las informa, según el procesador) y los campos que dependen de eso vienen en `null`. Mostralo como "pendiente" en tu dashboard en lugar de asumir cero. Las ventas manuales (`manuallyCreated: true`) no tienen pago, así que su `fees` es `null`.
+</Warning>
+
+## El resumen agregado
+
+Además del listado, la respuesta incluye un bloque `summary` con los totales de todo el filtro (no solo de la página actual):
+
+- **`total`**: Cantidad de ventas
+- **`byItem`**: Unidades vendidas y facturación por tipo de entrada. Los combos aparecen como su propia línea (`type: "COMBO"`), contando combos vendidos — no entradas sueltas.
+- **`amounts`**: El puente completo de la plata: entradas a precio de lista, descuentos, cargo por servicio y total cobrado
+- **`fees`**: Las comisiones agregadas y el neto total
+
+Si solo necesitás el listado, pasá `includeSummary=false` y te ahorrás el cálculo.
+
+<Card title="Ver la referencia del endpoint" icon="code" href="/api-reference/eventos/listar-ventas-de-eventos">
+  Parámetros, esquema completo de la respuesta y ejemplos.
+</Card>

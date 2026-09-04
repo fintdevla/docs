@@ -177,6 +177,12 @@
       ]
     },
     {
+      "group": "Eventos",
+      "pages": [
+        "developers/eventos/ventas"
+      ]
+    },
+    {
       "group": "Webhooks",
       "pages": [
         "developers/webhooks/1_introduction",
@@ -236,6 +242,7 @@
     {
       "group": "Eventos",
       "pages": [
+        "api-reference/eventos/listar-ventas-de-eventos",
         "api-reference/eventos/buscar-tickets-por-email-del-asistente",
         "api-reference/eventos/buscar-compras-por-email-del-comprador",
         "api-reference/eventos/buscar-compras-por-payment-id",
