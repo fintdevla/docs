@@ -43,7 +43,7 @@ flowchart LR
     En **Links de pago**, usá **+ Crear link de pago**. Completá cómo se ve la página y qué artículos ofrece.
   </Step>
   <Step title="Publicá y compartí">
-    Cuando esté **Activo**, copiá la dirección o usá **Visitar** para ver lo mismo que ve el comprador.
+    Cuando esté **Activo**, copiá la dirección o usá **Visitar** para ver lo mismo que ve el comprador. La dirección compartible es la de tu institución más la **dirección web** que definiste, por ejemplo `tuinstitucion.fint.app/tienda-uniforme`.
   </Step>
 </Steps>
 
@@ -57,7 +57,7 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
 
 <Steps>
   <Step title="General">
-    El **nombre de la página** es interno: aparece en tu listado, no en la página pública. La **fecha de expiración** es opcional. Si la cargás, tiene que ser posterior a hoy.
+    El **nombre de la página** es interno: aparece en tu listado, no en la página pública. La **fecha de expiración** es opcional. Si la cargás, tiene que ser posterior a hoy; cuando esa fecha pasa, la página deja de aceptar compras.
   </Step>
   <Step title="Personalización">
     El **título** es lo que ve el comprador. La **descripción** admite formato y muestra un contador de 264 caracteres. La **imagen de portada** recomienda 1200 × 630. La **dirección web** completa la URL de tu institución, por ejemplo `tuinstitucion.fint.app/curso-robotica`.
@@ -72,7 +72,7 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
     </Frame>
   </Step>
   <Step title="Cobro, si tu procesador lo permite">
-    La sección **Cobro** aparece cuando la organización usa **Stripe** o **Mercado Pago**. El interruptor **Debitar automáticamente todos los meses** intenta el débito solo.
+    La sección **Cobro** aparece cuando la organización usa **Stripe** o **Mercado Pago**. El interruptor **Debitar automáticamente todos los meses** intenta el débito solo. Sin débito automático, cada ciclo genera su [orden](/docs/guides/solicitudes-pago) y la persona la paga desde el portal.
 
     <Warning>
       En Mercado Pago el débito **no funciona** si el item es de vigencia **indefinida**. El checkout dice «En este momento no es posible efectuar el pago». Usá N ciclos, o apagá el débito y enviá factura. Pagos360 y Nuvei tampoco debitan.
@@ -82,7 +82,13 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
     **Día fijo de emisión** hace que las facturas de una suscripción salgan el mismo día de cada mes, sin importar cuándo se inscribió la persona. **Días hasta el vencimiento** cuenta desde esa emisión. Si lo dejás vacío, Fint usa **10 días**. No es la [mora](/docs/guides/configuracion-mora): es la fecha de vencimiento de cada orden del ciclo.
   </Step>
   <Step title="Confirmación">
-    **Agregar texto al finalizar el proceso** muestra un mensaje extra cuando el pago termina. Sirve para una indicación o un próximo paso.
+    **Agregar texto al finalizar el proceso** muestra un mensaje extra en la página cuando el pago termina. Sirve para una indicación o un próximo paso.
+
+    **Agregar texto al email de confirmación de pago** suma ese mensaje al mail que recibe el comprador cuando se acredita el pago. Si lo activás, el texto tiene que tener al menos 20 caracteres.
+
+    <Frame>
+      <img src="/docs/images/links-pago/email-confirmacion.png" alt="Sección Confirmación del editor con el texto del email de confirmación activado: los pedidos se retiran en secretaría de 9 a 13 hs" />
+    </Frame>
   </Step>
   <Step title="Guardá">
     **Guardar** publica el link como **Activo**. **Guardar como borrador** lo deja guardado sin publicarlo. En un link ya creado, el menú de estado permite pasar de **Activo** a **Borrador** o al revés.
@@ -117,7 +123,13 @@ En cada fila, el menú permite **Visitar**, **Editar**, **Duplicar página** o *
 **Visitar** abre la misma página que ve quien recibe el link. No pide usuario de Fint. En Colegio Modelo, la tienda del uniforme muestra el título, la descripción y los artículos con su precio.
 
 <Frame>
-  <img src="/docs/images/links-pago/pagina-publica.png" alt="Página pública de Tienda del uniforme en Colegio Modelo, con buzo y remera institucionales 2027 y el botón Continuar" />
+  <img src="/docs/images/links-pago/pagina-publica.png" alt="Página pública de Tienda del uniforme en Colegio Modelo, con la portada de los productos, el buzo institucional seleccionado y el botón Continuar habilitado" />
+</Frame>
+
+Desde el teléfono se ve igual de simple:
+
+<Frame>
+  <img src="/docs/images/links-pago/pagina-publica-mobile.png" alt="La misma página pública de Tienda del uniforme vista desde un teléfono, con el buzo seleccionado y el botón Continuar" />
 </Frame>
 
 El comprador elige un artículo y pulsa **Continuar**. Ahí empieza el checkout: se identifican sus datos y se cobra. Esta guía no recorre ese cobro.
@@ -125,6 +137,8 @@ El comprador elige un artículo y pulsa **Continuar**. Ahí empieza el checkout:
 Si el link está vencido, la página pública dice **Link de pago expirado**. No se puede comprar. La fecha corta a las **23:59** de ese día. Si no hay fecha, no vence. Pasar el link a **Borrador** deja de publicarlo.
 
 ## Qué pasa cuando alguien compra
+
+Después de **Continuar**, la persona completa sus datos de contacto y paga con el método disponible según el procesador de la organización (tarjeta, transferencia o cupón offline, según el caso). Con eso:
 
 1. Se crea o se reconoce a la persona como cliente.
 2. Se genera una [orden](/docs/guides/solicitudes-pago) y, si el cobro se confirma, un [pago](/docs/guides/pagos).
@@ -135,6 +149,64 @@ Esta guía no recorre el checkout con procesador real. Si eligieron **transferen
 <img src="/docs/images/emails/finish-payment-transfer.png" alt="Mail con CVU, alias COLEGIO.MODELO y el monto a transferir a Colegio Modelo" />
 
 <img src="/docs/images/emails/finish-payment-offline.png" alt="Mail con el cupón para pagar $ 24.000 en Rapipago" />
+
+### El email con la información de la compra
+
+Cuando el pago se acredita, el comprador recibe el mail de confirmación de siempre. Si configuraste textos, le llega **además** un email aparte, **Información de tu compra**, con la portada del link, el detalle del pago y dos bloques:
+
+- **Información General**: el texto del email que definiste en la sección **Confirmación** del link.
+- **Indicaciones**: el texto extra de cada artículo comprado. Se configura en el editor del item de Venta online, con **Incluir texto en el email de confirmación de pago**.
+
+<img src="/docs/images/emails/purchase-info-link.png" alt="Mail Información de tu compra de Tienda del uniforme por $ 38.000, con la portada del link, el bloque Información General y las Indicaciones del buzo institucional" />
+
+## Casos de uso
+
+Algunas formas típicas de combinar las piezas de esta guía. Cada caso indica qué configurar y qué recibe el comprador.
+
+<AccordionGroup>
+  <Accordion title="Vender cursos por video, con el acceso en el email">
+    Una profesora vende cursos grabados. Cada curso tiene su propio video.
+
+    1. Creá un item de **Venta online** de pago único por cada curso.
+    2. En cada item, activá **Incluir texto en el email de confirmación de pago** y pegá el **link del video** con las instrucciones de acceso. El editor admite enlaces y formato.
+    3. Creá el link de pago con todos los cursos como artículos. En **Confirmación**, usá el texto del email para lo común a todos: soporte, vigencia del acceso, cómo pedir ayuda.
+
+    Cuando alguien compra un curso y el pago se acredita, recibe el email **Información de tu compra** con el bloque de **su** curso: el link del video y las instrucciones. No hace falta mandar nada a mano.
+
+    <Frame>
+      <img src="/docs/images/links-pago/caso-curso-video.png" alt="Item Curso de Robótica con Incluir texto en el email de confirmación de pago activado y el link a las clases grabadas en el editor" />
+    </Frame>
+  </Accordion>
+  <Accordion title="Tienda de productos con retiro en el colegio">
+    La tienda del uniforme de esta guía: buzo y remera como items de pago único.
+
+    En el link, el texto del email de **Confirmación** dice dónde y cuándo se retira el pedido («en secretaría de 9 a 13 hs»). Si un producto necesita una aclaración propia (por ejemplo, confirmar el talle), va en el texto del item.
+
+    El comprador paga online y le llega el email con las instrucciones de retiro, sin que nadie lo persiga. Es el email que se ve más arriba, en [el email con la información de la compra](#el-email-con-la-informaci%C3%B3n-de-la-compra).
+  </Accordion>
+  <Accordion title="Taller mensual con inscripción abierta">
+    Un taller que se cobra todos los meses: un item **recurrente** con N ciclos de cobro.
+
+    Al comprar, queda creada una [suscripción](/docs/guides/suscripciones). En **Facturación**, el **día fijo de emisión** hace que todas las órdenes del taller salgan el mismo día del mes, se haya inscripto cuando se haya inscripto la persona. Si la organización usa Stripe o Mercado Pago, podés activar el débito automático; si no, cada ciclo genera su orden y la persona paga desde el portal.
+
+    En el texto del email conviene poner cuándo empieza la actividad y a quién escribir.
+
+    <Frame>
+      <img src="/docs/images/links-pago/caso-taller-facturacion.png" alt="Sección Facturación del editor con Día fijo de emisión activado, día 1 y días hasta el vencimiento" />
+    </Frame>
+  </Accordion>
+  <Accordion title="Inscripción con fecha límite">
+    Una inscripción que cierra un día concreto: cargá la **fecha de expiración** en General.
+
+    Hasta esa fecha, la página acepta compras; después muestra **Link de pago expirado** (corta a las 23:59). El texto **al finalizar el proceso** de Confirmación sirve para el próximo paso inmediato («te esperamos el lunes 9 con este comprobante»), y el texto del **email** para lo que conviene que quede por escrito.
+
+    Si necesitás cerrarla antes, pasá el link a **Borrador** desde el listado.
+
+    <Frame>
+      <img src="/docs/images/links-pago/caso-inscripcion-expiracion.png" alt="Sección General del editor con el calendario de la fecha de expiración abierto" />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
 
 ## Próximos pasos
 
