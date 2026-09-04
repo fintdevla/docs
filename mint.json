@@ -268,5 +268,5 @@
   "footerSocials": {
     "linkedin": "https://www.linkedin.com/company/fint-latam/"
   },
-  "openapi": "https://dev.api.fint.app/api/v1/api-docs"
+  "openapi": "https://api.fint.app/api/v1/api-docs"
 }
