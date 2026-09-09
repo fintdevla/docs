@@ -54,7 +54,7 @@ Cada tipo puede definir:
 
 El stock es el cupo de ese tipo. Con **0** no se vende: en la página pública y en el alta manual aparece **Sin stock**. No es ilimitado. Lo ves y lo editás en **Items** (el tipo de entrada): **Stock disponible**, **Editar** y **Ver historial de stock**. Un checkout abierto reserva unidades; si vence el carrito, se liberan.
 
-**Cancelar entrada** no devuelve stock. Anula el acceso (QR / admisión). Para reabrir cupo hay que **Editar** el stock en Items. **Habilitar entrada** sirve para deshacer una admisión **y** para reactivar una entrada **Cancelado**: vuelve a **No admitido**. No es un reembolso ni una entrada nueva.
+**Cancelar entrada** anula el acceso y devuelve una unidad al stock. **Habilitar entrada** puede reactivar una cancelada si hay cupo: consume una unidad y vuelve a **No admitido**. Deshacer una admisión no modifica el stock. [Ver el historial paso a paso](/docs/guides/eventos-entradas-ventas-asistentes#seguir-el-stock-y-su-historial).
 
 <img src="/docs/images/eventos/seleccionar-entradas.png" alt="Selector de tipos de entrada existentes dentro del editor del evento" />
 

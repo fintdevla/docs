@@ -88,7 +88,7 @@ El estado indica si una entrada puede registrar su primer ingreso. Revisalo siem
     El ingreso ya fue registrado. En Asistentes se llama **Admitido**. Tratá el caso como una posible entrada duplicada.
   </Card>
   <Card title="Cancelado" icon="xmark" color="#C0392B">
-    La entrada fue anulada. No registres el ingreso. Un administrador puede **Habilitar entrada** para reactivarla: vuelve a Sin registrar. Eso no es un reembolso y no devuelve stock.
+    La entrada fue anulada. No registres el ingreso. Un administrador puede **Habilitar entrada** para reactivarla: vuelve a Sin registrar. Para reactivarla debe haber stock disponible: se consume una unidad y la entrada vuelve a estar vigente. Si no hay cupo, permanece cancelada. No es un reembolso.
   </Card>
 </CardGroup>
 
@@ -152,7 +152,7 @@ Si el código no se puede leer, buscá la entrada desde el listado antes de toma
     No vuelvas a registrarla. Si el ingreso fue un error, el administrador usa **Habilitar entrada** en Asistentes (vuelve a Sin registrar). No es un reembolso.
   </Accordion>
   <Accordion title="La entrada figura Cancelado">
-    No registres el ingreso. Un administrador puede **Habilitar entrada** para reactivarla. Eso no devuelve stock ni genera un cobro nuevo.
+    No registres el ingreso. Un administrador puede **Habilitar entrada** para reactivarla. La reactivación comprueba el cupo y consume una unidad de stock. Si no hay disponibilidad, la entrada sigue cancelada. No genera un cobro nuevo.
   </Accordion>
   <Accordion title="No encontrás el evento o la entrada">
     Confirmá que usaste la cuenta correcta. Un administrador debe revisar si tu rol tiene acceso al evento correspondiente.
