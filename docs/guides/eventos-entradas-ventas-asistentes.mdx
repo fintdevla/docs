@@ -50,7 +50,7 @@ Los estados operativos son:
 
 En la [App de Admisión](/docs/guides/app-admision) se leen **Sin registrar**, **Registrado** y **Cancelado**. Es el mismo dato.
 
-**Habilitar entrada** deshace una admisión y también reactiva una **Cancelado**: vuelve a **No admitido**. No reembolsa y no devuelve stock. Para reabrir cupo hay que editar el stock en Items.
+**Habilitar entrada** deshace una admisión o reactiva una entrada **Cancelado**: vuelve a **No admitido**. Reactivar una cancelada requiere stock disponible y consume una unidad. Deshacer una admisión no cambia el stock.
 
 ### Exportar como administrador
 
@@ -69,7 +69,7 @@ Abrí una fila para consultar:
 
 En **Actividad** ves quién **generó la entrada**, la **admitió**, la **habilitó**, la **canceló** o **editó datos** del asistente o del comprador. El actor puede ser una **persona** del equipo, **Web**, **Fint** o **API**. Si hay más de cinco eventos, **Ver actividad completa** abre el listado entero.
 
-<img src="/docs/images/eventos/actividad-entrada.png" alt="Actividad de una entrada: Demo Terminal editó datos, admitió, habilitó y canceló la entrada, con Ver actividad completa" />
+La [secuencia de cancelación y reactivación](#seguir-el-stock-y-su-historial) muestra cómo se relacionan la actividad de una entrada y sus movimientos de stock.
 
 El administrador puede reenviar el email al comprador o al asistente cuando están disponibles el destinatario y el PDF correspondiente.
 
@@ -132,7 +132,7 @@ Si el tipo genera QR, cada entrada emitida tiene un código para identificarla. 
 
 Si no podés escanear, buscá la entrada por sus datos y abrí el detalle. Verificá al asistente antes de presionar **Admitir**.
 
-La acción **Habilitar entrada** devuelve el ticket a **No admitido**. Sirve para deshacer una admisión **y** para reactivar una entrada **Cancelado**. No es un reembolso ni una entrada nueva; el stock no cambia.
+La acción **Habilitar entrada** devuelve el ticket a **No admitido**. Deshacer una admisión no cambia el cupo. Si la entrada estaba **Cancelado**, Fint comprueba que haya stock y consume una unidad al reactivarla.
 
 <Card title="App de Admisión" icon="mobile" href="/docs/guides/app-admision">
   Prepará dispositivos, buscá entradas y resolvé incidencias durante el ingreso.
@@ -140,13 +140,59 @@ La acción **Habilitar entrada** devuelve el ticket a **No admitido**. Sirve par
 
 ## Cancelaciones y devoluciones
 
-**Cancelar entrada** pasa el ticket a **Cancelado**. No equivale a devolver el dinero **ni libera stock**. El QR deja de servir. Para volver a vender ese cupo, editá el stock en Items.
+**Cancelar entrada** pasa el ticket a **Cancelado**, invalida el acceso y devuelve una unidad al stock de ese tipo de entrada. No devuelve el dinero. No sumes otra unidad manualmente por la misma cancelación.
 
-Para una compra online, gestioná el reembolso según el procedimiento del procesador correspondiente.
+Eliminar una entrada activa también devuelve su unidad. Si ya estaba cancelada, eliminarla no vuelve a aumentar el stock. En un combo, se devuelve sólo el componente cancelado, no el pack completo.
 
-Después, verificá en Fint el estado del pago y de las entradas asociadas. Si no se actualizaron como esperabas, conservá la referencia de la operación y contactá a soporte.
+Para una compra online, gestioná el reembolso según el procedimiento del procesador. Cuando Fint recibe y aplica la devolución, anula las entradas restantes y devuelve sus unidades, sin duplicar las ya liberadas.
 
-La guía de [Pagos](/docs/guides/pagos#devoluciones-y-contracargos) explica el seguimiento de devoluciones y contracargos.
+Verificá luego el estado del pago y de las entradas. La guía de [Pagos](/docs/guides/pagos#devoluciones-y-contracargos) explica el seguimiento de devoluciones y contracargos.
+
+## Seguir el stock y su historial
+
+En **Items**, abrí el tipo de entrada y presioná **Ver historial de stock**. El panel muestra el saldo actual, la cantidad y dirección de cada movimiento, la fecha, quién lo realizó y su motivo.
+
+Este ejemplo usa **Pase general**, con dos unidades iniciales y dos entradas vendidas. El stock disponible queda en **0**.
+
+<Frame>
+  <img src="/docs/images/eventos-stock/01-compra-stock.png" alt="Pase general después de vender dos entradas: stock actual 0 y movimientos de la compra y carga inicial" />
+</Frame>
+
+### 1. Cancelar devuelve una unidad
+
+Desde **Asistentes**, abrí la entrada de Julián Montes y presioná **Cancelar entrada**. El stock pasa de **0 a 1**. El aumento identifica la entrada y la compra canceladas.
+
+<Frame>
+  <img src="/docs/images/eventos-stock/02-cancelacion-stock.png" alt="Historial tras cancelar la entrada de Julián: stock actual 1, aumento de una unidad, actor Carolina y motivo con referencias de entrada y compra" />
+</Frame>
+
+### 2. Reactivar consume esa unidad
+
+Presioná **Habilitar entrada**. Como hay cupo, la entrada vuelve a **No admitido**. En **Actividad** quedan la cancelación y la habilitación, con la persona que las realizó.
+
+<Frame>
+  <img src="/docs/images/eventos-stock/03-actividad.png" alt="Entrada de Julián Montes habilitada: la actividad conserva quién canceló y quién habilitó la entrada" />
+</Frame>
+
+En el historial de stock, el saldo vuelve de **1 a 0**. Se conserva el aumento anterior y aparece una disminución de una unidad por la reactivación. Así podés reconstruir ambos movimientos.
+
+<Frame>
+  <img src="/docs/images/eventos-stock/04-reactivacion-stock.png" alt="Historial después de reactivar: stock actual 0, disminución por reactivación y aumento previo por cancelación, con sus referencias y actor" />
+</Frame>
+
+### 3. Si el cupo ya se ocupó, queda cancelada
+
+Si cancelás nuevamente y ese cupo se asigna a otra venta, **Habilitar entrada** devuelve un error por falta de stock. La entrada sigue **Cancelado** y el intento queda identificado en **Actividad**.
+
+<Frame>
+  <img src="/docs/images/eventos-stock/05-rechazo-actividad.png" alt="Entrada de Julián todavía cancelada: Carolina no pudo habilitarla por falta de stock y el historial conserva los cambios anteriores" />
+</Frame>
+
+El rechazo no suma ni resta unidades y no crea un movimiento ficticio en el historial de stock. Las reservas vigentes de checkout también cuentan al comprobar la disponibilidad.
+
+<Info>
+  Este comportamiento se aplica a los cambios nuevos. No recalcula automáticamente el stock de cancelaciones históricas.
+</Info>
 
 ## Comunicaciones y facturación
 
