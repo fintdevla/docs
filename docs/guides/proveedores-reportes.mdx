@@ -1,0 +1,63 @@
+---
+title: "Consultar reportes y guardar archivos"
+description: "Filtrá deuda, pendientes, gastos y desembolsos; guardá todas las filas de la consulta aunque estén paginadas."
+---
+
+Desde **Proveedores → Reportes**, consultá el resumen de la institución. Necesitás ser **Administrador** y tener el módulo habilitado.
+
+Elegí **Al día** y, si necesitás, un proveedor. La URL conserva esos filtros. Los importes se muestran en ARS; el original USD y su cotización siguen disponibles en cada comprobante.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/05-resumen.png" alt="Resumen de Colegio Buenaventura con ochocientos mil pesos de deuda, doscientos mil reservados, seiscientos mil disponibles y cien mil de egresos del mes" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/05-resumen.png)
+
+- **Deuda pendiente** reúne las obligaciones confirmadas que quedan por cancelar.
+- **Deuda vencida** muestra las obligaciones cuyo vencimiento ya pasó.
+- **Reservado en lotes** sigue incluido en la deuda pendiente.
+- **Egresos netos del mes** distingue los fondos de las retenciones e incluye las reversiones y reintegros con su signo.
+
+**Vencimientos** ordena primero lo vencido y luego lo próximo. **Para revisar** muestra comprobantes aún fuera de la deuda confirmada. **Actividad del mes** separa gastos reconocidos, fondos y retenciones.
+
+## Exportar el resumen
+
+Elegí **Exportar resumen** para descargar un CSV con la fecha, los totales, los vencimientos y los medios mostrados. Incluye el resultado completo del resumen para los filtros elegidos, sin depender de una página del listado.
+
+## Consultar el detalle
+
+Desde **⋯ → Reportes detallados**, elegí deuda, pendientes, gastos o egresos. Completá los filtros y presioná **Aplicar filtros**. También podés abrir el detalle desde las tarjetas y vencimientos del resumen.
+
+En **Gastos reconocidos**, elegí **Campo de clasificación** en **Agrupar por** para usar los campos de tu institución. La fecha de corte se usa para deuda; los gastos y egresos se consultan por período.
+
+## Guardar todas las filas
+
+Elegí **Guardar archivo**, seleccioná CSV o XLSX y confirmá con **Guardar archivo completo**. El archivo incluye todas las filas que cumplen los filtros, aunque estés viendo sólo una página.
+
+La cuenta corriente del proveedor también permite guardar un archivo para su fecha de corte. El ejemplo conserva cien movimientos, aunque la pantalla muestra veinticinco por página.
+
+<Frame>
+  <img src="/docs/images/proveedores/reportes-cuenta-archivo.png" alt="Archivo de cuenta corriente guardado con filtros, totales y descarga del original completo" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/reportes-cuenta-archivo.png)
+
+El archivo guardado conserva los filtros, los totales y los datos de ese momento. **Descargar archivo original** recupera ese contenido; si hay pagos o correcciones posteriores, guardá una nueva consulta para incluirlos.
+
+No confundas un resultado de importación con un reporte de saldo actual: el primero describe lo que incorporó ese archivo y la cuenta corriente incluye los movimientos posteriores.
+
+## Preparar un cierre administrativo
+
+Desde **Reportes → ⋯**, elegí **Preparar cierre administrativo**. Completá **Desde**, **Fecha de corte** y, si corresponde, el proveedor o las clasificaciones. Elegí **Aplicar filtros** y controlá el saldo antes de guardar.
+
+<Frame>
+  <img src="/docs/images/proveedores/reportes-cierre-administrativo.png" alt="Preparación de un cierre administrativo del primero al quince de agosto, con seiscientos mil pesos de saldo del proveedor" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/reportes-cierre-administrativo.png)
+
+Elegí **Guardar archivo**, seleccioná XLSX y confirmá **Guardar archivo completo**. El cierre conserva hojas separadas con documentos, reconocimientos, impuestos, órdenes, medios, retenciones, imputaciones y sus controles, además de los originales por moneda.
+
+En el ejemplo, una orden de \$400.000 reúne \$390.000 de fondos entregados y \$10.000 de retenciones. La retención no es una segunda salida de dinero. El gasto reconocido corresponde a los comprobantes; el reporte de desembolsos permite distinguir fondos, retenciones y sus reversiones.
+
+El cierre es un archivo administrativo para revisión. No reemplaza comprobantes fiscales ni certifica transferencias o conciliaciones bancarias.

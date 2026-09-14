@@ -1,0 +1,85 @@
+---
+title: "Empezar a trabajar con proveedores"
+description: "Empezá con los datos básicos y agregá los campos que necesita tu institución para registrar, buscar y filtrar proveedores."
+---
+
+Necesitás ser **Administrador** de una institución con **Proveedores** habilitado. Podés empezar con nombre, país e identificación fiscal. El contacto, el domicilio y las clasificaciones se agregan con campos personalizados de tu institución.
+
+## Elegir por dónde empezar
+
+Desde **Proveedores → Configurar proveedores**, revisá los primeros pasos. También podés entrar desde **Más opciones (⋯) → Incorporar datos**.
+
+El progreso reconoce los proveedores, comprobantes y lotes que ya cargaste. **Adaptar los campos** y **Revisar las cuentas de salida** son opcionales: podés marcarlos como revisados u omitirlos por ahora.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/07-primeros-pasos.png" alt="Escuela del Roble tiene tres de cinco pasos resueltos y puede revisar u omitir la configuración de campos y cuentas" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/07-primeros-pasos.png)
+
+**Ocultar recordatorio** quita el aviso del listado. Podés volver a esta pantalla y elegir **Mostrar recordatorio**; la configuración se guarda para tu institución.
+
+Si ya hay deudas anteriores, revisá [cómo incorporar saldos iniciales](/docs/guides/proveedores-apertura). No cargues una apertura además de las mismas obligaciones ya reconocidas.
+
+## Definir los datos de tu institución
+
+En **Adaptar los campos**, elegí **Revisar campos**. La pantalla **Campos personalizados** distingue **Proveedores** de **Comprobantes**: los datos de contacto pertenecen al proveedor; un proyecto o centro de costo puede variar entre comprobantes.
+
+1. Elegí **Proveedores** o **Comprobantes**.
+2. Usá **Agregar campo** para definir nombre y tipo. También podés elegir **Agregar** en una tarjeta de **Campos sugeridos**: por ejemplo, Email, Teléfono o Dirección.
+3. Definí si el dato es opcional u obligatorio y guardá. Podés cambiar el nombre y esa condición después.
+
+El tipo determina cómo se completa y valida el dato: texto, número, fecha, teléfono, Email, selección, selección múltiple o sí/no. Usá una selección cuando necesites opciones consistentes, como rubros o centros de costo.
+
+En este ejemplo, Colegio del Mirador incorporó la sugerencia Email, la llamó **Email de administración** y la hizo obligatoria. Escuela Los Aromos puede trabajar sin ese campo: cada institución decide su propia estructura.
+
+<Frame>
+  <img src="/docs/images/proveedores-ux/campos-personalizados.png" alt="Email de administración configurado como obligatorio para proveedores, junto a sugerencias opcionales de contacto y domicilio" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-ux/campos-personalizados.png)
+
+Los campos activos aparecen al crear o editar: los opcionales se agrupan en **Datos adicionales** y los requeridos en **Campos obligatorios**. Los obligatorios deben completarse para guardar; Email comprueba el formato del correo. Las sugerencias se agregan sólo cuando las elegís.
+
+Si tu institución ya tenía contacto o domicilio cargado, esos datos siguen disponibles en sus campos correspondientes. Renombrar un campo conserva los valores. Al desactivarlo deja de pedirse en los formularios y de ofrecerse en los filtros; los datos anteriores se conservan en la ficha, identificados como **Campo inactivo · dato conservado**. Eliminarlo también conserva esos datos históricos.
+
+En **Comprobantes**, podés incorporar **Rubro** cuando lo necesites. **Marcar campos como revisados** organiza la preparación; no registra deuda ni modifica pagos.
+
+## Administrar campos desde Configuración
+
+También podés entrar desde **Configuración → Campos personalizados**. Allí aparecen los campos de **Proveedores** y **Comprobantes de proveedores**, junto con los de las otras secciones de Fint.
+
+Para crear uno, usá **Agregar campo personalizado** y elegí a qué pertenece. Para modificar uno existente, usá su botón **Editar**. Son los mismos campos que configurás desde Proveedores: los cambios se reflejan en ambos lugares, sin duplicarlos, y conservan su ayuda, opciones, orden y condición de obligatorio o inactivo.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/11-campos-configuracion.png" alt="Campos de proveedores del Colegio del Mirador visibles en la configuración general de campos personalizados" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/11-campos-configuracion.png)
+
+Estas dos opciones aparecen cuando tu institución tiene **Proveedores** habilitado. Cada institución conserva sus propios campos.
+
+## Encontrar proveedores con esos datos
+
+El buscador de **Proveedores** consulta nombre, identificación y los valores de los campos personalizados activos. Por ejemplo, podés encontrar un proveedor por su correo aunque no recuerdes su nombre.
+
+- **Mostrar** permite consultar activos, archivados o todos.
+- **Etiquetas y campos → Agregar filtro por campo** permite elegir un campo, su condición y el valor. Confirmá con **Aplicar filtros**; **Cancelar** conserva la consulta anterior.
+- **Columnas** permite mostrar u ocultar los campos de tu institución en la tabla.
+- **Limpiar filtros** quita las condiciones. **Limpiar búsqueda** borra el texto del buscador.
+
+La búsqueda, los filtros y las columnas elegidas se conservan al recargar o al volver desde una ficha. La tabla ocupa el ancho disponible y la paginación queda al pie. Al cambiar de página volvés a la primera fila. Para consultar deuda, reservas y créditos, entrá a **Reportes**.
+
+<Frame>
+  <img src="/docs/images/proveedores-ux/listado-proveedores.png" alt="Proveedores de Red Educativa Horizonte con búsqueda, filtros y columnas sobre una tabla de ancho completo; página 1 de 2 visible al pie" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-ux/listado-proveedores.png)
+
+Los campos también pueden incorporarse desde un archivo. Revisá [cómo importar y corregir filas](/docs/guides/proveedores-importar) y [cómo filtrar reportes](/docs/guides/proveedores-reportes).
+
+## Trabajar sin cuenta bancaria
+
+En **Cuentas de salida**, podés elegir **Omitir por ahora** si operás en efectivo. Al registrar un pago, elegí la caja de origen. Si después necesitás transferencias, retomá el paso y revisá las cuentas propias y los destinos de tus proveedores.
+
+Omitir una etapa no impide consultar la cuenta corriente ni retomar la incorporación. Los registros y archivos que ya preparaste siguen disponibles.
