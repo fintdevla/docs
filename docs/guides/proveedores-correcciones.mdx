@@ -1,0 +1,54 @@
+---
+title: "Corregir importes y conservar un cierre"
+description: "Registrá una corrección con fecha sin borrar la identidad del comprobante ni los archivos guardados anteriormente."
+---
+
+Un comprobante confirmado ya tiene efecto en la cuenta corriente. Si su importe se informó mal, usá la corrección fechada para conservar el registro anterior y explicar el cambio.
+
+Necesitás ser **Administrador** de una institución con **Proveedores** habilitado. Antes de corregir un comprobante, resolvé sus pagos, créditos aplicados y reservas cuando la pantalla lo requiera.
+
+## Corregir un comprobante confirmado
+
+Abrí el comprobante y elegí **Corregir importes**. Indicá **Fecha efectiva de la corrección**, **Motivo de la corrección** y los importes correctos, incluyendo el desglose correspondiente.
+
+Elegí **Revisar corrección**. Compará el antes y después, la identificación del comprobante y la fecha. Confirmá con **Confirmar corrección fechada**.
+
+Fint conserva el mismo comprobante y su identificación fiscal. El reconocimiento anterior se revierte y el nuevo importe se reconoce en la fecha indicada. No se cambia silenciosamente la deuda de las fechas anteriores.
+
+## Consultar la historia
+
+Equipamiento del Horizonte tenía una factura de \$100.000. La corrección del 6 de agosto la llevó a \$120.000: el corte del día 5 conserva \$100.000 y el del día 6 muestra \$120.000.
+
+<Frame>
+  <img src="/docs/images/proveedores/correccion-cuenta-historica.png" alt="Cuenta corriente que conserva el reconocimiento original, su reversión y el nuevo importe de ciento veinte mil pesos" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/correccion-cuenta-historica.png)
+
+## Conservar un archivo guardado antes del cambio
+
+Un archivo guardado conserva la consulta tal como se generó. En el ejemplo, el cierre anterior sigue mostrando \$100.000 aunque la consulta actual del mismo corte ya incorpore la corrección.
+
+<Frame>
+  <img src="/docs/images/proveedores/correccion-cierre-conservado.png" alt="Archivo guardado antes de la corrección que conserva cien mil pesos y permite descargar el original" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/correccion-cierre-conservado.png)
+
+Usá **Descargar archivo original** para recuperar esos mismos datos. Guardá una nueva consulta si necesitás un archivo que incluya la corrección.
+
+**Archivar** oculta el comprobante de los listados habituales; no anula su deuda ni borra su cuenta corriente. Usá los filtros de archivo para volver a encontrarlo.
+
+## Cargar y corregir un original en dólares
+
+Al cargar el comprobante, elegí **Dólares · USD informativo** en **Moneda del original**. Completá el importe en dólares, la **Cotización acordada (ARS por USD)** y su fecha; la cotización admite hasta seis decimales. Guardá, revisá y confirmá el comprobante para reconocer su equivalente en pesos.
+
+Equipamiento del Bosque tenía un original de USD 123,45 con cotización 1234,567890: se reconocieron \$152.407,41. Si el importe o la cotización se informaron mal, elegí **Corregir importes**. Completá la fecha efectiva, el motivo, el importe y la cotización correctos, y compará ambos originales y equivalentes antes de **Confirmar corrección fechada**.
+
+<Frame>
+  <img src="/docs/images/proveedores/original-usd-corregido.png" alt="Comprobante corregido que conserva el original de ciento treinta dólares con cincuenta centavos, su cotización y ciento sesenta y tres mil ciento cuarenta y un pesos con once centavos de equivalente" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/original-usd-corregido.png)
+
+La corrección del 6 de agosto dejó USD 130,50 con cotización 1250,123456 y equivalente de \$163.141,11. El corte del día 5 conserva \$152.407,41; desde el día 6 muestra el nuevo importe. Se conserva el mismo comprobante, sin una factura ni un pago adicional. El archivo guardado antes de corregir también conserva los datos anteriores.

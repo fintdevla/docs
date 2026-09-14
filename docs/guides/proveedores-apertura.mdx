@@ -1,0 +1,64 @@
+---
+title: "Incorporar saldos iniciales de proveedores"
+description: "Elegí una fecha de corte y cargá el saldo pendiente con detalle o consolidado, conservando su origen."
+---
+
+Usá una apertura para incorporar lo que tu institución ya debía, o tenía a favor, al comenzar a registrar sus proveedores en Fint.
+
+Necesitás ser **Administrador** de una institución con **Proveedores** habilitado. Definí una fecha de corte y conciliá los saldos con tus registros antes de preparar el archivo.
+
+## Elegir cómo incorporar el saldo
+
+Desde **Proveedores → Más opciones (⋯) → Incorporar datos**, abrí la opción de apertura. En **Contenido del archivo**, elegí el detalle de saldos o el saldo consolidado por proveedor y completá **Fecha de corte de la apertura**.
+
+Usá **detalle** cuando conozcas los comprobantes, sus importes originales y lo que todavía quedaba pendiente. Usá **consolidado** cuando tengas un único saldo neto por proveedor al corte.
+
+Elegí **una sola modalidad por proveedor y moneda**: detalle o consolidado. No cargues ambos para representar la misma deuda. Si ya existe una apertura incompatible, Fint lo advierte en la revisión y no suma ese saldo otra vez.
+
+Prepará la vista previa y controlá los débitos, créditos y neto antes de confirmar. Una apertura reconoce el saldo pendiente; no registra pagos anteriores ni movimientos de caja o banco.
+
+## Conservar el detalle de cada comprobante
+
+El ejemplo de Papelera La Arboleda contiene una factura de \$1.210.000 con \$1.000.000 pendientes. Los \$210.000 cancelados antes del corte se muestran por separado y no aparecen como un pago nuevo.
+
+También quedan disponibles \$100.000 de una nota de crédito y \$50.000 de un anticipo anterior. El neto de la apertura es \$850.000: deuda de \$1.000.000 menos crédito disponible de \$150.000.
+
+<Frame>
+  <img src="/docs/images/proveedores/apertura-detalle.png" alt="Apertura detallada que conserva originales, cancelaciones previas y saldo pendiente de factura, nota de crédito y anticipo" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/apertura-detalle.png)
+
+La factura conserva su identificación fiscal, impuestos y vencimiento. El anticipo anterior queda como crédito disponible, sin crear una orden de pago que simule su entrega pasada.
+
+## Incorporar un saldo consolidado
+
+Si sólo tenés el neto de Papelera La Arboleda, incorporá \$850.000 a ese proveedor. El saldo coincide con el ejemplo detallado, pero la apertura consolidada no conserva por separado la factura, la nota de crédito y el anticipo.
+
+<Frame>
+  <img src="/docs/images/proveedores/apertura-saldo-unico.png" alt="Papelera La Arboleda con ochocientos cincuenta mil pesos de saldo inicial consolidado" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/apertura-saldo-unico.png)
+
+Informá un saldo positivo si debés al proveedor y negativo si tenés crédito a favor. En otra cartera, Librería Puentes tiene \$1.000.000 de deuda y Servicios del Jardín \$150.000 a favor. El crédito pertenece a este último proveedor.
+
+<Frame>
+  <img src="/docs/images/proveedores/apertura-consolidada.png" alt="Dos aperturas consolidadas: un millón de pesos de deuda y ciento cincuenta mil pesos de crédito a favor" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/apertura-consolidada.png)
+
+El saldo consolidado no inventa números de factura ni vencimientos. Conservá los comprobantes originales como respaldo cuando estén disponibles.
+
+## Consultar apertura y saldo actual
+
+Desde el resultado de la importación, elegí **Consultar aperturas**. Cada proveedor tiene su propio detalle, con acceso al archivo y a **Ver saldo actual**.
+
+La apertura muestra los importes incorporados al inicio. La cuenta corriente cambia con los pagos y aplicaciones posteriores. Al consultar una fecha anterior al corte, esos saldos iniciales todavía no están reconocidos.
+
+## Agregar originales anteriores al corte
+
+Si después obtenés un archivo con comprobantes de esa etapa, incorporalo como **Comprobantes**, con sus fechas originales. Si proviene de ARCA u otro formato, elegí y revisá el mapeo de columnas; seleccionar ARCA no interpreta ni certifica automáticamente sus variantes.
+
+Un comprobante con fecha anterior o igual al corte de la apertura se conserva como histórico, sin reconocer otra deuda, incluso si elegís confirmar los comprobantes de la importación. Una coincidencia fiscal conserva el mismo comprobante; diferencias de importes requieren revisión. Controlá el **Neto incorporado en ARS** y la cuenta corriente: agregar el respaldo histórico no debe volver a sumar el saldo inicial.

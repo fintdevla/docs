@@ -1,0 +1,67 @@
+---
+title: "Importar comprobantes y corregir filas"
+description: "Revisá un archivo, incorporá las filas válidas y corregí las pendientes sin duplicar comprobantes."
+---
+
+Importá compras desde un archivo y controlá qué se incorpora antes de reconocer obligaciones. Podés corregir una fila y retomar el trabajo sin volver a cargar lo que ya quedó guardado.
+
+Necesitás ser **Administrador** de una institución con **Proveedores** habilitado. El ejemplo usa un archivo de 100 filas: 90 compras nuevas, 5 repetidas y 5 con fechas inválidas.
+
+## Preparar la vista previa
+
+1. Entrá a **Proveedores → Más opciones (⋯) → Importaciones → Importar archivo**.
+2. En **Contenido del archivo**, elegí **Comprobantes**. Seleccioná CSV o Excel y el origen de las columnas.
+3. Elegí el archivo y presioná **Preparar vista previa**. El original queda guardado antes de incorporar sus filas.
+
+Revisá los proveedores, las coincidencias, los errores y los totales en pesos. Si alguna columna no corresponde, abrí **Elegir columnas y formatos** y actualizá la vista previa.
+
+## Incorporar las filas válidas
+
+Elegí **Confirmar importación**. Para reconocer las obligaciones, marcá **Confirmar también los comprobantes e incorporar su obligación**. Revisá la advertencia, los proveedores y los totales antes de confirmar.
+
+Si quedan errores, podés marcar **Importar solo las filas válidas y dejar las demás pendientes para corregir**. En el ejemplo se incorporan 90 compras y las 5 coincidencias se vinculan sin generar otra deuda.
+
+## Corregir y reintentar
+
+1. En **Revisión por fila**, filtrá las filas con errores.
+2. Abrí **Revisar fila**, corregí el dato indicado y elegí **Guardar y volver a revisar fila**.
+3. Cuando termines, elegí **Reintentar pendientes**. Revisá el resumen y confirmá el procesamiento.
+
+Fint conserva el valor del archivo original junto con la corrección. Una fila ya importada permite consultar esos datos desde **Ver fila**.
+
+<Frame>
+  <img src="/docs/images/proveedores/importacion-fila-corregida.png" alt="Detalle de una fila con la fecha original inválida conservada y la fecha de emisión corregida" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/importacion-fila-corregida.png)
+
+## Controlar el resultado
+
+En el ejemplo, las cinco correcciones dejan **95 importadas** y **5 vinculadas**. Como cada compra es de \$100, el neto incorporado es \$9.500.
+
+<Frame>
+  <img src="/docs/images/proveedores/importacion-resultado.png" alt="Importación finalizada con noventa y cinco comprobantes nuevos, cinco coincidencias vinculadas y nueve mil quinientos pesos incorporados" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/importacion-resultado.png)
+
+Consultá **Abrir comprobante** para revisar una obligación o **Abrir proveedor** para ver su cuenta corriente. Volver a subir el mismo archivo recupera su importación y conserva las correcciones y resultados existentes.
+
+Si estás incorporando deuda que ya existía al comenzar a usar Fint, prepará una [apertura con fecha de corte](/docs/guides/proveedores-apertura) antes de importar respaldos anteriores.
+
+## Deshacer filas sin borrar su historia
+
+Seleccioná las filas que necesitás revisar; la selección se conserva al cambiar de página. Elegí **Deshacer … filas seleccionadas**, indicá la **Fecha efectiva** y el **Motivo**, y presioná **Solicitar deshacer**. El botón muestra cuántas filas seleccionaste.
+
+Fint revisa cada fila. Un comprobante con un pago, reserva, cambio o respaldo posterior puede quedar protegido: el resultado indica el motivo. Las filas elegibles se anulan con la fecha elegida y se conservan el archivo original y la historia. Un pago existente no se anula al deshacer la importación.
+
+Controlá los conteos de importadas, deshechas y protegidas, y abrí el comprobante cuando necesites resolver su uso posterior. **Reintentar pendientes** no vuelve a importar automáticamente una fila deshecha. El neto de esta importación describe lo que incorporó el archivo; la cuenta corriente también incluye los pagos posteriores.
+
+
+## Importar los campos de tu institución
+
+Para incorporar el padrón, elegí **Proveedores** en **Contenido del archivo**. Definí primero los [campos personalizados](/docs/guides/proveedores-configuracion) y descargá la plantilla actualizada: incluye las columnas de tu institución con el prefijo **Campo:**. Por ejemplo, **Campo: Email de administración**.
+
+Completá el valor según su tipo. Un Email inválido o un campo obligatorio vacío se señala en la revisión de la fila. Corregilo y volvé a revisar antes de confirmar la importación.
+
+Al terminar, abrí el proveedor para comprobar **Datos adicionales**. Ese valor también se puede buscar, filtrar y mostrar con **Columnas** en el listado. Si renombraste un campo, usá su nombre actual al preparar un archivo nuevo.

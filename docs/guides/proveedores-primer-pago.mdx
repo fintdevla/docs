@@ -1,0 +1,185 @@
+---
+title: "Registrar y consultar pagos a proveedores"
+description: "Cargá una factura, aplicá una nota de crédito y registrá un pago parcial para conocer cuánto queda pendiente."
+---
+
+Registrá las obligaciones y los pagos de tu institución para consultar la deuda pendiente de cada proveedor y conservar su orden de pago en PDF.
+
+<Info>
+  Registrás pagos que ya realizaste fuera de Fint. La orden de pago no ejecuta una transferencia ni acredita una conciliación bancaria.
+</Info>
+
+## Antes de empezar
+
+Necesitás ser **Administrador** de una institución con **Proveedores** habilitado. Los importes operativos se registran en pesos argentinos. Si estás empezando, podés [ordenar la incorporación de datos y revisar los campos](/docs/guides/proveedores-configuracion).
+
+Para una transferencia, necesitás una [cuenta bancaria de la institución](/docs/guides/conciliacion-bancaria-cuentas) ya configurada y una cuenta de destino del proveedor revisada manualmente. Para efectivo, necesitás una caja de origen.
+
+El ejemplo usa una factura de \$1.210.000 y una nota de crédito de \$210.000. Un pago de \$400.000 —\$390.000 entregados más \$10.000 retenidos— deja \$600.000 pendientes.
+
+## Crear el proveedor y revisar su cuenta
+
+1. Entrá a **Proveedores → Nuevo proveedor**. Completá nombre, país e identificación fiscal; completá los campos adicionales que haya definido tu institución y guardá.
+2. Abrí **Cuentas de destino → Agregar cuenta**. Completá banco, moneda, tipo de identificación y datos del titular. Podés marcarla como predeterminada.
+3. Guardá la cuenta. Queda **Sin verificar**.
+4. Confirmá los datos con el proveedor por un canal conocido. Presioná **Verificar manualmente**, explicá cómo los revisaste y elegí **Confirmar revisión**.
+
+La revisión la realiza tu institución: no acredita la titularidad ante el banco.
+
+<Frame>
+  <img src="/docs/images/proveedores/cuenta-verificada.png" alt="Papelera del Sur tiene una cuenta de destino predeterminada y verificada manualmente" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/cuenta-verificada.png)
+
+### Crear un proveedor mientras cargás un comprobante
+
+En **Cargar comprobante**, abrí el selector **Proveedor** y buscá por nombre, identificación o datos adicionales. Si todavía no existe, elegí **Crear proveedor**. Completá sus datos y guardá: queda seleccionado y el comprobante conserva lo que ya habías escrito.
+
+<Frame>
+  <img src="/docs/images/proveedores-ux/alta-desde-comprobante.png" alt="Alta de Ferretería Los Aromos con nombre e identificación fiscal, sin abandonar el comprobante que se está cargando" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-ux/alta-desde-comprobante.png)
+
+En este ejemplo la institución trabaja con los datos básicos. Si definió campos obligatorios, el mismo formulario también los pide.
+
+## Cargar y confirmar la factura
+
+1. Desde **Comprobantes** o **Por pagar**, elegí **Cargar comprobante**. Se abre una carga lateral y la búsqueda permanece detrás. También podés usar la carga completa desde la ficha del proveedor.
+2. Seleccioná el tipo de comprobante y completá tipo fiscal, punto de venta, número y fecha de emisión. El vencimiento es opcional.
+3. Indicá el **Importe total** y elegí el **Tratamiento del importe** según el original. Para detallar impuestos, completá netos e importes de cada impuesto.
+4. Presioná **Guardar comprobante**. Revisá los datos guardados y elegí **Confirmar comprobante**, con su fecha efectiva.
+
+La carga sencilla conserva el tratamiento del importe que elijas. **Desglosar netos, impuestos y percepciones** abre el detalle. Los campos obligatorios de tu institución se piden también en esta carga.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/06-carga-rapida.png" alt="Carga lateral de una factura C por 120.000 pesos para Librería del Bosque, con tratamiento del importe explícito y botón Guardar comprobante" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/06-carga-rapida.png)
+
+Al guardar desde el listado se abre una consulta rápida. Podés **Completar datos**, **Ver ficha completa** o **Confirmar comprobante**. Confirmar una obligación la habilita en **Por pagar**.
+
+La captura muestra una carga sencilla de Escuela del Roble. El caso con impuestos que sigue corresponde a la factura de \$1.210.000 presentada al inicio.
+
+En ese caso, el neto gravado es \$1.000.000 y el IVA informado es \$210.000. La suma debe coincidir con el total de \$1.210.000; la base del impuesto no se suma otra vez.
+
+Los importes se formatean mientras escribís: `1210000,50` se muestra como `1.210.000,50`, con `$` o `USD` según la moneda. También podés pegar `1210000.50` o `1.210.000,50`. Admiten hasta dos decimales; al salir del campo se completan los centavos. Si el valor pegado no es válido, se conserva el importe anterior y aparece un aviso que debés corregir antes de guardar.
+
+El mismo formato se usa en pagos, retenciones, lotes, créditos y reintegros. Las cotizaciones y alícuotas admiten hasta seis decimales.
+
+<Frame>
+  <img src="/docs/images/proveedores-ux/importes-formateados.png" alt="Importe total de 1.210.000,00 pesos, neto y base de 1.000.000,00 e IVA de 210.000,00 con separadores de miles y centavos" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-ux/importes-formateados.png)
+
+Guardar deja el comprobante **Cargado**. Si usás **Otras acciones → Marcar recibido**, queda **Recibido**. En ambos casos, la obligación se reconoce recién al confirmar.
+
+Si Fint encuentra un gasto o ticket parecido, revisá el registro que señala: proveedor, importe, fecha y descripción. Si es otro hecho, marcá la aceptación explícita para guardar el nuevo comprobante. Guardarlo todavía no reconoce deuda; confirmalo sólo después de revisar su contenido.
+
+### Si recibiste una nota de crédito
+
+Cargá otro comprobante de tipo **Nota de crédito**. En **Vincular comprobante original**, elegí la factura correspondiente; completá los datos de la nota y confirmala.
+
+Desde la nota confirmada, presioná **Aplicar crédito**. Elegí el comprobante pendiente, el importe y la fecha efectiva, y seleccioná **Confirmar aplicación**.
+
+La confirmación reconoce el crédito. Aplicarlo baja el pendiente de la factura sin registrar otro pago. En el ejemplo, aplicás \$210.000 y la factura queda con \$1.000.000 por cancelar.
+
+Si el crédito cubre todo el importe, la factura queda con **Saldo cancelado** y **Pagos aplicados** en cero. Esa aplicación no genera una orden de pago ni registra fondos entregados.
+
+## Registrar el pago parcial
+
+También podés iniciar un pago desde **Pagos registrados → Registrar pago**: buscá al proveedor y elegí **Continuar**.
+
+1. Abrí la factura confirmada y elegí **Registrar pago**.
+2. En **Importe de este pago**, indicá cuánto cancelás: \$400.000 en el ejemplo.
+3. Completá la fecha efectiva y el medio. Para transferencia, elegí cuenta de origen y destino e indicá **Fondos entregados (ARS)**: \$390.000.
+4. Si corresponde, abrí **Retenciones manuales → Agregar retención** y cargá los datos del certificado y el importe retenido: \$10.000 en el ejemplo.
+5. Presioná **Revisar pago**. Comprobá fecha, destino, deuda cancelada, fondos y retenciones. Confirmá que el pago ya se realizó y elegí **Confirmar registro de pago**.
+
+Las retenciones se cargan manualmente con los datos calculados por tu contador. No se transfieren al proveedor: fondos más retenciones deben coincidir con la deuda cancelada.
+
+La factura muestra **Parcialmente cancelado**, **Pagos aplicados** por \$400.000 y \$600.000 pendientes. Los **Créditos aplicados** se muestran por separado.
+
+<Frame>
+  <img src="/docs/images/proveedores/factura-pago-parcial.png" alt="Factura de un millón doscientos diez mil pesos con doscientos diez mil de crédito aplicado, cuatrocientos mil pagados y seiscientos mil pendientes" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/factura-pago-parcial.png)
+
+## Descargar la orden de pago
+
+Después de registrar el pago, se abre su orden numerada. **Descargar PDF** conserva el detalle de los comprobantes, medios y retenciones del registro.
+
+<Frame>
+  <img src="/docs/images/proveedores/orden-pago.png" alt="Orden de pago que distingue cuatrocientos mil pesos de deuda cancelada, trescientos noventa mil entregados y diez mil retenidos" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/orden-pago.png)
+
+Si la generación falla, la orden y el pago siguen registrados. Elegí **Reintentar PDF** cuando vuelva a estar disponible; no registres otro pago para obtener la constancia.
+
+## Consultar el saldo a una fecha
+
+Desde el proveedor, abrí **Cuenta corriente** y elegí la **Fecha de corte**. La deuda neta es el pendiente de comprobantes menos el crédito disponible.
+
+<Frame>
+  <img src="/docs/images/proveedores/saldo-proveedor.png" alt="Cuenta corriente al quince de agosto: factura, nota de crédito y orden de pago dejan seiscientos mil pesos pendientes" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/saldo-proveedor.png)
+
+### Corregir un registro de pago erróneo
+
+En la orden de pago, abrí **Corregir un registro erróneo → Anular registro de pago**. Indicá motivo y fecha efectiva antes de confirmar.
+
+La anulación conserva el registro histórico y corrige sus imputaciones. No devuelve dinero desde el banco: si el proveedor devolvió fondos realmente, es un hecho distinto.
+
+En el ejemplo, anular el pago el 19 de agosto devuelve el pendiente a \$1.000.000 y conserva la nota de crédito aplicada. Queda **Parcialmente cancelado** por ese crédito, con **Pagos aplicados** en cero. El corte del 15 de agosto sigue mostrando el pago y el saldo anterior de \$600.000.
+
+### Pagar en efectivo y trabajar sin vencimiento
+
+Elegí **Efectivo** como medio y seleccioná la **Caja de origen**. No necesitás una cuenta bancaria de destino. Un comprobante sin vencimiento también puede confirmarse y pagarse.
+
+Un **Recibo de pago** sirve como respaldo y no genera otra deuda ni se selecciona como obligación para un nuevo pago.
+
+## Trabajar desde el listado y volver a la misma vista
+
+En **Comprobantes** y **Por pagar**, hacé clic en una fila para abrir la consulta rápida. El menú **⋯** permite registrar un pago, agregar a un lote o abrir la ficha completa, según el estado. El nombre del proveedor abre su cuenta corriente.
+
+**Configurar columnas** permite mostrar, ocultar y reordenar datos, incluidos los campos personalizados de los comprobantes. Las preferencias se recuerdan por institución y listado en este navegador. Si hay muchas columnas, desplazá la tabla hacia los costados.
+
+En **Pagos registrados**, hacé clic en una fila o en el número de la OP para abrir el detalle a la derecha. La tabla conserva su búsqueda, filtros y página al cerrar con la **X** o con **Escape**. En el celular, elegí **Ver pago**.
+
+El panel muestra los importes originales, los comprobantes aplicados, los medios del pago y las retenciones. **Descargar PDF** obtiene la constancia y **Ver respaldos** te lleva a los archivos, notas y actividad del registro. Si la OP tiene crédito disponible, podés aplicarlo o registrar un reintegro desde el mismo panel.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/10-pago-panel.png" alt="Detalle lateral de una orden de pago con la tabla detrás, importes de deuda, fondos y retenciones, y acceso a PDF y respaldos" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/10-pago-panel.png)
+
+Podés compartir la URL con el detalle abierto. Al consultar un comprobante o la cuenta del proveedor y elegir **Volver**, regresás al pago en el listado.
+
+La búsqueda, los filtros y la página se conservan al abrir una ficha y volver. Podés copiar esa URL para compartir la misma consulta con otro administrador de tu institución.
+
+En el celular, cada tarjeta reúne el saldo pendiente, el estado y las acciones. Lo reservado sigue formando parte de la deuda; **Disponible** indica cuánto queda para programar otro lote.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/04-mobile.png" alt="Tarjetas móviles con diez mil pesos pendientes, reserva parcial de cinco mil y un único menú de acciones por comprobante, sin desplazar horizontalmente" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/04-mobile.png)
+
+Para agrupar varios comprobantes, seguí [el recorrido de lotes desde la selección](/docs/guides/proveedores-lotes).
+
+
+En la carga sencilla de Escuela del Roble, una factura de \$120.000 y un pago parcial de \$40.000 dejan \$80.000 pendientes. La ficha completa conserva ambos movimientos y sus fechas.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/09-cuenta-corriente.png" alt="Cuenta corriente de Librería del Bosque con una factura de ciento veinte mil pesos, un pago de cuarenta mil y ochenta mil pendientes" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/09-cuenta-corriente.png)
