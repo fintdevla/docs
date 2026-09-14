@@ -1,0 +1,76 @@
+---
+title: "Programar y registrar pagos por lote"
+description: "Reservá parte del saldo, registrá cada pago realizado y conservá la historia cuando cambia la planificación."
+---
+
+Un lote reúne pagos previstos. Al crearlo, reservás saldo de los comprobantes; la deuda baja cuando registrás el pago que efectivamente se realizó.
+
+Necesitás ser **Administrador** de una institución con **Proveedores** habilitado y tener comprobantes confirmados con saldo disponible. Si vas a registrar una transferencia, revisá antes la cuenta de destino del proveedor.
+
+## Preparar un lote desde Por pagar
+
+1. Entrá a **Proveedores → Por pagar**. Buscá o filtrá los comprobantes.
+2. Seleccioná las filas que querés programar. La selección se conserva al cambiar de página. La barra flotante muestra la cantidad, el total disponible y la acción para agregar al lote.
+3. Elegí **Agregar a un lote**.
+
+Desde **Configurar columnas**, elegí los datos que necesitás ver. En la captura se ocultan proveedor y descripción para concentrarse en los importes del proveedor filtrado. Las columnas adicionales se consultan desplazando la tabla hacia los costados.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/01-seleccion.png" alt="Dos comprobantes seleccionados, con quince mil pesos disponibles y la acción Agregar a un lote en una barra flotante sobre el listado" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/01-seleccion.png)
+
+Sólo podés seleccionar obligaciones confirmadas con saldo disponible. Los créditos, anulados, archivados y comprobantes completamente reservados no se incorporan como nuevas obligaciones del lote.
+
+### Crear uno nuevo
+
+Elegí **Crear lote nuevo** y completá nombre y fecha prevista de pago. Podés reducir el importe de cada comprobante o quitarlo. Revisá el **Total a reservar** y confirmá con **Crear lote y reservar**.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/02-crear-lote.png" alt="Panel lateral para crear un lote con dos comprobantes y quince mil pesos a reservar, manteniendo el listado de origen detrás" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/02-crear-lote.png)
+
+**Fecha de reserva y origen de fondos** permite cambiar desde cuándo reservás y elegir un origen previsto. Las cuentas de destino se pueden elegir y revisar en la ficha completa del lote antes de registrar transferencias.
+
+### Agregar a uno existente
+
+Elegí **Lote existente**, buscá el lote abierto y seleccionalo. Cada opción muestra fecha prevista y reserva pendiente; también aparecen los lotes registrados en parte.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/03-lote-existente.png" alt="Selector de lote existente que muestra Materiales de septiembre abierto y permite incorporar la selección actual" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/03-lote-existente.png)
+
+El lote elegido queda marcado. **Cambiar** permite elegir otro sin perder los importes editados. Revisá el destino y el **Total a agregar** en el pie, y confirmá con **Agregar y reservar**.
+
+Después de guardar se abre el lote completo. **Volver** recupera la búsqueda y la página desde las que empezaste. La reserva no reduce la deuda ni mueve fondos.
+
+También podés preparar un lote desde **Lotes de pago → Preparar lote**, o sumar comprobantes desde **Agregar comprobantes** dentro de su ficha. Cada incorporación admite hasta cien líneas y vuelve a validar el saldo disponible.
+
+## Registrar los pagos realizados
+
+Abrí el lote y entrá al registro de pago del proveedor. Podés informar un importe parcial. Completá los fondos entregados, el medio y la **Fecha efectiva del pago**; revisá el resumen y marcá que el pago ya se realizó antes de confirmar.
+
+Cada registro genera su propia orden de pago. En el ejemplo, se reservaron \$60.000 y después se registró un pago de \$20.000. Quedan \$40.000 reservados en el lote y \$60.000 de deuda total del proveedor.
+
+<Frame>
+  <img src="/docs/images/proveedores-operativa/08-lote-parcial.png" alt="Lote de reparaciones con sesenta mil pesos programados, veinte mil cancelados y cuarenta mil todavía reservados, junto a su pago registrado" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-operativa/08-lote-parcial.png)
+
+Si cambió la cuenta bancaria, el lote pide **Revisar destino**. Compará la cuenta anterior con la actual, indicá el motivo y confirmá el destino revisado. Verificar la cuenta del proveedor no reemplaza esta revisión del lote. Las órdenes anteriores conservan el destino que usaron al emitirse.
+
+## Cambiar o cerrar lo pendiente
+
+Usá **Liberar reserva** para indicar el importe que dejás de programar, con fecha y motivo. **Cancelar pendiente del lote** cierra lo pendiente y conserva los pagos ya registrados.
+
+Un pago informado por error se corrige desde su registro, con fecha y motivo. Cancelar el lote no anula pagos ni aplicaciones de crédito.
+
+Si registrás un pago directamente desde el proveedor y el comprobante tiene reservas, elegí cómo usar ese saldo en **Saldo reservado: elegí cómo usarlo**. Revisá la liberación o el consumo antes de confirmar.
+
+Consultá la cuenta corriente y **Pagos registrados** para comprobar el resultado. El PDF es una constancia del registro en Fint; no ejecuta la transferencia ni acredita su conciliación bancaria.

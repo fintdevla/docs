@@ -102,6 +102,21 @@
             ]
           },
           {
+            "group": "Proveedores",
+            "pages": [
+              "docs/guides/proveedores-demo",
+              "docs/guides/proveedores-configuracion",
+              "docs/guides/proveedores-primer-pago",
+              "docs/guides/proveedores-importar",
+              "docs/guides/proveedores-apertura",
+              "docs/guides/proveedores-lotes",
+              "docs/guides/proveedores-creditos",
+              "docs/guides/proveedores-correcciones",
+              "docs/guides/proveedores-respaldos",
+              "docs/guides/proveedores-reportes"
+            ]
+          },
+          {
             "group": "Canales de venta",
             "icon": "store",
             "pages": [

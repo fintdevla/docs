@@ -1,0 +1,105 @@
+---
+title: "Recorrer la demo de Proveedores"
+sidebarTitle: "Recorrer la demo"
+description: "Seis instituciones con meses de actividad para comparar cuentas, pagos, importaciones y reportes."
+---
+
+La demo reúne **128 proveedores, 1.280 comprobantes y 522 órdenes de pago**, con operaciones de marzo a septiembre de 2026. Cada institución tiene una historia distinta. Los nombres, comprobantes y pagos son ficticios.
+
+<Card title="Abrir la demo" icon="arrow-up-right-from-square" href="https://fint-proveedores-admin.antonanton.dev/login">
+  Usá el acceso temporal de abajo. El mismo usuario permite cambiar entre las seis instituciones.
+</Card>
+
+## Acceso temporal
+
+Acceso compartido para que el equipo pruebe la demo con datos ficticios:
+
+- **Usuario:** `gabriel.proveedores@example.com`
+- **Contraseña:** `VUpOlR3qMjGg-zEwZbKHBpuqqX7zFXa_`
+
+Podés registrar operaciones y cambiar de institución con este mismo acceso. Los cambios quedan visibles para las demás personas del equipo.
+
+## Elegir una institución
+
+En el panel, abrí el selector con el **nombre de la institución**, arriba a la izquierda. Elegí una de las siguientes y entrá a **Proveedores**. En el celular, abrí primero el menú lateral.
+
+| Institución | Actividad para explorar |
+| --- | --- |
+| Colegio Alameda | 20 proveedores y 186 comprobantes. Transferencias, retenciones, pagos parciales y lotes. |
+| Colegio Los Tilos | 20 proveedores y 181 comprobantes. Efectivo, recibos y archivados con o sin deuda. |
+| Red Educativa Horizonte | 40 proveedores y 601 comprobantes. Varias páginas, sedes, rubros y reportes con más volumen. |
+| Instituto La Ribera | 16 proveedores y 109 comprobantes. Saldos iniciales, importaciones corregidas y filas protegidas al deshacer. |
+| Centro Los Olivos | 16 proveedores y 103 comprobantes. Anticipos, aplicaciones, reintegros y correcciones. |
+| Instituto del Parque | 16 proveedores y 100 comprobantes. Originales en dólares, su importe en pesos y respaldos. |
+
+Los conteos corresponden al **6 de septiembre de 2026**. Pueden cambiar cuando el equipo registre operaciones durante la prueba.
+
+## Primera parada: una factura de Alameda
+
+### Encontrá la factura
+Elegí **Colegio Alameda**. En **Comprobantes**, buscá **Insumos de agosto** y abrí la factura **0001-00080001**, de **Librería del Molino**.
+
+La factura es de **\$1.210.000**. Tiene **\$210.000** de crédito aplicado y **\$400.000** pagados; quedan **\$600.000** pendientes. De ese pendiente, **\$300.000** están reservados en un lote.
+
+
+<Frame>
+  <img src="/docs/images/proveedores-demo/alameda-factura-parcial.png" alt="Factura de Librería del Molino en Colegio Alameda: 600.000 pesos pendientes, 400.000 pagados y 300.000 reservados en un lote" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-demo/alameda-factura-parcial.png)
+
+La reserva organiza un pago futuro: el pendiente sigue siendo **\$600.000**. Podés abrir el lote desde **Seguimiento** o consultar la cuenta corriente del proveedor.
+
+### Revisá cómo se compone el pago
+En **Órdenes de pago**, abrí la **OP 0001-00000073** de Librería del Molino. Canceló **\$400.000** de deuda con **\$390.000** de fondos y **\$10.000** de retención registrada manualmente. Desde el detalle podés descargar su PDF.
+
+
+<Frame>
+  <img src="/docs/images/proveedores-demo/alameda-op-retencion.png" alt="Orden de pago de Colegio Alameda con 390.000 pesos transferidos y 10.000 pesos de retención manual, aplicados a 400.000 pesos de deuda" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-demo/alameda-op-retencion.png)
+
+Para recorrer los estados de programación, entrá a **Lotes de pago**: hay pagos programados, uno parcialmente registrado, uno cancelado y un destino bancario que requiere revisión.
+
+## Comparar volumen e historia
+
+Elegí **Red Educativa Horizonte** y abrí **Comprobantes**. Elegí **Todos** y recorré las páginas. En **Más filtros → Etiquetas y campos**, combiná Rubro y Sede con el estado y el proveedor. Hay facturas pendientes, parcialmente pagadas y pagadas, además de registros cargados, recibidos y anulados.
+
+<Frame>
+  <img src="/docs/images/proveedores-demo/horizonte-comprobantes.png" alt="Segunda página de comprobantes de Red Educativa Horizonte: 584 sin archivar, con distintos proveedores, estados e importes" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores-demo/horizonte-comprobantes.png)
+
+En **Reportes**, consultá la deuda al **31/03/2026** y después al **31/08/2026**. Aplicá los filtros en cada consulta para comparar los cortes. En **Archivos guardados** también hay cierres de agosto: el original descargado conserva los datos con los que se guardó.
+
+## Seguir con los otros casos
+
+<CardGroup cols={2}>
+  <Card title="Importaciones y saldos iniciales" href="/docs/guides/proveedores-importar">
+En La Ribera, retomá una importación en revisión o consultá una ya corregida. Otra conserva una fila protegida porque recibió un pago posterior.
+  </Card>
+  <Card title="Anticipos y reintegros" href="/docs/guides/proveedores-creditos">
+En Los Olivos, revisá anticipos sin aplicar y parcialmente aplicados, una desaplicación y un reintegro corregido.
+  </Card>
+  <Card title="Correcciones y cierres" href="/docs/guides/proveedores-correcciones">
+En Los Olivos, compará un comprobante corregido de 100.000 a 120.000 pesos con los archivos guardados antes y después.
+  </Card>
+  <Card title="Originales y respaldos" href="/docs/guides/proveedores-respaldos">
+En Del Parque, abrí un original en dólares: conserva su moneda y cotización, y muestra el importe operativo en pesos. Consultá también su respaldo PDF.
+  </Card>
+</CardGroup>
+
+En **Los Tilos**, incluí los proveedores archivados para comparar uno sin saldo con otro que conserva **\$85.000** pendientes. Archivar no borra su historia.
+
+<Info>
+  Esta URL muestra el preview de las docs. Usá el menú de **Proveedores** y los enlaces de cada guía para navegar; el buscador de Mintlify requiere activar una cuenta de publicación.
+</Info>
+
+
+## Probar los campos y la búsqueda
+
+El listado permite buscar por nombre, identificación o datos adicionales, elegir **Columnas** y combinar condiciones con **Etiquetas y campos**. Los resultados y la paginación ocupan el espacio del listado. Consultá los saldos financieros en **Reportes**.
+
+Desde **Más opciones (⋯) → Incorporar datos → Rubro y campos → Revisar campos**, podés adaptar los datos a cada institución. Consultá [cómo configurar campos y sugerencias](/docs/guides/proveedores-configuracion). Los contactos y domicilios ya cargados siguen disponibles; agregar una sugerencia nueva es opcional.

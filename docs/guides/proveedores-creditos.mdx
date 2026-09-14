@@ -1,0 +1,40 @@
+---
+title: "Aplicar anticipos y registrar reintegros"
+description: "Usá el crédito de un proveedor sin duplicar pagos y distinguí una devolución real de la corrección de un registro."
+---
+
+El crédito puede coexistir con facturas pendientes. Aplicarlo indica qué comprobante cancela; el dinero ya se registró al informar el anticipo.
+
+Necesitás ser **Administrador**, tener **Proveedores** habilitado y usar una cuenta o caja de origen cuando el medio de pago lo requiera.
+
+## Registrar un anticipo entregado
+
+Desde la ficha del proveedor, elegí **Registrar anticipo**. Indicá su importe, motivo, fondos entregados, medio y fecha efectiva. Revisá el resumen y confirmá que el pago ya se realizó.
+
+La orden distingue **Deuda cancelada**, **Fondos entregados** y **Anticipo a favor**. Un anticipo de \$100.000 sin facturas aplicadas entrega \$100.000 y cancela \$0 de deuda existente.
+
+## Aplicar y cambiar la aplicación
+
+En la orden, elegí **Aplicar crédito**. Seleccioná el comprobante confirmado, indicá el importe y la fecha efectiva, y confirmá la aplicación. Revisá cuánto queda pendiente en la factura y cuánto crédito conserva la orden.
+
+**Desaplicar** devuelve el importe al crédito de esa orden y reabre el pendiente del comprobante, con fecha y motivo. Después podés aplicarlo a otro comprobante. Estas acciones no registran otra entrega de dinero ni cambian por sí solas la deuda neta.
+
+## Registrar dinero que volvió
+
+Usá **Registrar reintegro** cuando el proveedor ya devolvió fondos. Completá importe, fecha, cuenta o caja que recibió el dinero, referencia y motivo. Elegí **Revisar reintegro** y confirmá que la devolución ocurrió.
+
+El reintegro reduce el crédito disponible y registra el ingreso en el destino indicado. Si se registró un ingreso que no ocurrió, abrí ese reintegro y elegí **Corregir un reintegro erróneo**, con su fecha y motivo.
+
+## Comprobar el resultado por fecha
+
+En el ejemplo de Reparaciones de Puentes había facturas por \$140.000 y un anticipo de \$100.000. Al aplicar \$40.000 y recibir un reintegro de \$20.000, quedaron \$100.000 de comprobantes pendientes y \$40.000 de crédito disponible: deuda neta de \$60.000.
+
+<Frame>
+  <img src="/docs/images/proveedores/creditos-corte-historico.png" alt="Cuenta corriente al siete de agosto con cien mil pesos pendientes, cuarenta mil de crédito y sesenta mil de deuda neta" />
+</Frame>
+
+[Ver imagen en tamaño original](/docs/images/proveedores/creditos-corte-historico.png)
+
+La captura usa una **Fecha de corte** anterior a las correcciones posteriores del ejemplo. Cambiar el corte permite ver cuándo tuvo efecto cada hecho; no edita el saldo.
+
+Para corregir un anticipo informado por error, primero resolvé sus aplicaciones y reintegros. La orden conserva su historia y el PDF de emisión; anular el registro no significa que el proveedor haya devuelto el dinero.
