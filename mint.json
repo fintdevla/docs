@@ -36,6 +36,10 @@
     {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "Novedades",
+      "url": "novedades"
     }
   ],
   "navigation": [
@@ -43,8 +47,7 @@
       "group": "Comenzar",
       "pages": [
         "docs/introduction",
-        "docs/guides/dashboard",
-        "docs/novedades"
+        "docs/guides/dashboard"
       ]
     },
     {
@@ -263,6 +266,12 @@
         "api-reference/webhook/eliminar-webhook-por-id",
         "api-reference/webhook/obtener-lista-de-registros-de-webhook",
         "api-reference/webhook/obtener-registro-de-webhook-por-id"
+      ]
+    },
+    {
+      "group": "Novedades",
+      "pages": [
+        "novedades"
       ]
     }
   ],

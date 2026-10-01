@@ -19,8 +19,7 @@
             "icon": "play",
             "pages": [
               "docs/introduction",
-              "docs/guides/dashboard",
-              "docs/novedades"
+              "docs/guides/dashboard"
             ]
           },
           {
@@ -277,6 +276,18 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Novedades",
+        "icon": "sparkles",
+        "groups": [
+          {
+            "group": "Novedades",
+            "pages": [
+              "novedades"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -307,5 +318,11 @@
     "socials": {
       "linkedin": "https://www.linkedin.com/company/fint-latam/"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/docs/novedades",
+      "destination": "/novedades"
+    }
+  ]
 }
