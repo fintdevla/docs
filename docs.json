@@ -19,7 +19,8 @@
             "icon": "play",
             "pages": [
               "docs/introduction",
-              "docs/guides/dashboard"
+              "docs/guides/dashboard",
+              "docs/novedades"
             ]
           },
           {
