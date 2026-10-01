@@ -1,0 +1,142 @@
+---
+title: 'Uso y facturación'
+description: 'Mirá cuánto procesás, qué comisión cobra Fint, qué ya se descontó y qué te factura a fin de mes'
+---
+
+**Uso y facturación** muestra, con cada pago que entra, cuánto cobraste, cuánto te cuesta cobrar y cuánto queda por pagarle a Fint. A fin de mes el período se cierra: si quedó comisión sin cobrar, Fint te emite una factura y la ves acá mismo.
+
+Solo la ve el rol **administrador**. Está en el menú lateral, debajo de **Configuración**.
+
+## Cómo cobra Fint
+
+Fint cobra una comisión por cada pago que procesás. En el plan habitual es un porcentaje del monto, distinto para pagos y cuotas que para eventos; los dos figuran en la pantalla, IVA incluido. Hay dos formas de cobrarla, y una misma organización puede tener las dos en el mismo mes:
+
+<CardGroup cols={2}>
+  <Card title="En cada pago" icon="bolt">
+    Si cobrás con **Mercado Pago** o **Pagos360**, la comisión se descuenta en el momento, en el mismo pago. No hay nada que pagar después.
+  </Card>
+  <Card title="Factura mensual" icon="file-invoice">
+    Los pagos **manuales** (efectivo, transferencia) y los medios sin descuento automático acumulan comisión. A fin de mes Fint la factura en un solo comprobante.
+  </Card>
+</CardGroup>
+
+<Info>
+  Un pago **anulado** o con **contracargo** conserva su comisión, igual que la del medio de pago: ninguna de las dos se devuelve. Un pago que se **elimina** dentro del mismo mes, antes del cierre, no paga comisión.
+</Info>
+
+### Plan vigente
+
+Arriba de los números del mes, la pantalla dice qué plan tenés. Hay tres:
+
+| Plan | Cómo se calcula la comisión |
+| --- | --- |
+| **Comisión por pago** | Un porcentaje del monto de cada pago. Es el plan habitual. |
+| **Monto fijo por pago** | Un importe fijo por cada pago, sin importar el monto. Por ejemplo, ARS 80 por pago. Puede tener otro importe para las entradas de eventos. |
+| **Plan mensual** | Un abono fijo por mes que incluye una cantidad de pagos. Los pagos incluidos van sin comisión; los que superan esa cantidad pagan el excedente acordado (porcentaje o fijo). El abono se suma a la factura del mes. |
+
+Con un plan fijo o mensual, la comisión siempre se factura a fin de mes: el medio de pago no descuenta nada en el momento.
+
+**Plan vigente** muestra desde cuándo rige tu plan actual. Cada pago se calcula con el plan que regía cuando entró, así que un cambio de plan nunca modifica lo ya cobrado: los meses cerrados muestran el plan que se aplicó entonces, y si un mes tuvo dos planes, el detalle del período lo aclara y te dice cuántos pagos se calcularon con cada uno.
+
+<Frame>
+  <img src="/docs/images/uso-facturacion/plan-fijo-uso.png" alt="Uso y facturación de una organización con monto fijo por pago: tres pagos de distintos importes y ARS 240 de comisión" />
+</Frame>
+
+En un plan mensual, la pantalla muestra cuántos de los pagos incluidos ya usaste este mes, y **A facturar por Fint** ya incluye el abono.
+
+<Frame>
+  <img src="/docs/images/uso-facturacion/plan-mensual-uso.png" alt="Uso y facturación de Instituto Norte con el Plan Norte: 1 de 2 pagos incluidos usados" />
+</Frame>
+
+## El mes en curso
+
+Arriba están los cuatro números del mes, en orden de lectura: **Cobraste** (el total de los pagos), **Te quedan** (cobros menos los costos del medio de pago y menos la comisión de Fint), **Comisión Fint** (con IVA incluido y el porcentaje efectivo) y qué pasa con esa comisión: **A facturar por Fint** mientras el mes está en curso, **Pendiente de pago** o **Pagado** cuando se liquidó, o **Retenida por el medio de pago** si ya se descontó en cada cobro y no hay nada que pagar. Si el medio de pago todavía retiene parte del dinero, debajo ves cuánto está liberado y cuándo se libera el resto.
+
+<Frame>
+  <img src="/docs/images/uso-facturacion/uso-mes-en-curso.png" alt="Uso y facturación de Colegio Modelo en septiembre: a facturar por Fint destacado, comisión del mes, comisión ya cobrada y volumen de cobros, con el detalle de costos y el gráfico diario" />
+</Frame>
+
+Debajo, dos gráficos por día: el volumen que procesaste y la comisión de Fint. Con las flechas al lado del mes podés ver meses anteriores.
+
+### De dónde salen tus costos
+
+Es la lista completa de tus costos del mes, tanto los que se descontaron en cada pago como los que Fint factura aparte: la comisión de Fint, su IVA, y las comisiones e impuestos que retuvo cada medio de pago (percepciones, retenciones, costo de financiación). Lo que pagó el pagador (financiación, impuestos propios) no entra en esta lista porque no sale de tus cobros; lo ves en el detalle de cada pago.
+
+Las tablas **Por origen** y **Por medio de pago** reparten los mismos números entre pagos y cuotas, eventos y suscripciones, y entre cada medio y forma de pago (por ejemplo, Mercado Pago con tarjeta de crédito, con débito o con dinero en cuenta), porque los costos del medio dependen de las dos cosas. En el detalle de cada pago ves si su comisión se retuvo en el pago o se liquida a fin de mes. Si todos los cobros son del mismo origen, la tabla **Por origen** no aparece.
+
+<Tip>
+  Si ves el aviso de que algunos pagos todavía no tienen la comisión calculada, esperá unos minutos. El cálculo corre solo después de cada pago.
+</Tip>
+
+## Exportar y compartir
+
+Desde **Descargar Excel** bajás el mes que estás viendo, en curso o cerrado: el resumen (con cuánto costo de servicio pagaron los pagadores), una fila por pago con comisión, costos del medio, liberación del dinero y plan aplicado, el cruce por medio y forma de pago, los **impuestos y retenciones** que descontó el medio de pago con su régimen (SIRTAC, IIBB, percepción de IVA), jurisdicción y código de Convenio Multilateral, un resumen **por jurisdicción** listo para la declaración de Ingresos Brutos, los comprobantes de Fint y un **libro IVA** con una fila por comprobante fiscal (tipo, punto de venta, número, CUIT, neto, IVA, total y CAE).
+
+Con **Descargar CSV** te llevás lo mismo como un zip con un archivo por hoja y los importes sin formato, para importar en el sistema contable. Los certificados de retención y las facturas por las comisiones del medio de pago los emite cada medio a tu nombre: se descargan desde tu cuenta en ese medio.
+
+Con **Enviar reporte** el mismo Excel viaja por mail, con el resumen del mes en el cuerpo, a la dirección que escribas: tu contador, la tesorería o vos.
+
+<Frame>
+  <img src="/docs/images/uso-facturacion/uso-enviar-reporte.png" alt="Diálogo Enviar reporte con el mail del contador cargado" />
+</Frame>
+
+## Períodos y liquidaciones
+
+Al terminar el mes, Fint cierra el período. En la tabla **Períodos y liquidaciones** ves uno por mes con su estado, cuánto hay que pagarle a Fint y, cuando el comprobante fiscal está emitido, el botón **Descargar comprobante**:
+
+| Estado | Qué significa |
+| --- | --- |
+| **Saldado** | No quedó nada por pagar: toda la comisión se retuvo en cada pago, o no hubo comisión. Si hubo comisión retenida, igual recibís el comprobante fiscal por ese importe, ya pagado. |
+| **Pendiente de pago** | Fint emitió la liquidación del período y está pendiente de pago. El estado muestra el vencimiento; si pasó, cambia a **Pago vencido**. |
+| **Pagado** | La liquidación está paga. El estado muestra la fecha. |
+
+Cada liquidación detalla cuántos pagos se cobraron, por qué importe y con qué plan se calculó la comisión, tanto en Fint como en el comprobante fiscal.
+| **En revisión** | El cierre encontró un problema y Fint lo está revisando. No tenés que hacer nada. |
+| **Recalculando** | Fint está recalculando las comisiones del período con el plan vigente (por ejemplo, después de corregir tu plan). Al terminar se actualiza solo. |
+
+<Frame>
+  <img src="/docs/images/uso-facturacion/uso-periodos.png" alt="Tabla Períodos y liquidaciones con septiembre en Pendiente de pago y agosto en Pagado" />
+</Frame>
+
+## Detalle de un período
+
+Entrá desde el nombre del mes. Arriba están los totales del período y la **factura de Fint**: monto, fecha de emisión, vencimiento y, cuando esté paga, la fecha de pago y el comprobante fiscal para descargar. El comprobante lo emite Fint por ARCA al registrar el pago y aparece solo, sin que tengas que pedirlo.
+
+<Frame>
+  <img src="/docs/images/uso-facturacion/periodo-factura-pendiente.png" alt="Detalle de septiembre 2026 con la liquidación de Fint pendiente, cómo pagarla y la lista de pagos del período con la comisión de cada uno" />
+</Frame>
+
+Más abajo está cada pago del período con su monto, la base sobre la que se calculó la comisión, el porcentaje aplicado, la comisión, el IVA y cómo se cobró. Un pago anulado o con contracargo aparece marcado, con su comisión.
+
+<Frame>
+  <img src="/docs/images/uso-facturacion/periodo-pagado-detalle.png" alt="Detalle de agosto 2026 pagado: liquidación de Fint paga con el comprobante para descargar, un pago anulado y un pago de Mercado Pago con la comisión retenida en el pago" />
+</Frame>
+
+Si tenés un plan mensual, la factura del período muestra el abono por separado de la comisión de los pagos, y cada pago incluido en el plan aparece con comisión cero y la marca **Incluido en el plan**.
+
+<Frame>
+  <img src="/docs/images/uso-facturacion/plan-mensual-periodo.png" alt="Detalle de agosto 2026 de Instituto Norte: la liquidación suma el abono del plan y la comisión del pago excedente; dos pagos figuran como incluidos en el plan" />
+</Frame>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Por qué la comisión de Fint es más alta que el porcentaje?">
+    El porcentaje que ves incluye IVA. La pantalla lo separa en comisión e IVA para que coincida con la factura.
+  </Accordion>
+  <Accordion title="Cobro con Mercado Pago pero también registro pagos en efectivo. ¿Qué pasa?">
+    Los pagos de Mercado Pago ya descuentan la comisión. Los de efectivo o transferencia se acumulan y se facturan a fin de mes. Los ves separados en **Comisión ya cobrada** y **A facturar por Fint**.
+  </Accordion>
+  <Accordion title="Anulé un pago o hubo una devolución. ¿Se devuelve la comisión?">
+    No. La comisión de Fint se mantiene, como la del medio de pago. La única excepción es un pago que se elimina dentro del mismo mes, antes de que el período cierre: ese pago sale del período y no paga comisión.
+  </Accordion>
+  <Accordion title="¿Cómo pago la factura de Fint?">
+    En el detalle del período tenés el link al **portal de pagos de Fint**: ahí ves la orden y, cuando el pago online esté habilitado, la pagás desde ahí. También podés pagar por transferencia: el equipo de Fint te acerca los datos. Cuando registramos el pago, el período pasa a **Pagado** y el comprobante fiscal queda disponible en el detalle.
+  </Accordion>
+  <Accordion title="Tengo un acuerdo distinto con Fint. ¿Cómo lo veo?">
+    Los planes fijos y mensuales los configura Fint. Si tu acuerdo no coincide con lo que muestra **Plan vigente**, escribinos y lo ajustamos: la comisión de los pagos siguientes y la factura del mes salen de esa configuración.
+  </Accordion>
+  <Accordion title="Eliminé un pago de un mes que ya estaba cerrado">
+    La comisión de ese pago se descuenta del período siguiente como un ajuste. Lo ves en el detalle de ese período, en **Ajustes de períodos anteriores**.
+  </Accordion>
+</AccordionGroup>
