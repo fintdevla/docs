@@ -17,10 +17,20 @@ Está en **Configuración → Campos personalizados**.
     Fint pregunta *¿A qué entidad se aplicará este campo personalizado?*. Puede vivir en el **estudiante**, en un **contacto** (responsable) o en una **orden de pago**.
   </Step>
   <Step title="Definí tipo y valor">
-    Tipos: **Texto**, **Opciones**, **Número**, **Fecha**, **Teléfono**, **País**. Si elegís Opciones, cargá al menos una. El **valor por defecto** es opcional.
+    Tipos: **Texto**, **Opciones**, **Número**, **Fecha**, **Teléfono**, **País**, **URL**. Si elegís Opciones, cargá al menos una. El **valor por defecto** es opcional.
   </Step>
 </Steps>
 
+### Campos de tipo URL
+
+Usalo para guardar un link, por ejemplo al legajo digital del estudiante. La dirección tiene que estar completa: si no empieza con `http://` o `https://`, Fint muestra *Ingresá una URL completa que comience con http:// o https://* y no deja guardar.
+
+<img src="/docs/images/configuracion/campo-url.png" alt="Alta de un campo personalizado de Estudiantes llamado Legajo digital, de tipo URL, con el valor por defecto drive.google.com/legajos marcado como inválido porque no empieza con http:// o https://" />
+
+En la ficha, el valor se ve como un link corto que abre en otra pestaña. Para editarlo, hacé clic en el campo.
+
+Un campo URL no puede cambiar de tipo después de creado. Un campo de **Texto** sin valores cargados sí puede pasar a URL.
+
 <img src="/docs/images/configuracion/campos-personalizados.png" alt="Pantalla de campos personalizados" />
 
-Después lo completás en la ficha o en la orden, según la entidad que elegiste. Un campo de estudiante aparece en el perfil; uno de contacto, en el responsable; uno de orden, en el detalle **Orden de pago**. Los campos del checkout de un evento se configuran en el evento, no acá.
+Después lo completás en la ficha o en la orden, según la entidad que elegiste. Un campo de estudiante aparece en el perfil; uno de contacto, en el responsable; uno de orden, en el detalle **Orden de pago**. Los campos del checkout de un evento se configuran en el evento, no acá. Ahí, la descripción de una casilla admite negrita y links, y el portal los muestra como links.

@@ -8,7 +8,7 @@ Con [ARCA conectado](/docs/guides/facturacion-arca), Fint emite el comprobante *
 Esta página es el mapa operativo: reglas, mail, emisión a mano y qué hacer cuando algo falla. Sirve para operar y para soporte.
 
 <Info>
-  Si todavía no terminaste **Tu factura, en cuatro pasos**, esta guía no aplica. Empezá por [Conectar ARCA](/docs/guides/facturacion-arca).
+  Si todavía no terminaste **Empezá a facturar en 4 pasos** (en **Configuración de ARCA**), esta guía no aplica. Empezá por [Conectar ARCA](/docs/guides/facturacion-arca).
 </Info>
 
 ## Recorrido completo
@@ -73,11 +73,11 @@ Si el documento tiene 11 dígitos y no hay condición guardada, Fint consulta el
 
 ## Configuración de las reglas
 
-En **Configuración → Facturación → Reglas de facturación** (también desde el paso 4 de [Conectar ARCA](/docs/guides/facturacion-arca)).
+En **Configuración → Facturación → Facturación automática** (también desde el paso 4 de [Conectar ARCA](/docs/guides/facturacion-arca)).
 
-La pestaña **Reglas de facturación** solo aparece cuando ARCA ya está conectado.
+La pestaña **Facturación automática** solo aparece con el módulo ARCA activo.
 
-<img src="/docs/images/facturacion/09-regla-preset.png" alt="Regla Facturar todos los cobros activa: Web Services, inmediata, 0% y Email del comprobante en No se envía" />
+<img src="/docs/images/facturacion/09-regla-preset.png" alt="Pestaña Facturación automática: regla Facturar todos los cobros activa, Web Services, inmediata, 4 tipos de cliente, 0% y Email del comprobante en No se envía" />
 
 ### Cada campo
 
@@ -86,8 +86,8 @@ La pestaña **Reglas de facturación** solo aparece cuando ARCA ya está conecta
 | **Nombre** | Solo etiqueta. No cambia la lógica. | Sirve para el aviso de reglas que se pisan. |
 | **Tipo de comprobante** | Factura, Recibo o **Ambos**. | **Ambos** puede emitir factura **y** recibo sobre el mismo pago. |
 | **Punto de venta** | El de **Web Services** que ARCA habilitó. | Si no hay ninguno, el editor muestra un aviso amarillo y te manda a crearlo. |
-| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Pago Mis Cuentas, Mercado Pago, efectivo y Pagos360. **Todos** marca ese grupo. | Point y QR se guardan como tarjeta, débito o Mercado Pago. Pagos360, si se puede, también cae en esos medios; si no, usa Pagos360. Nuvei no entra: ese mercado todavía no factura. |
-| **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto y Exento. | Un receptor Exento entra en **Todos**. |
+| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Pago Mis Cuentas, Mercado Pago, efectivo y Pagos360. **Todos** marca ese grupo. | Point y QR se guardan como tarjeta, débito o Mercado Pago. Pagos360, si se puede, también cae en esos medios; si no, usa Pagos360. Los cobros con Nuvei no se facturan con ARCA. |
+| **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto y Exento. | Un receptor Exento entra en **Todos**. Exportación y Turista no aparecen aparte: se agrupan en **Exento**. |
 | **Momento de facturación** | **Inmediata** o **Día específico**. | Inmediata emite cuando entra el pago. |
 | **Concepto** | **Servicios**, **Productos** o **Productos y Servicios**. | Va al comprobante fiscal. |
 | **Alícuota** | 0% (Exento), 2.5%, 5%, 10.5%, 21%, 27%. | La recomendada del onboarding usa **0% (Exento)**. Confirmarlo con el contador. |
@@ -105,7 +105,7 @@ Si ninguna coincide, el pago queda sin comprobante. En el detalle vas a ver que 
 <img src="/docs/images/facturacion/11-pago-salteado-regla.png" alt="Detalle de un pago que las reglas activas saltearon" />
 
 <Info>
-  La regla **Facturar todos los cobros** del onboarding cubre todos los métodos y clientes, IVA 0%, y **no** envía el mail. Activá **Enviar comprobante por email** si la institución quiere que salga solo.
+  La regla **Facturar todos los cobros** del onboarding cubre todos los métodos (incluidos Pago Mis Cuentas y Pagos360) y los cuatro tipos de cliente, IVA 0%, y **no** envía el mail. Activá **Enviar comprobante por email** si la institución quiere que salga solo.
 </Info>
 
 ## Emitir a mano
@@ -128,11 +128,13 @@ Sirve para un cobro que las reglas no tomaron, para un pago viejo o para una exc
 
 La fecha no puede ser de más de **10 días hacia atrás**: es el tope que acepta ARCA.
 
+Además, ARCA exige que la fecha no sea anterior al último comprobante emitido **de la misma serie** (mismo punto de venta y tipo). Si no se indica una fecha, Fint la ajusta sola. Si se fuerza una anterior, falla con «ARCA exige que la fecha no sea anterior al último comprobante emitido (AAAA-MM-DD)».
+
 Un pago admite **una factura válida**. Si ya hay una, el modal no ofrece otra factura: para corregirla emitís una **Nota de crédito**.
 
 En el mismo modal está **Enviar comprobante por email**. Se manda cuando el PDF está listo, no al confirmar el clic.
 
-Desde **Facturación activa** también está el atajo **Facturar un pago a mano**, que abre **Pagos**.
+Con la facturación activa, **Configuración de ARCA** muestra **Comprobantes este mes** con el enlace **Ver en comprobantes →**.
 
 ## Email del comprobante
 
@@ -155,11 +157,11 @@ En la tarjeta de la regla (arriba), soporte ve **Email del comprobante**: “Se 
 
 Este mail **no es** el de *Se acreditó tu pago*. El de cobro sale antes y **no adjunta el PDF**. El fiscal es otro correo, más tarde, con el PDF, y solo si **Enviar comprobante por email** está prendido (la regla recomendada nace apagada).
 
-Si no hay email, Fint **no falla la factura**: el comprobante se emite igual y el mail se saltea. En logs queda `recipient-email-missing`.
+Si no hay email, Fint **no falla la factura**: el comprobante se emite igual y el mail se saltea.
 
 ### Cuándo sale
 
-Recién con el comprobante **Procesado** y el PDF generado. Un envío ya registrado no se vuelve a mandar (`already-sent`).
+Recién con el comprobante **Procesado** y el PDF generado. Un envío ya registrado no se vuelve a mandar.
 
 Así se ve el mail de una factura. El PDF va adjunto y también se descarga del botón.
 

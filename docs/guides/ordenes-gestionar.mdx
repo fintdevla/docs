@@ -15,12 +15,8 @@ Cada fila muestra el número de orden, la descripción, el vencimiento, el clien
 
 El buscador reconoce el número de orden, el cliente, la descripción y el nombre de la liquidación. También podés filtrar las órdenes disponibles por **Estado** y **Etiquetas**.
 
-<Warning>
-  Las órdenes canceladas no aparecen en el listado general. Aunque la opción **Cancelada** figure en el filtro, no las recupera en la versión actual.
-</Warning>
-
 <Info>
-  Las órdenes de Evento que siguen Por Cobrar tampoco aparecen en este listado. Consultalas desde el flujo de [Eventos](/docs/guides/eventos) correspondiente.
+  Las órdenes de Evento que siguen Por Cobrar se consultan desde el flujo de [Eventos](/docs/guides/eventos) correspondiente.
 </Info>
 
 Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar**.
@@ -28,10 +24,6 @@ Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar
 <Frame>
   <img src="/docs/images/solicitudes-pago/ordenes-listado.png" alt="Listado de órdenes de Colegio Modelo, con cuotas de septiembre 2026 por cobrar y ventas de tienda escolar pagadas" />
 </Frame>
-
-<Danger>
-  No uses la eliminación en lote. El flujo actual no protege de forma consistente las órdenes con Pago parcial y puede informar éxito aunque alguna operación falle.
-</Danger>
 
 ## Estados de una orden
 
@@ -54,14 +46,14 @@ Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar
 </CardGroup>
 
 <Info>
-  **Vencida** no es un estado independiente. En el listado actual, el filtro considera órdenes Por Cobrar con una fecha anterior a hoy.
+  **Vencida** no es un estado independiente. El filtro considera órdenes Por Cobrar con una fecha anterior a hoy.
 </Info>
 
 ## Abrir el detalle
 
 Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones dependen del origen y del estado de la orden.
 
-- **Actividad** reúne los cambios registrados.
+- **Actividad** reúne los cambios registrados y los intentos de pago online rechazados.
 - **Pagos** muestra los cobros asociados y permite registrar uno cuando corresponde.
 - **Items** desglosa cargos, descuentos y total.
 - **Detalle** muestra importe, estado, fechas y descripción o liquidación de origen.
@@ -70,6 +62,20 @@ Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones depend
 <Frame>
   <img src="/docs/images/solicitudes-pago/orden-detalle.png" alt="Detalle de la orden POR8LICE-0000 de Valentina Gómez: cuota de septiembre 2026 por cobrar, $55.000" />
 </Frame>
+
+### Ver por qué no se pudo pagar
+
+Si una familia intentó pagar online y el pago fue rechazado, **Actividad** lo muestra en rojo como **Intento de pago fallido** con el motivo, por ejemplo **Fondos insuficientes**. Así podés explicarle qué pasó sin consultar a soporte.
+
+Debajo, en gris, figura qué significa y qué puede hacer la familia, qué respondió el procesador con su código, y la tarjeta y las referencias para buscar el intento en el panel del procesador.
+
+<Frame>
+  <img src="/docs/images/solicitudes-pago/orden-intentos-de-pago.png" alt="Actividad de la orden de Lucía Benítez con un pedido de verificación 3D Secure en ámbar y dos intentos fallidos en rojo por Rechazo temporal y Fondos insuficientes, con el código de Stripe y la tarjeta terminada en 4242" />
+</Frame>
+
+Cuando el banco pidió **verificación 3D Secure**, la línea aparece en ámbar. No es un rechazo: el banco pidió que el titular confirme la compra. Si después no hay pago, no la completó.
+
+Funciona con Stripe, Mercado Pago, Pagos Online, Nuvei y Pagos360.
 
 ## Revisar vencimiento y mora
 
@@ -106,10 +112,6 @@ La importación crea varias órdenes desde el modelo `.xlsx` disponible en el mo
 <Danger>
   Si una fila incluye **Fecha Pago** y **Medio de Pago**, Fint crea la orden como Pagada y registra el pago. Ese evento puede activar una regla automática de facturación ARCA.
 </Danger>
-
-<Warning>
-  El archivo fuente queda almacenado en el servicio remoto de archivos configurado para Fint. No se usa solo de forma temporal durante la importación.
-</Warning>
 
 Antes de seleccionar **Importar**, revisá todas las filas y las reglas de facturación de la organización. Si solo querés crear órdenes pendientes, dejá vacías ambas columnas de pago.
 

@@ -55,9 +55,25 @@ El archivo se descarga con el nombre del punto de venta para facilitar su archiv
 
 El archivo respeta el alcance del usuario: un cajero sin permiso para ver ventas ajenas exporta solo las operaciones propias de ese POS.
 
+### Qué trae el Excel
+
+El archivo tiene tres hojas:
+
+- **pos-sales**: una fila por producto vendido, con su medio de pago. Una venta pagada con dos medios figura como **Combinado**.
+- **por-medio-de-pago**: cada producto repartido por medio de pago, con las columnas **Pago combinado** (Sí/No), **% del pago** y **Monto asignado**.
+- **resumen-por-medio**: una matriz de producto por medio de pago, con totales.
+
+En un pago combinado, el pago no está asociado a un producto. Por eso cada producto se reparte en proporción a lo pagado con cada medio. La cantidad se asigna entera al medio que más pagó y queda en 0 en el resto.
+
+Por ejemplo, si una remera de \$25.000 se pagó con \$15.000 en efectivo y \$10.000 por transferencia, el efectivo suma \$15.000 y 1 unidad, y la transferencia \$10.000 y 0 unidades.
+
+El Excel de **Reportes** usa el mismo formato y suma la columna **Punto de venta**.
+
 ## Reportes generales
 
 Los administradores pueden entrar a **Punto de Venta → Reportes** y elegir un punto de venta particular o ver todos.
+
+Arriba están los filtros **Fecha** (por defecto, **Últimos 28 días**), **Punto de venta** y **Producto**, y el botón **Exportar**.
 
 El tablero incluye:
 
@@ -66,7 +82,7 @@ El tablero incluye:
     **Total facturado**, **Órdenes**, **Unidades** y **Ticket promedio**.
   </Card>
   <Card title="Evolución" icon="chart-line">
-    El gráfico se llama **Evolución de ventas**. El rango por defecto es **Últimos 28 días**; también están Hoy, Ayer, 7 días, 90 días y Último año.
+    El gráfico se llama **Evolución de ventas** y sigue el filtro **Fecha**: Hoy, Ayer, Últimos 7, 28 o 90 días, Último año o un rango propio.
   </Card>
   <Card title="Productos" icon="ranking-star">
     Productos más vendidos y un detalle buscable con unidades, órdenes e importe bruto.
@@ -78,11 +94,11 @@ El tablero incluye:
     La sección **Descuentos realizados** muestra el monto, cuántas órdenes, y las columnas **Descuento**, **Usos** y **Monto**.
   </Card>
   <Card title="Exportación" icon="file-excel">
-    Excel por rango de fechas para un POS o para todos los seleccionados.
+    **Exportar** descarga el Excel de los puntos de venta y productos filtrados. Las fechas arrancan con las del filtro y se pueden cambiar.
   </Card>
 </CardGroup>
 
-<img src="/docs/images/punto-de-venta/reportes-tienda-escolar.png" alt="Reporte filtrado por Tienda escolar con ventas, órdenes, unidades, ticket promedio y gráficos" />
+<img src="/docs/images/punto-de-venta/reportes-tienda-escolar.png" alt="Reportes de Tienda escolar en los últimos 90 días: total facturado de un millón quinientos treinta y seis mil setecientos cincuenta pesos, 25 órdenes, 68 unidades, evolución de ventas, productos más vendidos y medios de pago Transferencia y Efectivo" />
 
 ### Ver todos o un punto de venta
 

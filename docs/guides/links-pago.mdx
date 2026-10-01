@@ -63,7 +63,7 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
     El **título** es lo que ve el comprador. La **descripción** admite formato y muestra un contador de 264 caracteres. La **imagen de portada** recomienda 1200 × 630. La **dirección web** completa la URL de tu institución, por ejemplo `tuinstitucion.fint.app/curso-robotica`.
   </Step>
   <Step title="Artículos y etiquetas">
-    Con **+ Agregar artículo** elegís items de Venta online. Podés sumar más de uno. En el formulario actual, el comprador elige un artículo al pagar.
+    Con **+ Agregar artículo** elegís items de Venta online. Podés sumar más de uno. El comprador elige un artículo al pagar.
 
     Si asignás **etiquetas**, Fint se las pone al **cliente** que se crea con la compra. El responsable de pago no las hereda.
 
@@ -75,7 +75,7 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
     La sección **Cobro** aparece cuando la organización usa **Stripe** o **Mercado Pago**. El interruptor **Debitar automáticamente todos los meses** intenta el débito solo. Sin débito automático, cada ciclo genera su [orden](/docs/guides/solicitudes-pago) y la persona la paga desde el portal.
 
     <Warning>
-      En Mercado Pago el débito **no funciona** si el item es de vigencia **indefinida**. El checkout dice «En este momento no es posible efectuar el pago». Usá N ciclos, o apagá el débito y enviá factura. Pagos360 y Nuvei tampoco debitan.
+      Con Mercado Pago, el débito automático necesita un item con una cantidad definida de ciclos. Para un item de vigencia **indefinida**, apagá el débito y enviá factura. Con Pagos360 y Nuvei, cada ciclo se cobra con factura.
     </Warning>
   </Step>
   <Step title="Facturación">
@@ -96,7 +96,7 @@ El formulario tiene el contenido a la izquierda y una **vista previa** a la dere
 </Steps>
 
 <Warning>
-  El recuadro de descripción dice “opcional”, pero al guardar Fint pide un texto de al menos tres caracteres. Completalo antes de publicar.
+  Completá la descripción con al menos tres caracteres antes de publicar.
 </Warning>
 
 ## Listado y estados

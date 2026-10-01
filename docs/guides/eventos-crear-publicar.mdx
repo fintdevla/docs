@@ -72,12 +72,16 @@ Las entradas gratuitas pueden publicarse sin procesador. Si asignás un precio y
 
 Podés ordenar los tipos y crear grupos para presentarlos con más claridad. Un grupo organiza la oferta; no cambia la cantidad de entradas que recibe el comprador.
 
-Un combo vende varias entradas juntas. Definí su nombre, descripción, precio, **cantidad de entradas** del pack y los tipos que puede incluir. También podés limitar cuántas unidades de cada tipo admite.
+Un combo vende varias entradas juntas. En **Crear combo de entradas** definí nombre, descripción, precio y **Cantidad de entradas que incluye el combo**. En **¿Entre qué entradas elige el comprador?** sumá los tipos con **+ Seleccionar entradas**. Con **Limitar máx. por combo** ponés un tope para un tipo.
+
+Abajo, **Así funciona este combo** resume qué puede elegir el comprador, con ejemplos de combinaciones.
+
+<img src="/docs/images/eventos/combo-asi-funciona.png" alt="Modal Crear combo de entradas: Combo hermanos de 3 entradas a elegir entre Pase general y Pase general + Taller creativo, con el resumen Así funciona este combo y ejemplos 2 + 1, 3 + 0 o 0 + 3" />
 
 El combo **no tiene stock propio**. Cada tipo que elige el comprador descuenta el stock de esa entrada. Si un tipo está en 0, no se puede completar el combo.
 
 <Warning>
-  Los **descuentos del evento no aplican a combos**. El cupón porcentual se calcula solo sobre entradas sueltas. No uses un combo si necesitás que el código descuente esa compra.
+  Los **descuentos del evento no aplican a combos**. El cupón porcentual se calcula solo sobre entradas sueltas. Si necesitás que el código descuente esa compra, ofrecé las entradas sueltas.
 </Warning>
 
 <Info>
@@ -157,7 +161,7 @@ En el editor, los accesos a cada sección resumen cuántas entradas, combos, des
   </Tab>
 </Tabs>
 
-Fint no ofrece una vista previa separada. Después de guardar, abrí el evento y usá **Visitar** para revisar la página pública.
+Para revisar la página pública, guardá el evento y usá **Visitar** (también está en el menú **…** de la tarjeta).
 
 <img src="/docs/images/eventos/evento-activo.png" alt="Detalle de un evento activo con las acciones Copiar link y Visitar" />
 
@@ -179,19 +183,21 @@ Después, volvé al editor y comprobá los campos solicitados al comprador y a c
 
 <img src="/docs/images/eventos/pagina-publica-evento.png" alt="Página pública del Festival de la Comunidad con portada, mensaje destacado, entradas y combo familiar" />
 
-Podés recorrer la selección de entradas sin completar la compra. Detenete antes de confirmar si no querés crear una operación real.
+Podés recorrer la selección de entradas sin completar la compra. Al elegir algo aparece una barra fija abajo con la selección (por ejemplo «1 entrada» o «1 combo»), el **Total** y **Continuar**. Detenete antes de confirmar si no querés crear una operación real.
 
-<img src="/docs/images/eventos/seleccion-entradas-publica.png" alt="Página pública del festival con un Pase General seleccionado antes de presionar Continuar" />
+<img src="/docs/images/eventos/seleccion-entradas-publica.png" alt="Página pública del festival con un Pase general seleccionado y la barra fija abajo: 1 entrada, Total $5.000,00 y botón Continuar" />
+
+Si el único medio de pago es Mercado Pago, **Continuar al pago** lleva directo a Mercado Pago. Si la página muestra **No pudimos cargar el evento**, usá **Reintentar**.
 
 ## Editar después de publicar
 
-El administrador puede volver a **Editar** y guardar cambios. La nueva configuración se aplica a ventas futuras. Las operaciones ya realizadas conservan sus importes, comprador, asistente y respuestas.
+El administrador puede volver a editar con el ícono **Editar evento** (lápiz) de la tarjeta y guardar cambios. La nueva configuración se aplica a ventas futuras. Las operaciones ya realizadas conservan sus importes, comprador, asistente y respuestas.
 
 **Duplicar evento** copia la configuración a un evento nuevo (`Copia - …`) con otra URL. **Reusa los mismos tipos de entrada y descuentos**: el stock es compartido. Para cupos aparte, creá tipos nuevos.
 
 Pasada la **fecha y hora de finalización**, no hay checkout ni alta manual (`El evento ha finalizado`) hasta que extiendas esa fecha y el evento esté **Activo**. **Visitar** en Borrador no muestra página pública.
 
-El menú `…` también ofrece **Copiar link corto** y **Descargar QR** si hay URL corta. **Eliminar** aparece en archivados y borra el evento: no es desarchivar.
+En la tarjeta, al lado del estado, están **Editar evento** (solo administradores) y **Copiar URL del evento** (avisa «Link copiado al portapapeles»). El menú **…** (**Más opciones del evento**) ofrece **Duplicar evento**, **Copiar link corto** y **Descargar QR** (si el evento tiene link corto), **Visitar** y **Archivar** o **Desarchivar**. En un evento archivado aparece además **Eliminar**, que borra el evento: no es desarchivar. Archivar, desarchivar y eliminar son sólo para administradores.
 
 Para retirar la página, cambiá el estado a **Borrador** o archivá el evento. Los archivados aparecen en una lista separada y se pueden desarchivar.
 
