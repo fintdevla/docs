@@ -61,7 +61,7 @@ Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar
 
 Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones dependen del origen y del estado de la orden.
 
-- **Actividad** reúne los cambios registrados.
+- **Actividad** reúne los cambios registrados y los intentos de pago online rechazados.
 - **Pagos** muestra los cobros asociados y permite registrar uno cuando corresponde.
 - **Items** desglosa cargos, descuentos y total.
 - **Detalle** muestra importe, estado, fechas y descripción o liquidación de origen.
@@ -70,6 +70,20 @@ Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones depend
 <Frame>
   <img src="/docs/images/solicitudes-pago/orden-detalle.png" alt="Detalle de la orden POR8LICE-0000 de Valentina Gómez: cuota de septiembre 2026 por cobrar, $55.000" />
 </Frame>
+
+### Ver por qué no se pudo pagar
+
+Si una familia intentó pagar online y el pago fue rechazado, **Actividad** lo muestra en rojo como **Intento de pago fallido** con el motivo, por ejemplo **Fondos insuficientes**. Así podés explicarle qué pasó sin consultar a soporte.
+
+Debajo, en gris, figura qué significa y qué puede hacer la familia, qué respondió el procesador con su código, y la tarjeta y las referencias para buscar el intento en el panel del procesador.
+
+<Frame>
+  <img src="/docs/images/solicitudes-pago/orden-intentos-de-pago.png" alt="Actividad de la orden de Lucía Benítez con un pedido de verificación 3D Secure en ámbar y dos intentos fallidos en rojo por Rechazo temporal y Fondos insuficientes, con el código de Stripe y la tarjeta terminada en 4242" />
+</Frame>
+
+Cuando el banco pidió **verificación 3D Secure**, la línea aparece en ámbar. No es un rechazo: el banco pidió que el titular confirme la compra. Si después no hay pago, no la completó.
+
+Funciona con Stripe, Mercado Pago, Pagos Online, Nuvei y Pagos360.
 
 ## Revisar vencimiento y mora
 

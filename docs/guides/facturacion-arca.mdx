@@ -3,14 +3,12 @@ title: 'Conectar ARCA'
 description: 'Cuatro pasos: datos en la factura, certificado, punto de venta y una regla para emitir solo'
 ---
 
-En **Configuración → Facturación → Facturación electrónica** Fint te guía con **Tu factura, en cuatro pasos**. Podés salir y retomar: no se pierde nada.
+En **Configuración → Facturación → Configuración de ARCA** Fint te guía con **Empezá a facturar en 4 pasos**: **Tus datos en la factura**, **Conectar con ARCA**, **Punto de venta** y **Regla de facturación**. Cada paso se abre cuando terminás el anterior.
 
 Cuando termina, cada pago que entre puede salir con un comprobante electrónico de ARCA (ex AFIP). La clave fiscal **no se comparte**.
 
-<img src="/docs/images/facturacion/02-hub-cuatro-pasos.png" alt="Hub Tu factura en cuatro pasos: datos, conectar ARCA, punto de venta y regla; a la derecha, vista previa sin logo" />
-
 <Info>
-  Esta guía es para **Argentina**. Hace falta un administrador. El certificado lo firmás vos en el portal de ARCA; Fint genera el pedido y guarda la clave privada.
+  Esta guía es para **Argentina**. Hace falta un administrador. El certificado lo obtenés vos en el portal de ARCA; Fint genera la solicitud y guarda la clave privada.
 </Info>
 
 ## Qué preparar
@@ -27,47 +25,49 @@ El paso pide tres cosas:
 
 | Qué pide Fint | Dónde se carga |
 | --- | --- |
-| Información fiscal | **Configuración → Facturación → Información Fiscal** |
-| Logo | En el mismo paso, o en [General y marca](/docs/guides/configuracion-general) |
-| Nombre de fantasía | En el mismo paso, o en General |
+| Datos fiscales (CUIT, razón social, domicilio) | **Configuración → Facturación → Datos del emisor** |
+| Logo | [General y marca](/docs/guides/configuracion-general) |
+| Nombre de fantasía | General |
+
+Si falta algo, el paso lo dice: **Falta completar CUIT, razón social…** con el enlace **Completá los datos del emisor →**, o **Falta cargar el logo y el nombre de fantasía.** con **Completalo en General →**.
 
 <Steps>
   <Step title="Completá el CUIT">
-    Entrá a **Información Fiscal**. Con el CUIT de 11 dígitos presioná **Completar con tu CUIT**: Fint trae razón social, tipo de persona, domicilio y condición de IVA. El aviso es **Datos completados desde ARCA**. Revisalos y guardá.
+    Entrá a **Datos del emisor**. Con el CUIT de 11 dígitos presioná **Completar con tu CUIT**: Fint trae razón social, tipo de persona, domicilio y condición de IVA. El aviso es **Datos completados desde ARCA**. Revisalos y guardá.
   </Step>
-  <Step title="Revisá el PDF">
-    Volvé a **Facturación electrónica**. El paso muestra una vista previa. Si falta el logo o el nombre, cargalos ahí mismo.
+  <Step title="Cargá logo y nombre de fantasía">
+    En **Configuración → General**. Después volvé a **Configuración de ARCA**: con el paso 1 listo, se abre solo **Conectar con ARCA**.
   </Step>
 </Steps>
 
-<img src="/docs/images/facturacion/01-informacion-fiscal.png" alt="Información Fiscal de Colegio ARCA Test: persona jurídica, CUIT 30-70987797-2, Completar con tu CUIT, domicilio Av Siempre Viva 123" />
+<img src="/docs/images/facturacion/01-informacion-fiscal.png" alt="Datos del emisor de Colegio ARCA Test: aviso Estos datos se imprimen en el comprobante, persona jurídica, CUIT 30-70987797-2, Completar con tu CUIT, domicilio Av Siempre Viva 123" />
 
 <Warning>
-  Sin CUIT y razón social no se puede generar el pedido de certificado.
+  Sin CUIT y razón social no se puede generar la solicitud de certificado. Hasta completar el paso 1, **Conectar con ARCA** dice **Cuando completes tus datos**.
 </Warning>
 
 ## Paso 2. Conectar con ARCA
 
-Hay tres momentos: **Generar el pedido**, **Firmarlo y subirlo**, **Probar la conexión**. El botón del último es **Validar conexión**.
+El paso tiene tres partes: **Generar la solicitud de certificado**, **Obtener el certificado en ARCA y cargarlo en Fint** y **Validar la conexión**.
 
-<img src="/docs/images/facturacion/03-conectar-arca.png" alt="Paso 2 Conectar con ARCA: pedido generado, alias Fint Facturacion, Descargar de nuevo, Abrir ARCA, Ver guía y Subir certificado" />
+<img src="/docs/images/facturacion/03-conectar-arca.png" alt="Paso 2 Conectar con ARCA: solicitud de certificado generada con Descargar solicitud y Generar una solicitud nueva, alias Fint Facturacion con Copiar, Subir certificado, Ver guía con capturas y Validar conexión todavía deshabilitado" />
 
-### Generá el pedido en Fint
+### Generá la solicitud en Fint
 
 <Steps>
-  <Step title="Generar y descargar">
-    Presioná **Generar y descargar**. Se baja un archivo para subir a ARCA. La clave privada se queda en Fint.
+  <Step title="Generar y descargar solicitud">
+    Presioná **Generar y descargar solicitud**. Se baja el archivo de solicitud (CSR) con el CUIT y la razón social, para presentar en ARCA. La clave privada no sale de Fint. Si la necesitás otra vez, usá **Descargar solicitud**.
   </Step>
   <Step title="Copiá el alias">
     En ARCA el alias tiene que ser **exactamente** el que muestra Fint. Usá **Copiar**.
   </Step>
 </Steps>
 
-Si regenerás, el pedido anterior **deja de servir**. Hay que firmar el nuevo y volver a subir el certificado.
+**Generar una solicitud nueva** pide confirmación en la misma línea: **La solicitud anterior y su certificado quedarán invalidados.** Con **Generar solicitud nueva** hay que volver a cargarla en ARCA y subir el certificado nuevo. **Cancelar** deja todo como estaba.
 
-<img src="/docs/images/facturacion/03b-confirmacion-regenerar.png" alt="Confirmación en el paso 2: El pedido anterior deja de servir, Sí generar uno nuevo o Cancelar" />
+<img src="/docs/images/facturacion/03b-confirmacion-regenerar.png" alt="Confirmación en línea en el paso 2: La solicitud anterior y su certificado quedarán invalidados, con Generar solicitud nueva y Cancelar" />
 
-### Firmalo en ARCA
+### Obtené el certificado en ARCA
 
 Repetí este trámite con el CUIT de la institución, no con el de una persona.
 
@@ -86,10 +86,10 @@ Repetí este trámite con el CUIT de la institución, no con el de una persona.
 
         <img src="/images/arca/04-agregar-alias.png" alt="Agregar alias en Administración de Certificados Digitales" />
       </Step>
-      <Step title="Subí el pedido">
-        En **Examinar**, elegí el archivo que descargaste de Fint y confirmá.
+      <Step title="Cargá la solicitud">
+        En **Examinar**, elegí el archivo de solicitud que descargaste de Fint y confirmá.
 
-        <img src="/images/arca/05-subir-csr.png" alt="Pantalla de ARCA para subir el pedido de certificado" />
+        <img src="/images/arca/05-subir-csr.png" alt="Pantalla de ARCA para cargar la solicitud de certificado" />
         <img src="/images/arca/06-lista-certificados.png" alt="Lista de certificados digitales en ARCA" />
       </Step>
       <Step title="Descargá el certificado">
@@ -102,7 +102,7 @@ Repetí este trámite con el CUIT de la institución, no con el de una persona.
   <Tab title="Autorizar el servicio">
     El certificado solo no alcanza. Hay que autorizar el computador fiscal en **Administrador de Relaciones**.
 
-    Autorizá al menos **Facturación electrónica**. Si Fint también consulta el padrón, autorizá **Padrón A13** y **Constancia de CUIT**.
+    Autorizá al menos **Facturación Electrónica**. Si Fint también consulta el padrón, autorizá **Padrón A13** y **Constancia de CUIT**.
 
     <Steps>
       <Step title="Nueva Relación">
@@ -110,8 +110,8 @@ Repetí este trámite con el CUIT de la institución, no con el de una persona.
 
         <img src="/images/arca/08-nueva-relacion-buscar.png" alt="Nueva Relación y Buscar en el Administrador de Relaciones" />
       </Step>
-      <Step title="WebServices">
-        Navegá a **ARCA → WebServices** y elegí el servicio.
+      <Step title="Facturación Electrónica">
+        Navegá a **ARCA → WebServices** y elegí **Facturación Electrónica**.
 
         <img src="/images/arca/09-webservices.png" alt="Lista de WebServices en el Administrador de Relaciones" />
       </Step>
@@ -127,19 +127,19 @@ Repetí este trámite con el CUIT de la institución, no con el de una persona.
 </Tabs>
 
 <Info>
-  En Fint, **Ver guía paso a paso** abre el mismo recorrido con las capturas del portal.
+  En Fint, **Ver guía con capturas** abre el mismo recorrido con las capturas del portal, desde **Adherir el servicio Administración de Certificados Digitales** hasta **Confirmar la autorización**. **Ocultar guía** la cierra.
 </Info>
 
-<img src="/docs/images/facturacion/04-guia-certificado.png" alt="Guía in-app abierta: Adherí Administración de Certificados Digitales, con capturas del portal de ARCA" />
+<img src="/docs/images/facturacion/04-guia-certificado.png" alt="Guía con capturas abierta en el paso 2: primer paso Adherir el servicio Administración de Certificados Digitales, con la captura del portal de ARCA y el botón Ocultar guía" />
 
 ### Subí el certificado y probá
 
 <Steps>
   <Step title="Subí el .crt">
-    Volvé a Fint y cargá el archivo que descargaste de ARCA.
+    Volvé a Fint, presioná **Subir certificado** y elegí el archivo que descargaste de ARCA. Si ya había uno, el botón dice **Reemplazar certificado**.
   </Step>
   <Step title="Validar conexión">
-    Presioná **Validar conexión**. Si ARCA responde, el paso queda **Conexión validada**.
+    Presioná **Validar conexión**: Fint prueba el acceso a Facturación Electrónica con el certificado. Si ARCA responde, el paso queda **Conexión validada**. Si falla, corregí lo que indica el mensaje y usá **Reintentar validación**.
   </Step>
 </Steps>
 
@@ -147,11 +147,11 @@ Si algo falla, Fint lo dice en claro:
 
 | Qué ves | Qué significa | Qué hacer |
 | --- | --- | --- |
-| Falta autorizar el servicio | El certificado sirve; falta la relación de Facturación electrónica | Administrador de Relaciones → Nueva Relación |
-| ARCA rechazó el certificado | El .crt no corresponde a este pedido | Si regeneraste el pedido, firmá el nuevo |
+| El certificado es válido, pero falta autorizar el servicio | El certificado sirve; falta la relación de Facturación Electrónica | Administrador de Relaciones → Nueva Relación |
+| ARCA rechazó el certificado | El .crt no corresponde a esta solicitud | Si generaste una solicitud nueva, cargala en ARCA y subí el certificado nuevo |
 | ARCA no respondió | El portal de ARCA no contestó | Reintentá en unos minutos |
 
-Algunas instituciones ya tenían la conexión cargada por el equipo de Fint. En ese caso ves **Conexión activa** y no hay trámite para regenerar: si hay que renovar, escribinos.
+Algunas instituciones ya tenían la conexión cargada por el equipo de Fint. En ese caso la tarjeta **Certificado** dice **Gestionado por Fint** y no hay trámite para regenerar: si hay que renovar, escribinos.
 
 ## Paso 3. Punto de venta
 
@@ -202,47 +202,48 @@ Sin este punto de venta no se puede crear una regla. El editor lo dice en claro,
 
 Sin una regla, Fint **no emite solo**. Este paso queda bloqueado hasta que el punto de venta de **Web Services** esté listo.
 
-Si hay un solo punto de venta, Fint propone **Activar la regla recomendada**: facturar todos los cobros apenas se acreditan, todos los métodos, IVA **0% (Exento)**. **No** prende el envío por email: si la institución quiere el PDF en el correo, hay que activar **Enviar comprobante por email** en esa regla. La podés cambiar o pausar después.
+Si hay un solo punto de venta, Fint propone **Activar la regla recomendada**: facturar todos los cobros apenas se acreditan, todos los métodos (incluidos **Pago Mis Cuentas** y **Pagos360**), los cuatro tipos de cliente (**Consumidor Final**, **Monotributista**, **Responsable Inscripto** y **Exento**) e IVA **0% (Exento)**. **No** prende el envío por email: si la institución quiere el PDF en el correo, hay que activar **Enviar comprobante por email** en esa regla. La podés cambiar o pausar después.
 
-Cuando la activás, el paso se marca listo y podés seguir al detalle impreso o a **Reglas de facturación**. La regla queda así:
+Cuando la activás, el paso se marca listo. La regla queda en la pestaña **Facturación automática**, que aparece con el módulo ARCA activo:
 
-<img src="/docs/images/facturacion/09-regla-preset.png" alt="Regla Facturar todos los cobros activa: punto 1 Web Services, inmediata, IVA 0% Exento, email del comprobante no se envía" />
+<img src="/docs/images/facturacion/09-regla-preset.png" alt="Pestaña Facturación automática: regla Facturar todos los cobros activa, punto 1 Web Services, inmediata, 4 tipos de cliente, IVA 0% Exento, email del comprobante no se envía; debajo, una regla nueva precargada" />
 
-Si hay varios puntos, o querés otro esquema, entrá a **Ajustarla a mano** / **Reglas de facturación**. El formulario llega precargado como **Facturar todos los cobros**.
+Si hay varios puntos, o querés otro esquema, entrá a **Ajustarla a mano** / **Facturación automática**. El formulario llega precargado como **Facturar todos los cobros**.
 
 Cómo se aplica esa regla y cómo emitir a mano está en [Facturación](/docs/guides/facturacion).
 
-## Opcional. Qué ve la familia en el detalle
+## Facturación activa
 
-ARCA autoriza el **total**. El renglón del PDF lo arma Fint.
+Cuando los cuatro pasos están listos, **Configuración de ARCA** muestra dos tarjetas:
 
-| Detalle | Qué imprime |
+- **Comprobantes este mes**: cuántos salieron, cuántas reglas están activas y el enlace **Ver en comprobantes →**. El CAE y el PDF de cada uno también viven en el detalle del [pago](/docs/guides/pagos), sección **Comprobantes**.
+- **Certificado**: **Conectado**, si es **Certificado propio** o **Gestionado por Fint**, y la fecha **Vence el …**. Si faltan menos de 60 días, dice **Renovalo pronto, vence el …**.
+
+<img src="/docs/images/facturacion/06-facturacion-activa.png" alt="Configuración de ARCA con la facturación activa: Comprobantes este mes 0 con 1 regla activa, Certificado propio Conectado que vence el 30 Sep 2028, y debajo Configuración de la factura con el nombre del estudiante en la vista previa" />
+
+**Ver estado →** despliega **Estado del certificado** con las tres partes del paso 2 tildadas. Con la conexión activa, esos botones se ven deshabilitados.
+
+<img src="/docs/images/facturacion/07-estado-certificado.png" alt="Estado del certificado desplegado: Generar la solicitud, Obtener el certificado y Validar la conexión tildados, con sus botones deshabilitados; vence el 30 Sep 2028" />
+
+### Configuración de la factura
+
+ARCA autoriza el **total**. El renglón del PDF lo arma Fint. Debajo de las tarjetas elegís cómo se ve, con vista previa al lado:
+
+| Detalle de items | Qué imprime |
 | --- | --- |
-| El período de cada pago | Una línea por cuota o liquidación. En un pago parcial, solo lo cobrado |
+| El período de cada pago | Una línea por cuota o liquidación pagada. En un pago parcial, solo lo cobrado |
 | Cada concepto por separado | Cuota, comedor, packs. Un parcial se imprime como “Pago parcial de factura” |
 | Siempre el mismo texto | Un texto fijo, por ejemplo “Donación” |
 
-También podés incluir o no el nombre del estudiante en el detalle.
+**Agregar el nombre del estudiante** imprime «Cuota marzo - Ana Perez» en vez de «Cuota marzo». Presioná **Guardar**.
 
-<img src="/docs/images/facturacion/05-detalle-impreso-onboarding.png" alt="Paso opcional del detalle impreso con la vista previa de la factura" />
-
-<img src="/docs/images/facturacion/08-detalle-nombre-off.png" alt="El mismo detalle con el nombre del estudiante apagado" />
-
-## Facturación activa
-
-Cuando los cuatro pasos están listos, la pantalla pasa a **Facturación activa**. El CAE y el PDF viven en el detalle del [pago](/docs/guides/pagos), sección **Comprobantes**. **Facturar un pago a mano** abre Pagos.
-
-<img src="/docs/images/facturacion/06-facturacion-activa.png" alt="Panel Facturación activa: último comprobante con error, 2 este mes, certificado vence el 17 Sep 2026, vista previa del PDF" />
-
-**Ver estado** abre el certificado: vencimiento, **Reemplazar certificado** y otra vez **Validar conexión**.
-
-<img src="/docs/images/facturacion/07-estado-certificado.png" alt="Estado del certificado: los tres momentos en verde, Reemplazar certificado y Validar conexión; vence el 17 Sep 2026" />
+<img src="/docs/images/facturacion/08-detalle-nombre-off.png" alt="Configuración de la factura: Detalle de items El período de cada pago, Agregar el nombre del estudiante apagado y vista previa con los renglones Marzo 2026 y Abril 2026 sin nombre" />
 
 ## Preguntas frecuentes
 
 <AccordionGroup>
   <Accordion title="¿Tengo que mandar el certificado a soporte?">
-    No, si completás el flujo self-serve: generás el pedido, lo firmás en ARCA, lo subís y probás la conexión. Solo escribinos si la conexión la cargó Fint o si hay que renovar esas credenciales.
+    No, si completás el flujo self-serve: generás la solicitud, la cargás en ARCA, subís el certificado y validás la conexión. Solo escribinos si la conexión la cargó Fint o si hay que renovar esas credenciales.
   </Accordion>
   <Accordion title="¿Puedo usar el punto de venta de factura en línea?">
     No. En **Sistema** tiene que decir **Web Services** (monotributo) o **RECE para aplicativo y web services** (responsable inscripto). El de factura en línea o controlador fiscal no sirve.
@@ -250,8 +251,8 @@ Cuando los cuatro pasos están listos, la pantalla pasa a **Facturación activa*
   <Accordion title="¿Puedo tener varios puntos de venta?">
     Sí, si ARCA los tiene habilitados para Web Services. Cada regla elige uno. Con varios puntos Fint no activa la regla recomendada sola: la armás a mano.
   </Accordion>
-  <Accordion title="¿Qué pasa si regenero el pedido?">
-    El pedido anterior deja de servir. Hay que firmar el nuevo en ARCA y subir el .crt otra vez.
+  <Accordion title="¿Qué pasa si genero una solicitud nueva?">
+    La solicitud anterior y su certificado quedan invalidados. Hay que cargar la nueva en ARCA y subir el .crt otra vez.
   </Accordion>
   <Accordion title="¿Fint guarda mi clave fiscal?">
     No. Guardamos la clave privada del certificado que generamos nosotros. La clave fiscal queda en el portal de ARCA.

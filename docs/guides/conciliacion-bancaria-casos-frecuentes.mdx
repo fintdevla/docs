@@ -10,9 +10,51 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
 <AccordionGroup>
   <Accordion title="Concilié mal. ¿Cómo lo deshago?">
     En el detalle del movimiento, **Acciones → Revertir conciliación**. Fint anula el pago que había creado y vuelve el movimiento a **En revisión** o **Con sugerencias**. Hay que revertir **antes** de cambiar la fecha o de borrar.
+
+    Si el movimiento estaba vinculado a un pago que ya existía, la acción se llama **Desvincular pago**. El movimiento vuelve a quedar pendiente y el pago y sus órdenes no se modifican: no se anula nada.
+  </Accordion>
+  <Accordion title="La cuota ya estaba pagada a mano. ¿Cómo concilio el movimiento?" id="la-cuota-ya-estaba-pagada-a-mano">
+    Pasa cuando la familia pagó y alguien registró el pago en la orden (efectivo, transferencia u otro medio manual) antes de importar el extracto. No crees un pago nuevo: vinculá el movimiento al que ya existe y evitás el duplicado.
+
+    Al registrar ese pago, las sugerencias que apuntaban a la orden desaparecen y el movimiento vuelve a **En revisión**.
+
+    <Steps>
+      <Step title="Revisá la tarjeta Pago ya registrado">
+        En el detalle del movimiento, Fint muestra con la etiqueta **Mismo monto** los pagos manuales del mismo importe, aplicados a una orden activa y cercanos en fecha: hasta 15 días antes o después si el movimiento no tiene responsable, y hasta 90 si ya lo tiene.
+
+        Cada fila indica medio, número de pago, pagador, orden, fecha y cuántos días antes o después del movimiento se registró.
+
+        <img src="/docs/images/conciliacion-bancaria/pago-ya-registrado.png" alt="Movimiento de ochenta y un mil trescientos pesos sin contacto asignado con la tarjeta Pago ya registrado: transferencia manual número 75 de Lucía Herrera para la Cuota de septiembre 2026, registrada tres días antes, con el botón Vincular" />
+      </Step>
+
+      <Step title="Vinculá">
+        Presioná **Vincular** en la fila que corresponde y confirmá. El movimiento queda conciliado con ese pago, sin crear uno nuevo, y toma como responsable al pagador del pago.
+
+        <img src="/docs/images/conciliacion-bancaria/vincular-pago-confirmacion.png" alt="Confirmación ¿Vincular al pago #75? que aclara que no se crea un pago nuevo, que se asigna a Lucía Herrera como pagador y que se puede desvincular después" />
+      </Step>
+
+      <Step title="Verificá el resultado">
+        Aparece el aviso **Movimiento vinculado al pago**. El movimiento queda **Conciliada** y muestra la sección **Pago Asociado**.
+      </Step>
+    </Steps>
+
+    Si la tarjeta no aparece, usá **Acciones → Vincular a un pago existente** y buscá por pagador, documento, referencia o número de pago. Los pagos que no se pueden vincular muestran el motivo: el monto no coincide, es de otro pagador o no está aplicado a ninguna orden activa.
+
+    <Info>
+      Si te equivocaste de pago, usá **Acciones → Desvincular pago**. El movimiento vuelve a quedar pendiente y el pago no cambia.
+    </Info>
   </Accordion>
   <Accordion title="¿Por qué no veo débitos / egresos en Movimientos?">
     **Movimientos** lista los ingresos. Los débitos (comisión, impuesto) se ven en la tarjeta del **extracto**. Para no revisarlos, armá una regla **Ignorar transacción** por la descripción antes de importar.
+  </Accordion>
+  <Accordion title="Entró un ingreso que no es un cobro. ¿Cómo lo saco de la revisión?" id="ignorar-un-movimiento">
+    Por ejemplo, un traspaso entre cuentas propias de la institución. En el detalle del movimiento, presioná **Acciones → Ignorar movimiento**, escribí un motivo si querés y confirmá con **Ignorar**.
+
+    <img src="/docs/images/conciliacion-bancaria/ignorar-movimiento.png" alt="Confirmación ¿Ignorar movimiento? sobre un traspaso de doscientos cincuenta mil pesos, con el motivo Movimiento entre cuentas propias del colegio" />
+
+    El movimiento queda **Ignorada**, deja de figurar como pendiente y no recibe sugerencias. Lo encontrás en la pestaña **Ignorado**. Para devolverlo a pendiente, abrilo y presioná **Restaurar movimiento**.
+
+    Si el mismo tipo de movimiento se repite en cada extracto, conviene una [regla](/docs/guides/conciliacion-bancaria-reglas) **Ignorar transacción**. **Ignorar movimiento** es para uno puntual.
   </Accordion>
   <Accordion title="La transferencia no coincide con ninguna cuota. ¿Creo la orden acá?">
     Sí: **Crear factura** arma la orden, la marca pagada con ese movimiento y lo deja **Conciliada**. Sirve para una donación, una inscripción o un ingreso sin cuota. Si la cuota ya existe, seleccionála: no dupliques.

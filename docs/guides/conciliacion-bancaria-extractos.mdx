@@ -24,7 +24,7 @@ Necesitás:
   </Step>
 
   <Step title="Elegí la cuenta">
-    Seleccioná la cuenta bancaria que corresponde al archivo. Fint usa el banco de esa cuenta para interpretarlo. Antes de exportar desde el home banking, usá **Descargar formato de ejemplo** de ese banco (ICBC, BAPRO, BBVA, CREDICOOP, PATAGONIA). Re-subir el mismo archivo (u otro banco con la misma fila) omite movimientos ya importados **en esa organización**, aunque sea otra cuenta. Dos transferencias idénticas el mismo día se conservan si el extracto trae saldos distintos.
+    Seleccioná la cuenta bancaria que corresponde al archivo. Fint usa el banco de esa cuenta para interpretarlo. Antes de exportar desde el home banking, usá **Descargar formato de ejemplo** de ese banco (ICBC, BAPRO, BBVA, CREDICOOP, PATAGONIA). Re-subir el mismo archivo (u otro banco con la misma fila) omite movimientos ya importados **en esa organización**, aunque sea otra cuenta. Dos transferencias idénticas el mismo día (mismo importe, misma cuenta) se conservan, aunque el extracto no traiga saldo, y cada una se concilia por separado.
   </Step>
 
   <Step title="Seleccioná el archivo">
@@ -62,6 +62,8 @@ Necesitás:
 La revisión cuenta solo ingresos no duplicados. Los egresos no aumentan el total y los duplicados omitidos no se vuelven a revisar.
 
 Un ingreso se considera resuelto cuando queda **Conciliado** o **Ignorado**. Asignar un responsable o recibir una sugerencia no completa la revisión por sí solo.
+
+Para ignorar un ingreso que no es un cobro, como un traspaso entre cuentas propias, usá **Ignorar movimiento** en su detalle. Ver [cómo ignorar y restaurar un movimiento](/docs/guides/conciliacion-bancaria-casos-frecuentes#ignorar-un-movimiento).
 
 ## Seguir el avance
 
