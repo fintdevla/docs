@@ -22,7 +22,7 @@ El tipo del descuento determina dónde se usa. Elegilo antes de configurar su al
 </CardGroup>
 
 <Info>
-  Un descuento de Venta online no funciona como cupón en el checkout público de Links de Pago ni en un evento. Cada tipo sirve en un solo canal.
+  Cada tipo sirve en un solo canal. Un descuento de Venta online se aplica en el Punto de Venta; el código para el checkout de un evento es un descuento de Eventos.
 </Info>
 
 ## Dónde está el stock
@@ -113,10 +113,10 @@ Consultá [Descuentos en el Punto de Venta](/docs/guides/pos-descuentos) para ve
 
 Es un **código de cupón** para el checkout del evento, no un descuento del POS. Ejemplo: `PREVENTA10`. El código tiene que ser único en la organización.
 
-Tiene **Stock disponible**. Cada vez que alguien aplica el código, Fint reserva 1. Si el stock es **0**, el cupón **no funciona**.
+Tiene **Stock disponible**. Cada vez que alguien aplica el código, Fint reserva 1. Con stock **0**, el código no se aplica.
 
 <Warning>
-  Hoy **no descuenta combos**. El porcentaje se calcula solo sobre entradas sueltas. Si el carrito es solo combos, el descuento porcentual queda en cero. Un monto fijo sí se resta del total de la compra, aunque haya combos. No hay un interruptor en pantalla para aplicarlo a las entradas de un combo.
+  El porcentaje se calcula solo sobre **entradas sueltas**, no sobre combos. Si el carrito es solo combos, el descuento porcentual queda en cero. Un monto fijo se resta del total de la compra, aunque haya combos.
 </Warning>
 
 Además del alcance por tipos de entrada, podés pedir un total mínimo o máximo. Si es porcentual, también podés limitar el monto máximo descontado.

@@ -196,17 +196,13 @@ En el historial de stock, el saldo vuelve de **1 a 0**. Se conserva el aumento a
 
 ### 3. Si el cupo ya se ocupó, queda cancelada
 
-Si cancelás nuevamente y ese cupo se asigna a otra venta, **Habilitar entrada** devuelve un error por falta de stock. La entrada sigue **Cancelado** y el intento queda identificado en **Actividad**.
+Si cancelás nuevamente y ese cupo se asigna a otra venta, **Habilitar entrada** avisa que no hay stock disponible. La entrada sigue **Cancelado** y el intento queda identificado en **Actividad**.
 
 <Frame>
   <img src="/docs/images/eventos-stock/05-rechazo-actividad.png" alt="Entrada de Julián todavía cancelada, con la razón La familia pidió liberar el cupo: la actividad muestra que Carolina no pudo habilitarla por falta de stock y conserva los cambios anteriores" />
 </Frame>
 
 El rechazo no suma ni resta unidades y no crea un movimiento ficticio en el historial de stock. Las reservas vigentes de checkout también cuentan al comprobar la disponibilidad.
-
-<Info>
-  Este comportamiento se aplica a los cambios nuevos. No recalcula automáticamente el stock de cancelaciones históricas.
-</Info>
 
 ## Comunicaciones y facturación
 

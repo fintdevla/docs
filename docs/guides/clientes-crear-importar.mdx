@@ -23,10 +23,10 @@ Al terminar esta guía, vas a tener clientes visibles en el listado y sabrás qu
     Entrá a **Clientes**, presioná **Crear** y elegí **Crear cliente**. Si el módulo se llama Estudiantes, la opción usa ese nombre.
   </Step>
   <Step title="Completá los datos">
-    El primer campo es **Documento** (DNI, CUIT u otro), con el texto **Ingresá CUIT o DNI para autocompletar los datos**. Solo deja **números**: sirve para DNI o CUIT, no para un pasaporte con letras (eso se carga después en el perfil). Después van **Nombre**, **Apellido** y **Email (opcional)**. Para habilitar **Crear cliente** / **Crear estudiante** alcanzan nombre y apellido. Fint **no** frena si ese DNI o email ya existe.
+    El primer campo es **Documento** (DNI, CUIT u otro), con el texto **Ingresá CUIT o DNI para autocompletar los datos**. Solo deja **números**: sirve para DNI o CUIT, no para un pasaporte con letras (eso se carga después en el perfil). Después van **Nombre**, **Apellido** y **Email (opcional)**. Para habilitar **Crear cliente** / **Crear estudiante** alcanzan nombre y apellido.
   </Step>
   <Step title="Revisá antes de crear">
-    Confirmá la escritura del nombre y buscá a la persona en el listado si podría existir. El alta manual no garantiza la detección de duplicados por documento o email.
+    Confirmá la escritura del nombre y buscá a la persona en el listado por documento o email antes de crearla, para no duplicar el perfil.
   </Step>
   <Step title="Creá el perfil">
     Presioná **Crear cliente**. Fint agrega el registro y lo deja disponible para abrirlo desde el listado.
@@ -81,7 +81,7 @@ La importación acepta archivos `.xlsx`. El archivo debe respetar la plantilla d
     El interruptor **Enviar email de bienvenida** viene prendido. Si lo dejás así, los responsables importados con email reciben el enlace al Portal de Contacto. Podés apagarlo.
   </Step>
   <Step title="Iniciá la importación">
-    Presioná **Importar**. Fint procesa la carga de forma asincrónica; que el archivo haya sido aceptado no confirma por sí solo que todas las filas terminaron correctamente.
+    Presioná **Importar**. Fint procesa la carga en segundo plano. Cuando termine, comprobá el resultado como se explica abajo.
   </Step>
 </Steps>
 

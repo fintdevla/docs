@@ -178,12 +178,12 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
   </Accordion>
 
   <Accordion title="¿Qué hago si quedó un importe de más?" id="quedo-un-importe-de-mas">
-    Hay dos situaciones distintas. No uses el mismo camino para las dos.
+    Hay dos situaciones distintas y cada una tiene su camino.
 
     - Una **transferencia suelta** por el excedente: la cuota del mes ya cerró y después entra otro movimiento, por ejemplo **\$1.000,00**.
     - Un **excedente dentro de la misma transferencia** de la cuota: transfirieron más de lo que debían y, al conciliar esa cuota, sobra diferencia.
 
-    Hoy Fint no arrastra solo un saldo a favor hacia las próximas conciliaciones. El crédito no aparece automáticamente el mes siguiente. Mientras tanto, podés resolverlo con estos caminos.
+    El saldo a favor se aplica a la próxima cuota con alguno de estos caminos.
 
     <AccordionGroup>
       <Accordion title="Dejá la transferencia suelta y aplicala a la próxima cuota" id="deja-la-transferencia-suelta-y-aplicala-a-la-proxima-cuota">
@@ -227,13 +227,13 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
             Fint crea esa orden, la deja **Pagada** en la misma conciliación y registra el pago por transferencia.
           </Step>
           <Step title="Llevalo vos a la próxima cuota">
-            El saldo a favor no se descuenta solo el mes siguiente. Anotalo y, cuando exista la próxima orden, agregale a mano un descuento por ese importe. Recién ahí la cuota nueva cierra por el neto.
+            Anotalo y, cuando exista la próxima orden, agregale a mano un descuento por ese importe. Recién ahí la cuota nueva cierra por el neto.
           </Step>
         </Steps>
 
-        <Warning>
-          La factura **Saldo a favor** sirve para dejar asentado el crédito. No aparece como sugerencia automática en la conciliación del mes siguiente. Si no hacen el descuento a mano, el crédito queda registrado pero no se consume.
-        </Warning>
+        <Info>
+          La factura **Saldo a favor** deja asentado el crédito. Se consume cuando aplicás el descuento en la cuota siguiente.
+        </Info>
       </Accordion>
 
       <Accordion title="Generá ya la orden del mes siguiente" id="genera-ya-la-orden-del-mes-siguiente">
@@ -271,7 +271,7 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
     | Mensaje de carga con duplicados | Fint reconoce un movimiento ya importado y no crea otra copia | Buscá el movimiento original por fecha, importe o responsable |
     | Fila sin fecha | Fint no puede tratarla como un movimiento | Volvé a exportar el período con fecha e importe completos |
     | Fila vacía o con importe cero | No se considera un movimiento bancario | Compará contra las filas que realmente tienen fecha e importe |
-    | Egreso o débito | Actualmente **Movimientos** muestra solo ingresos conciliables | No vuelvas a importarlo como cobro; revisá el total de egresos en **Extractos** |
+    | Egreso o débito | **Movimientos** muestra los ingresos conciliables | No vuelvas a importarlo como cobro; revisá el total de egresos en **Extractos** |
 
     <Info>
       La tarjeta del extracto conserva el total de movimientos importados y, cuando existen, los duplicados omitidos y las advertencias. También separa ingresos, egresos y el avance de revisión.
@@ -358,11 +358,7 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
   </Accordion>
 
   <Accordion title="¿El saldo a favor se descuenta solo el mes siguiente?" id="saldo-a-favor-no-se-consume-solo">
-    No. Hoy Fint no arrastra un crédito hacia las próximas conciliaciones.
-
-    La factura **Saldo a favor** deja asentado el excedente como una orden **Pagada**. No aparece como sugerencia el mes siguiente ni se resta sola de la cuota nueva.
-
-    Mientras tanto, elegí uno de estos caminos:
+    No. La factura **Saldo a favor** deja asentado el excedente como una orden **Pagada**, y el crédito se aplica a la cuota nueva con uno de estos caminos:
 
     - [Dejá la transferencia suelta y aplicala a la próxima cuota](#deja-la-transferencia-suelta-y-aplicala-a-la-proxima-cuota) si el excedente es un movimiento aparte.
     - [Registrá un saldo a favor y hacé el descuento a mano](#registra-un-saldo-a-favor-y-hace-el-descuento-a-mano) si el excedente está dentro de la misma transferencia.

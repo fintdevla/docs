@@ -86,7 +86,7 @@ La pestaña **Facturación automática** solo aparece con el módulo ARCA activo
 | **Nombre** | Solo etiqueta. No cambia la lógica. | Sirve para el aviso de reglas que se pisan. |
 | **Tipo de comprobante** | Factura, Recibo o **Ambos**. | **Ambos** puede emitir factura **y** recibo sobre el mismo pago. |
 | **Punto de venta** | El de **Web Services** que ARCA habilitó. | Si no hay ninguno, el editor muestra un aviso amarillo y te manda a crearlo. |
-| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Pago Mis Cuentas, Mercado Pago, efectivo y Pagos360. **Todos** marca ese grupo. | Point y QR se guardan como tarjeta, débito o Mercado Pago. Pagos360, si se puede, también cae en esos medios; si no, usa Pagos360. Nuvei no entra: ese mercado todavía no factura. |
+| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Pago Mis Cuentas, Mercado Pago, efectivo y Pagos360. **Todos** marca ese grupo. | Point y QR se guardan como tarjeta, débito o Mercado Pago. Pagos360, si se puede, también cae en esos medios; si no, usa Pagos360. Los cobros con Nuvei no se facturan con ARCA. |
 | **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto y Exento. | Un receptor Exento entra en **Todos**. Exportación y Turista no aparecen aparte: se agrupan en **Exento**. |
 | **Momento de facturación** | **Inmediata** o **Día específico**. | Inmediata emite cuando entra el pago. |
 | **Concepto** | **Servicios**, **Productos** o **Productos y Servicios**. | Va al comprobante fiscal. |
@@ -157,11 +157,11 @@ En la tarjeta de la regla (arriba), soporte ve **Email del comprobante**: “Se 
 
 Este mail **no es** el de *Se acreditó tu pago*. El de cobro sale antes y **no adjunta el PDF**. El fiscal es otro correo, más tarde, con el PDF, y solo si **Enviar comprobante por email** está prendido (la regla recomendada nace apagada).
 
-Si no hay email, Fint **no falla la factura**: el comprobante se emite igual y el mail se saltea. En logs queda `recipient-email-missing`.
+Si no hay email, Fint **no falla la factura**: el comprobante se emite igual y el mail se saltea.
 
 ### Cuándo sale
 
-Recién con el comprobante **Procesado** y el PDF generado. Un envío ya registrado no se vuelve a mandar (`already-sent`).
+Recién con el comprobante **Procesado** y el PDF generado. Un envío ya registrado no se vuelve a mandar.
 
 Así se ve el mail de una factura. El PDF va adjunto y también se descarga del botón.
 

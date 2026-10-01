@@ -13,7 +13,7 @@ Usá un rol de operación para cada tarea. Reservá el rol de administrador para
 | --- | --- | --- |
 | **Administrador** | Acceso completo al panel y a la configuración de la organización. | No requiere restricciones adicionales. |
 | **Cajero** | **Puntos de venta** y **Configuración → Mi cuenta**. Dentro de un POS, ve **Inicio** y **Ventas**. | Todos o algunos puntos de venta y cajas; además, visibilidad sobre ventas de otros cajeros. |
-| **Acomodador de evento** | **Eventos** y **Configuración → Mi cuenta**. | Todos los eventos o una selección. También podés guardar el permiso **Ver dinero en estadísticas de eventos**. |
+| **Acomodador de evento** | **Eventos** y **Configuración → Mi cuenta**. | Todos los eventos o una selección. |
 
 <Info>
   Un cajero no puede crear ni configurar puntos de venta, productos, grupos o cajas. Prepará esos elementos antes de darle acceso. Un acomodador no recibe una experiencia de Punto de Venta en la interfaz.
@@ -54,7 +54,7 @@ El destinatario recibe un mail de `mail.fint.app` con el nombre del colegio y el
   <img src="/docs/images/emails/invitation-org.png" alt="Mail a Lucía Pérez: Te invitaron a colaborar en Colegio Modelo, con botón Aceptar Invitación" />
 </Frame>
 
-Si el correo no aparece, pedile que revise spam. Desde **Invitaciones pendientes** no hay un botón de reenvío en esa fila: hay que **Cancelar** y volver a invitar.
+Si el correo no aparece, pedile que revise spam. Para reenviarlo, cancelá la invitación desde **Invitaciones pendientes** y volvé a invitar.
 
 ## Aceptar la invitación
 
@@ -147,14 +147,7 @@ Preparación recomendada:
 
 ## Configurar un acomodador de evento
 
-Al elegir **Acomodador de evento**, podés:
-
-- Activar **Acceso a todos los eventos**; o desactivarlo y seleccionar los eventos permitidos.
-- Activar **Ver dinero en estadísticas de eventos**.
-
-<Warning>
-  El permiso **Ver dinero en estadísticas de eventos** se puede guardar, pero la vista actual del acomodador no incluye **Estadísticas**. Activarlo hoy no cambia su interfaz.
-</Warning>
+Al elegir **Acomodador de evento**, activá **Acceso a todos los eventos**; o desactivalo y seleccioná los eventos permitidos.
 
 Cuando la invitación se restringe a eventos concretos, Fint abre el paso **Seleccionar eventos**. Elegí al menos uno para poder enviarla.
 
@@ -181,7 +174,7 @@ En la fila de cada miembro, abrí el menú de acciones y elegí **Editar permiso
 Al pasar una persona a **Administrador**, Fint deja de aplicar sus restricciones de eventos, puntos de venta, cajas y ventas. Al cambiar entre roles operativos, revisá el alcance que aparece en el formulario antes de guardar.
 
 <Warning>
-  En **Invitar**, Fint no deja seguir si el alcance quedó vacío. En **Editar permisos** avisa si faltan eventos, POS o cajas, pero **Guardar** sigue habilitado: revisá el alcance antes de confirmar.
+  Al editar los permisos de un cajero o un acomodador, dejá al menos un evento, punto de venta o caja en su alcance antes de presionar **Guardar**.
 </Warning>
 
 ## Próximos pasos

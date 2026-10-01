@@ -15,12 +15,8 @@ Cada fila muestra el número de orden, la descripción, el vencimiento, el clien
 
 El buscador reconoce el número de orden, el cliente, la descripción y el nombre de la liquidación. También podés filtrar las órdenes disponibles por **Estado** y **Etiquetas**.
 
-<Warning>
-  Las órdenes canceladas no aparecen en el listado general. Aunque la opción **Cancelada** figure en el filtro, no las recupera en la versión actual.
-</Warning>
-
 <Info>
-  Las órdenes de Evento que siguen Por Cobrar tampoco aparecen en este listado. Consultalas desde el flujo de [Eventos](/docs/guides/eventos) correspondiente.
+  Las órdenes de Evento que siguen Por Cobrar se consultan desde el flujo de [Eventos](/docs/guides/eventos) correspondiente.
 </Info>
 
 Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar**.
@@ -28,10 +24,6 @@ Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar
 <Frame>
   <img src="/docs/images/solicitudes-pago/ordenes-listado.png" alt="Listado de órdenes de Colegio Modelo, con cuotas de septiembre 2026 por cobrar y ventas de tienda escolar pagadas" />
 </Frame>
-
-<Danger>
-  No uses la eliminación en lote. El flujo actual no protege de forma consistente las órdenes con Pago parcial y puede informar éxito aunque alguna operación falle.
-</Danger>
 
 ## Estados de una orden
 
@@ -54,7 +46,7 @@ Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar
 </CardGroup>
 
 <Info>
-  **Vencida** no es un estado independiente. En el listado actual, el filtro considera órdenes Por Cobrar con una fecha anterior a hoy.
+  **Vencida** no es un estado independiente. El filtro considera órdenes Por Cobrar con una fecha anterior a hoy.
 </Info>
 
 ## Abrir el detalle
@@ -120,10 +112,6 @@ La importación crea varias órdenes desde el modelo `.xlsx` disponible en el mo
 <Danger>
   Si una fila incluye **Fecha Pago** y **Medio de Pago**, Fint crea la orden como Pagada y registra el pago. Ese evento puede activar una regla automática de facturación ARCA.
 </Danger>
-
-<Warning>
-  El archivo fuente queda almacenado en el servicio remoto de archivos configurado para Fint. No se usa solo de forma temporal durante la importación.
-</Warning>
 
 Antes de seleccionar **Importar**, revisá todas las filas y las reglas de facturación de la organización. Si solo querés crear órdenes pendientes, dejá vacías ambas columnas de pago.
 
