@@ -3,7 +3,7 @@ title: 'Punto de Venta'
 description: 'Configurá tu mostrador, armá órdenes y cobrá ventas presenciales desde Fint'
 ---
 
-El módulo **Punto de Venta** reúne el catálogo, el stock, los clientes y los pagos de tus ventas presenciales. Podés cobrar en efectivo, por transferencia o con varios medios en una misma venta. En organizaciones de Argentina, también podés usar Point y QR de Mercado Pago.
+El módulo **Punto de Venta** reúne el catálogo, el stock, los clientes y los pagos de tus ventas presenciales. Podés cobrar en efectivo, por transferencia o con varios medios en una misma venta, o [confirmarla sin cobrar](/docs/guides/pos-pagar-despues) y dejar la orden a pagar a nombre del cliente. En organizaciones de Argentina, también podés usar Point y QR de Mercado Pago.
 
 El checkout dura **15 minutos**.
 
@@ -81,7 +81,7 @@ Configurá estos elementos en este orden:
 ## Límites importantes
 
 - El catálogo del POS acepta items de tipo **Venta online**, con vigencia de **pago único**.
-- La interfaz del POS exige que la orden alcance un mínimo de **30 unidades de la moneda de la organización** para pasar al cobro.
+- Point y QR cobran desde **30 unidades de la moneda de la organización**: es el mínimo de Mercado Pago. Efectivo y transferencia aceptan cualquier importe, y una orden que queda en $0 se confirma como [venta sin cargo](/docs/guides/pos-cobros#ventas-sin-cargo).
 - Los descuentos guardados del POS deben ser de tipo **Venta online**, estar activos y tener stock disponible.
 - Point y QR están disponibles para organizaciones de **Argentina** y aparecen como medios de pago solo si la caja elegida está lista para ese canal.
 - La caja elegida queda guardada en el navegador de ese dispositivo. Elegirla en una computadora no cambia la selección de otra.

@@ -18,7 +18,7 @@ Al hacer clic en una venta se abre el panel **Orden de pago**: cliente, ítems, 
 
 Podés buscar por cliente y filtrar por:
 
-- Estado: exitoso, pendiente, parcialmente pagado, cancelado, borrador o rechazado, según los datos disponibles.
+- Estado: exitoso, pendiente, parcialmente pagado, a pagar, cancelado, borrador o rechazado, según los datos disponibles. **A pagar** agrupa las ventas confirmadas con [Pagar después](/docs/guides/pos-pagar-despues) que todavía tienen saldo.
 - Medio: efectivo, transferencia, dispositivo, QR, combinado u otros métodos registrados.
 
 <Info>
@@ -57,11 +57,14 @@ El archivo respeta el alcance del usuario: un cajero sin permiso para ver ventas
 
 ### Qué trae el Excel
 
-El archivo tiene tres hojas:
+El archivo tiene tres hojas, y una cuarta si hubo ventas con [Pagar después](/docs/guides/pos-pagar-despues):
 
 - **pos-sales**: una fila por producto vendido, con su medio de pago. Una venta pagada con dos medios figura como **Combinado**.
 - **por-medio-de-pago**: cada producto repartido por medio de pago, con las columnas **Pago combinado** (Sí/No), **% del pago** y **Monto asignado**.
 - **resumen-por-medio**: una matriz de producto por medio de pago, con totales.
+- **a-pagar**: las ventas fiadas del período que todavía tienen saldo, con cliente, saldo y vencimiento.
+
+Las dos primeras hojas terminan con las columnas **Estado de pago** y **Pagar después**, para separar las ventas cobradas en el momento de las que quedaron a pagar.
 
 En un pago combinado, el pago no está asociado a un producto. Por eso cada producto se reparte en proporción a lo pagado con cada medio. La cantidad se asigna entera al medio que más pagó y queda en 0 en el resto.
 
@@ -79,7 +82,7 @@ El tablero incluye:
 
 <CardGroup cols={2}>
   <Card title="Resumen" icon="chart-simple">
-    **Total facturado**, **Órdenes**, **Unidades** y **Ticket promedio**.
+    **Total facturado**, **Órdenes**, **Unidades** y **Ticket promedio**. Si hay ventas a pagar con saldo, suma **Por cobrar**.
   </Card>
   <Card title="Evolución" icon="chart-line">
     El gráfico se llama **Evolución de ventas** y sigue el filtro **Fecha**: Hoy, Ayer, Últimos 7, 28 o 90 días, Último año o un rango propio.
@@ -98,7 +101,7 @@ El tablero incluye:
   </Card>
 </CardGroup>
 
-<img src="/docs/images/punto-de-venta/reportes-tienda-escolar.png" alt="Reportes de Tienda escolar en los últimos 90 días: total facturado de un millón quinientos treinta y seis mil setecientos cincuenta pesos, 25 órdenes, 68 unidades, evolución de ventas, productos más vendidos y medios de pago Transferencia y Efectivo" />
+<img src="/docs/images/punto-de-venta/reportes-tienda-escolar.png" alt="Reportes de Tienda escolar en los últimos 90 días: total facturado de un millón ochocientos cuarenta y seis mil setecientos pesos, 31 órdenes, 81 unidades, Por cobrar de 67.000 pesos, evolución de ventas, productos más vendidos y medios de pago Transferencia, Efectivo y A pagar" />
 
 ### Ver todos o un punto de venta
 
