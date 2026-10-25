@@ -154,6 +154,10 @@ Si el código no se puede leer, buscá la entrada desde el listado antes de toma
   </Accordion>
   <Accordion title="La entrada ya figura Registrado">
     No vuelvas a registrarla. Si el ingreso fue un error, el administrador usa **Habilitar entrada** en Asistentes (vuelve a Sin registrar). No es un reembolso.
+
+    Fint registra cada ingreso una sola vez, aunque dos dispositivos escaneen la misma entrada al mismo tiempo. En el detalle de la entrada en el panel de Fint (**Eventos → Asistentes**), si presionás **Admitir** sobre una que ya ingresó, aparece en rojo **Fue admitido a las HH:MM** y no se registra de nuevo. Tratalo como una entrada duplicada.
+
+    Para saber quién registró el ingreso y a qué hora, el administrador exporta **Asistentes**: las columnas **Admitido por** y **Admitido el** lo muestran.
   </Accordion>
   <Accordion title="La entrada figura Cancelado">
     No registres el ingreso. Un administrador puede **Habilitar entrada** para reactivarla. La reactivación comprueba el cupo y consume una unidad de stock. Si no hay disponibilidad, la entrada sigue cancelada. No genera un cobro nuevo.

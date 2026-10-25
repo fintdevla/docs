@@ -1,0 +1,65 @@
+---
+title: 'Notificaciones'
+description: 'Elegí quién del equipo recibe los avisos por email de stock y aforo, facturación y procesador de pagos'
+---
+
+En **Configuración → Notificaciones** decidís a quién le llega cada aviso que Fint manda a la organización. Así no le llegan a todos los administradores si no hace falta. Solo los administradores ven esta pantalla.
+
+<Frame>
+  <img src="/docs/images/configuracion/notificaciones.png" alt="Notificaciones, Avisos por email: Stock y aforo de eventos, Errores de facturación y Problemas con el procesador de pagos, cada uno con Demo Terminal y el texto Sin configurar" />
+</Frame>
+
+## Qué avisos hay
+
+<CardGroup cols={3}>
+  <Card title="Stock y aforo de eventos" icon="ticket">
+    Cuando una entrada o el aforo de un evento se agota o baja del número que configuraste. [Cómo se configuran](/docs/guides/eventos-entradas-ventas-asistentes#avisos-de-stock-y-aforo).
+  </Card>
+  <Card title="Errores de facturación" icon="file-invoice">
+    Cuando un comprobante de ARCA no se puede emitir y alguien tiene que revisarlo.
+  </Card>
+  <Card title="Problemas con el procesador de pagos" icon="credit-card">
+    Cuando la conexión con el procesador de pagos deja de funcionar y hay que revisarla.
+  </Card>
+</CardGroup>
+
+## Quién los recibe si no tocás nada
+
+Debajo de cada aviso dice **Sin configurar** mientras no lo cambies:
+
+- **Stock y aforo de eventos** y **Errores de facturación** le llegan a todos los administradores.
+- **Problemas con el procesador de pagos** le llega a quien creó la organización.
+
+## Elegir a quién le llega
+
+<Steps>
+  <Step title="Abrí el aviso">
+    Abrí el desplegable del aviso y buscá a la persona por su nombre.
+  </Step>
+  <Step title="Marcá o desmarcá personas">
+    Podés elegir a cualquier miembro de la organización, por ejemplo al acomodador para los avisos de aforo. Si elegís varias, el desplegable muestra cuántas son (**2 personas**).
+  </Step>
+  <Step title="Guardá">
+    Presioná **Guardar**. Aparece **Notificaciones actualizadas**. Solo cambia el aviso que tocaste: los demás siguen con su destinatario por defecto.
+  </Step>
+</Steps>
+
+<Warning>
+  Si desmarcás a todos, la pantalla muestra **Nadie recibe este aviso.** y, al guardar, ese aviso deja de llegar.
+</Warning>
+
+Si una persona deja la organización, deja de recibir los avisos aunque siga elegida.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Entradas, ventas y asistentes" icon="ticket" href="/docs/guides/eventos-entradas-ventas-asistentes#avisos-de-stock-y-aforo">
+    Configurá los avisos de stock y aforo de cada evento.
+  </Card>
+  <Card title="Miembros y roles" icon="users-gear" href="/docs/guides/miembros-y-roles">
+    Sumá a las personas que van a recibir los avisos.
+  </Card>
+  <Card title="Configuración" icon="gear" href="/docs/guides/configuracion">
+    Volvé al resto de la configuración.
+  </Card>
+</CardGroup>

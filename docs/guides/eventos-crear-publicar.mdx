@@ -48,7 +48,7 @@ Cada tipo puede definir:
 
 - Nombre, descripción, precio y **stock**.
 - Generación de código QR.
-- Solicitud de nombre, apellido, documento en compras ARS y email del asistente.
+- Si pide los datos de cada asistente. Qué datos se piden (documento, email y campos propios) se elige en **Pedido de información** (paso 5).
 - Un texto propio para el email que acompaña las entradas.
 - Campos extra del checkout (los del evento, no los de [Configuración → Campos](/docs/guides/configuracion-campos)). Ahí sí existe **Campo obligatorio**.
 
@@ -112,7 +112,8 @@ Abrí **Configuración** para revisar:
 - Cómo se presenta el **Costo del servicio** en ventas online y pagos manuales: **Incluido en la entrada** (queda dentro del precio) o **Discriminado** (se muestra aparte, con el porcentaje que cargues). Son dos controles distintos: uno para online y otro para el alta manual.
 - El tiempo de expiración del carrito.
 - El texto del email de confirmación.
-- El **Aforo total estimado**. No corta ventas ni altas: el cupo real es el stock de cada tipo. El aforo solo se usa en **Entradas activas** de Estadísticas. Vacío = sin número en ese recuadro.
+- El **Máximo de entradas por compra** online (viene en 20; un combo cuenta todas sus entradas).
+- El **Aforo total estimado**. Se usa en **Entradas activas** de Estadísticas. Por defecto no corta ventas: el cupo real es el stock de cada tipo. Si lo cargás, podés pedir un aviso por email y activar **Cortar ventas al llegar al aforo**. [Ver avisos y corte por aforo](/docs/guides/eventos-entradas-ventas-asistentes#avisos-de-stock-y-aforo).
 - **Mostrar en Descubrir**: el evento **Activo** puede aparecer en [fint.app/discover](https://fint.app/discover). No es la página propia; apagarlo no saca el link que ya compartiste.
 - El tracking con Meta, Google Analytics o Tag Manager.
 
@@ -122,25 +123,60 @@ Abrí **Configuración** para revisar:
 
 La guía de [Tracking y analítica](/docs/guides/meta-pixel) explica cómo conectar las herramientas disponibles sin ingresar credenciales de inicio de sesión.
 
+### Dos inscripciones para el mismo evento
+
+Si vendés el mismo evento en dos páginas (por ejemplo, una en pesos y otra en dólares), prendé **Opciones de inscripción** al final de **Configuración**. Al entrar, el comprador elige a cuál ir.
+
+- **Título del selector**: la pregunta que ve el comprador.
+- **Opción 1** y **Opción 2**: la URL de cada página y el texto de su botón. Los botones se muestran en ese orden.
+- La URL de la opción 1 se completa sola con la de este evento si la dejás vacía. Nunca reemplaza una URL que ya cargaste.
+
+<img src="/docs/images/eventos/opciones-inscripcion.png" alt="Opciones de inscripción prendidas: título Elegí cómo comprar tu entrada, opción 1 Pagar en pesos (ARS) y opción 2 Pagar en dólares (USD), cada una con su URL" />
+
+Configurá lo mismo en el otro evento, con las opciones en el mismo orden. Las URL tienen que empezar con `https://` (o `http://`).
+
+En la página pública el selector aparece al entrar. Si el comprador elige la página en la que ya está, se cierra. Si elige la otra, lo lleva ahí y llega con el selector cerrado. Fint recuerda la elección: en la próxima visita no vuelve a preguntar. Para cambiar, el comprador usa el botón **Moneda** (o **Cambiar inscripción**) de la página.
+
+<img src="/docs/images/eventos/selector-inscripcion.png" alt="Página pública de la Peña de Primavera con el selector Elegí cómo comprar tu entrada y los botones Pagar en pesos (ARS) y Pagar en dólares (USD)" />
+
+Si ya eligió entradas y cambia de inscripción, Fint le pide confirmar: la selección se borra y elige de nuevo en la otra página.
+
 ## 5. Definir qué información pedir
 
 En **Pedido de información**, el nombre completo y el email del comprador son obligatorios. Podés activar o desactivar su documento y teléfono.
 
-Los datos base del asistente se definen en cada tipo de entrada. Esta decisión permite que un tipo solicite datos y otro no.
+En **Asistentes** decidís qué completa cada persona que va al evento:
 
-Con **Agregar campo**, podés pedir información adicional. Tipos: Texto, Opciones, Checkbox, Número, Fecha, Teléfono, País. **Aplicar a**: todos los tickets, solo al comprador, o entradas específicas. Comprador = una vez por compra. Tickets = por asistente. **Campo obligatorio** y **Activo** (se muestra en la página) viven acá, no en [Configuración → Campos](/docs/guides/configuracion-campos). Las respuestas se ven y se editan en Asistentes.
+- **¿A qué entradas les pedimos datos de cada asistente?** Marcá las entradas que piden nombre y apellido de cada asistente. Por ejemplo, un estacionamiento puede no pedir nada.
+- **Documento** y **Correo electrónico**: prendelos o apagalos para todas las entradas marcadas. Apagado dice **No se pide**. El documento viene prendido en organizaciones que cobran en pesos.
+- **Campos personalizados**: se agrupan según a qué entradas aplican (primero los de todas las entradas y después los de algunas).
+- **Qué completa cada asistente** resume, entrada por entrada, lo que se le va a pedir. Pasá el mouse sobre un grupo para ver sus campos.
 
-Los campos personalizados sirven para datos como restricciones alimentarias, talle o una selección propia del evento.
+<img src="/docs/images/eventos/campos-personalizados.png" alt="Pedido de información, sección Asistentes: Entrada general y Platea preferencial marcadas, Estacionamiento no; documento y correo prendidos; campos agrupados por entrada y el resumen Qué completa cada asistente" />
 
-Separá las preguntas del comprador de las de los asistentes. En este ejemplo, **¿Cómo conociste el festival?** se responde una vez por compra y **¿Qué taller creativo preferís?** se pide para la entrada del taller.
+Con **Agregar campo**, podés pedir información adicional. Tipos: Texto, Opciones, Checkbox, Número, Fecha, Teléfono, País. **Aplicar a**: todos los tickets, solo al comprador, o entradas específicas. Comprador = una vez por compra. Tickets = por asistente. **Campo obligatorio** y **Activo** (se muestra en la página) viven acá, no en [Configuración → Campos](/docs/guides/configuracion-campos). Un campo con **Activo** apagado queda marcado **Oculto** y no se muestra en la página. Las respuestas se ven y se editan en Asistentes y salen en la exportación.
 
-<img src="/docs/images/eventos/campos-personalizados.png" alt="Campo opcional para el comprador y campo obligatorio para el asistente de la entrada con taller" />
+Arrastrá los campos para ordenarlos (de a uno, dentro de su grupo). La página pública los pide en el mismo orden. Los cambios se aplican al tocar **Guardar**.
+
+Los campos personalizados sirven para datos como restricciones alimentarias, talle o una selección propia del evento. Separá las preguntas del comprador de las de los asistentes: las del comprador se responden una vez por compra.
 
 ## 6. Completar las secciones extra
 
-Usá **Secciones extra** para cargar preguntas frecuentes y un mensaje destacado. El mensaje puede tener un color y un estado visible u oculto.
+Usá **Secciones extra** para cargar preguntas frecuentes y un mensaje destacado. El mensaje puede tener un color y un estado visible u oculto (**Mostrar mensaje**).
 
 Estas secciones son opcionales. Ayudan a responder dudas antes de la compra y a comunicar un aviso importante en la página.
+
+### Mensaje con cuenta regresiva
+
+Para una preventa o un cierre de inscripción, prendé **Agregar cuenta regresiva** en el mensaje destacado y elegí la **Fecha y hora límite**. La hora es la de la zona horaria del evento.
+
+<img src="/docs/images/eventos/mensaje-cuenta-regresiva.png" alt="Mensaje destacado Preventa con precio especial con la cuenta regresiva hasta el 1 de marzo de 2027 a las 12:00am, zona horaria America/Argentina/Buenos_Aires, y Mostrar mensaje prendido" />
+
+- En la página se ve primero el contador (días, horas, minutos y segundos) y después el texto.
+- El texto es opcional: con cuenta regresiva podés mostrar solo el contador.
+- Al llegar a la fecha límite se oculta **todo** el mensaje, incluido el texto. Si la fecha ya pasó, el editor lo avisa.
+- Cuando el evento terminó, no hay cuenta regresiva: si el mensaje tiene texto, se sigue viendo solo el texto.
+- **Quitar cuenta regresiva** deja el mensaje como un aviso común.
 
 En la página pública, cada pregunta puede desplegar su respuesta sin abandonar la selección de entradas.
 
@@ -149,6 +185,23 @@ En la página pública, cada pregunta puede desplegar su respuesta sin abandonar
 En el editor, los accesos a cada sección resumen cuántas entradas, combos, descuentos, campos y preguntas configuraste. Abrí cada sección para revisar su contenido antes de publicar.
 
 <img src="/docs/images/eventos/configuracion-completa-evento.png" alt="Editor del evento con resúmenes de dos entradas y un combo, un descuento, dos campos y tres preguntas con un mensaje activo" />
+
+## Personalizar la apariencia
+
+En **Opciones del evento → Apariencia** elegís cómo se ve la página pública. Son cuatro controles independientes, y la miniatura de la izquierda muestra el resultado:
+
+- **Tono**: **Tinteado** tiñe fondos y bordes con el color del evento; **Neutro** los deja grises.
+- **Modo**: **Claro** u **Oscuro**.
+- **Diseño**: **Completo** ocupa toda la pantalla; **Enmarcado** pone el contenido en un recuadro sobre la portada difuminada.
+- **Portada**: **Al costado** (a la izquierda del título) o **Arriba** (a todo el ancho, con el contenido en una sola columna).
+
+<img src="/docs/images/eventos/apariencia.png" alt="Apariencia del evento: Tinteado, Oscuro, Completo y Portada arriba, con la miniatura y el color elegido entre las tres sugerencias de la portada" />
+
+En **Color del evento**, elegí uno de los colores que Fint saca de la portada o cargá otro (selector o código HEX). Ese color se usa en botones y detalles. **Vista previa** muestra cómo queda la página con tu borrador, sin guardar nada. Para volver al diseño de siempre, usá **…** → **Quitar apariencia**. Los cambios se aplican al tocar **Guardar**.
+
+La apariencia se mantiene en toda la compra: la página del evento, los datos de los asistentes y la pantalla de confirmación. En celulares, también pinta la barra del navegador.
+
+<img src="/docs/images/eventos/pagina-publica-apariencia.png" alt="Página pública de la Peña de Primavera en tono tinteado oscuro con la portada arriba y el mensaje destacado con la cuenta regresiva de la preventa" />
 
 ## 7. Guardar o publicar
 
@@ -163,7 +216,16 @@ En el editor, los accesos a cada sección resumen cuántas entradas, combos, des
 
 Para revisar la página pública, guardá el evento y usá **Visitar** (también está en el menú **…** de la tarjeta).
 
-<img src="/docs/images/eventos/evento-activo.png" alt="Detalle de un evento activo con las acciones Copiar link y Visitar" />
+<img src="/docs/images/eventos/evento-activo.png" alt="Detalle de la Peña de Primavera 2027 activa con las acciones Copiar link corto, Copiar link, Descargar QR, Editar y Visitar" />
+
+### Link corto y QR
+
+Cada evento tiene un **link corto** fijo, del estilo `fint.app/e/abc234`, y un **QR** que apunta a ese link. Los encontrás en el detalle del evento y en el menú **…** de la tarjeta:
+
+- **Copiar link corto** lo copia al portapapeles.
+- **Descargar QR** baja una imagen PNG lista para imprimir en afiches o folletos.
+
+El link corto lleva siempre a la dirección actual del evento: si después cambiás la ruta de la página, el link y los QR que ya imprimiste siguen funcionando. Si el evento está en borrador o archivado, quien lo abra ve lo mismo que con el link normal.
 
 <Warning>
   No completes una compra sólo para “simular” el flujo. Al presionar **Continuar**, Fint crea una sesión; al confirmar después, crea una orden y entradas reales.
@@ -193,7 +255,7 @@ Si el único medio de pago es Mercado Pago, **Continuar al pago** lleva directo 
 
 El administrador puede volver a editar con el ícono **Editar evento** (lápiz) de la tarjeta y guardar cambios. La nueva configuración se aplica a ventas futuras. Las operaciones ya realizadas conservan sus importes, comprador, asistente y respuestas.
 
-**Duplicar evento** copia la configuración a un evento nuevo (`Copia - …`) con otra URL. **Reusa los mismos tipos de entrada y descuentos**: el stock es compartido. Para cupos aparte, creá tipos nuevos.
+**Duplicar evento** copia la configuración a un evento nuevo (`Copia - …`) con otra URL, incluidos los campos personalizados en su orden (los ocultos siguen ocultos). **Reusa los mismos tipos de entrada y descuentos**: el stock es compartido. Para cupos aparte, creá tipos nuevos.
 
 Pasada la **fecha y hora de finalización**, no hay checkout ni alta manual (`El evento ha finalizado`) hasta que extiendas esa fecha y el evento esté **Activo**. **Visitar** en Borrador no muestra página pública.
 
