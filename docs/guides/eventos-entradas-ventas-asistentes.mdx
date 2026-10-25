@@ -56,6 +56,8 @@ En la [App de Admisión](/docs/guides/app-admision) se leen **Sin registrar**, *
 
 Presioná **Exportar** para descargar hasta 10.000 entradas o limitar el archivo a un evento. Si activás el filtro de fecha, también podés indicar un período.
 
+Para cada entrada admitida, el archivo trae **Admitido por** (nombre y apellido de quien registró el ingreso, o **API** si entró por una integración) y **Admitido el** (fecha y hora). Si después se usa **Habilitar entrada**, esas dos columnas quedan vacías.
+
 ## Revisar el detalle de una entrada
 
 Abrí una fila para consultar:
@@ -138,6 +140,12 @@ Para el ingreso con el celular, en **Eventos** usá el menú **Admisión** (íco
   <img src="/docs/images/eventos/menu-admision.png" alt="Menú Admisión abierto en Eventos, vista de administrador: Abrir app de admisión, Invitar acomodadores con el rol Acomodador de evento y Ver guía de uso" />
 </Frame>
 
+### Si la entrada ya ingresó por otro dispositivo
+
+Fint registra cada ingreso una sola vez, aunque dos personas escaneen la misma entrada al mismo tiempo. Si tenés abierto el detalle y presionás **Admitir** sobre una entrada que otro dispositivo ya registró, no se registra de nuevo: debajo de los botones aparece en rojo **Fue admitido a las HH:MM**, con la hora del primer ingreso.
+
+Tratalo como una entrada duplicada: no dejes pasar a una segunda persona con el mismo código. En la actividad de la entrada queda una sola admisión, con quién la hizo.
+
 La acción **Habilitar entrada** devuelve el ticket a **No admitido**. Deshacer una admisión no cambia el cupo. Si la entrada estaba **Cancelado**, Fint comprueba que haya stock y consume una unidad al reactivarla.
 
 <Card title="App de Admisión" icon="mobile" href="/docs/guides/app-admision">
@@ -203,6 +211,56 @@ Si cancelás nuevamente y ese cupo se asigna a otra venta, **Habilitar entrada**
 </Frame>
 
 El rechazo no suma ni resta unidades y no crea un movimiento ficticio en el historial de stock. Las reservas vigentes de checkout también cuentan al comprobar la disponibilidad.
+
+## Avisos de stock y aforo
+
+Fint te avisa por email cuando una entrada o el evento se están quedando sin lugar. Los avisos son opcionales y no cambian cómo se vende: solo cortan ventas si activás **Cortar ventas al llegar al aforo**.
+
+### Cuando una entrada se agota o baja de un número
+
+En **Items**, abrí el tipo de entrada y completá **Avisar cuando queden** con la cantidad que quieras. Guardá el item.
+
+<Frame>
+  <img src="/docs/images/eventos/entrada-aviso-stock.png" alt="Item de entrada con Stock disponible 120 y Avisar cuando queden 10 entradas, con la ayuda que remite a Notificaciones" />
+</Frame>
+
+- Cuando una venta online, una entrada manual o un ajuste de stock a la baja deja la entrada en ese número o menos, llega el aviso **Quedan N de la entrada …**.
+- Cuando se agota, llega **Se agotó la entrada …**, aunque el campo esté vacío.
+- Avisa una sola vez al cruzar el número, no en cada venta. Si sumás stock y vuelve a bajar, avisa de nuevo.
+- Cuenta lo vendido. Un carrito abierto que todavía no se pagó no dispara el aviso.
+
+### Aforo del evento: aviso y corte de ventas
+
+En el evento, abrí **Editar → Configuración**. Debajo de **Aforo total estimado** aparecen dos opciones (solo si cargaste un aforo):
+
+- **Avisar cuando queden X lugares**: avisa cuando las entradas vendidas dejan esos lugares o menos, y cuando se llega al aforo. Vacío: solo al llegar al aforo.
+- **Cortar ventas al llegar al aforo**: apagado por defecto. Apagado, el aforo es informativo y se puede seguir vendiendo. Prendido, la página pública muestra **Agotada** cuando no queda lugar y no se puede comprar más de lo que queda, ni online ni con una entrada manual.
+
+<Frame>
+  <img src="/docs/images/eventos/aforo-aviso-corte.png" alt="Configuración del evento: Máximo de entradas por compra 6, Aforo total estimado 350, Avisar cuando queden 50 lugares y Cortar ventas al llegar al aforo activado" />
+</Frame>
+
+El aforo cuenta todas las entradas del evento, de todos los tipos, sin las canceladas. Con el corte prendido, un carrito abierto también ocupa su lugar hasta que se paga o vence.
+
+<Info>
+  El stock de cada tipo de entrada sigue funcionando como siempre. Con el corte prendido, se vende hasta que se agote el tipo o se llene el aforo, lo que pase primero.
+</Info>
+
+### Quién recibe los avisos y cómo llegan
+
+Los avisos de stock y aforo le llegan a quienes elijas en [Configuración → Notificaciones](/docs/guides/configuracion-notificaciones). Si nunca lo configuraste, le llegan a todos los administradores.
+
+El email dice qué entrada o qué evento es, cuántos lugares quedan y trae un botón para abrirlo en Fint. Cuando el evento llega al aforo, también dice si las ventas quedaron cerradas o siguen abiertas.
+
+<img src="/docs/images/emails/aviso-stock-bajo.png" alt="Email Stock bajo: quedan 10 de la entrada Entrada general de Peña de fin de año 2027, con el botón Ver la entrada" />
+
+## Tope de entradas por compra
+
+Cada evento tiene un **Máximo de entradas por compra** para la venta online. Viene en **20** y lo cambiás en **Editar → Configuración** (mínimo 1).
+
+- Cuentan las entradas que se emiten: un combo de 4 suma 4.
+- Si alguien elige más, al presionar **Continuar** ve **Podés comprar hasta N entradas por compra** y no se crea el carrito.
+- Las entradas manuales desde **Asistentes** no tienen este tope.
 
 ## Comunicaciones y facturación
 
