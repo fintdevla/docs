@@ -132,6 +132,7 @@
                   "docs/guides/pos-venta",
                   "docs/guides/pos-descuentos",
                   "docs/guides/pos-cobros",
+                  "docs/guides/pos-pagar-despues",
                   "docs/guides/pos-ventas-reportes"
                 ]
               }
@@ -155,6 +156,7 @@
               "docs/guides/configuracion-campos",
               "docs/guides/miembros-y-roles",
               "docs/guides/configuracion-recordatorios",
+              "docs/guides/configuracion-notificaciones",
               "docs/guides/configuracion-mora",
               "docs/guides/configuracion-integraciones",
               "docs/guides/conectar-mercado-pago",
