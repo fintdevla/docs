@@ -86,7 +86,7 @@ La pestaña **Facturación automática** solo aparece con el módulo ARCA activo
 | **Nombre** | Solo etiqueta. No cambia la lógica. | Sirve para el aviso de reglas que se pisan. |
 | **Tipo de comprobante** | Factura, Recibo o **Ambos**. | **Ambos** puede emitir factura **y** recibo sobre el mismo pago. |
 | **Punto de venta** | El de **Web Services** que ARCA habilitó. | Si no hay ninguno, el editor muestra un aviso amarillo y te manda a crearlo. |
-| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Pago Mis Cuentas, Mercado Pago, efectivo y Pagos360. **Todos** marca ese grupo. | Point y QR se guardan como tarjeta, débito o Mercado Pago. Pagos360, si se puede, también cae en esos medios; si no, usa Pagos360. Los cobros con Nuvei no se facturan con ARCA. |
+| **Métodos de pago** | Tarjeta, débito, transferencia, débito directo, Pago Fácil, Rapi Pago, Link Pagos, Pago Mis Cuentas, Mercado Pago, efectivo, Pagos360 y QR. **Todos** marca ese grupo. | Point y QR de Mercado Pago se guardan como tarjeta, débito o Mercado Pago. Los cobros de Pagos360 caen en su medio (tarjeta, Pago Fácil, Rapi Pago…); los que se pagan con QR usan **QR**, y si no se puede saber el medio, **Pagos360**. Los cobros con Nuvei no se facturan con ARCA. |
 | **Tipos de cliente** | Consumidor Final, Monotributista, Responsable Inscripto y Exento. | Un receptor Exento entra en **Todos**. Exportación y Turista no aparecen aparte: se agrupan en **Exento**. |
 | **Momento de facturación** | **Inmediata** o **Día específico**. | Inmediata emite cuando entra el pago. |
 | **Concepto** | **Servicios**, **Productos** o **Productos y Servicios**. | Va al comprobante fiscal. |
@@ -105,7 +105,7 @@ Si ninguna coincide, el pago queda sin comprobante. En el detalle vas a ver que 
 <img src="/docs/images/facturacion/11-pago-salteado-regla.png" alt="Detalle de un pago que las reglas activas saltearon" />
 
 <Info>
-  La regla **Facturar todos los cobros** del onboarding cubre todos los métodos (incluidos Pago Mis Cuentas y Pagos360) y los cuatro tipos de cliente, IVA 0%, y **no** envía el mail. Activá **Enviar comprobante por email** si la institución quiere que salga solo.
+  La regla **Facturar todos los cobros** del onboarding cubre todos los métodos (incluidos Pago Mis Cuentas, Pagos360 y QR) y los cuatro tipos de cliente, IVA 0%, y **no** envía el mail. Activá **Enviar comprobante por email** si la institución quiere que salga solo.
 </Info>
 
 ## Emitir a mano
