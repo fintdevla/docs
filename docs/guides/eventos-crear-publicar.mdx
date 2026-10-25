@@ -72,13 +72,35 @@ Las entradas gratuitas pueden publicarse sin procesador. Si asignás un precio y
 
 Podés ordenar los tipos y crear grupos para presentarlos con más claridad. Un grupo organiza la oferta; no cambia la cantidad de entradas que recibe el comprador.
 
-Un combo vende varias entradas juntas. En **Crear combo de entradas** definí nombre, descripción, precio y **Cantidad de entradas que incluye el combo**. En **¿Entre qué entradas elige el comprador?** sumá los tipos con **+ Seleccionar entradas**. Con **Limitar máx. por combo** ponés un tope para un tipo.
+Un combo vende varias entradas juntas. Los combos son de tu organización, como los tipos de entrada: el mismo combo puede venderse en varios eventos. En la sección de entradas del evento, **+ Agregar combo** abre la lista de combos que ya tenés; elegí uno o tocá **Crear combo** para armarlo sin salir del evento.
+
+En **Crear combo de entradas** definí nombre, descripción, precio y **Cantidad de entradas que incluye el combo**. En **¿Entre qué entradas elige el comprador?** sumá los tipos con **+ Seleccionar entradas**. Con **Limitar máx. por combo** ponés un tope para un tipo.
 
 Abajo, **Así funciona este combo** resume qué puede elegir el comprador, con ejemplos de combinaciones.
 
 <img src="/docs/images/eventos/combo-asi-funciona.png" alt="Modal Crear combo de entradas: Combo hermanos de 3 entradas a elegir entre Pase general y Pase general + Taller creativo, con el resumen Así funciona este combo y ejemplos 2 + 1, 3 + 0 o 0 + 3" />
 
-El combo **no tiene stock propio**. Cada tipo que elige el comprador descuenta el stock de esa entrada. Si un tipo está en 0, no se puede completar el combo.
+Cada tipo que elige el comprador descuenta el stock de esa entrada. Si un tipo está en 0, no se puede completar el combo.
+
+Si además querés un cupo para el combo (por ejemplo, solo 30 combos hermanos), prendé **Limitar stock** y cargá el **Stock inicial**. Desde ahí el combo tiene su propio stock, con ajustes e historial igual que una entrada. Para venderlo tienen que alcanzar los dos: el stock del combo y el de las entradas que elige el comprador.
+
+<Frame>
+  <img src="/docs/images/eventos/combo-limitar-stock.png" alt="Modal Editar combo de entradas del Combo hermanos · 3 personas con Limitar stock prendido, Stock disponible 30, botón Editar y Ver historial de stock" />
+</Frame>
+
+- El stock del combo es **uno solo para todos los eventos** donde está.
+- Si se **anula la compra** (por reembolso o porque eliminás el pago), el combo vuelve al stock. Cancelar entradas sueltas del combo solo devuelve esas entradas.
+- Sin **Limitar stock**, el combo se vende mientras haya stock de sus entradas.
+
+<Warning>
+  Editar un combo cambia su nombre, precio y entradas en **todos los eventos** donde está; el modal te avisa cuántos son. Las compras ya hechas no cambian. **Quitar** el combo de un evento no lo borra: sigue disponible para los demás.
+</Warning>
+
+En **Items → Combos** ves todos los combos de la organización, en qué eventos está cada uno, su stock y cuántos se vendieron. Desde ahí también podés crearlos, editarlos o pasarlos a borrador.
+
+<Frame>
+  <img src="/docs/images/eventos/combos-pestana.png" alt="Pestaña Combos en Items con el Combo hermanos · 3 personas con stock 30 y el Pack familiar · 4 personas sin límite, ambos en el Festival de la Comunidad 2027" />
+</Frame>
 
 <Warning>
   Los **descuentos del evento no aplican a combos**. El cupón porcentual se calcula solo sobre entradas sueltas. Si necesitás que el código descuente esa compra, ofrecé las entradas sueltas.
@@ -255,7 +277,7 @@ Si el único medio de pago es Mercado Pago, **Continuar al pago** lleva directo 
 
 El administrador puede volver a editar con el ícono **Editar evento** (lápiz) de la tarjeta y guardar cambios. La nueva configuración se aplica a ventas futuras. Las operaciones ya realizadas conservan sus importes, comprador, asistente y respuestas.
 
-**Duplicar evento** copia la configuración a un evento nuevo (`Copia - …`) con otra URL, incluidos los campos personalizados en su orden (los ocultos siguen ocultos). **Reusa los mismos tipos de entrada y descuentos**: el stock es compartido. Para cupos aparte, creá tipos nuevos.
+**Duplicar evento** copia la configuración a un evento nuevo (`Copia - …`) con otra URL, incluidos los campos personalizados en su orden (los ocultos siguen ocultos). **Reusa los mismos tipos de entrada, combos y descuentos**: el stock es compartido. Para cupos aparte, creá tipos o combos nuevos.
 
 Pasada la **fecha y hora de finalización**, no hay checkout ni alta manual (`El evento ha finalizado`) hasta que extiendas esa fecha y el evento esté **Activo**. **Visitar** en Borrador no muestra página pública.
 
