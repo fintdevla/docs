@@ -21,11 +21,14 @@ El ticket del Point no es el PDF de ARCA. El comprobante, si corresponde, nace d
 | --- | --- | --- |
 | **Efectivo** | Registra un pago manual en efectivo | Orden válida; identificación si la venta no es anónima |
 | **Transferencia** | Registra un pago manual identificado como transferencia | Orden válida; identificación si la venta no es anónima |
-| **Dispositivo Point** | Envía el importe al equipo físico y espera su resultado | Caja con dispositivo listo en modo PDV |
-| **QR Mercado Pago** | Muestra el QR de la caja y espera la confirmación | Caja con QR listo |
+| **Dispositivo Point** | Envía el importe al equipo físico y espera su resultado | Caja con dispositivo listo en modo PDV; total desde 30 |
+| **QR Mercado Pago** | Muestra el QR de la caja y espera la confirmación | Caja con QR listo; total desde 30 |
 | **Combinado** | Reparte el total entre dos o más medios | Las partes deben sumar exactamente el total |
+| **Pagar después** | Confirma la venta sin cobrar: descuenta stock y deja la orden a pagar | Opción activada en **Config** y un cliente elegido |
 
-Point y QR no aparecen si la caja actual no está lista para ese canal. Revisá [Cajas y Dispositivos](/docs/guides/pos-cajas-dispositivos) si falta una opción.
+Point y QR no aparecen si la caja actual no está lista para ese canal. Revisá [Cajas y Dispositivos](/docs/guides/pos-cajas-dispositivos) si falta una opción. Si el total no llega a 30 unidades de la moneda de la organización, que es el mínimo de Mercado Pago, aparecen deshabilitados con el aviso **Mínimo**. Efectivo y transferencia no tienen mínimo.
+
+**Pagar después** solo aparece si el punto de venta lo tiene activado. El recorrido completo está en [Pagar después](/docs/guides/pos-pagar-despues).
 
 ## Datos del cliente
 
@@ -48,6 +51,12 @@ Según el rol y la configuración del POS, Fint usa uno de estos caminos:
     Presioná **Registrar pago**. La operación queda asentada de inmediato y Fint muestra la confirmación de venta.
   </Step>
 </Steps>
+
+## Ventas sin cargo
+
+Si un descuento del 100% deja la orden en $0, no hay nada que cobrar, pero la venta se registra igual. Al continuar al pago, Fint muestra **No hay nada que cobrar**: elegí **Efectivo** o **Transferencia** y presioná **Confirmar venta**. **Combinado** y **Pagar después** no aparecen, porque no hay importe para repartir ni para dejar a pagar.
+
+La orden queda **Bonificada**, sin ningún pago, y el stock se descuenta como en cualquier venta. En **Ventas** figura como **Bonificada**, en el medio y en el estado.
 
 ## Cobrar con dispositivo Point
 
