@@ -17,9 +17,29 @@ La pantalla se agrupa en **Procesador de pagos**, **Facturación** y **Plataform
 - **Pagos360**
 - **Nuvei**
 
-Hay **un procesador de cobro por organización**. Sin ninguno conectado, **Conectar** funciona en Mercado Pago, **Pagos360** (API key) y **Nuvei** (credenciales + callback). **Stripe** y **Pagos Online** no son self-serve: muestran **Contactarse para activar**. Con uno activo, el resto también. Para cambiar: **Desconectar** y después conectar el otro. **Teachable** es aparte (API key) y no es un procesador de cobro.
+Hay **un procesador de cobro por organización**. Sin ninguno conectado, podés conectar vos mismo **Mercado Pago**, **Pagos360** (API Key) y **Nuvei** (credenciales + callback). **Stripe** y **Pagos Online** los activa el equipo de Fint: escribinos. Con un procesador activo, el resto muestra **Contactarse para activar**. Para cambiar: **Desconectar** y después conectar el otro. **Teachable** es aparte (API key) y no es un procesador de cobro.
 
 Para Mercado Pago hay una guía propia: [Conectar Mercado Pago](/docs/guides/conectar-mercado-pago).
+
+### Pagos360
+
+Con Pagos360, la familia paga desde el portal en la página de Pagos360: tarjeta, QR, transferencia o un cupón para pagar en efectivo.
+
+<Steps>
+  <Step title="Conseguí la API Key">
+    Está en el panel de tu cuenta de Pagos360. No hace falta elegir ambiente.
+  </Step>
+  <Step title="Conectá">
+    En la tarjeta **Pagos360**, presioná **Conectar**, pegá la clave en **API Key** y presioná **Guardar API Key**.
+
+    <img src="/docs/images/configuracion/integraciones-pagos360.png" alt="Diálogo Conectar o actualizar Pagos360 sobre la pantalla de Integraciones, con el campo API Key y los botones Cancelar y Guardar API Key" />
+
+    Fint valida la clave con Pagos360, la guarda y deja configurado en tu cuenta de Pagos360 el aviso de pagos (webhook). No tenés que cargar nada más allá.
+  </Step>
+  <Step title="Si cambia la clave">
+    Con Pagos360 activo, la tarjeta muestra **Actualizar API Key**. Abre el mismo diálogo.
+  </Step>
+</Steps>
 
 ## Facturación
 

@@ -9,9 +9,11 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
 
 <AccordionGroup>
   <Accordion title="Concilié mal. ¿Cómo lo deshago?">
-    En el detalle del movimiento, **Acciones → Revertir conciliación**. Fint anula el pago que había creado y vuelve el movimiento a **En revisión** o **Con sugerencias**. Hay que revertir **antes** de cambiar la fecha o de borrar.
+    En el detalle del movimiento, **Acciones → Revertir conciliación**. Fint anula el pago que había creado (y la orden, si la conciliación la había creado con **Crear factura**) y vuelve el movimiento a **En revisión** o **Con sugerencias**. Hay que revertir **antes** de cambiar la fecha o de borrar.
 
     Si el movimiento estaba vinculado a un pago que ya existía, la acción se llama **Desvincular pago**. El movimiento vuelve a quedar pendiente y el pago y sus órdenes no se modifican: no se anula nada.
+
+    Si en cambio borrás el pago desde [Pagos](/docs/guides/pagos) (**Eliminar pago manual**), el movimiento se libera igual: deja de estar **Conciliada**, vuelve a mostrar la sugerencia y la orden vuelve a **Por Cobrar**. Si la conciliación había creado la orden, la orden queda pendiente: borrar el pago no la borra.
   </Accordion>
   <Accordion title="La cuota ya estaba pagada a mano. ¿Cómo concilio el movimiento?" id="la-cuota-ya-estaba-pagada-a-mano">
     Pasa cuando la familia pagó y alguien registró el pago en la orden (efectivo, transferencia u otro medio manual) antes de importar el extracto. No crees un pago nuevo: vinculá el movimiento al que ya existe y evitás el duplicado.
@@ -57,7 +59,16 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
     Si el mismo tipo de movimiento se repite en cada extracto, conviene una [regla](/docs/guides/conciliacion-bancaria-reglas) **Ignorar transacción**. **Ignorar movimiento** es para uno puntual.
   </Accordion>
   <Accordion title="La transferencia no coincide con ninguna cuota. ¿Creo la orden acá?">
-    Sí: **Crear factura** arma la orden, la marca pagada con ese movimiento y lo deja **Conciliada**. Sirve para una donación, una inscripción o un ingreso sin cuota. Si la cuota ya existe, seleccionála: no dupliques.
+    Sí. Sirve para una donación, una inscripción o un ingreso sin cuota. Si la cuota ya existe, seleccionála: no dupliques.
+
+    En el detalle del movimiento, presioná **Acciones → Crear factura**. Se abre **Crear factura** con el contacto, el monto del movimiento, una descripción y el vencimiento. Arriba hay dos botones:
+
+    - **Crear factura y conciliar**: arma la orden, la marca pagada con ese movimiento y lo deja **Conciliada**. El monto tiene que coincidir con el del movimiento.
+    - **Crear factura**: solo arma la orden, sin conciliar.
+
+    El pago queda a nombre del **responsable** asignado al movimiento (en el detalle del pago, **Pagado por**). Así el recibo de ARCA sale a nombre de quien transfirió, igual que cuando pagás una cuota existente. Asigná el responsable correcto antes de crear la factura.
+
+    En el detalle de la orden, **Origen** dice **Conciliación bancaria · Creada al conciliar un movimiento**. Si la conciliación tuvo saldo a favor, la orden de la diferencia dice **Conciliación bancaria · Diferencia de una conciliación**.
   </Accordion>
   <Accordion title="Armé una regla y los movimientos viejos siguen Sin asignar">
     La regla **no es retroactiva**. Corre al importar o al reabrir un movimiento sin contacto. Guardar no reprocesa el extracto. No auto-concilia: solo prepara (contacto, categoría, ignorar).
