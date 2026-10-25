@@ -1,0 +1,141 @@
+---
+title: 'Pagar después'
+description: 'Confirmá una venta sin cobrarla: entregás la mercadería, se descuenta el stock y la orden queda a pagar a nombre del cliente'
+---
+
+Hay clientes que retiran ahora y pagan después: la familia que se lleva el buzo y salda a fin de mes, o el alumno del internado que almuerza todos los días y paga la semana. Con **Pagar después** registrás esa venta en el punto de venta sin cobrarla.
+
+Al confirmarla, Fint:
+
+- Descuenta el stock en el momento, como en cualquier venta.
+- Crea la [orden](/docs/guides/ordenes-gestionar) a nombre del cliente, en estado **A pagar**, con el vencimiento que configuraste.
+- No registra ningún pago. La deuda queda en la cuenta del cliente hasta que la saldes.
+
+<Info>
+  La opción viene apagada en todos los puntos de venta. Se activa por punto de venta, así que podés usarla en el buffet y no en la tienda, por ejemplo.
+</Info>
+
+## Activar la opción
+
+<Steps>
+  <Step title="Abrí la configuración del punto de venta">
+    Entrá al punto de venta y elegí **Config**.
+  </Step>
+  <Step title="Prendé Permitir pagar después">
+    Activá **Permitir pagar después** y definí el **Vencimiento de la orden (días)**: cuántos días tiene el cliente para pagar desde la venta. Por defecto son 30, y podés poner entre 1 y 365.
+
+    Si querés que una orden vencida sume interés, prendé **Generar mora**. Viene apagado. La mora se calcula con la [configuración de mora](/docs/guides/configuracion-mora) de la organización y solo sobre los productos que tienen activado **Generar intereses por mora**.
+  </Step>
+  <Step title="Guardá">
+    Presioná **Guardar**. Desde ese momento, la caja muestra el medio **Pagar después**.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/docs/images/punto-de-venta/pagar-despues-configuracion.png" alt="Configuración de Tienda escolar con Permitir pagar después activado, vencimiento de la orden a 30 días y Generar mora apagado" />
+</Frame>
+
+## Confirmar una venta sin cobrar
+
+Armá la orden como siempre y presioná **Continuar al pago**. Después:
+
+<Steps>
+  <Step title="Elegí Pagar después">
+    En **Método de pago**, tocá **Pagar después**. Fint avisa que la venta se confirma sin cobrar y con qué vencimiento.
+  </Step>
+  <Step title="Elegí el cliente">
+    Tocá **Cliente** y buscá a la persona. La orden queda a su nombre, así que **Consumidor final** no aparece con este medio, ni para el administrador ni para el cajero.
+  </Step>
+  <Step title="Confirmá">
+    Presioná **Confirmar venta sin cobrar**.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/docs/images/punto-de-venta/pagar-despues-metodo.png" alt="Checkout con Pagar después elegido, cliente Ledesma, Julieta, un buzo y una remera por 67.000 pesos y el botón Confirmar venta sin cobrar" />
+</Frame>
+
+La pantalla final confirma que la venta se registró y queda pendiente de pago, con la fecha de vencimiento. El resumen de la derecha pasa a **Orden a pagar** y muestra el importe **A pagar**.
+
+<Frame>
+  <img src="/docs/images/punto-de-venta/pagar-despues-venta-confirmada.png" alt="Venta registrada para Julieta Ledesma, pendiente de pago, con vencimiento a 30 días y 67.000 pesos a pagar" />
+</Frame>
+
+## Encontrar las ventas a pagar
+
+En **Ventas**, las ventas confirmadas sin cobrar figuran con medio **Pagar después** y estado **A pagar**. Elegí **A pagar** en el filtro de estado para ver solo lo que falta cobrar.
+
+<Frame>
+  <img src="/docs/images/punto-de-venta/pagar-despues-ventas.png" alt="Listado de ventas filtrado por estado A pagar, con la venta de Ledesma, Julieta por 67.000 pesos con medio Pagar después" />
+</Frame>
+
+Para verlas junto con el resto de las órdenes de la organización, entrá a **Órdenes** y elegí **A pagar (punto de venta)** en el filtro **Estado**. Ahí también figuran con la etiqueta **A pagar**, en lugar de **Por Cobrar**.
+
+Al abrir la venta, el panel **Orden de pago** muestra el detalle completo. En **Origen** dice **Punto de venta · Pagar después**, para distinguirla de una orden que quedó pendiente porque un cobro no se completó.
+
+<Frame>
+  <img src="/docs/images/punto-de-venta/pagar-despues-orden.png" alt="Detalle de la orden de Julieta Ledesma sin pagos, en estado A pagar, con vencimiento a 30 días y origen Punto de venta · Pagar después" />
+</Frame>
+
+<Warning>
+  Una venta a pagar **no se puede cancelar** ni se le pueden quitar o agregar ítems: la mercadería ya se entregó y el stock ya se descontó. Sí podés cambiar el vencimiento. Si se confirmó por error, escribinos a soporte para corregirla.
+</Warning>
+
+## Cobrar la deuda
+
+Cuando el cliente paga, un administrador registra el pago desde la misma orden. El cajero confirma ventas a pagar, pero no registra pagos de órdenes.
+
+<Steps>
+  <Step title="Abrí la orden">
+    Desde **Ventas** del punto de venta, o desde [Órdenes](/docs/guides/ordenes-gestionar).
+  </Step>
+  <Step title="Registrá el pago">
+    En **Pagos**, tocá `+`. Elegí el medio, la fecha y el monto, y presioná **Confirmar**.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/docs/images/punto-de-venta/pagar-despues-registrar-pago.png" alt="Registrar pago en efectivo por 67.000 pesos para la orden de la Tienda escolar de Julieta Ledesma" />
+</Frame>
+
+Si el pago cubre todo, la orden pasa a **Pagada** y en **Ventas** muestra el medio con el que se pagó. Si paga una parte, en **Ventas** sigue **A pagar** por el saldo y en **Órdenes** figura como **Pago parcial**. El stock no vuelve a moverse.
+
+El cliente también puede pagarla desde el [portal](/docs/guides/portal-contacto), donde la ve en **Pendientes de pago** como cualquier orden. Si el punto de venta tiene **Generar mora** prendido, una orden vencida suma interés como cualquier otra.
+
+<Info>
+  Si tenés [facturación electrónica](/docs/guides/facturacion) configurada, el comprobante se emite cuando se registra el pago, no al confirmar la venta.
+</Info>
+
+## Seguimiento en reportes
+
+Una venta a pagar cuenta como venta desde el momento en que se confirma. En **Punto de Venta → Reportes**:
+
+- **Total facturado** y **Órdenes** la incluyen.
+- **Por cobrar** suma lo que todavía deben las ventas a pagar del período. La tarjeta aparece solo si hay saldo pendiente.
+- En **Medios de pago**, lo que falta cobrar figura como **A pagar**. Cuando el cliente paga, ese importe pasa al medio real.
+
+<Frame>
+  <img src="/docs/images/punto-de-venta/pagar-despues-reportes.png" alt="Reportes de la Tienda escolar con la tarjeta Por cobrar de 67.000 pesos y A pagar entre los medios de pago" />
+</Frame>
+
+### En el Excel de ventas
+
+El Excel separa lo fiado de lo cobrado en el momento:
+
+- En **pos-sales** y **por-medio-de-pago**, las columnas **Estado de pago** (Pagada, A pagar o Pago parcial) y **Pagar después** (Sí/No) te dejan filtrar las ventas fiadas, aunque ya estén pagas.
+- Lo que todavía no se cobró figura con el medio **A pagar**. Cuando el cliente paga, esa parte pasa al medio real.
+- La hoja **a-pagar** lista las ventas fiadas del período que todavía tienen saldo: cliente, vendedor, total, pagado, saldo, vencimiento y si está **Vencida** o **Al día**. Es la lista para salir a cobrar.
+
+## Próximos pasos
+
+<CardGroup cols={3}>
+  <Card title="Cobrar la venta" icon="money-bill" href="/docs/guides/pos-cobros">
+    Los demás medios de cobro de la caja
+  </Card>
+  <Card title="Ventas y reportes" icon="chart-line" href="/docs/guides/pos-ventas-reportes">
+    Seguimiento diario y cierre
+  </Card>
+  <Card title="Gestionar órdenes" icon="file-invoice" href="/docs/guides/ordenes-gestionar">
+    Pagos, vencimientos y detalle de una orden
+  </Card>
+</CardGroup>

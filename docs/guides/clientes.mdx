@@ -86,11 +86,42 @@ Para escribirle a un grupo, usá [Mensajería](/docs/guides/mensajeria) y filtr�
 
 ## Buscar, filtrar y exportar
 
-El recuadro dice **Buscar por nombre...** y también encuentra por documento o email. Los filtros **Estado** y **Etiquetas** están siempre. **Items** aparece si tenés **Cuotas institucionales**. Algunas organizaciones suman filtros de campos personalizados.
+El recuadro dice **Buscar por nombre...** y también encuentra por documento o email. Podés escribir varias palabras, por ejemplo nombre y apellido: Fint busca cada una, sin importar mayúsculas ni acentos. Los filtros **Estado** y **Etiquetas** están siempre. **Items** aparece si tenés **Cuotas institucionales**. Con el **+** filtrás por un [campo personalizado](/docs/guides/configuracion-campos).
+
+El listado muestra 20 por página. El pie dice cuántos coinciden con la búsqueda y los filtros, y la página queda en la dirección del navegador: si la compartís, se abre igual.
 
 Arriba del listado hay dos pestañas: **Estudiantes** (o **Clientes**) y **Contactos**. **Contactos** lista a todos los responsables; no es lo mismo que la sección **Contactos** dentro de un perfil.
 
 El botón **Exportar** genera un archivo de Excel. Antes de descargarlo, podés limitar el resultado por etiquetas, estado financiero e items.
+
+## Hacer algo con muchos a la vez
+
+Tildá uno o más estudiantes: abajo aparece la barra con la cantidad y **Acción en lote**. El tilde del encabezado marca los 20 de la página.
+
+<Steps>
+  <Step title="Filtrá primero">
+    Dejá en el listado solo a quienes querés cambiar: una etiqueta, un estado, una búsqueda.
+  </Step>
+  <Step title="Elegí sobre quiénes">
+    En **Selección**, elegí **Los N seleccionados** o **Todos los N que coinciden con los filtros**. La segunda incluye todas las páginas, hasta 10.000.
+  </Step>
+  <Step title="Elegí la acción">
+    - **Asignar campo**: guarda el mismo valor de un [campo personalizado](/docs/guides/configuracion-campos). Los otros campos de cada uno no cambian.
+    - **Archivar**: pasan a inactivos. Se pueden reactivar (ver [Condición y estado](/docs/guides/clientes-estados#archivar-o-eliminar)).
+    - **Eliminar**: se borran con sus datos asociados. No se puede deshacer.
+  </Step>
+  <Step title="Revisá la vista previa y aplicá">
+    La vista previa dice qué va a pasar y a cuántos. Para archivar o eliminar más de 50, escribí la cantidad para confirmar.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/docs/images/clientes/accion-en-lote.png" alt="Panel Acción en lote sobre los 24 estudiantes con la etiqueta Viaje de egresados 2027: Asignar campo, campo Turno y valor Mañana, botón Aplicar a 24" />
+</Frame>
+
+Con muchos estudiantes la acción sigue en segundo plano: el panel muestra el avance y lo podés cerrar. Al terminar dice a cuántos se aplicó y agrupa los que no, con el motivo. Por ejemplo, un estudiante con una suscripción activa no se archiva.
+
+Si mientras tanto cambió cuántos coinciden (alguien cargó o archivó estudiantes), Fint no aplica nada, avisa y actualiza el listado. Revisalo y volvé a aplicar.
 
 ## Próximos pasos
 

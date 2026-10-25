@@ -79,8 +79,10 @@ Al hacer clic en una fila se abre el detalle. La información cambia según el o
 
     Si el pago se cargó por error, usá **Eliminar pago manual**. Eso revierte el cobro y vuelve a dejar pendiente lo imputado a las órdenes.
 
+    Si el pago salió de [conciliar un movimiento del banco](/docs/guides/conciliacion-bancaria), al eliminarlo el movimiento también se libera: vuelve a **Con sugerencias** (o **En revisión**) y lo podés conciliar de nuevo. Si esa conciliación había creado la orden, la orden queda **Por Cobrar**: se borró el pago, no la orden.
+
     <Warning>
-      Solo se pueden eliminar pagos **manuales**. Si el pago ya tiene comprobantes emitidos, Fint bloquea la eliminación.
+      Solo se pueden eliminar pagos **manuales**. Si el pago ya tiene comprobantes emitidos, Fint bloquea la eliminación. Si un movimiento del banco está **vinculado** a este pago (se vinculó a un pago que ya existía), primero desvinculalo desde Conciliación con **Acciones → Desvincular pago**.
     </Warning>
   </Tab>
 
