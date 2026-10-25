@@ -37,7 +37,7 @@ Sin stock **no se vende y el descuento no se aplica**. El número 0 no significa
 | Cupón de eventos | **Items → Descuentos** (tipo Eventos) | El código no se aplica en el checkout |
 | Combo | Eventos → combo | No tiene stock propio. Descuenta el de cada tipo incluido |
 
-En el listado, Eventos y Venta online muestran **Stock: N** o **Sin stock** en lugar de las fechas, igual que en Items. Liquidación sigue mostrando su vigencia, por ejemplo **Mar 2027 → Dic 2027**. A la derecha ves **usos confirmados**. Para ajustar el número: **Stock disponible**, **Editar** y **Ver historial de stock**.
+El stock de un descuento se ve y se ajusta al abrirlo: **Stock disponible**, **Editar** y **Ver historial de stock**.
 
 ## Crear un descuento
 
@@ -62,7 +62,17 @@ En el listado, Eventos y Venta online muestran **Stock: N** o **Sin stock** en l
   </Step>
 </Steps>
 
-<img src="/docs/images/items-descuentos/catalogo-descuentos-2027.png" alt="Listado de descuentos filtrado por 2027: Conjunto institucional 2027 del 5 por ciento de Venta online con Stock: 25, y Beca por hermanos 2027 del 20 por ciento de Liquidación con vigencia de marzo a diciembre de 2027" />
+## Buscar y cambiar varios a la vez
+
+La pestaña **Descuentos** es una tabla con **Nombre**, **Tipo**, **Descuento**, **Uso** y **Estado**. En **Uso**, los de Eventos y Venta online muestran cuántas veces se usaron; los de Liquidación, a cuántos están asignados. Arriba podés buscar por nombre o código y filtrar por **Estado** y **Tipo**.
+
+<img src="/docs/images/items-descuentos/catalogo-descuentos-2027.png" alt="Tabla de descuentos de Colegio Modelo filtrada por Venta online y Liquidación: cuatro descuentos escolares de Venta online con 8 usos cada uno y Beca hermanos del 20 por ciento de Liquidación asignada a 2 contactos" />
+
+Tildá uno o más y abrí **Acción en lote**. Elegí si va para los seleccionados o para **todos los que coinciden con los filtros**:
+
+- **Cambiar estado**: Activo o Borrador.
+- **Asociar a eventos**: suma los eventos elegidos a cada cupón de Eventos, sin sacar los que ya tenía.
+- **Eliminar**: los cupones que se usan en un evento no se eliminan; el resultado los muestra aparte.
 
 ## Monto fijo o porcentaje
 
@@ -123,7 +133,7 @@ Además del alcance por tipos de entrada, podés pedir un total mínimo o máxim
 
 <img src="/docs/images/items-descuentos/descuento-eventos.png" alt="Alta de un cupón de eventos PREVENTA10 del 10 por ciento, con stock 80 y restricciones de monto mínimo y tope de descuento" />
 
-Después asociá el descuento **a ese evento**. Si no está en el evento, el código no aplica aunque tenga stock. El recorrido está en [Crear y publicar un evento](/docs/guides/eventos-crear-publicar#3-agregar-descuentos).
+Después asociá el descuento **a ese evento**: elegilo en **Eventos**, dentro del descuento, o agregalo desde el evento. Si no está en el evento, el código no aplica aunque tenga stock. Para un código que sirva en todos los eventos de la organización, prendé **Válido en todos los eventos**. El recorrido está en [Crear y publicar un evento](/docs/guides/eventos-crear-publicar#3-agregar-descuentos).
 
 ## Importar descuentos de Liquidación
 
