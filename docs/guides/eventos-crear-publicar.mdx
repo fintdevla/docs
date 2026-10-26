@@ -72,7 +72,13 @@ Las entradas gratuitas pueden publicarse sin procesador. Si asignás un precio y
 
 Podés ordenar los tipos y crear grupos para presentarlos con más claridad. Un grupo organiza la oferta; no cambia la cantidad de entradas que recibe el comprador.
 
-Un combo vende varias entradas juntas. Los combos son de tu organización, como los tipos de entrada: el mismo combo puede venderse en varios eventos. En la sección de entradas del evento, **+ Agregar combo** abre la lista de combos que ya tenés; elegí uno o tocá **Crear combo** para armarlo sin salir del evento.
+Un combo vende varias entradas juntas. Los combos son de tu organización, como los tipos de entrada: el mismo combo puede venderse en varios eventos. En la sección de entradas del evento, **+ Agregar combo** abre la lista de combos que todavía no están en el evento; elegí uno y tocá **Seleccionar**, o tocá **Crear combo** para armarlo sin salir del evento.
+
+<Frame>
+  <img src="/docs/images/eventos/combo-selector.png" alt="Selector + Agregar combo en el editor del Festival de la Comunidad 2027: buscador, botón Crear combo y el Combo hermanos · 3 personas tildado" />
+</Frame>
+
+El combo que creás desde el selector queda guardado en ese momento, aunque después cierres el evento sin guardar: lo vas a encontrar en **Items → Combos**. Para que se venda en el evento, guardá el evento.
 
 En **Crear combo de entradas** definí nombre, descripción, precio y **Cantidad de entradas que incluye el combo**. En **¿Entre qué entradas elige el comprador?** sumá los tipos con **+ Seleccionar entradas**. Con **Limitar máx. por combo** ponés un tope para un tipo.
 
@@ -91,6 +97,7 @@ Si además querés un cupo para el combo (por ejemplo, solo 30 combos hermanos),
 - El stock del combo es **uno solo para todos los eventos** donde está.
 - Si se **anula la compra** (por reembolso o porque eliminás el pago), el combo vuelve al stock. Cancelar entradas sueltas del combo solo devuelve esas entradas.
 - Sin **Limitar stock**, el combo se vende mientras haya stock de sus entradas.
+- Pasarlo a **Borrador** (desde **Items → Combos** o con el ojo de su tarjeta en el evento) lo oculta en **todos** sus eventos. **Eliminarlo** lo saca de todos.
 
 <Warning>
   Editar un combo cambia su nombre, precio y entradas en **todos los eventos** donde está; el modal te avisa cuántos son. Las compras ya hechas no cambian. **Quitar** el combo de un evento no lo borra: sigue disponible para los demás.
@@ -110,7 +117,7 @@ En **Items → Combos** ves todos los combos de la organización, en qué evento
   Un combo es una unidad comercial, pero puede emitir varias entradas. Por eso las unidades vendidas y las entradas vigentes pueden mostrar valores distintos.
 </Info>
 
-En la página pública, el comprador abre el combo y completa la cantidad indicada con los tipos habilitados. **Agregar** se activa cuando la selección queda completa.
+En la página pública, el comprador abre el combo y completa la cantidad indicada con los tipos habilitados. **Agregar** se activa cuando la selección queda completa. Si el combo tiene stock propio, no se pueden agregar más combos que los disponibles, y con 0 figura **Agotado**. Si sus entradas no alcanzan para completarlo, figura **No disponible**.
 
 <img src="/docs/images/eventos/combo-familiar.png" alt="Selector público del Pack familiar con cuatro de cuatro entradas elegidas" />
 
