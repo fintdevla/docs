@@ -145,18 +145,23 @@ Si ya eligió entradas y cambia de inscripción, Fint le pide confirmar: la sele
 
 En **Pedido de información**, el nombre completo y el email del comprador son obligatorios. Podés activar o desactivar su documento y teléfono.
 
-En **Asistentes** decidís qué completa cada persona que va al evento:
+En **Asistentes** decidís qué completa cada persona que va al evento. Es una sola lista con los datos fijos (**Nombre completo**, **Documento** y **Correo electrónico**) y tus campos personalizados. Debajo de cada fila dice a qué entradas se le pide: **Todas las entradas**, **2 de 3 entradas** (pasá el mouse para ver cuáles) o **Ninguna entrada**.
 
-- **¿A qué entradas les pedimos datos de cada asistente?** Marcá las entradas que piden nombre y apellido de cada asistente. Por ejemplo, un estacionamiento puede no pedir nada.
-- **Documento** y **Correo electrónico**: prendelos o apagalos para todas las entradas marcadas. Apagado dice **No se pide**. El documento viene prendido en organizaciones que cobran en pesos.
-- **Campos personalizados**: se agrupan según a qué entradas aplican (primero los de todas las entradas y después los de algunas).
-- **Qué completa cada asistente** resume, entrada por entrada, lo que se le va a pedir. Pasá el mouse sobre un grupo para ver sus campos.
+<img src="/docs/images/eventos/campos-personalizados.png" alt="Pedido de información, sección Asistentes: Nombre completo en 2 de 3 entradas, Documento en 1 de 3, Correo electrónico en 2 de 3, y los campos Restricción alimentaria, Teléfono de contacto y Mesa preferida con sus entradas" />
 
-<img src="/docs/images/eventos/campos-personalizados.png" alt="Pedido de información, sección Asistentes: Entrada general y Platea preferencial marcadas, Estacionamiento no; documento y correo prendidos; campos agrupados por entrada y el resumen Qué completa cada asistente" />
+Para cambiar a qué entradas se pide un dato, tocá ese texto: se abre el selector de entradas. Marcá las que correspondan y presioná **Seleccionar**.
 
-Con **Agregar campo**, podés pedir información adicional. Tipos: Texto, Opciones, Checkbox, Número, Fecha, Teléfono, País. **Aplicar a**: todos los tickets, solo al comprador, o entradas específicas. Comprador = una vez por compra. Tickets = por asistente. **Campo obligatorio** y **Activo** (se muestra en la página) viven acá, no en [Configuración → Campos](/docs/guides/configuracion-campos). Un campo con **Activo** apagado queda marcado **Oculto** y no se muestra en la página. Las respuestas se ven y se editan en Asistentes y salen en la exportación.
+<img src="/docs/images/eventos/pedido-informacion-entradas.png" alt="Selector de entradas del Documento: Platea preferencial marcada, Entrada general sin marcar y Estacionamiento deshabilitado con el aviso No pide nombre ni datos del asistente" />
 
-Arrastrá los campos para ordenarlos (de a uno, dentro de su grupo). La página pública los pide en el mismo orden. Los cambios se aplican al tocar **Guardar**.
+- **Nombre completo**: las entradas que marcás piden nombre y apellido de cada asistente. Una entrada sin nombre (por ejemplo, un estacionamiento) tampoco pide documento ni correo: por eso aparece deshabilitada en esas dos filas. Los campos personalizados que apliquen a esa entrada se piden igual.
+- **Documento** y **Correo electrónico**: elegí en qué entradas se piden. Con todas marcadas también se piden en las entradas que agregues después. Si no queda ninguna, la fila dice **No se pide**. El documento viene prendido en organizaciones que cobran en pesos.
+- **Campos personalizados**: el mismo selector cambia sus entradas sin abrir el campo. Tiene que quedar al menos una; para dejar de pedirlo, ocultalo o eliminalo.
+
+Con **Agregar campo**, podés pedir información adicional. Tipos: Texto, Opciones, Checkbox, Número, Fecha, Número de teléfono, País. **Aplicar a**: **Todos los tickets**, **Solo al comprador** o **Tickets específicos**. Comprador = una vez por compra. Tickets = por asistente. **Campo obligatorio** y **Activo** (se muestra en la página) viven acá, no en [Configuración → Campos](/docs/guides/configuracion-campos). Un campo con **Activo** apagado queda marcado **Oculto** y no se muestra en la página. Las respuestas se ven y se editan en Asistentes y salen en la exportación.
+
+Arrastrá las filas para ordenarlas, datos fijos incluidos: por ejemplo, el documento después de un campo propio. La página pública pide a cada asistente solo lo que corresponde a su entrada, en ese orden. Los cambios se aplican al tocar **Guardar**.
+
+<img src="/docs/images/eventos/datos-asistentes-por-entrada.png" alt="Página pública, datos de los asistentes de la Peña de Primavera: la Entrada general pide nombre, email, restricción alimentaria y teléfono; la Platea preferencial además pide documento y la mesa preferida obligatoria" />
 
 Los campos personalizados sirven para datos como restricciones alimentarias, talle o una selección propia del evento. Separá las preguntas del comprador de las de los asistentes: las del comprador se responden una vez por compra.
 
@@ -216,16 +221,18 @@ La apariencia se mantiene en toda la compra: la página del evento, los datos de
 
 Para revisar la página pública, guardá el evento y usá **Visitar** (también está en el menú **…** de la tarjeta).
 
-<img src="/docs/images/eventos/evento-activo.png" alt="Detalle de la Peña de Primavera 2027 activa con las acciones Copiar link corto, Copiar link, Descargar QR, Editar y Visitar" />
+<img src="/docs/images/eventos/evento-activo.png" alt="Detalle de la Peña de Primavera 2027 activa con las acciones Copiar link, Descargar QR, Editar y Visitar" />
 
 ### Link corto y QR
 
-Cada evento tiene un **link corto** fijo, del estilo `fint.app/e/abc234`, y un **QR** que apunta a ese link. Los encontrás en el detalle del evento y en el menú **…** de la tarjeta:
+Cada evento tiene un **link corto** fijo, del estilo `fint.app/e/abc234`, y un **QR** que apunta a ese link:
 
-- **Copiar link corto** lo copia al portapapeles.
-- **Descargar QR** baja una imagen PNG lista para imprimir en afiches o folletos.
+- **Copiar link** (en el detalle del evento) y el ícono **Copiar URL del evento** (en la tarjeta) copian el link corto al portapapeles.
+- **Descargar QR** (en el detalle y en el menú **…** de la tarjeta) baja una imagen PNG lista para imprimir en afiches o folletos.
 
 El link corto lleva siempre a la dirección actual del evento: si después cambiás la ruta de la página, el link y los QR que ya imprimiste siguen funcionando. Si el evento está en borrador o archivado, quien lo abra ve lo mismo que con el link normal.
+
+Para saber de dónde vienen las visitas, podés sumarle parámetros UTM al link corto (por ejemplo `fint.app/e/abc234?utm_source=instagram`): llegan a la página del evento y los ve tu [Google Analytics](/docs/guides/meta-pixel). Las visitas que entran por el QR llegan marcadas con `utm_source=qr` y `utm_medium=qr`.
 
 <Warning>
   No completes una compra sólo para “simular” el flujo. Al presionar **Continuar**, Fint crea una sesión; al confirmar después, crea una orden y entradas reales.
@@ -259,7 +266,7 @@ El administrador puede volver a editar con el ícono **Editar evento** (lápiz) 
 
 Pasada la **fecha y hora de finalización**, no hay checkout ni alta manual (`El evento ha finalizado`) hasta que extiendas esa fecha y el evento esté **Activo**. **Visitar** en Borrador no muestra página pública.
 
-En la tarjeta, al lado del estado, están **Editar evento** (solo administradores) y **Copiar URL del evento** (avisa «Link copiado al portapapeles»). El menú **…** (**Más opciones del evento**) ofrece **Duplicar evento**, **Copiar link corto** y **Descargar QR** (si el evento tiene link corto), **Visitar** y **Archivar** o **Desarchivar**. En un evento archivado aparece además **Eliminar**, que borra el evento: no es desarchivar. Archivar, desarchivar y eliminar son sólo para administradores.
+En la tarjeta, al lado del estado, están **Editar evento** (solo administradores) y **Copiar URL del evento**, que copia el link corto (avisa «Link copiado al portapapeles»). El menú **…** (**Más opciones del evento**) ofrece **Duplicar evento**, **Descargar QR**, **Visitar** y **Archivar** o **Desarchivar**. En un evento archivado aparece además **Eliminar**, que borra el evento: no es desarchivar. Archivar, desarchivar y eliminar son sólo para administradores.
 
 Para retirar la página, cambiá el estado a **Borrador** o archivá el evento. Los archivados aparecen en una lista separada y se pueden desarchivar.
 

@@ -11,7 +11,7 @@ La configuración es **por evento**: cada evento puede tener su propio píxel y 
 
 <Steps>
   <Step title="Abrí la configuración del evento">
-    En **Eventos**, editá tu evento y entrá a **Configuración**. Al final del panel está la sección **"Tracking y analítica"**.
+    En **Eventos**, editá tu evento y entrá a **Configuración**. Cerca del final del panel, después de **Mostrar en Descubrir**, está **Activar tracking y analítica**.
 
     <img src="/docs/images/meta-pixel/tracking-config.png" alt="Sección Tracking y analítica en la configuración del evento" />
   </Step>
@@ -39,9 +39,13 @@ Con el **Meta Pixel ID** configurado, en el navegador del comprador se disparan:
 | Evento de Meta | Cuándo | Datos |
 |---|---|---|
 | **PageView** | Al entrar a la página pública del evento | — |
-| **Purchase** | En la pantalla de confirmación, cuando el pago se acredita | Valor de la compra, nombre del evento y un **ID de transacción único** (la referencia de la compra) |
+| **Purchase** | En la pantalla de confirmación, cuando el pago se acredita | Valor y moneda de la compra y un **ID de transacción único** (la referencia de la compra) |
 
 El ID de transacción evita que una misma compra se cuente dos veces, incluso si el comprador recarga la página de confirmación.
+
+### Aviso de cookies
+
+Con el tracking activado, la página del evento muestra el aviso **Usamos cookies para medir visitas y compras**, con **Solo necesarias** y **Aceptar**. Los scripts de Meta, Google Analytics y Tag Manager se cargan solo si la persona toca **Aceptar**. Después puede cambiar su elección con el botón **Privacidad** de la página.
 
 Con **Google Analytics** se registra la navegación y un evento `purchase` con el monto y la transacción; con **Tag Manager**, el mismo evento `purchase` se empuja al `dataLayer` para que lo uses en tus tags.
 
@@ -52,6 +56,8 @@ Hay dos formas de armar la campaña, y la atribución funciona distinto en cada 
 ### Anuncio → página del evento en Fint (recomendado)
 
 Usá la **URL pública del evento** (`tuinstitucion.fint.app/eventos/mi-evento`) como destino del anuncio. No hay que hacer nada más: Meta agrega automáticamente el parámetro `fbclid` al link, el píxel lo captura al cargar la página, y el **Purchase queda atribuido a la campaña** de punta a punta.
+
+El [link corto del evento](/docs/guides/eventos-crear-publicar#link-corto-y-qr) (`fint.app/e/abc234`) también sirve como destino: pasa a la página el `fbclid` y los parámetros `utm_*` que traiga. Las visitas que entran por el QR del evento llegan con `utm_source=qr` y `utm_medium=qr`, así las separás en Google Analytics.
 
 ### Anuncio → tu propia web → página del evento en Fint
 
@@ -83,7 +89,7 @@ En la práctica: sin el reenvío de parámetros vas a **subcontar** las conversi
 
 ## Verificar que funciona
 
-1. Instalá la extensión [Meta Pixel Helper](https://chrome.google.com/webstore/detail/meta-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc) en Chrome y entrá a la página pública de tu evento: deberías ver el **PageView** de tu píxel.
+1. Instalá la extensión [Meta Pixel Helper](https://chrome.google.com/webstore/detail/meta-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc) en Chrome, entrá a la página pública de tu evento y tocá **Aceptar** en el aviso de cookies: deberías ver el **PageView** de tu píxel.
 2. Hacé una compra de prueba y verificá el **Purchase** en la pantalla de confirmación.
 3. En el Administrador de eventos de Meta, los eventos aparecen en **"Probar eventos"** y en el resumen del píxel.
 
