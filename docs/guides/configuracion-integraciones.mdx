@@ -17,9 +17,15 @@ La pantalla se agrupa en **Procesador de pagos**, **Facturación** y **Plataform
 - **Pagos360**
 - **Nuvei**
 
-Hay **un procesador de cobro por organización**. Sin ninguno conectado, podés conectar vos mismo **Mercado Pago**, **Pagos360** (API Key) y **Nuvei** (credenciales + callback). **Stripe** y **Pagos Online** los activa el equipo de Fint: escribinos. Con un procesador activo, el resto muestra **Contactarse para activar**. Para cambiar: **Desconectar** y después conectar el otro. **Teachable** es aparte (API key) y no es un procesador de cobro.
+Hay **un procesador de cobro por organización**. Sin ninguno conectado, podés conectar vos mismo **Mercado Pago**, **Pagos360** (API Key) y **Nuvei** (credenciales + callback). **Stripe** y **Pagos Online** los activa el equipo de Fint: escribinos. El procesador conectado dice **Activo** y el resto muestra **Contactarse para activar**.
 
-Para Mercado Pago hay una guía propia: [Conectar Mercado Pago](/docs/guides/conectar-mercado-pago).
+Para cambiar de procesador, **Desconectar** el actual y conectar el otro. Mercado Pago y Nuvei tienen **Desconectar** en su tarjeta; para dejar Pagos360, Stripe o Pagos Online escribinos. **Teachable** es aparte (API key) y no es un procesador de cobro.
+
+### Mercado Pago
+
+El recorrido completo está en [Conectar Mercado Pago](/docs/guides/conectar-mercado-pago). Con Mercado Pago activo, la tarjeta muestra la **Cuenta conectada** (email, usuario y documento del titular), el link **Configurar plazos y comisión**, que abre la sección de costos de tu cuenta de Mercado Pago, y **Desconectar**.
+
+Si la conexión deja de funcionar, Fint manda el aviso **Acción requerida: Reconectá tu cuenta de Mercado Pago** a quien elegiste en [Notificaciones](/docs/guides/configuracion-notificaciones). Se resuelve con **Desconectar** y volviendo a conectar la cuenta.
 
 ### Pagos360
 
@@ -41,13 +47,33 @@ Con Pagos360, la familia paga desde el portal en la página de Pagos360: tarjeta
   </Step>
 </Steps>
 
+### Nuvei
+
+Nuvei cobra con tarjeta en dólares, para organizaciones de Ecuador.
+
+<Steps>
+  <Step title="Pedí las credenciales a Nuvei">
+    Nuvei te entrega las credenciales de **Link to Pay**: las **server** son obligatorias y las **client**, opcionales.
+  </Step>
+  <Step title="Conectá">
+    En la tarjeta **Nuvei**, presioná **Conectar**. **Ambiente** viene en **Sandbox (staging)**, que es para pruebas: para cobrar de verdad elegí **Producción**. Cargá **Server Application Code** y **Server App Key** y, si te las dieron, las credenciales client. Presioná **Guardar credenciales**.
+
+    <Frame>
+      <img src="/docs/images/configuracion/integraciones-nuvei.png" alt="Diálogo Conectar o actualizar Nuvei sobre la pantalla de Integraciones, con Ambiente, Server Application Code, Server App Key, las credenciales client opcionales y Guardar credenciales" />
+    </Frame>
+  </Step>
+  <Step title="Mandale la Callback URL a Nuvei">
+    Con Nuvei activo, la tarjeta muestra el ambiente y la **Callback URL (enviar a Nuvei)**. Nuvei la necesita para avisarle a Fint de cada pago. Desde la misma tarjeta podés **Actualizar credenciales** o **Desconectar**.
+  </Step>
+</Steps>
+
 ## Facturación
 
-**ARCA** abre **Activar ARCA** y te lleva a [Conectar ARCA](/docs/guides/facturacion-arca).
+**ARCA** abre **Activar ARCA** y te lleva a [Conectar ARCA](/docs/guides/facturacion-arca). Con el módulo prendido, la tarjeta dice **Activo**.
 
 ## Plataformas de aprendizaje
 
-- **Teachable**: cursos online.
+- **Teachable**: cursos online. **Conectar** pide la **API Key** de tu cuenta de Teachable y, opcional, un nombre para la integración. Con Teachable activo, la tarjeta tiene **Desconectar**.
 
 <Info>
   No todas las tarjetas se pueden activar solas. Si el botón dice **Contactarse para activar**, el alta no es self-serve.
