@@ -117,10 +117,10 @@ Mientras Point o QR está en creación, pendiente o en el dispositivo, el botón
 
 El resultado puede ser:
 
-- **Cobro abortado:** podés elegir otro medio.
-- **Cancelación pedida:** Fint espera la confirmación del proveedor.
-- **Ya finalizado:** el proveedor ya tenía un resultado definitivo.
-- **Ya aprobado:** no se fuerza la cancelación; Fint conserva la aprobación para evitar inconsistencias.
+- **Cobro abortado, podés cobrar por otro medio:** elegí otro medio.
+- **Cancelación pedida, esperando confirmación…:** Fint espera la respuesta del proveedor.
+- **El cobro ya tenía un resultado final:** el proveedor ya había resuelto el cobro.
+- **El pago ya se había aprobado — la venta quedó registrada:** no se fuerza la cancelación; Fint conserva la aprobación para evitar inconsistencias.
 
 No inicies otro cobro hasta que Fint muestre el resultado de la cancelación.
 
@@ -136,22 +136,25 @@ Los intentos rechazados también quedan disponibles en **Ventas** mediante el fi
 
 ## Cuando el resultado es incierto
 
-Si Fint no puede determinar si el equipo aprobó o rechazó, el cobro pasa a **Esperando verificación manual**.
+Si Fint no puede saber si el equipo aprobó o rechazó, la pantalla del cobro muestra **Verificá el resultado en la terminal física**. Podés resolverlo ahí mismo o más tarde desde **Ventas**.
 
 <Steps>
   <Step title="Consultá la terminal física">
-    Revisá el resultado real y el comprobante en el dispositivo. No decidas por el estado visual del navegador solamente.
+    Revisá el resultado real y el comprobante en el dispositivo. No decidas por lo que muestra el navegador.
   </Step>
-  <Step title="Abrí Ventas">
-    El aviso superior indica que existe un cobro para resolver. Presioná **Resolver**.
-  </Step>
-  <Step title="Dejá evidencia">
-    La pantalla exige una nota, por ejemplo el resultado y número de cupón del equipo.
+  <Step title="Dejá una nota">
+    La nota es obligatoria: por ejemplo, "ticket aprobado en el dispositivo, cupón 1234". Sin nota, los botones no se habilitan.
   </Step>
   <Step title="Marcá el resultado">
-    Elegí **Se aprobó** o **Se rechazó**. Si Mercado Pago ya informó un resultado definitivo, Fint conserva ese estado y te lo muestra.
+    Elegí **Se aprobó** o **Se rechazó**. Si Mercado Pago ya informó un resultado definitivo, Fint aplica ese y te lo muestra en **Resultado aplicado**.
   </Step>
 </Steps>
+
+Si saliste del cobro sin resolverlo, **Ventas** muestra arriba **Hay un cobro esperando verificación manual**. Presioná **Resolver**: se abre el **Detalle de cobro** con la misma nota y los mismos botones.
+
+## Comisión de Fint en Point y QR
+
+En los cobros con Point o QR, Mercado Pago no retiene la comisión de Fint. Esa comisión se suma a tu liquidación mensual: en [Uso y facturación](/docs/guides/uso-facturacion), esos pagos figuran con **Se liquida**. Efectivo y transferencia funcionan igual.
 
 ## Confirmación y siguiente venta
 
