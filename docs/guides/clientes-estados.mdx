@@ -28,10 +28,10 @@ Ambos valores aparecen en **Detalle** dentro del perfil. También podés filtrar
     Presioná el valor de **Condición** y elegí una condición inactiva.
   </Step>
   <Step title="Revisá las consecuencias">
-    Fint muestra una confirmación. Comprobá que querés detener nuevas órdenes y recordatorios antes de continuar.
+    Fint muestra el cuadro **Dar de baja** con lo que pasa. Comprobá que querés detener nuevas órdenes y recordatorios.
   </Step>
   <Step title="Confirmá la baja">
-    El cliente deja el listado principal y pasa a la vista de inactivos.
+    Tocá **Confirmar**. El cliente deja el listado principal y pasa a la vista de inactivos.
   </Step>
 </Steps>
 
@@ -68,7 +68,7 @@ Al darlo de baja:
 
 Desde el listado, tildá uno o más clientes y abrí **Acción en lote**. Ahí elegís **Archivar** para los seleccionados o para todos los que coinciden con los filtros. Los pasa a inactivos y se puede revertir con la reactivación. Los que tienen una suscripción activa quedan como estaban: el resultado los muestra aparte, con el motivo.
 
-**Eliminar** es otra acción del mismo panel. Borra también los datos asociados. Para archivar o eliminar más de 50 a la vez, Fint te pide que escribas la cantidad. Los pasos están en [Hacer algo con muchos a la vez](/docs/guides/clientes#hacer-algo-con-muchos-a-la-vez).
+**Eliminar** es otra acción del mismo panel. Borra también los datos asociados. Un estudiante con una suscripción activa tampoco se elimina. Para archivar o eliminar más de 50 a la vez, Fint te pide que escribas la cantidad. Los pasos están en [Hacer algo con muchos a la vez](/docs/guides/clientes#hacer-algo-con-muchos-a-la-vez).
 
 <Danger>
   La eliminación no se puede deshacer. Usá **Archivar** si sólo necesitás retirar clientes del trabajo cotidiano y conservar la posibilidad de reactivarlos.
@@ -78,7 +78,7 @@ Desde el listado, tildá uno o más clientes y abrí **Acción en lote**. Ahí e
 
 <AccordionGroup>
   <Accordion title="Sin órdenes de pago">
-    El cliente todavía no tiene órdenes registradas.
+    El cliente todavía no tiene ninguna orden. En el filtro **Estado** del listado se llama **Sin órdenes**.
   </Accordion>
   <Accordion title="Pago pendiente">
     Tiene al menos una orden sin pagar que todavía no venció y ninguna deuda vencida.
@@ -87,13 +87,13 @@ Desde el listado, tildá uno o más clientes y abrí **Acción en lote**. Ahí e
     Tiene al menos una orden vencida que sigue impaga.
   </Accordion>
   <Accordion title="Al día">
-    Tiene órdenes registradas, pero no quedan importes pendientes de pago.
+    Tiene órdenes, pero ninguna institucional pendiente de pago. También queda así si sus únicas órdenes son entradas de eventos, borradores o canceladas.
   </Accordion>
 </AccordionGroup>
 
 El estado puede cambiar cuando se crea una orden, llega su vencimiento o se registra un pago. Consultalo como resultado de la cobranza, no como una clasificación manual.
 
-**Con deuda** y **Pago pendiente** miran órdenes institucionales vencidas o a vencer. Una entrada de evento, un borrador, una bonificación o una orden cancelada **no** cambian ese semáforo.
+**Con deuda** y **Pago pendiente** miran órdenes institucionales vencidas o a vencer. Una entrada de evento, un borrador, una bonificación o una orden cancelada no lo ponen en deuda ni en pago pendiente, pero sí lo sacan de **Sin órdenes de pago**.
 
 ## Próximos pasos
 

@@ -15,9 +15,9 @@ Abrí una orden de la liquidación y compará sus items con la configuración es
 
 Si falta un item, usá el botón **+** de la sección **Items** y elegí uno disponible.
 
-Si sobra un item, usá la **X** junto a ese renglón. La confirmación advierte que también se desvinculará del cliente y que esto puede afectar futuras liquidaciones.
+Si sobra un item, usá la **X** junto a ese renglón. La confirmación (**Desvincular item**) advierte que también se desvinculará del cliente y que esto puede afectar futuras liquidaciones. Tocá **Confirmar**.
 
-En una liquidación **Pendiente** podés sumar o sacar items: esas órdenes todavía no se pagan. Si ya está **Enviada** y la familia arrancó un pago por transferencia o cupón, Fint bloquea el alta o baja de items con **Intento de pago en progreso**. Hay que cancelar el intento en el [portal](/docs/guides/portal-contacto) o esperar a que venza. Un cobro con tarjeta no deja este bloqueo. Mientras figura **Enviando**, no se edita nada.
+En una liquidación **Pendiente** podés sumar o sacar items: esas órdenes todavía no se pagan. Si ya está **Enviada** y la familia arrancó un pago por transferencia o cupón, Fint bloquea el alta o baja de items con **Intento de pago en progreso, no se puede editar la factura**. Hay que cancelar el intento en el [portal](/docs/guides/portal-contacto) o esperar a que venza. Un cobro con tarjeta no deja este bloqueo. Mientras figura **Enviando**, no se edita nada.
 
 <Warning>
   Una orden que se queda sin items no sale al enviar la liquidación. Volvé al detalle de la liquidación y comprobá el resultado antes de continuar.
@@ -38,21 +38,37 @@ Si aparece un error por monto negativo, corregí los descuentos o items y volvé
 
 ## Iniciar el envío
 
-Cuando la liquidación esté Pendiente y la revisión sea correcta, seleccioná **Enviar liquidación**.
+Cuando la liquidación esté Pendiente y la revisión sea correcta, seleccioná **Enviar liquidación**. Antes de abrir la confirmación, Fint revisa a quién le va a llegar el email.
 
-El cuadro de confirmación indica que la acción generará y enviará las órdenes de pago. Elegí **Enviar** solo cuando el período esté listo para procesarse.
+<Steps>
+  <Step title="Mirá si hay familias sin email">
+    Si todos los responsables tienen un email que sirve, el cuadro **Confirmar envío de liquidación** solo dice que la acción generará y enviará las órdenes de pago, con el botón **Enviar**.
 
-La liquidación pasa por **Enviando** y luego por **Enviada**. Fint congela el desglose de esa corrida y le pone número a cada orden. Las órdenes con importe pasan de no enviadas a **Por Cobrar**; las que tienen total cero por sus items quedan **Bonificadas**. Una orden que se quedó sin items **no sale**: se elimina. **Enviando** no se puede cancelar ni editar.
+    Si alguno no lo va a recibir, el cuadro lo avisa: por ejemplo, **A 3 familiares no les va a llegar el email** y debajo cuántos no tienen email y cuántos lo tienen mal escrito. Si no falta ningún familiar pero hay estudiantes sin un contacto que reciba el aviso, dice **N estudiantes se quedan sin aviso**.
 
-Cada responsable con email recibe este correo, con las órdenes de su familia y el botón al portal. Si no hay email, la orden se crea igual y el mail se saltea.
+    <Frame>
+      <img src="/docs/images/solicitudes-pago/liquidacion-aviso-emails.png" alt="Cuadro Confirmar envío de liquidación de Cuotas marzo 2027: A 3 familiares no les va a llegar el email, 2 sin email y 1 con email inválido, botón Descargar Excel para corregir y botón Enviar igual" />
+    </Frame>
+  </Step>
+  <Step title="Bajá el Excel para corregir">
+    **Descargar Excel para corregir** baja *Emails a corregir - (nombre de la liquidación).xlsx* sin cerrar el cuadro. Tiene una fila por estudiante y familiar al que no le llega el email, con **Problema** (Sin email, Email vacío, Email inválido o Sin familiar a notificar), el email cargado, teléfono, WhatsApp, si la familia recibe igual por otro familiar y un link para **Abrir ficha**. Primero van, en rojo, los estudiantes a los que no les llega por nadie.
+
+    Corregí los emails en la ficha de cada estudiante (sección **Contactos**) y volvé a tocar **Enviar liquidación**: el aviso se actualiza.
+  </Step>
+  <Step title="Enviá">
+    Con el aviso, el botón dice **Enviar igual**: las órdenes se generan para todos y el email sale solo a quienes tienen una dirección que sirve. Sin aviso, el botón es **Enviar**. Fint confirma con **Envío iniciado con éxito**.
+  </Step>
+</Steps>
+
+La liquidación pasa por **Enviando** (el detalle muestra cuántas órdenes ya se generaron) y luego por **Enviada**. Fint congela el desglose de esa corrida y le pone número a cada orden. Las órdenes con importe pasan de no enviadas a **Por Cobrar**; las que tienen total cero por sus items quedan **Bonificadas**. Una orden que se quedó sin items **no sale**: se elimina. **Enviando** no se puede cancelar ni editar. Si alguna orden tiene total negativo, Fint no envía y avisa **La liquidación tiene órdenes de pago con monto negativo**.
+
+Cada responsable con email recibe este correo, con las órdenes de su familia y el botón al portal. Los emails salen de a poco, después de que la liquidación queda **Enviada**: en una liquidación grande pueden tardar unos minutos en llegar. A quien no tiene un email que sirva no se le manda nada; su orden se crea igual y la ve en el [portal](/docs/guides/portal-contacto).
 
 <img src="/docs/images/emails/new-settlement.png" alt="Mail Nueva factura disponible de Colegio Modelo: dos cuotas marzo 2027 de Sofía y Martín Montes, total $ 185.000" />
 
-{/* TODO(captura): Mostrar el cuadro Confirmar envío de liquidación, con el nombre y período visibles detrás. */}
-
 ## Eliminar una liquidación Pendiente
 
-Mientras la liquidación está **Pendiente**, el detalle muestra **Eliminar**.
+Mientras la liquidación está **Pendiente**, el detalle muestra **Eliminar**. La confirmación se titula **Eliminar liquidación**.
 
 Usá esta acción si no querés procesar esa preparación. Después de eliminarla, volvés al listado de liquidaciones.
 
@@ -62,7 +78,7 @@ No confundas esta acción con cancelar una liquidación ya Enviada.
 
 En una liquidación **Enviada**, el detalle muestra **Cancelar liquidación**.
 
-Al confirmar, la liquidación pasa a **Cancelada**. Sus órdenes Por Cobrar pasan a Cancelada. Las órdenes Pagadas, con Pago parcial o Bonificadas se conservan.
+La confirmación avisa que *Las órdenes ya no aparecerán en el portal.* Al confirmar, la liquidación pasa a **Cancelada**. Sus órdenes Por Cobrar pasan a Cancelada. Las órdenes Pagadas, con Pago parcial o Bonificadas se conservan.
 
 <Info>
   La cancelación cambia estados. No elimina las órdenes ni los pagos conservados.

@@ -50,7 +50,9 @@ Cuando hay importes pendientes, el perfil puede separar en **Deuda** el total **
     Usá **Asignar uno existente** si la persona ya paga por otro cliente. Elegí **Crear nuevo** si todavía no existe.
   </Step>
   <Step title="Completá los datos necesarios">
-    **Crear contacto** pide **Nombre**, **Apellido** y documento. El email es opcional para guardar; hace falta para **Enviar mail con link al portal**. Si ese documento ya está en Contactos, Fint **no crea otra persona**: vincula la que existe y deja los datos viejos. Si es la misma, usá **Asignar uno existente**.
+    **Crear contacto** pide **Nombre**, **Apellido** y documento. El email es opcional para guardar; hace falta para **Enviar mail con link al portal** y para que le lleguen las liquidaciones. Si ese documento ya está en Contactos, Fint **no crea otra persona**: vincula la que existe y deja los datos viejos. Si es la misma, usá **Asignar uno existente**.
+
+    Si cargás un email con formato roto, aparece **Ingresa un email válido** y no se puede guardar. Si el dominio parece mal escrito, Fint muestra, por ejemplo, **¿Quisiste decir @gmail.com en vez de @gmail.con?**: tocá **Corregir** para aplicarlo. Los espacios de más se quitan al guardar.
   </Step>
   <Step title="Comprobá la relación">
     El responsable debe aparecer dentro de **Contactos**. Abrí su menú para editarlo, entrar al portal o enviar el enlace por email.
@@ -70,7 +72,21 @@ En el menú de un responsable tenés dos acciones:
 - **Ir al portal** abre su acceso para que compruebes qué información tiene disponible.
 - **Enviar mail con link al portal** envía el enlace a la dirección registrada. Si el contacto no tiene email, Fint avisa y no envía nada.
 
-Antes de enviar el email, verificá que el responsable tenga una dirección válida. El mail de la ficha del **estudiante** no abre el portal.
+Antes de enviar el email, verificá que el responsable tenga una dirección válida y sin el aviso de [email que no llega](#cuando-un-email-no-llega). El mail de la ficha del **estudiante** no abre el portal.
+
+## Cuando un email no llega
+
+Si el email de un responsable rebotó o la persona marcó un email de Fint como spam, la ficha lo avisa debajo de la dirección:
+
+- **No recibe emails: la dirección rebotó**: la casilla no existe o rechaza los mails.
+- **No recibe emails: la dirección está bloqueada**: el proveedor de email la dejó de usar.
+- **No recibe comunicados: marcó un email como spam**: le siguen llegando cobros y recordatorios, pero no los comunicados de [Mensajería](/docs/guides/mensajeria).
+
+<Frame>
+  <img src="/docs/images/clientes/contacto-no-recibe-emails.png" alt="Sección Contactos de la ficha de Martina Sosa: la responsable Andrea Sosa con su email y el aviso No recibe emails: la dirección rebotó" />
+</Frame>
+
+Una casilla llena o un problema pasajero no bloquean la dirección. Para que vuelva a recibir, pedí al responsable un email que funcione y cambialo con **Editar**. Si la dirección es correcta y ya se arregló, escribile a soporte de Fint para que la desbloquee.
 
 ## Cambiar una relación
 
@@ -78,7 +94,7 @@ Usá **Desasignar contacto** cuando una persona ya no deba pagar por ese cliente
 
 Si el responsable continúa asociado a otros clientes, conserva los vínculos restantes. Si sólo querés corregir sus datos, elegí **Editar** en lugar de desasignarlo.
 
-En la pestaña **Contactos**, **Eliminar responsable** da de baja a esa persona como pagadora. Las órdenes de los estudiantes se conservan. Para sacarla de un solo perfil, usá **Desasignar contacto**.
+En la pestaña **Contactos** del listado, al abrir un responsable ves sus **Estudiantes asignados** y podés corregir sus datos con **Editar detalles** (con la misma revisión del email). **Eliminar responsable** da de baja a esa persona como pagadora. Las órdenes de los estudiantes se conservan. Para sacarla de un solo perfil, usá **Desasignar contacto**.
 
 ## Próximos pasos
 

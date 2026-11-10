@@ -49,10 +49,10 @@ El stock de un descuento se ve y se ajusta al abrirlo: **Stock disponible**, **E
     Seleccioná Liquidación, Venta online o Entrada de eventos según el lugar donde se aplicará.
   </Step>
   <Step title="Definí el valor">
-    Escribí un nombre y elegí entre monto fijo o porcentaje. Ingresá un valor mayor que cero.
+    Escribí un nombre y elegí **Monto Fijo** o **Porcentaje**. Ingresá un valor mayor que cero.
   </Step>
-  <Step title="Configurá el alcance">
-    Indicá si aplica siempre o sobre todos los items, sólo algunos, o todos excepto los seleccionados.
+  <Step title="Configurá las condiciones">
+    En **Condiciones**, un **Monto Fijo** se aplica **Siempre**, **Si la orden incluye ciertos items** o **Si la orden NO incluye ciertos items**. Un **Porcentaje** se calcula sobre **Todos los items**, **Algunos items** o **Todos los items excepto algunos**.
   </Step>
   <Step title="Completá el canal">
     Configurá clientes y vigencia para Liquidación, stock para Venta online o código y restricciones para Eventos.
@@ -64,15 +64,15 @@ El stock de un descuento se ve y se ajusta al abrirlo: **Stock disponible**, **E
 
 ## Buscar y cambiar varios a la vez
 
-La pestaña **Descuentos** es una tabla con **Nombre**, **Tipo**, **Descuento**, **Uso** y **Estado**. En **Uso**, los de Eventos y Venta online muestran cuántas veces se usaron; los de Liquidación, a cuántos están asignados. Arriba podés buscar por nombre o código y filtrar por **Estado** y **Tipo**.
+La pestaña **Descuentos** es una tabla con **Nombre**, **Tipo**, **Descuento**, **Uso** y **Estado**. En **Uso**, los de Eventos y Venta online muestran cuántas veces se usaron (*8 usos*); los de Liquidación, a cuántos están asignados (*2 contactos*). Arriba podés buscar por nombre, código o descripción y filtrar por **Estado** y **Tipo**.
 
 <img src="/docs/images/items-descuentos/catalogo-descuentos-2027.png" alt="Tabla de descuentos de Colegio Modelo filtrada por Venta online y Liquidación: cuatro descuentos escolares de Venta online con 8 usos cada uno y Beca hermanos del 20 por ciento de Liquidación asignada a 2 contactos" />
 
 Tildá uno o más y abrí **Acción en lote**. Elegí si va para los seleccionados o para **todos los que coinciden con los filtros**:
 
 - **Cambiar estado**: Activo o Borrador.
-- **Asociar a eventos**: suma los eventos elegidos a cada cupón de Eventos, sin sacar los que ya tenía.
-- **Eliminar**: los cupones que se usan en un evento no se eliminan; el resultado los muestra aparte.
+- **Asociar a eventos**: para cupones de Eventos. Suma los eventos elegidos a cada uno, sin sacar los que ya tenía.
+- **Eliminar**: los cupones que se usan en un evento no se eliminan; el resultado los muestra aparte (por ejemplo, *3 descuentos eliminados* y *2 con error*). Para eliminar más de 50, escribí la cantidad para confirmar.
 
 ## Monto fijo o porcentaje
 
@@ -105,7 +105,7 @@ Podés asignar **más de una beca** a la misma cuota. Cada porcentaje se calcula
 
 Este tipo crea un beneficio guardado para el Punto de Venta. Dejalo activo y con stock disponible para poder aplicarlo durante una venta.
 
-Podés exigir una cantidad mínima de productos y decidir qué productos cuentan para alcanzar ese mínimo. El alcance del descuento se configura por separado.
+Con **Requerir una cantidad mínima de productos** podés exigir una **Cantidad mínima** y decidir qué productos cuentan para alcanzarla. Las condiciones del descuento se configuran por separado. (La misma opción existe en los cupones de Eventos: cada entrada o combo cuenta como uno.)
 
 Los items de monto libre no cuentan para activar la condición de cantidad.
 
@@ -121,7 +121,7 @@ Consultá [Descuentos en el Punto de Venta](/docs/guides/pos-descuentos) para ve
 
 ## Descuento de Eventos
 
-Es un **código de cupón** para el checkout del evento, no un descuento del POS. Ejemplo: `PREVENTA10`. El código tiene que ser único en la organización.
+Es un **Código de cupón** para el checkout del evento, no un descuento del POS. Ejemplo: `PREVENTA10`. El código tiene que ser único en la organización.
 
 Tiene **Stock disponible**. Cada vez que alguien aplica el código, Fint reserva 1. Con stock **0**, el código no se aplica.
 
@@ -129,11 +129,11 @@ Tiene **Stock disponible**. Cada vez que alguien aplica el código, Fint reserva
   El porcentaje se calcula solo sobre **entradas sueltas**, no sobre combos. Si el carrito es solo combos, el descuento porcentual queda en cero. Un monto fijo se resta del total de la compra, aunque haya combos.
 </Warning>
 
-Además del alcance por tipos de entrada, podés pedir un total mínimo o máximo. Si es porcentual, también podés limitar el monto máximo descontado.
+Además del alcance por tipos de entrada, con **Aplicar restricción de montos** podés pedir un **Monto mínimo** o **Monto máximo** de compra. Si es porcentual, **Limitar monto máximo de descuento** pone un tope a lo descontado.
 
 <img src="/docs/images/items-descuentos/descuento-eventos.png" alt="Alta de un cupón de eventos PREVENTA10 del 10 por ciento, con stock 80 y restricciones de monto mínimo y tope de descuento" />
 
-Después asociá el descuento **a ese evento**: elegilo en **Eventos**, dentro del descuento, o agregalo desde el evento. Si no está en el evento, el código no aplica aunque tenga stock. Para un código que sirva en todos los eventos de la organización, prendé **Válido en todos los eventos**. El recorrido está en [Crear y publicar un evento](/docs/guides/eventos-crear-publicar#3-agregar-descuentos).
+Después asociá el descuento **a ese evento**: elegilo en **Eventos**, dentro del descuento, o agregalo desde el evento. Si no está en el evento, el código no aplica aunque tenga stock. Para un código que sirva en todos los eventos de la organización, prendé **Válido en todos los eventos**; apagado, el código solo funciona en los eventos que elijas. El recorrido está en [Crear y publicar un evento](/docs/guides/eventos-crear-publicar#3-agregar-descuentos).
 
 ## Importar descuentos de Liquidación
 
