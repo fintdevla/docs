@@ -14,6 +14,8 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
     Si el movimiento estaba vinculado a un pago que ya existía, la acción se llama **Desvincular pago**. El movimiento vuelve a quedar pendiente y el pago y sus órdenes no se modifican: no se anula nada.
 
     Si en cambio borrás el pago desde [Pagos](/docs/guides/pagos) (**Eliminar pago manual**), el movimiento se libera igual: deja de estar **Conciliada**, vuelve a mostrar la sugerencia y la orden vuelve a **Por Cobrar**. Si la conciliación había creado la orden, la orden queda pendiente: borrar el pago no la borra.
+
+    Un pago **vinculado** (el que ya existía y conectaste con **Vincular**) no se puede borrar desde Pagos mientras siga vinculado. Primero usá **Acciones → Desvincular pago** en el movimiento y después borralo.
   </Accordion>
   <Accordion title="La cuota ya estaba pagada a mano. ¿Cómo concilio el movimiento?" id="la-cuota-ya-estaba-pagada-a-mano">
     Pasa cuando la familia pagó y alguien registró el pago en la orden (efectivo, transferencia u otro medio manual) antes de importar el extracto. No crees un pago nuevo: vinculá el movimiento al que ya existe y evitás el duplicado.
@@ -229,7 +231,7 @@ Antes de conciliar, verificá el responsable, las personas alcanzadas, las órde
             Seleccioná las órdenes que cubre la transferencia. El resumen va a mostrar una diferencia a favor.
           </Step>
           <Step title="Creá la factura por la diferencia">
-            Confirmá **Crear factura por la diferencia**. El nombre por defecto es **Saldo a favor**; podés cambiar la descripción.
+            Fint abre **Crear factura por la diferencia**. La descripción por defecto es **Saldo a favor**; podés cambiarla. Confirmá con **Crear factura y conciliar**.
 
             En el ejemplo, la transferencia es de **\$76.000,00** y la cuota de agosto es de **\$75.000,00**. Fint propone crear **\$1.000,00** a nombre de Valentina Rodríguez.
 

@@ -37,13 +37,16 @@ El nombre y el banco son los únicos datos obligatorios. El CBU, el alias, el CU
 
     En el ejemplo se usa el alias **colegio.modelo.recaudacion** y la descripción “Cuenta destinada a transferencias de cuotas”. No se cargan datos fiscales ni bancarios reales.
 
-    <img src="/docs/images/conciliacion-bancaria/cuenta-bancaria-formulario.png" alt="Formulario de una cuenta recaudadora de ICBC con alias y descripción, sin CBU ni CUIT" />
+    <Frame>
+      <img src="/docs/images/conciliacion-bancaria/cuenta-bancaria-formulario.png" alt="Formulario Nueva cuenta bancaria: cuenta recaudadora de ICBC con alias y descripción, sin CBU ni CUIT, y los interruptores Usar como método de pago y Usar para pagar proveedores apagados" />
+    </Frame>
   </Step>
 
-  <Step title="Definí si se usa como medio de pago">
-    Activá **Usar como método de pago** solo si la institución también quiere ofrecer esa cuenta al registrar pagos por transferencia.
+  <Step title="Definí para qué se usa">
+    Los dos interruptores del final son opcionales. Ninguno hace falta para importar extractos ni para conciliar; en el ejemplo quedan apagados.
 
-    Esta opción no es necesaria para importar extractos ni para conciliar. En el ejemplo queda desactivada.
+    - **Usar como método de pago**: la cuenta pasa a ser la que ven las familias cuando eligen pagar por **transferencia**. Ver [Pagos por transferencia de las familias](#pagos-por-transferencia-de-las-familias).
+    - **Usar para pagar proveedores**: solo aparece si la institución tiene **Pagos a proveedores**. La cuenta queda como cuenta de salida al registrar pagos a proveedores. Ver [Configuración de proveedores](/docs/guides/proveedores-configuracion).
   </Step>
 
   <Step title="Guardá y verificá">
@@ -60,6 +63,21 @@ La cuenta aparece como opción al subir un extracto. El banco elegido define la 
 <Warning>
   Elegí el banco correcto. Si el archivo no respeta la estructura esperada para esa cuenta, la importación puede rechazarse o informar filas que no pudo procesar.
 </Warning>
+
+## Pagos por transferencia de las familias
+
+Cuando una familia elige pagar por **transferencia**, Fint le muestra los datos de la cuenta marcada con **Usar como método de pago** y se los manda por mail con el asunto **Datos para transferir a …**. La excepción es la institución que cobra con la CVU de Pagos Online: ahí se usan los datos de esa CVU.
+
+<Frame>
+  <img src="/docs/images/emails/finish-payment-transfer.png" alt="Mail Datos para transferir a Colegio Modelo: transferir $ 24.000 a la cuenta con razón social, CUIT, alias COLEGIO.MODELO y número de cuenta, sin aviso de plazo de acreditación" />
+</Frame>
+
+- La razón social y el CUIT salen de los datos de la institución; si no están, de la cuenta.
+- El alias y el CBU salen juntos de la misma fuente: de la institución si tiene alguno cargado y, si no, de la cuenta. El mail rotula ese número como **CVU**.
+- Si un dato no está en ningún lado, la fila no aparece.
+- Si hay varias cuentas con el interruptor prendido, se usa la primera que se creó.
+
+Esa transferencia no se acredita sola: el pago queda registrado cuando [conciliás el movimiento](/docs/guides/conciliacion-bancaria) del extracto. Por eso el mail no promete un plazo de acreditación.
 
 ## Editar o eliminar la cuenta
 

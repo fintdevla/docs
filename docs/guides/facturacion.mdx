@@ -67,6 +67,8 @@ Si el responsable no tiene documento, Fint puede usar el del primer contacto de 
 
 Si el documento tiene 11 dígitos y no hay condición guardada, Fint consulta el padrón. Si no puede determinar la condición, trata al receptor como **Consumidor Final**.
 
+En el PDF, el documento del cliente lleva el rótulo de su tipo: **DNI**, **CUIL** o **CUIT** (también **CDI**, **LE**, **LC**, **CI extranjera** o **Pasaporte**). Un consumidor final sin identificar sale como **Documento**.
+
 <Warning>
   Un documento mal cargado es la causa más frecuente de error. Revisá el CUIT o DNI del responsable antes de reintentar.
 </Warning>
@@ -75,7 +77,7 @@ Si el documento tiene 11 dígitos y no hay condición guardada, Fint consulta el
 
 En **Configuración → Facturación → Facturación automática** (también desde el paso 4 de [Conectar ARCA](/docs/guides/facturacion-arca)).
 
-La pestaña **Facturación automática** solo aparece con el módulo ARCA activo.
+La pestaña **Facturación automática** aparece cuando ARCA ya está conectado (el paso 2 de [Conectar ARCA](/docs/guides/facturacion-arca) validado). Antes, la pestaña no está.
 
 <img src="/docs/images/facturacion/09-regla-preset.png" alt="Pestaña Facturación automática: regla Facturar todos los cobros activa, Web Services, inmediata, 4 tipos de cliente, 0% y Email del comprobante en No se envía" />
 
@@ -216,7 +218,9 @@ En el detalle:
 
 <img src="/docs/images/facturacion/10-pago-comprobante-error.png" alt="Pago con comprobante en error y aviso para corregir el padrón de ARCA" />
 
-Ante un **Error**, corregí el dato (CUIT, punto de venta, condición) y usá **Reintentar la emisión** en el detalle del pago. No hace falta cargar otro comprobante si el intento se puede reenviar.
+Ante un **Error**, corregí el dato (CUIT, punto de venta, condición) y usá **Reintentar la emisión** (el ícono de flechas junto al comprobante) en el detalle del pago. No hace falta cargar otro comprobante si el intento se puede reenviar.
+
+Fint no emite dos veces a la vez sobre el mismo pago: si en ese momento ya se está emitiendo un comprobante para ese pago (por la regla o por otro reintento), el reintento no genera otro. Esperá unos segundos y revisá el pago antes de volver a intentar.
 
 CUIT mal, punto de venta o certificado: **no** se arregla solo. Caída de ARCA o numeración desfasada (código 10016): Fint reintenta solo, hasta 10 veces. Si quedó **Pendiente** más de media hora, pasa a Error y ahí se reintenta.
 
@@ -233,9 +237,13 @@ El número del comprobante lo da ARCA por punto de venta de **Web Services** y t
   </Accordion>
   <Accordion title="Hay que anular una factura">
     Emití una **Nota de crédito** por el total sobre esa factura. Quedan los dos comprobantes. No existe “borrar factura” en ARCA.
+
+    Si además hay que borrar el pago, primero emití una nota de crédito por cada factura o recibo vigente del pago. Con todos los comprobantes anulados, el pago se puede borrar desde [Pagos](/docs/guides/pagos) con **Eliminar pago manual**.
   </Accordion>
   <Accordion title="En conciliación apreté Crear factura">
-    Eso registra la orden y el pago con ese movimiento. El comprobante fiscal, si corresponde, sale después por la [regla](/docs/guides/facturacion), igual que cualquier otro cobro.
+    Con **Crear factura y conciliar**, Fint registra la orden y el pago con ese movimiento. El pago queda a nombre del **responsable** asignado al movimiento, así que el comprobante fiscal sale a su nombre, igual que cuando conciliás una cuota existente. Sale después por la [regla](/docs/guides/facturacion), como cualquier otro cobro.
+
+    Asigná el responsable correcto en el movimiento antes de crear la factura. Ver [¿Creo la orden acá?](/docs/guides/conciliacion-bancaria-casos-frecuentes).
   </Accordion>
   <Accordion title="Hay que facturar solo una parte">
     En **Registrar comprobante** cambiá el monto. El resto del pago puede quedar sin facturar, o cubrirse después con otro comprobante permitido (por ejemplo un recibo, si la regla o el modal lo habilitan).
@@ -250,7 +258,7 @@ El número del comprobante lo da ARCA por punto de venta de **Web Services** y t
     Facturas y recibos A, B, C (y E cuando corresponde), más notas de crédito y débito. No hay Recibo X en este flujo.
   </Accordion>
   <Accordion title="La familia no recibió el mail de la factura">
-    Tres chequeos, en este orden: 1) la regla o el alta manual tienen **Enviar comprobante por email** prendido (la recomendada nace apagada); 2) el comprobante está **Procesado**, no en error; 3) el responsable (o el comprador del evento) tiene email. El PDF igual puede estar en el portal.
+    Cuatro chequeos, en este orden: 1) la regla o el alta manual tienen **Enviar comprobante por email** prendido (la recomendada nace apagada); 2) el comprobante está **Procesado**, no en error; 3) el responsable (o el comprador del evento) tiene email; 4) en la ficha del cliente, debajo del email del responsable, no dice **No recibe emails: la dirección rebotó** ni **No recibe emails: la dirección está bloqueada**. A una dirección así Fint no le manda el comprobante: corregí el email. El PDF igual puede estar en el portal.
   </Accordion>
   <Accordion title="La nota de crédito no mandó mail">
     La nota hereda el flag de la factura o el recibo original. Si esa factura se emitió sin mail, la nota tampoco sale. No hay un switch propio en la nota.
