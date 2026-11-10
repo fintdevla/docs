@@ -1,0 +1,128 @@
+---
+title: 'Importar proveedores y comprobantes desde Excel'
+sidebarTitle: 'Importar desde Excel'
+description: 'Cargá muchos proveedores o comprobantes con una planilla, revisá cada fila antes de confirmar, corregí lo que falló y deshacé si hace falta'
+---
+
+Si tenés el padrón de proveedores o las facturas del mes en una planilla, importala en lugar de cargar uno por uno. Fint te muestra una vista previa, importa solo las filas que están bien y te deja corregir el resto. Necesitás ser **Administrador**.
+
+Se puede importar:
+
+- **Proveedores**: nombre y CUIT de cada uno; los demás datos son opcionales.
+- **Comprobantes**: una fila por comprobante, con proveedor, tipo, fechas e importes.
+- **Facturas impagas anteriores** y **Saldo inicial por proveedor**: lo que ya debías antes de usar Fint. Ver [Saldos anteriores](/docs/guides/proveedores-saldos-anteriores).
+
+## Preparar la planilla
+
+<Steps>
+  <Step title="Abrí la importación">
+    En **Proveedores**, tocá la flecha junto a **Crear proveedor** y elegí **Importar desde Excel**. Para comprobantes, la flecha junto a **Subir comprobante** en **Comprobantes**.
+  </Step>
+  <Step title="Descargá la plantilla">
+    **Descargar plantilla** baja un Excel con las columnas que Fint espera, incluidos los campos propios de tu organización (con el prefijo **Campo:**). Si un campo es una lista, la hoja **Campos y opciones** muestra los valores válidos.
+  </Step>
+  <Step title="Completala">
+    Una fila por proveedor o por comprobante. La identificación fiscal es obligatoria: con ella Fint reconoce al proveedor. En comprobantes, el tipo se escribe FC, NC, ND, recibo, ticket o gasto.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/docs/images/proveedores/importar-proveedores.png" alt="Panel Importar proveedores con el área para arrastrar el archivo, Descargar plantilla y Más opciones" />
+</Frame>
+
+Se aceptan Excel (.xlsx) o CSV de hasta 20 MB y 10.000 filas. En **Más opciones** elegís el formato de decimales (punto o coma) y de fechas, el separador y la codificación de un CSV, o la hoja del Excel. Si tu planilla no sigue la plantilla, en **Columnas** elegí **Otro archivo: elegir columnas** y después indicás qué columna corresponde a cada dato. Para comprobantes también está **Archivo de ARCA: elegir columnas**.
+
+## Revisar y confirmar
+
+Arrastrá el archivo. Fint arma la vista previa: cuántas filas están **Listas**, cuántas **Con problemas** y cuántas **Omitidas**.
+
+<Frame>
+  <img src="/docs/images/proveedores/importar-vista-previa.png" alt="Vista previa de proveedores-colegio.xlsx: 5 filas, 4 listas, 1 con problemas y 0 omitidas; 1 de las filas listas ya existía en Fint" />
+</Frame>
+
+- Un proveedor que **ya existía** (mismo CUIT) se vincula sin modificarse.
+- Las filas **Con problemas** no se importan. Las podés corregir antes o después de confirmar.
+
+Tocá **Confirmar importación**. Al terminar ves cuántas filas se importaron y cuántas ya existían.
+
+<Frame>
+  <img src="/docs/images/proveedores/importar-terminada.png" alt="Importación terminada: 3 filas importadas, 1 ya existía, 1 fila no se importó y se puede corregir desde el detalle" />
+</Frame>
+
+Si volvés a subir el mismo archivo, Fint lo reconoce y te muestra la importación anterior en lugar de duplicarla.
+
+### Comprobantes: aprobarlos en el mismo paso
+
+Los comprobantes importados entran **Por revisar**. Si ya los controlaste en la planilla, abrí **Ver detalle** y, en **Confirmar importación**, marcá **Aprobar también los comprobantes para que queden listos para pagar**.
+
+<Frame>
+  <img src="/docs/images/proveedores/importar-comprobantes-detalle.png" alt="Detalle de la importación de comprobantes antes de confirmar: débitos previstos 976.350 pesos, 3 filas listas y 1 con errores, con la revisión por fila" />
+</Frame>
+
+<Frame>
+  <img src="/docs/images/proveedores/importar-comprobantes-confirmar.png" alt="Diálogo Confirmar importación con Aprobar también los comprobantes, Importar solo las filas válidas y Revisé los proveedores, las filas y los totales marcados" />
+</Frame>
+
+Si hay filas con errores, marcá también **Importar solo las filas válidas y dejar las demás pendientes para corregir**. Confirmá que revisaste la vista previa y tocá **Confirmar y procesar**.
+
+## Corregir una fila
+
+En el detalle de la importación, la tabla **Revisión por fila** muestra el estado de cada fila. Filtrala por **Revisión** o **Resultado** para ver solo las que tienen problemas.
+
+<Frame>
+  <img src="/docs/images/proveedores/importacion-detalle.png" alt="Detalle de la importación de proveedores con el resultado, los botones de descarga y la revisión por fila" />
+</Frame>
+
+<Steps>
+  <Step title="Abrí la fila">
+    Tocá **Revisar fila**. Arriba ves el problema y, debajo de cada dato, qué traía el archivo.
+  </Step>
+  <Step title="Corregí el dato">
+    Cambiá el valor y tocá **Guardar y volver a revisar fila**. El archivo original no se modifica: la corrección se guarda aparte.
+  </Step>
+  <Step title="Reintentá">
+    Tocá **Reintentar pendientes**, confirmá y **Confirmar y procesar**. Solo se procesan las filas pendientes; las ya importadas conservan su resultado.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/docs/images/proveedores/importacion-revisar-fila.png" alt="Fila 6 con el error CUIT inválido y la identificación fiscal corregida a 30-71582351-5; debajo, el valor que traía el archivo" />
+</Frame>
+
+En el detalle también podés **Abrir archivo**, **Descargar resultado Excel** o **Descargar errores CSV**, y desde cada fila importada **Abrir proveedor** o **Abrir comprobante**.
+
+## Deshacer filas importadas
+
+Si importaste algo que no correspondía, seleccioná las filas en **Revisión por fila** y tocá **Deshacer** (sin seleccionar, deshace toda la importación). Indicá la **Fecha efectiva** y el **Motivo** y tocá **Solicitar deshacer**.
+
+<Frame>
+  <img src="/docs/images/proveedores/importacion-deshacer.png" alt="Diálogo Deshacer filas importadas con la fecha efectiva y el motivo Vivero Las Acacias no es proveedor del colegio" />
+</Frame>
+
+Fint revisa cada fila. Lo que no se usó se quita o se anula con la fecha indicada. Una fila queda **protegida** si su registro ya tiene pagos, reservas en un lote, cambios o archivos posteriores: el resultado te dice el motivo. El archivo y la historia se conservan.
+
+<Frame>
+  <img src="/docs/images/proveedores/importacion-deshecha.png" alt="Resultado de la importación: 3 importadas, 1 vinculada y 1 deshecha" />
+</Frame>
+
+## Historial de importaciones
+
+En **Proveedores** o **Comprobantes**, menú **⋯** → **Historial de importaciones**, ves cada archivo con su estado (**Por revisar**, **Importando**, **Finalizada**, **Deshaciendo** o **Requiere atención**) y el resultado por fila. Desde ahí retomás una revisión que dejaste a medias.
+
+<Frame>
+  <img src="/docs/images/proveedores/importaciones-historial.png" alt="Historial de importaciones con cuatro archivos finalizados: comprobantes, saldo inicial, facturas impagas anteriores y proveedores" />
+</Frame>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Importé proveedores que ya existían">
+    Si el CUIT coincide, la fila se vincula al proveedor existente y no lo modifica.
+  </Accordion>
+  <Accordion title="Los comprobantes importados no aparecen en la cuenta corriente">
+    Quedaron **Por revisar**. Aprobalos desde **Comprobantes** o, la próxima vez, marcá **Aprobar también los comprobantes** al confirmar.
+  </Accordion>
+  <Accordion title="El archivo tiene varias hojas">
+    En **Más opciones**, escribí en **Hoja** el nombre de la hoja que querés importar.
+  </Accordion>
+</AccordionGroup>
