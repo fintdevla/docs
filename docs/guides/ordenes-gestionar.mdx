@@ -58,12 +58,28 @@ Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones depend
 - **Actividad** reúne los cambios registrados y los intentos de pago online rechazados.
 - **Pagos** muestra los cobros asociados y permite registrar uno cuando corresponde.
 - **Items** desglosa cargos, descuentos y total.
-- **Detalle** muestra importe, estado, fechas y descripción o liquidación de origen.
+- **Detalle** muestra importe, estado, fechas, la descripción o liquidación y el **Origen** de la orden.
 - **Entradas** aparece cuando la orden tiene compras de un evento asociadas.
 
 <Frame>
-  <img src="/docs/images/solicitudes-pago/orden-detalle.png" alt="Detalle de la orden POR8LICE-0000 de Valentina Gómez: cuota de septiembre 2026 por cobrar, $55.000" />
+  <img src="/docs/images/solicitudes-pago/orden-detalle.png" alt="Detalle de la orden POR8LICE-0000 de Mateo Ruiz: cuota de septiembre 2026 por cobrar, $45.000, origen Carga manual, con Reenviar por email y Cancelar" />
 </Frame>
+
+### De dónde salió la orden
+
+**Origen** dice cómo se creó la orden: el módulo y, cuando se sabe, el recorrido exacto. Sirve para responder “¿esta orden quién la hizo?” sin buscar en otros módulos.
+
+| Origen | Cuándo aparece |
+| --- | --- |
+| **Carga manual** | La creó un administrador con **Crear**. |
+| **Liquidación** | Salió de una [liquidación](/docs/guides/liquidaciones-crear-revisar). |
+| **Importación · Importación desde Excel** | Vino del [importador](#importar-desde-excel-avanzado). |
+| **Suscripción · Compra desde link de pago**, **Alta de suscripción**, **Ciclo de suscripción** o **Débito automático** | Nació de un [link de pago](/docs/guides/links-pago) o de un período de una [suscripción](/docs/guides/suscripciones). |
+| **Evento · Compra online** o **Entrada cargada a mano** | Es la compra de entradas de un [evento](/docs/guides/eventos). |
+| **Punto de venta · Cobro en caja**, **Cobro con dispositivo o QR** o **Pagar después** | Es una venta del [Punto de Venta](/docs/guides/punto-de-venta). |
+| **Conciliación bancaria · Creada al conciliar un movimiento** o **Diferencia de una conciliación** | La creó la [conciliación](/docs/guides/conciliacion-bancaria) con **Crear factura**. |
+
+Las órdenes anteriores a octubre de 2026 pueden mostrar solo el módulo.
 
 ### Ver por qué no se pudo pagar
 
@@ -105,7 +121,9 @@ Consultá medios, importe pendiente y comportamiento de pagos parciales en la [g
 
 ## Exportar
 
-Usá **Exportar** para descargar las órdenes. El modal permite elegir fechas, items, etiquetas, liquidaciones y estados antes de generar el archivo.
+Usá **Exportar** para descargar las órdenes. El modal **Exportar órdenes** permite elegir el rango **Desde / Hasta** (por fecha de emisión), etiquetas, liquidaciones, items y estados antes de generar el Excel.
+
+Si el resultado pasa de 5.000 órdenes, el Excel no se descarga en el momento: Fint lo arma en segundo plano y te lo manda al email de tu usuario, con el asunto *Tu Excel de órdenes está listo* y el botón **Descargar Excel**. En pantalla aparece el aviso *Es un archivo grande, así que te lo mandamos por mail a …*. Si pedís otro mientras se arma, Fint te avisa que ya está en camino en vez de armar uno nuevo. Con un rango demasiado grande, te pide un período más corto o más filtros.
 
 ## Cambiar muchas órdenes a la vez
 

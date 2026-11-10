@@ -55,9 +55,10 @@ No todos los medios dejan el cobro en el acto:
 
 - **Tarjeta / Mercado Pago:** el pago entra cuando el procesador confirma. Aparece en [Pagos](/docs/guides/pagos).
 - **Transferencia:** la familia informa el depósito (titular, CUIT, a veces un archivo). Eso **no crea un pago**. La orden queda con **Aprobación pendiente** / **Pago informado por transferencia**. El cobro se registra cuando [conciliás](/docs/guides/conciliacion) o cargás un [pago manual](/docs/guides/pagos).
-- **Rapipago, Pago Fácil, Link Pagos:** se genera un cupón. La orden sigue **Por Cobrar** hasta que el medio acredita. En el portal ves **Esperando pago** y **Ver cupón**.
+- **Rapipago, Pago Fácil, Link Pagos:** se genera un cupón. La orden sigue **Por Cobrar** hasta que el medio acredita. En el portal ves **Esperando pago por …** y **Ver cupón**.
+- **Pagos360 (QR, Pago Fácil y los demás medios de Pagos360):** el pago se hace en la página de Pagos360. Mientras no se acredita, la factura muestra **Esperando pago por Pagos360** y el botón **Continuar pago** (o **Ver pago y cupón** si se eligió un cupón), que vuelve a esa página o deja **Descargar cupón** para imprimirlo.
 
-Si hay un intento pendiente, la familia puede cambiar de medio después de cancelar ese intento desde el portal o cuando vence.
+Si hay un intento pendiente, la familia puede cambiar de medio después de cancelarlo desde el portal (**Cancelar pago por …** dentro de ese pago) o cuando vence.
 
 <Frame>
   <img src="/docs/images/portal-contacto/medios-pago.png" alt="Paso de transferencia bancaria en el portal de Colegio Modelo: pide titular y CUIT o CUIL, sin generar el pago" />
