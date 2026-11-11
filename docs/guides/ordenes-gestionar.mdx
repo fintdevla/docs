@@ -13,7 +13,7 @@ Entrá en **Órdenes** y abrí la pestaña del mismo nombre para consultar las �
 
 Cada fila muestra el número de orden, la descripción, el vencimiento, el cliente, el importe y el estado.
 
-El buscador reconoce el número de orden, el cliente, la descripción y el nombre de la liquidación. También podés filtrar las órdenes disponibles por **Estado** y **Etiquetas**.
+El buscador reconoce el número de orden, el cliente (nombre o documento), la descripción y el nombre de la liquidación. También podés filtrar las órdenes disponibles por **Estado** y **Etiquetas**. El listado muestra 20 órdenes por página; el pie dice cuántas coinciden con la búsqueda y los filtros.
 
 <Info>
   Las órdenes de Evento que siguen Por Cobrar se consultan desde el flujo de [Eventos](/docs/guides/eventos) correspondiente.
@@ -49,6 +49,8 @@ Una fecha vencida se muestra en rojo solo cuando la orden continúa **Por Cobrar
   **Vencida** no es un estado independiente. El filtro considera órdenes Por Cobrar con una fecha anterior a hoy.
 </Info>
 
+Las ventas del punto de venta confirmadas con [Pagar después](/docs/guides/pos-pagar-despues) se muestran como **A pagar** mientras no tengan pagos. Para verlas juntas, elegí **A pagar (punto de venta)** en el filtro **Estado**; el filtro también incluye las que tienen un pago parcial. Estas órdenes no se pueden cancelar porque la mercadería ya se entregó.
+
 ## Abrir el detalle
 
 Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones dependen del origen y del estado de la orden.
@@ -56,12 +58,28 @@ Seleccioná una fila para abrir el panel **Orden de pago**. Sus secciones depend
 - **Actividad** reúne los cambios registrados y los intentos de pago online rechazados.
 - **Pagos** muestra los cobros asociados y permite registrar uno cuando corresponde.
 - **Items** desglosa cargos, descuentos y total.
-- **Detalle** muestra importe, estado, fechas y descripción o liquidación de origen.
+- **Detalle** muestra importe, estado, fechas, la descripción o liquidación y el **Origen** de la orden.
 - **Entradas** aparece cuando la orden tiene compras de un evento asociadas.
 
 <Frame>
-  <img src="/docs/images/solicitudes-pago/orden-detalle.png" alt="Detalle de la orden POR8LICE-0000 de Valentina Gómez: cuota de septiembre 2026 por cobrar, $55.000" />
+  <img src="/docs/images/solicitudes-pago/orden-detalle.png" alt="Detalle de la orden POR8LICE-0000 de Mateo Ruiz: cuota de septiembre 2026 por cobrar, $45.000, origen Carga manual, con Reenviar por email y Cancelar" />
 </Frame>
+
+### De dónde salió la orden
+
+**Origen** dice cómo se creó la orden: el módulo y, cuando se sabe, el recorrido exacto. Sirve para responder “¿esta orden quién la hizo?” sin buscar en otros módulos.
+
+| Origen | Cuándo aparece |
+| --- | --- |
+| **Carga manual** | La creó un administrador con **Crear**. |
+| **Liquidación** | Salió de una [liquidación](/docs/guides/liquidaciones-crear-revisar). |
+| **Importación · Importación desde Excel** | Vino del [importador](#importar-desde-excel-avanzado). |
+| **Suscripción · Compra desde link de pago**, **Alta de suscripción**, **Ciclo de suscripción** o **Débito automático** | Nació de un [link de pago](/docs/guides/links-pago) o de un período de una [suscripción](/docs/guides/suscripciones). |
+| **Evento · Compra online** o **Entrada cargada a mano** | Es la compra de entradas de un [evento](/docs/guides/eventos). |
+| **Punto de venta · Cobro en caja**, **Cobro con dispositivo o QR** o **Pagar después** | Es una venta del [Punto de Venta](/docs/guides/punto-de-venta). |
+| **Conciliación bancaria · Creada al conciliar un movimiento** o **Diferencia de una conciliación** | La creó la [conciliación](/docs/guides/conciliacion-bancaria) con **Crear factura**. |
+
+Las órdenes anteriores a octubre de 2026 pueden mostrar solo el módulo.
 
 ### Ver por qué no se pudo pagar
 
@@ -99,11 +117,45 @@ También podés **Reenviar por email** (si no está Pagada/Bonificada), editar e
 
 Desde **Pagos**, usá el botón **+** para registrar un cobro manual cuando la orden esté Por Cobrar o tenga Pago parcial.
 
-Consultá medios, importe pendiente y comportamiento de pagos parciales en la [guía de Pagos](/docs/guides/pagos#registrar-pagos-manuales).
+Consultá medios, importe pendiente y comportamiento de pagos parciales en la [guía de Pagos](/docs/guides/pagos#registrar-un-pago-manual).
 
 ## Exportar
 
-Usá **Exportar** para descargar las órdenes. El modal permite elegir fechas, items, etiquetas, liquidaciones y estados antes de generar el archivo.
+Usá **Exportar** para descargar las órdenes. El modal **Exportar órdenes** permite elegir el rango **Desde / Hasta** (por fecha de emisión), etiquetas, liquidaciones, items y estados antes de generar el Excel.
+
+Si el resultado pasa de 5.000 órdenes, el Excel no se descarga en el momento: Fint lo arma en segundo plano y te lo manda al email de tu usuario, con el asunto *Tu Excel de órdenes está listo* y el botón **Descargar Excel**. En pantalla aparece el aviso *Es un archivo grande, así que te lo mandamos por mail a …*. Si pedís otro mientras se arma, Fint te avisa que ya está en camino en vez de armar uno nuevo. Con un rango demasiado grande, te pide un período más corto o más filtros.
+
+## Cambiar muchas órdenes a la vez
+
+Tildá una o más órdenes: abajo aparece la barra con la cantidad seleccionada y **Acción en lote**. El tilde del encabezado marca las 20 de la página.
+
+<Steps>
+  <Step title="Filtrá primero">
+    Buscá o filtrá hasta que el listado muestre solo las órdenes que querés cambiar. Por ejemplo, **Estado → Por Cobrar** y el nombre de la liquidación.
+  </Step>
+  <Step title="Elegí sobre cuáles">
+    En **Selección**, elegí **Los N seleccionados** o **Todos los N que coinciden con los filtros**. La segunda opción incluye todas las páginas, no solo la que estás viendo.
+  </Step>
+  <Step title="Elegí la acción">
+    - **Asignar campo**: guarda el mismo valor de un [campo personalizado](/docs/guides/configuracion-campos) de órdenes.
+    - **Reenviar email de cobro**: manda de nuevo el email de cada orden a sus contactos.
+    - **Cambiar vencimiento**: pone una nueva fecha. Las pagadas no cambian.
+    - **Eliminar**: ya no se pueden pagar. Las pagadas no se eliminan.
+  </Step>
+  <Step title="Revisá la vista previa y aplicá">
+    La vista previa dice qué va a pasar y a cuántas. Para reenviar o eliminar más de 50, escribí la cantidad para confirmar.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/docs/images/solicitudes-pago/ordenes-accion-en-lote.png" alt="Panel Acción en lote sobre las 24 órdenes de la cuota 1 del Viaje de egresados 2027, con Cambiar vencimiento elegido y nuevo vencimiento 10 Nov 2026" />
+</Frame>
+
+Con muchas órdenes la acción sigue en segundo plano: el panel muestra el avance y podés cerrarlo. Al terminar dice cuántas cambiaron y agrupa las que no, con el motivo (por ejemplo, una orden pagada).
+
+<Tip>
+  Para reenviar el cobro, filtrá antes por **Por Cobrar** o **Vencida**. Así el email no le llega a quien ya pagó.
+</Tip>
 
 ## Importar desde Excel (avanzado)
 

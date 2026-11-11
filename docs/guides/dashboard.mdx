@@ -11,13 +11,17 @@ Al entrar, **Inicio** se titula **Bienvenido a Fint**. Es el mismo recorrido de 
 
 ## Mientras configurás
 
-La pantalla pide cinco pasos, en orden: datos generales, procesador de pagos, ARCA (si está prendido), un evento o una liquidación, y el primer pago. Cada uno se tilda solo.
+La pantalla pide cinco pasos, en orden: datos generales, procesador de pagos, ARCA (si está prendido), un evento o una liquidación, y el primer pago. Cada uno se tilda solo. Los que faltan tienen **Configurar**, que te lleva a la pantalla de ese paso.
+
+- **Completar datos generales** se tilda con el nombre, el nombre de fantasía, los dos emails de soporte y la URL del portal. Si falta algo, el paso dice qué (**Falta: …**).
+- **Conectar con ARCA** se tilda al activar ARCA. Si no facturás con ARCA, se tilda solo cuando completás los demás pasos (o si cobrás con Stripe).
+- Si solo usás Cuotas institucionales y Conciliación, no aparece el paso del procesador de pagos.
 
 <img src="/docs/images/dashboard/inicio-onboarding.png" alt="Inicio: Bienvenido a Fint, checklist Completar datos generales, Conectar procesador, Conectar con ARCA, Crear evento o liquidación, Recibir un pago" />
 
 **Explorá más funcionalidades** son atajos para prender un canal que todavía no usás. El interruptor de cada módulo está en [Funcionalidades](/docs/guides/configuracion-funcionalidades).
 
-Cuando el checklist se completa, Inicio pasa a los gráficos.
+Cuando el checklist se completa, Inicio pasa a los gráficos. Si tu organización tiene prendido solo **Eventos**, Fint no muestra Inicio: entrás directo a Eventos.
 
 ## Cuando ya cobrás
 
@@ -37,6 +41,8 @@ Cuando el checklist se completa, Inicio pasa a los gráficos.
 </CardGroup>
 
 Los gráficos de 12 meses se agrupan por la **fecha de emisión** de la orden, no por el día en que entró el pago. **Total cobrado** es lo que ya se pagó de esas órdenes (una Pagada cuenta el total; un pago parcial, solo lo cobrado). **Total adeudado** es el saldo que sigue pendiente.
+
+Con **Pagos Online** como procesador, arriba a la derecha aparece **Exportar → Transferencias sin impactar**.
 
 El detalle de cada cobro está en [Pagos](/docs/guides/pagos). El de cada deuda, en [Órdenes](/docs/guides/solicitudes-pago). Las métricas de un evento están en [Estadísticas](/docs/guides/eventos-entradas-ventas-asistentes), no acá.
 

@@ -32,9 +32,9 @@ Completá:
 - **Período**: el mes al que corresponden los items.
 - **Fecha de vencimiento**: el límite de pago de las órdenes.
 
-La fecha de vencimiento no puede ser anterior al período. Si elegís una fecha anterior a hoy, el formulario avisa que las órdenes se crearán vencidas.
+La fecha de vencimiento no puede ser anterior al período (*La fecha de vencimiento no puede ser anterior al período de facturación*). Si elegís una fecha anterior a hoy, el formulario avisa que se crearán órdenes de pago vencidas. Tocá **Crear**.
 
-Mientras exista una liquidación **Pendiente** o **Enviando** para el período, no podés crear otra para el mismo mes. Si esa liquidación ya está **Enviada** o **Cancelada**, sí podés volver a liquidar el mes: Fint **no** vuelve a incluir conceptos que ya tienen una orden cobrada, parcial o bonificada. Las **Por Cobrar** que cancelaste sí pueden volver a salir. Si no queda nada, el alta dice **No se encontraron items para el período seleccionado**.
+Mientras exista una liquidación **Pendiente** o **Enviando** para el período, no podés crear otra para el mismo mes (*Ya existe una liquidación pendiente en el período seleccionado*). Si esa liquidación ya está **Enviada** o **Cancelada**, sí podés volver a liquidar el mes: Fint **no** vuelve a incluir conceptos que ya tienen una orden cobrada, parcial o bonificada. Las **Por Cobrar** que cancelaste sí pueden volver a salir. Si no queda nada, el alta dice **No se encontraron items para el período seleccionado**.
 
 <Info>
   Las órdenes generadas por una liquidación se registran en **ARS**.
@@ -46,17 +46,17 @@ Mientras exista una liquidación **Pendiente** o **Enviando** para el período, 
 
 Al crearla, la liquidación aparece como **Pendiente**. Esta etapa permite revisar sus órdenes antes de iniciar el envío.
 
-El set de **clientes queda fijado al crear**. Un alumno que asignás después **no entra** a esa liquidación: hay que guardar el item (recalcula las órdenes de ese lote) o borrar y recrear. El **+** de una orden suma un concepto a un cliente que ya está; no crea una orden nueva.
+Si después de crearla asignás un item a otro alumno **desde el item** y lo guardás, Fint suma a ese alumno a las liquidaciones **Pendientes** que correspondan. El **+** de una orden suma un concepto a un cliente que ya está; no crea una orden nueva.
 
 El **precio** de un item se ve en vivo mientras está Pendiente. Las órdenes ya **Enviadas** no se recálculan: el nuevo monto vale para lo que sigue.
 
 Las becas se acumulan: cada porcentaje se calcula sobre los cargos fijos, no sobre el resultado de la otra.
 
-El listado muestra nombre, período, cantidad de clientes, monto a cobrar y estado. El filtro **Estado** ofrece Pendiente y Enviado; el filtro **Período** usa los meses disponibles.
+El listado muestra nombre, período, cantidad de clientes, monto a cobrar y estado. En una liquidación **Enviada**, la cantidad y el monto cuentan solo las órdenes que siguen **Por Cobrar**. El filtro **Estado** ofrece Pendiente y Enviado; el filtro **Período** usa los meses disponibles.
 
 **Pendiente** = lote armado, todavía no sale al portal. **Enviando** = se están generando las órdenes. **Enviada** = las órdenes ya salieron. **Cancelada** = lote dado de baja.
 
-La fecha de vencimiento la cargás al crear el lote y aplica a todas las órdenes. El formulario propone el **día 10** del mes del período.
+La fecha de vencimiento la cargás al crear el lote y aplica a todas las órdenes. El formulario propone el mes actual (o el siguiente, a partir del día 15) y el **día 10** de ese mes como vencimiento. Si cambiás el período, revisá también el vencimiento: no se mueve solo.
 
 <img src="/docs/images/solicitudes-pago/liquidaciones-listado.png" alt="Listado de liquidaciones de Colegio Modelo: Cuota Julio 2026 pendiente y Cuota Junio 2026 enviada" />
 
@@ -64,9 +64,7 @@ La fecha de vencimiento la cargás al crear el lote y aplica a todas las órdene
 
 ## 3. Revisar las órdenes
 
-Abrí la liquidación Pendiente. El detalle muestra sus órdenes y permite buscarlas por cliente.
-
-También podés filtrar por etiquetas. Cada fila muestra cliente, importe, cantidad de items y estado.
+Abrí la liquidación Pendiente. El detalle muestra sus órdenes y permite buscarlas por cliente con **Buscar órdenes...** y filtrar por **Etiquetas**. Las columnas son el cliente, **Etiquetas**, **Importe**, **# de Items** y **Estado** (antes de enviar, **No Enviada**). El nombre de la liquidación se puede editar con el lápiz.
 
 Seleccioná una orden para revisar sus items, descuentos, total, vencimiento y estado.
 

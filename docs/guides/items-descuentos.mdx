@@ -54,13 +54,15 @@ En la parte superior del módulo encontrás dos pestañas:
 - **Items** contiene los conceptos de cobro.
 - **Descuentos** contiene reducciones de monto fijo o porcentual.
 
-Ambas listas muestran el estado y permiten buscar por nombre. En Items también podés filtrar por tipo.
+Las dos son tablas. **Buscar items...** y **Buscar descuentos...** encuentran por nombre, código o descripción, y en las dos podés filtrar por **Estado** y **Tipo**. Items muestra **Nombre**, **Tipo**, **Precio**, **Stock / período** (el stock, o los meses que cubre un item de Liquidación), **Estudiantes** y **Estado**. Se ven 20 por página.
+
+Tildá uno o más para abrir **Acción en lote**: cambiar estado, sumar o quitar stock o eliminar varios a la vez, sobre los tildados o sobre todos los que coinciden con los filtros. Los pasos están en [Venta online y stock](/docs/guides/items-venta-online-stock#sumar-o-quitar-stock-a-varios) y en [Descuentos](/docs/guides/descuentos#buscar-y-cambiar-varios-a-la-vez).
 
 ## Estados
 
 Al crear un item o descuento, **Guardar** lo deja activo. **Guardar como borrador** conserva la configuración con estado Borrador.
 
-Desde el menú de cada registro podés editarlo, duplicarlo, cambiar su estado o eliminarlo. Antes de modificar uno que ya usaste, revisá en qué canal está asociado.
+Desde el menú **⋯** de cada registro: **Editar**, **Duplicar item**, **Activar item** o **Cambiar a borrador**, y **Eliminar**. Antes de modificar uno que ya usaste, revisá en qué canal está asociado.
 
 ## Vigencia
 
@@ -86,7 +88,7 @@ Antes de crearlo, revisá alcance, vigencia y condiciones en la [guía de Descue
 
 ## Importar desde Excel
 
-Usá **Importar Excel** para altas masivas y descargá siempre el modelo actual desde el modal. El importador acepta archivos `.xlsx`. Reconoce las columnas por el **nombre del encabezado**, no por la posición.
+Usá **Importar Excel** para altas masivas y descargá siempre el modelo actual con **Descargar modelo de Excel**. El importador acepta archivos `.xlsx`. Reconoce las columnas por el **nombre del encabezado**, no por la posición. Si una fila tiene un error, no se importa ninguna: el modal lista los errores por fila para que corrijas el archivo.
 
 | Columna | Requerido | Valores que acepta |
 | --- | --- | --- |
@@ -96,14 +98,14 @@ Usá **Importar Excel** para altas masivas y descargá siempre el modelo actual 
 | **Descripcion** | No | Texto corto. |
 | **Estado** | No | `Activo` (default) o `Borrador`. |
 | **FechaInicio** | En liquidación, sí | Queda el día 1 de ese mes. |
-| **Frecuencia** | No | `Unica`, `Mensual` o `Anual`. Venta online y Evento importados salen siempre de pago único. |
+| **Frecuencia** | No | `Unica`, `Mensual` o `Anual`. Vacía en Liquidación: `Mensual` si hay más de una cuota, si no `Unica`. Venta online y Evento importados salen siempre de pago único. |
 | **Cuotas** | En liquidación, sí | Cantidad de ciclos. |
 | **StockInicial** | No | Solo Evento o Venta online. En liquidación se ignora. |
 
-La plantilla **no** importa descuentos, imágenes, clientes asignados, mora, combos ni códigos de cupón. Completá eso después, item por item.
+Una fila de Liquidación con **Monto** negativo crea un descuento de monto fijo. La plantilla **no** importa descuentos de Venta online o Eventos, porcentajes, imágenes, clientes asignados, mora, combos ni códigos de cupón. Completá eso después, uno por uno.
 
 <Warning>
-  Un descuento no se da de alta por esta planilla. Revisá canal, estado, vigencia y stock de cada item importado antes de liquidar o publicarlo.
+  Revisá canal, estado, vigencia y stock de cada item importado antes de liquidar o publicarlo.
 </Warning>
 
 <img src="/docs/images/items-descuentos/importar-items.png" alt="Modal para descargar el modelo de Excel y seleccionar un archivo de items" />

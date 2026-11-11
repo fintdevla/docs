@@ -132,9 +132,27 @@
                   "docs/guides/pos-venta",
                   "docs/guides/pos-descuentos",
                   "docs/guides/pos-cobros",
+                  "docs/guides/pos-pagar-despues",
                   "docs/guides/pos-ventas-reportes"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Pagos a proveedores",
+            "icon": "building",
+            "root": "docs/guides/proveedores",
+            "directory": "card",
+            "pages": [
+              "docs/guides/proveedores-configuracion",
+              "docs/guides/proveedores-directorio",
+              "docs/guides/proveedores-comprobantes",
+              "docs/guides/proveedores-importaciones",
+              "docs/guides/proveedores-saldos-anteriores",
+              "docs/guides/proveedores-pagos",
+              "docs/guides/proveedores-lotes",
+              "docs/guides/proveedores-creditos",
+              "docs/guides/proveedores-cuenta-corriente"
             ]
           },
           {
@@ -155,6 +173,7 @@
               "docs/guides/configuracion-campos",
               "docs/guides/miembros-y-roles",
               "docs/guides/configuracion-recordatorios",
+              "docs/guides/configuracion-notificaciones",
               "docs/guides/configuracion-mora",
               "docs/guides/configuracion-integraciones",
               "docs/guides/conectar-mercado-pago",

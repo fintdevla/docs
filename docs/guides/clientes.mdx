@@ -72,11 +72,13 @@ Al abrir un cliente, podés revisar:
 
 - **Detalle**: nombre, documento, email, teléfono, condición, estado y etiquetas.
 - **Items**: conceptos asignados para el período seleccionado.
-- **Familia asociada** y **Contactos**: clientes relacionados y responsables de pago.
-- **Órdenes**: solicitudes de pago vinculadas al cliente. Al hacer clic se abre el panel **Orden de pago**.
+- **Familia asociada** y **Contactos**: clientes relacionados y responsables de pago. Si el email de un responsable rebotó o lo marcó como spam, lo ves debajo de la dirección (ver [Familias y responsables](/docs/guides/clientes-familias-responsables#cuando-un-email-no-llega)).
+- **Deuda**: el importe pendiente; con hermanos asociados separa **Familiar** e **Individual**.
+- **Campos personalizados**: los [campos](/docs/guides/configuracion-campos) que tu organización creó para estudiantes.
+- **Órdenes**: solicitudes de pago vinculadas al cliente. Podés ordenarlas por fecha de emisión o de creación. Al hacer clic se abre el panel **Orden de pago**.
 - **Actividad** y **Notas**: cambios registrados y comentarios internos.
 
-Según la configuración de tu organización, también pueden aparecer [campos personalizados](/docs/guides/configuracion-campos) o integraciones específicas.
+Según la configuración de tu organización, también pueden aparecer integraciones específicas.
 
 Para escribirle a un grupo, usá [Mensajería](/docs/guides/mensajeria) y filtrá por etiqueta, item o estado.
 
@@ -86,11 +88,42 @@ Para escribirle a un grupo, usá [Mensajería](/docs/guides/mensajeria) y filtr�
 
 ## Buscar, filtrar y exportar
 
-El recuadro dice **Buscar por nombre...** y también encuentra por documento o email. Los filtros **Estado** y **Etiquetas** están siempre. **Items** aparece si tenés **Cuotas institucionales**. Algunas organizaciones suman filtros de campos personalizados.
+El recuadro dice **Buscar por nombre...** y también encuentra por documento o email. Podés escribir varias palabras, por ejemplo nombre y apellido: Fint busca cada una, sin importar mayúsculas ni acentos. Los filtros **Estado** y **Etiquetas** están siempre. **Items** aparece si tenés **Cuotas institucionales**. Con el **+** filtrás por un [campo personalizado](/docs/guides/configuracion-campos).
+
+El listado muestra 20 por página. El pie dice cuántos coinciden con la búsqueda y los filtros, y la página queda en la dirección del navegador: si la compartís, se abre igual.
 
 Arriba del listado hay dos pestañas: **Estudiantes** (o **Clientes**) y **Contactos**. **Contactos** lista a todos los responsables; no es lo mismo que la sección **Contactos** dentro de un perfil.
 
-El botón **Exportar** genera un archivo de Excel. Antes de descargarlo, podés limitar el resultado por etiquetas, estado financiero e items.
+El botón **Exportar** genera un archivo de Excel. Antes de descargarlo, podés limitar el resultado por **Etiquetas**, **Estados** e items. Si el archivo pasa las 5.000 filas, no se descarga en el momento: Fint lo arma y te lo manda por mail en unos minutos, y te avisa a qué dirección.
+
+## Hacer algo con muchos a la vez
+
+Tildá uno o más estudiantes: abajo aparece la barra con la cantidad y **Acción en lote**. El tilde del encabezado marca los 20 de la página. Si cambiás la búsqueda o un filtro, la selección se suelta.
+
+<Steps>
+  <Step title="Filtrá primero">
+    Dejá en el listado solo a quienes querés cambiar: una etiqueta, un estado, una búsqueda.
+  </Step>
+  <Step title="Elegí sobre quiénes">
+    En **Selección**, elegí **Los N seleccionados** (o **El estudiante seleccionado**) o **Todos los N que coinciden con los filtros**. La segunda incluye todas las páginas, hasta 10.000. Sin búsqueda ni filtros, esa opción dice **Todos los estudiantes (N)**.
+  </Step>
+  <Step title="Elegí la acción">
+    - **Asignar campo**: guarda el mismo valor de un [campo personalizado](/docs/guides/configuracion-campos). Los otros campos de cada uno no cambian.
+    - **Archivar**: pasan a inactivos. Se pueden reactivar (ver [Condición y estado](/docs/guides/clientes-estados#archivar-o-eliminar)).
+    - **Eliminar**: se borran con sus datos asociados. No se puede deshacer.
+  </Step>
+  <Step title="Revisá la vista previa y aplicá">
+    La vista previa dice qué va a pasar y a cuántos, por ejemplo *Vas a archivar 55 estudiantes.* Para archivar o eliminar más de 50, escribí la cantidad en **Para confirmar, escribí N**. Después tocá **Aplicar a N**.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/docs/images/clientes/accion-en-lote.png" alt="Panel Acción en lote sobre los 24 estudiantes con la etiqueta Viaje de egresados 2027: Asignar campo, campo Turno y valor Mañana, botón Aplicar a 24" />
+</Frame>
+
+Al archivar o eliminar, el panel muestra el avance (*Archivar: procesando 20 de 55…*). Podés cerrarlo: la acción sigue en segundo plano y conviene actualizar el listado en unos minutos. Al terminar dice a cuántos se aplicó (*55 estudiantes archivados*) y agrupa los que no, con el motivo y algunos nombres. Por ejemplo, un estudiante con una suscripción activa no se archiva ni se elimina: cancelá antes la suscripción.
+
+Si mientras tanto cambió cuántos coinciden (alguien cargó o archivó estudiantes), Fint no aplica nada y avisa: *Ahora coinciden 56 con los filtros, no 55. Revisá el listado y volvé a aplicar.* El listado se actualiza solo. Si los filtros abarcan más de 10.000, Fint pide que los acotes.
 
 ## Próximos pasos
 

@@ -32,13 +32,13 @@ Definí estas tres cosas:
     Activá **Generar intereses por mora** sólo si este concepto debe acumular el interés configurado por tu organización cuando una orden vence. Sin este interruptor, las [reglas de mora](/docs/guides/configuracion-mora) no corren sobre las órdenes de este item.
   </Step>
   <Step title="Configurá la vigencia">
-    Elegí pago único o recurrente. Si es recurrente, definí frecuencia, mes de inicio y duración.
+    En **Vigencia**, elegí **Pago único** o **Recurrente**. Si es recurrente, definí la frecuencia (**Mensual** o **Anual**), el **Mes de inicio** y si la duración es **Indefinida** o **Duración definida** (con la **Cantidad de cuotas**).
   </Step>
   <Step title="Seleccioná clientes">
-    En la sección de clientes, presioná **Seleccionar** y marcá los perfiles a los que corresponde el concepto.
+    En la sección **Estudiantes** (o **Clientes**), presioná **Seleccionar** y marcá los perfiles a los que corresponde el concepto. La sección muestra cuántos quedaron seleccionados y el botón pasa a **Editar**.
   </Step>
   <Step title="Guardá">
-    Usá **Guardar** para dejarlo activo o **Guardar como borrador** si todavía necesitás revisarlo.
+    Usá **Guardar** para dejarlo activo o **Guardar como borrador** si todavía necesitás revisarlo. Al editar un item que ya existe, el estado (**Activo** o **Borrador**) se elige arriba y **Guardar** se habilita cuando cambiás algo.
   </Step>
 </Steps>
 
@@ -48,7 +48,7 @@ Definí estas tres cosas:
 
 <Tabs>
   <Tab title="Pago único">
-    Elegí el **mes de cobro**. El item aplica una sola vez, cuando generás la liquidación de ese período.
+    Elegí la **Fecha de cobro** (el mes). El item aplica una sola vez, cuando generás la liquidación de ese período.
   </Tab>
   <Tab title="Mensual">
     Elegí el mes de inicio. Después definí una cantidad de cuotas o una duración indefinida.
@@ -58,7 +58,7 @@ Definí estas tres cosas:
   </Tab>
 </Tabs>
 
-Cuando la duración es definida, la interfaz admite hasta 24 ciclos. Leé el resumen que aparece debajo de la vigencia antes de guardar.
+Cuando la duración es definida, la interfaz admite hasta 24 cuotas; con más, avisa que la duración no puede ser mayor a dos años. Leé el resumen que aparece debajo de la vigencia antes de guardar.
 
 ## Asignar clientes
 
@@ -72,7 +72,7 @@ También podés administrar items desde el perfil de un cliente. Si quitás una 
 
 ## Qué ocurre al liquidar
 
-Para el período elegido, Fint considera los items de Liquidación que estén activos, asignados al cliente y vigentes en ese mes.
+Para el período elegido, Fint considera los items de Liquidación que estén activos, asignados a un cliente activo y vigentes en ese mes.
 
 Después agrupa los conceptos aplicables en una orden por cliente. Los descuentos de Liquidación asignados a ese perfil se evalúan en el mismo proceso.
 
@@ -88,15 +88,15 @@ Antes de activar la opción, comprobá la configuración en [Intereses por mora]
 
 Revisá, en este orden:
 
-1. Que el item tenga estado **Activo**.
+1. Que el item tenga estado **Activo**. Para activar varios borradores juntos, en **Items** filtrá **Estado → Borrador**, tildá y usá **Acción en lote → Cambiar estado**.
 2. Que el período esté dentro de su vigencia.
-3. Que el cliente esté seleccionado en el item.
+3. Que el cliente esté seleccionado en el item y esté activo (no dado de baja).
 4. Que no exista ya una orden del mismo período que debas revisar.
 
 ## Próximos pasos
 
 <CardGroup cols={3}>
-  <Card title="Crear descuentos" icon="percent" href="/docs/guides/descuentos#descuento-de-liquidacion">
+  <Card title="Crear descuentos" icon="percent" href="/docs/guides/descuentos#descuento-de-liquidación">
     Aplicá becas u otros beneficios a clientes seleccionados.
   </Card>
   <Card title="Crear y revisar una liquidación" icon="file-invoice" href="/docs/guides/liquidaciones-crear-revisar">

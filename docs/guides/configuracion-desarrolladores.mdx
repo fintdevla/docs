@@ -7,14 +7,14 @@ description: 'API keys y webhooks para conectar Fint con otro sistema'
 
 <Tabs>
   <Tab title="API Keys">
-    Una clave permite acceder a la API. **+ Crear API Key** pide un nombre. El secreto se muestra **una sola vez** en el modal **Importante**. Si no lo copiaste, hay que crear otra clave. El listado queda enmascarado.
+    Una clave permite acceder a la API. **Crear API Key** (o **Crear**, si todavía no hay ninguna) pide un nombre. El secreto se muestra **una sola vez** en el modal **Importante**. Si no lo copiaste, hay que crear otra clave. El listado queda enmascarado.
 
     <img src="/docs/images/configuracion/desarrolladores-api-keys.png" alt="Pestaña API keys" />
   </Tab>
   <Tab title="Webhooks">
     Un webhook avisa a una URL cuando ocurre un evento en Fint.
 
-    Al crearlo cargás la URL y los eventos. Hay dos: **payment.created** (cuando un cobro queda acreditado) y **contact.status** (cuando cambia la condición o el estado del estudiante). Puede quedar **Activo** o **Pausado**. Los reintentos salen solos. El historial de cada entrega se consulta por [API](/api-reference/webhook/obtener-lista-de-registros-de-webhook), no desde esta pantalla.
+    **Crear webhook** (o **Crear**, si todavía no hay ninguno) abre **Nuevo Webhook**: cargás la **Endpoint URL** y elegís los **Eventos**. Hay dos: **Pago creado** (`payment.created`, cuando un cobro queda acreditado) y **Cambio estado contacto** (`contact.status`, cuando cambia la condición o el estado del estudiante). Puede quedar **Activo** o **Pausado**. Los reintentos salen solos. El historial de cada entrega se consulta por [API](/api-reference/webhook/obtener-lista-de-registros-de-webhook), no desde esta pantalla.
 
     <img src="/docs/images/configuracion/desarrolladores-webhooks.png" alt="Pestaña Webhooks" />
   </Tab>

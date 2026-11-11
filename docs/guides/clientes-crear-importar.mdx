@@ -23,7 +23,9 @@ Al terminar esta guía, vas a tener clientes visibles en el listado y sabrás qu
     Entrá a **Clientes**, presioná **Crear** y elegí **Crear cliente**. Si el módulo se llama Estudiantes, la opción usa ese nombre.
   </Step>
   <Step title="Completá los datos">
-    El primer campo es **Documento** (DNI, CUIT u otro), con el texto **Ingresá CUIT o DNI para autocompletar los datos**. Solo deja **números**: sirve para DNI o CUIT, no para un pasaporte con letras (eso se carga después en el perfil). Después van **Nombre**, **Apellido** y **Email (opcional)**. Para habilitar **Crear cliente** / **Crear estudiante** alcanzan nombre y apellido.
+    El primer campo es **Documento**: elegí el tipo (DNI, CUIT, CUIL, Pasaporte, CI Extranjera u Otro) y escribí el número. Con un CUIT o DNI, Fint intenta completar el nombre solo (**Ingresá CUIT o DNI para autocompletar los datos**). El número admite solo **dígitos**: un pasaporte con letras se carga después en el perfil. Después van **Nombre**, **Apellido** y **Email (opcional)**. Para habilitar **Crear cliente** / **Crear estudiante** alcanzan nombre y apellido.
+
+    Si escribís un email, tiene que tener forma de email: si no, aparece **Ingresa un email válido (ej: nombre@gmail.com)** y no deja crear. Si el dominio parece mal escrito (`gmail.con`, `hotmail.co`), Fint pregunta **¿Quisiste decir @gmail.com en vez de @gmail.con?** y lo corregís con **Corregir**. Nunca lo cambia solo.
   </Step>
   <Step title="Revisá antes de crear">
     Confirmá la escritura del nombre y buscá a la persona en el listado por documento o email antes de crearla, para no duplicar el perfil.
@@ -54,23 +56,24 @@ La importación acepta archivos `.xlsx`. El archivo debe respetar la plantilla d
     Entrá a **Clientes**, presioná **Crear → Importar excel** y elegí **Descargar modelo de Excel**.
   </Step>
   <Step title="Completá la plantilla">
-    Cada fila es un estudiante **y** un responsable. Siempre hay un pagador por fila. Si falta un campo requerido, Fint responde **El campo … es requerido**. No cambies el orden de las columnas.
+    Cada fila es un estudiante **y** un responsable. Siempre hay un pagador por fila. No cambies el orden de las columnas: Fint lee cada dato por su posición.
 
     | Columna | Requerido | Qué guarda |
     | --- | --- | --- |
     | **Referencia Externa** | No | Un ID tuyo. No es el ID de Fint. |
     | **Nombre Estudiante** / **Apellido Estudiante** | Sí | La ficha del alumno. |
-    | **Tipo documento** / **Documento** | No | DNI, CUIT u otro del estudiante. |
-    | **Email** (del estudiante) | No | Mail de la ficha. No abre el portal. |
-    | **Tag Grupo** / **Tag** | No | Crea o reusa etiquetas. **Tag Grupo** es el grupo (Nivel); **Tag** es el valor (Primario). |
-    | **Nombre Pagador** | Sí | Nombre completo del responsable. Fint lo parte en nombre y apellido. |
-    | **Tipo Documento** / **Documento** (pagador) | Sí | Documento del responsable. Sin esto no hay portal. |
-    | **Email** (pagador) | No | Hace falta si querés mandar el mail de bienvenida. |
-    | **Numero telefono** / **Direccion** / **Pais** | No | Datos del responsable. |
+    | **Tipo documento (Opcional)** / **Nro. Documento (Opcional)** | No | Documento del estudiante. |
+    | **Email (Opcional)** | No | Mail de la ficha del estudiante. No abre el portal. |
+    | **Nivel** / **Curso** | No | Crean o reusan etiquetas: **Nivel** es el grupo (por ejemplo, Primario) y **Curso** el valor (4° A). **Curso** admite varias separadas por coma. |
+    | **Nombre Pagador** | Sí | Nombre y apellido del responsable **juntos** en la celda. Fint los parte. |
+    | **Tipo Documento** / **Nro. Documento** | Sí | Documento del responsable. Sin esto no hay portal. |
+    | **Email** | No | Email del responsable. Hace falta para el mail de bienvenida. |
+    | **Numero telefono** | No | Teléfono del responsable. También queda como su WhatsApp. |
+    | **Direccion (Opcional)** | No | Dirección del responsable. |
+
+    Tipos de documento que acepta: DNI, CUIT, CUIL, PAS (pasaporte), CI y OTRO.
 
     El interruptor **Enviar email de bienvenida** usa el mail del **pagador**, no el del estudiante.
-
-    **Nombre Pagador** va nombre y apellido **juntos** en esa celda. Fint los parte. **Tag** admite varias etiquetas separadas por coma.
 
     Si el estudiante ya existe, Fint **no duplica** la ficha: suma un pagador nuevo o rechaza la fila si ese pagador ya estaba asociado (`El contacto con documento … ya existe y el pagador … ya esta asociado`).
   </Step>
@@ -81,7 +84,7 @@ La importación acepta archivos `.xlsx`. El archivo debe respetar la plantilla d
     El interruptor **Enviar email de bienvenida** viene prendido. Si lo dejás así, los responsables importados con email reciben el enlace al Portal de Contacto. Podés apagarlo.
   </Step>
   <Step title="Iniciá la importación">
-    Presioná **Importar**. Fint procesa la carga en segundo plano. Cuando termine, comprobá el resultado como se explica abajo.
+    Presioná **Importar**. Primero Fint revisa el archivo: si hay errores, el modal dice **El archivo contiene N errores** y los lista por fila y columna (por ejemplo, *El campo Nombre Pagador es requerido*). No se importa nada: corregí el Excel y usá **Reintentar**. Si está bien, aparece **Proceso de importar estudiantes iniciado con éxito. Puede tardar unos minutos.** y la carga sigue en segundo plano.
   </Step>
 </Steps>
 
@@ -91,7 +94,7 @@ La importación acepta archivos `.xlsx`. El archivo debe respetar la plantilla d
 
 Después de iniciar la importación, volvé al listado y buscá algunos registros del inicio, del medio y del final de la planilla. Comprobá que estén creados antes de continuar con la configuración.
 
-Abrí esos perfiles y verificá nombre, documento, etiquetas y responsables. Si Fint informa errores de filas o columnas, corregí el archivo y reintentá la carga.
+Abrí esos perfiles y verificá nombre, documento, etiquetas y responsables.
 
 <Info>
   El email de bienvenida corresponde al responsable de pago con email. No supone que cada cliente tenga un correo propio ni reemplaza la comprobación del portal.
