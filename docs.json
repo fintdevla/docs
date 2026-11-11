@@ -139,6 +139,23 @@
             ]
           },
           {
+            "group": "Pagos a proveedores",
+            "icon": "building",
+            "root": "docs/guides/proveedores",
+            "directory": "card",
+            "pages": [
+              "docs/guides/proveedores-configuracion",
+              "docs/guides/proveedores-directorio",
+              "docs/guides/proveedores-comprobantes",
+              "docs/guides/proveedores-importaciones",
+              "docs/guides/proveedores-saldos-anteriores",
+              "docs/guides/proveedores-pagos",
+              "docs/guides/proveedores-lotes",
+              "docs/guides/proveedores-creditos",
+              "docs/guides/proveedores-cuenta-corriente"
+            ]
+          },
+          {
             "group": "Comunicación",
             "icon": "envelope",
             "pages": [

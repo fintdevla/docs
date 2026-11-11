@@ -4,6 +4,30 @@ description: "Lo más importante que sumamos a Fint en 2025 y 2026."
 rss: true
 ---
 
+<Update label="Noviembre 2026" tags={["Pagos a proveedores", "Liquidaciones", "Comunicación", "Cobranzas", "Facturación"]}>
+  <Frame>
+    <img src="/docs/images/proveedores/directorio-ficha.png" alt="Ficha de la Librería San Martín en Pagos a proveedores con el saldo pendiente, la última factura, la cuenta de destino verificada y los botones Subir comprobante y Registrar pago" />
+  </Frame>
+
+  **Pagos a proveedores**
+
+  - **Un módulo nuevo para pagarle a tus proveedores.** Lo prendés en Configuración → Funcionalidades y lo usan los administradores. [Ver más](/docs/guides/proveedores)
+  - **Proveedores y comprobantes:** el directorio con la ficha de cada proveedor y sus cuentas de destino, y los comprobantes que subís en PDF o foto para revisar y aprobar. [Ver más](/docs/guides/proveedores-comprobantes)
+  - **Importá desde Excel** tus proveedores, tus comprobantes y los saldos que traías de antes. [Ver más](/docs/guides/proveedores-importaciones)
+  - **Registrá pagos** totales o parciales, de uno o varios comprobantes del mismo proveedor, con el PDF de la orden de pago. [Ver más](/docs/guides/proveedores-pagos)
+  - **Lotes de pago** para reservar lo que vas a pagar y revisar la cuenta de destino antes de transferir. [Ver más](/docs/guides/proveedores-lotes)
+  - **Anticipos, notas de crédito y reintegros,** y la cuenta corriente de cada proveedor a una fecha de corte. [Ver más](/docs/guides/proveedores-creditos)
+
+  **Liquidaciones, comunicación y cobranzas**
+
+  - **Antes de enviar una liquidación** te avisamos qué familiares no van a recibir el email y podés bajar un Excel para corregirlos. [Ver más](/docs/guides/liquidaciones-corregir-enviar-cancelar#iniciar-el-envío)
+  - **Al cargar un email,** Fint frena los formatos rotos y te sugiere corregir dominios mal escritos, como gmail.con. [Ver más](/docs/guides/clientes-familias-responsables#agregar-un-responsable-de-pago)
+  - **Los comunicados salen por tandas** y el detalle muestra cuántos se enviaron mientras avanza. [Ver más](/docs/guides/mensajeria#después-del-envío)
+  - **Exportaciones grandes por mail:** si exportás más de 5.000 órdenes o pagos, el Excel te llega por email. [Ver más](/docs/guides/pagos#exportar)
+  - **El mail con los datos para transferir** usa la cuenta bancaria que marcaste como método de pago. [Ver más](/docs/guides/conciliacion-bancaria-cuentas#pagos-por-transferencia-de-las-familias)
+  - **El comprobante de ARCA** dice DNI, CUIL o CUIT según el documento del cliente. [Ver más](/docs/guides/facturacion)
+</Update>
+
 <Update label="Octubre 2026" tags={["Eventos", "Punto de venta", "Cobranzas", "Conciliación", "Comunicación"]}>
   <Frame>
     <img src="/docs/images/eventos/pagina-publica-apariencia.png" alt="Página pública de la Peña de Primavera 2027 en modo oscuro con la portada arriba, la cuenta regresiva de la preventa y el selector de moneda" />
@@ -14,23 +38,28 @@ rss: true
   - **Tu evento con su propia apariencia:** elegí tono, modo claro u oscuro, diseño y portada arriba o al costado. Se aplica a la página, al checkout y a la pantalla de retorno. [Ver más](/docs/guides/eventos-crear-publicar#personalizar-la-apariencia)
   - **Link corto y QR del evento:** cada evento tiene un link `fint.app/e/…` y un QR para descargar, que siguen funcionando aunque cambies la dirección del evento. [Ver más](/docs/guides/eventos-crear-publicar#link-corto-y-qr)
   - **Avisos de stock y aforo:** te avisamos por email cuando una entrada está por agotarse o el evento se acerca al aforo, y podés cortar las ventas al llegar. En **Configuración → Notificaciones** elegís quién recibe cada aviso. [Ver más](/docs/guides/eventos-entradas-ventas-asistentes#avisos-de-stock-y-aforo)
-  - **Vos decidís qué datos pedir de cada asistente:** a qué entradas se les piden datos, si se pide documento y email, y en qué orden aparecen los campos (se reordenan arrastrando). [Ver más](/docs/guides/eventos-crear-publicar)
+  - **Vos decidís qué datos pedir de cada asistente:** para qué entradas se pide cada dato, incluido el documento y el email, y en qué orden aparecen (se reordenan arrastrando). [Ver más](/docs/guides/eventos-crear-publicar)
   - **Dos inscripciones para el mismo evento** (por ejemplo, en pesos y en dólares) con un selector en la página pública, y **mensaje destacado con cuenta regresiva** que se oculta solo al vencer. [Ver más](/docs/guides/eventos-crear-publicar)
   - **Tope de entradas por compra** y aviso en la puerta cuando una entrada ya ingresó, con quién la admitió y a qué hora (también en la exportación). [Ver más](/docs/guides/eventos-entradas-ventas-asistentes#tope-de-entradas-por-compra)
+  - **Reportes desde todo el historial:** la pantalla abre con todas las ventas del evento y cada tarjeta dice qué período muestra. [Ver más](/docs/guides/eventos-entradas-ventas-asistentes)
   - **Historial de stock de entradas con motivo** de cada movimiento, y un aviso claro cuando no hay cupo para reactivar una entrada. [Ver más](/docs/guides/eventos-entradas-ventas-asistentes)
 
   **Punto de venta, cobranzas y conciliación**
 
   - **Pagar después en el punto de venta:** confirmá una venta sin cobrar; queda una orden a pagar a nombre del cliente, con vencimiento y mora opcional. [Ver más](/docs/guides/pos-pagar-despues)
+  - **El mínimo de $30 rige solo para Point y QR.** Efectivo y transferencia cobran cualquier importe, y una venta en $0 con un cupón del 100 % queda como Bonificada. [Ver más](/docs/guides/pos-cobros)
   - **Pagos360** se conecta desde Configuración → Integraciones, con cobro por QR y redes de efectivo. [Ver más](/docs/guides/configuracion-integraciones)
   - **Vincular un movimiento a un pago que ya existe.** Si la cuota se cargó a mano antes de importar el extracto, Fint lo sugiere como Pago ya registrado y lo concilia sin crear un pago duplicado. También podés ignorar un movimiento que no es un cobro y restaurarlo después. [Ver más](/docs/guides/conciliacion-bancaria-casos-frecuentes)
   - **Por qué no se pudo pagar.** La actividad de cada orden explica los intentos de pago rechazados: el motivo, qué puede hacer la familia y qué respondió el procesador. [Ver más](/docs/guides/ordenes-gestionar)
+  - **De dónde salió cada orden:** el detalle muestra su origen (carga manual, liquidación, importación, link de pago, evento, punto de venta o conciliación). [Ver más](/docs/guides/ordenes-gestionar)
+  - **Borrar un pago facturado:** si anulaste su factura o recibo con una nota de crédito, el pago se puede borrar; si no se puede, el aviso dice por qué. [Ver más](/docs/guides/pagos)
 
   **Listados y comunicación**
 
   - **Acciones en lote sobre todo el filtro:** en Estudiantes, Órdenes, Ítems, Descuentos y Suscripciones buscás y filtrás, y aplicás la acción a todos los resultados, no solo a la página que ves. [Ver más](/docs/guides/clientes#hacer-algo-con-muchos-a-la-vez)
   - **Asignar un campo personalizado a varios a la vez** desde la selección de contactos u órdenes. [Ver más](/docs/guides/configuracion-campos#completar-un-campo-en-muchos-a-la-vez)
   - **Mensajes de eventos a miles de destinatarios**, y la opción de enviarlos solo a los compradores. [Ver más](/docs/guides/mensajeria)
+  - **Emails que no llegan:** la ficha del contacto y el armado del comunicado avisan cuando una dirección rebotó o marcó spam. [Ver más](/docs/guides/clientes-familias-responsables#cuando-un-email-no-llega)
 </Update>
 
 <Update label="Septiembre 2026" tags={["Eventos", "Cobranzas", "Punto de venta"]}>
