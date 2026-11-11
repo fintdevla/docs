@@ -38,7 +38,7 @@ El comprobante fiscal no nace con el pago. Si tu organización usa ARCA, se gest
 
 El listado muestra cliente, fecha, concepto, medio de pago, importe y estado. Los pagos cargados a mano se distinguen con **(M)** junto al medio. Con ARCA, pueden aparecer pastillas **F** (factura), **R** (recibo), **NC** y **ND**. El alta del comprobante es en el detalle del pago, sección **Comprobantes**, no en un módulo aparte. Ver [Facturación](/docs/guides/facturacion).
 
-El **+** de Registrar pago imputa **una sola orden**. Un depósito que cubre varias cuotas o hermanos se registra desde el [portal](/docs/guides/portal-contacto) (la familia tilda varias) o desde [Conciliación](/docs/guides/conciliacion).
+Si una familia te pagó varias cuotas o las de varios hermanos con una sola transferencia, cargalo con **Registrar pago**, arriba a la derecha del listado. Ver [Registrar un pago para varias órdenes](#registrar-un-pago-para-varias-órdenes).
 
 El buscador recorre el nombre del cliente, el concepto, la descripción y la referencia del pago.
 
@@ -123,6 +123,43 @@ Usalo para un cobro en efectivo, transferencia u otro medio que no pasó por el 
 
 <Info>
   En un pago parcial, el dinero cubre primero el capital. La mora recién se cobra cuando el capital queda cubierto. Si la orden ya estaba vencida, Fint congela la mora acumulada en ese momento para que no siga corriendo sobre lo ya pagado.
+</Info>
+
+## Registrar un pago para varias órdenes
+
+Cuando una sola transferencia o un solo pago en efectivo cubre varias órdenes, de uno o de varios alumnos, cargalo una sola vez. Queda un único pago, con todas las órdenes que cubre.
+
+<Steps>
+  <Step title="Abrí Registrar pago">
+    En **Pagos**, tocá **Registrar pago** arriba a la derecha. Elegí el medio y la fecha del cobro.
+  </Step>
+  <Step title="Elegí los alumnos y tildá las órdenes">
+    En **Clientes**, tocá **Seleccionar** y buscá a cada alumno por nombre o documento. Aparecen todas sus órdenes pendientes. El importe en rojo incluye la mora calculada a la fecha del pago; si cambiás la fecha, se recalcula.
+
+    El monto se completa con el total de lo que tildaste.
+  </Step>
+  <Step title="Elegí quién pagó">
+    En **Pagador** aparecen primero los responsables de los alumnos y después el resto de los contactos. Si elegís a alguien que no es responsable de alguno de los alumnos, Fint te ofrece **asociarlo como responsable**. La casilla viene tildada y la asociación se hace al confirmar.
+
+    <img src="/docs/images/pagos/registrar-pago-varias-ordenes.png" alt="Registrar pago con Bautista Ferreyra y Olivia Ríos: tildadas la cuota de agosto de Bautista y la de septiembre de Olivia, con mora, por $127.083,34, pagador Carla Ferreyra y la casilla Asociar a Carla Ferreyra como responsable de Olivia Ríos" />
+  </Step>
+  <Step title="Confirmá">
+    El pago aparece en el listado con todos los alumnos y, en su detalle, la lista de órdenes que cubrió.
+
+    <img src="/docs/images/pagos/pago-varias-ordenes-detalle.png" alt="Detalle de un pago por transferencia de $127.083,34 pagado por Carla Ferreyra para Bautista Ferreyra y Olivia Ríos, con dos órdenes de pago Pagadas" />
+  </Step>
+</Steps>
+
+### Si el monto no alcanza para todas
+
+Si escribís un monto menor al total, las órdenes se pagan completas salvo una, que queda **parcial**. Cuando más de una puede quedar parcial, elegís cuál en **Orden que queda parcial**. Debajo del monto ves cuánto va a quedar pendiente.
+
+<img src="/docs/images/pagos/registrar-pago-orden-parcial.png" alt="Registrar pago de $100.000 para las cuotas de septiembre y octubre de Bautista Ferreyra: la de septiembre marcada Queda parcial y el aviso Quedan $42.333,34 pendientes en la orden parcial" />
+
+La orden que queda parcial guarda la mora a la fecha del pago, igual que cuando cargás un pago parcial de una sola orden.
+
+<Info>
+  No se puede pagar más que el total de lo tildado. El monto tampoco puede ser tan bajo que no alcance para pagar completas las demás órdenes: en ese caso, destildá alguna. El pagador tiene que ser responsable de al menos uno de los alumnos, o tenés que dejar tildada la casilla para asociarlo. Las órdenes de eventos no aparecen en esta lista.
 </Info>
 
 ## Devoluciones y contracargos
