@@ -14,7 +14,7 @@ Cada proveedor tiene su **cuenta corriente**: arriba de su ficha, en **Proveedor
 
 - **Pendiente**: lo que falta pagar de los comprobantes aprobados. Si hay reservas en lotes, muestra lo que queda sin lote.
 - **En lote de pago**: lo reservado en [lotes de pago](/docs/guides/proveedores-lotes). Sigue siendo deuda.
-- **Crédito disponible**: notas de crédito y anticipos sin usar, en negativo. Ver [Créditos, anticipos y reintegros](/docs/guides/proveedores-creditos).
+- **Crédito disponible**: notas de crédito, anticipos y saldos anteriores a favor sin usar, en negativo. Ver [Créditos, anticipos y reintegros](/docs/guides/proveedores-creditos).
 - **Deuda neta**: lo que le debés al proveedor después de descontar el crédito. Si es negativa, el proveedor tiene saldo a favor de tu institución.
 
 Un comprobante **Por revisar** todavía no suma: la deuda se reconoce al aprobarlo.
@@ -43,10 +43,10 @@ Si el proveedor reemitió una factura con otro total, o el importe se cargó mal
 
 <Steps>
   <Step title="Liberá lo que lo use">
-    Si el comprobante tiene pagos, créditos aplicados o reservas en lotes, primero desaplicalos ([desde la OP o la factura](/docs/guides/proveedores-creditos#deshacer-una-aplicación)) y liberá las reservas.
+    Si el comprobante tiene pagos, créditos aplicados o reservas en lotes, primero desaplicalos ([desde la OP o la factura](/docs/guides/proveedores-creditos#deshacer-una-aplicación)) y liberá las reservas. Si es una nota de crédito con un reintegro registrado por error, [corregí el reintegro](/docs/guides/proveedores-creditos#registrar-un-reintegro). Un reintegro que ocurrió de verdad no se deshace: esa nota de crédito ya no se corrige.
   </Step>
   <Step title="Abrí Corregir importes">
-    En el comprobante, tocá **⋯ → Corregir importes**. Completá la **Fecha efectiva de la corrección** (desde la fecha en que se aprobó hasta hoy) y el **Motivo de la corrección**.
+    En el comprobante, tocá **⋯ → Corregir importes**. Completá la **Fecha efectiva de la corrección** y el **Motivo de la corrección**. La fecha va desde que se aprobó hasta hoy, y no puede ser anterior a la fecha en que desaplicaste esos pagos, créditos o reintegros.
   </Step>
   <Step title="Cargá los importes correctos">
     **Importe total** y, si corresponde, el desglose de IVA. En un comprobante en dólares también podés corregir la cotización. Tocá **Revisar corrección**.
@@ -87,6 +87,6 @@ En el ejemplo, la factura de pintura pasa de \$320.000 a \$352.000. El día ante
     No. La corrección tiene efecto desde su fecha. Con una fecha de corte anterior se ve el importe original.
   </Accordion>
   <Accordion title="No me deja corregir el importe">
-    El comprobante tiene pagos, créditos aplicados o reservas. Desaplicalos y liberá las reservas, y volvé a intentar.
+    El comprobante tiene pagos, créditos aplicados, reintegros o reservas. Desaplicalos y liberá las reservas, y elegí una fecha de corrección igual o posterior a la de esas reversiones.
   </Accordion>
 </AccordionGroup>

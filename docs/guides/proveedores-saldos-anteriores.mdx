@@ -22,6 +22,13 @@ Hay dos formas. Usá **una sola por proveedor**:
 - Al empezar, desde las opciones de **Proveedores** o **Comprobantes** vacíos: **Saldo inicial por proveedor** y **Facturas impagas anteriores**. Ver [primeros pasos](/docs/guides/proveedores#primeros-pasos).
 - En la pantalla **Saldos anteriores**, con el botón **Importar**. Llegás a ella desde el detalle de una importación de saldos, con **Ver saldos anteriores**.
 
+## Antes de importar
+
+El saldo anterior es el punto de partida de la cuenta corriente, así que va **antes** de operar con ese proveedor en Fint:
+
+- El proveedor no tiene que tener comprobantes aprobados ni pagos registrados. Importá los saldos anteriores primero y después aprobá las facturas nuevas.
+- Si ya subiste comprobantes de ese proveedor con fecha igual o anterior al corte y siguen **Por revisar**, anulalos antes: esa deuda ya la incluye el saldo anterior.
+
 ## Importar las facturas impagas
 
 <Steps>
@@ -29,7 +36,7 @@ Hay dos formas. Usá **una sola por proveedor**:
     Abrí **Facturas impagas anteriores**, desplegá **Más opciones** y elegí la **Fecha de corte**: el día al que corresponden los saldos del archivo. La cuenta corriente es en pesos.
   </Step>
   <Step title="Prepará la planilla">
-    **Descargar plantilla** baja las columnas de un comprobante más **saldo_pendiente**: cuánto quedaba sin pagar de esa factura al corte. Si la factura estaba pagada en parte, poné el total en **total** y lo que faltaba en **saldo_pendiente**.
+    **Descargar plantilla** baja las columnas de un comprobante más **saldo_pendiente**: cuánto quedaba sin pagar de esa factura al corte. Si la factura estaba pagada en parte, poné el total en **total** y lo que faltaba en **saldo_pendiente**. Una nota de crédito sin usar va con el tipo **NC**, y un anticipo que le habías dado al proveedor, con el tipo **ANTICIPO**: los dos quedan como crédito a favor del colegio.
   </Step>
   <Step title="Subí y confirmá">
     Arrastrá el archivo, revisá el **Saldo neto** al corte y tocá **Confirmar importación**.
@@ -48,7 +55,7 @@ En el ejemplo, la factura de octubre de Transportes El Ceibo era de $1.250.000 y
 
 ## Importar el saldo por proveedor
 
-Es igual, con **Saldo inicial por proveedor**: elegí la fecha de corte y subí una planilla con el proveedor, la moneda (ARS) y **saldo_neto**. Un saldo positivo es lo que le debías; uno negativo, un crédito a favor del colegio. Los proveedores que no existan se crean con los datos del archivo. En **Comprobantes**, cada saldo aparece como **Saldo inicial**, listo para pagar.
+Es igual, con **Saldo inicial por proveedor**: elegí la fecha de corte y subí una planilla con el proveedor, la moneda (ARS) y **saldo_neto**. Un saldo positivo es lo que le debías; uno negativo, un crédito a favor del colegio. Los proveedores que no existan se crean con los datos del archivo. En **Comprobantes**, cada saldo aparece como **Saldo inicial**: el positivo queda listo para pagar y el negativo se usa como cualquier crédito, aplicándolo a una factura o registrando un reintegro (ver [Créditos, anticipos y reintegros](/docs/guides/proveedores-creditos)).
 
 <Frame>
   <img src="/docs/images/proveedores/saldos-saldo-inicial-vista-previa.png" alt="Vista previa de saldo-inicial-por-proveedor.xlsx con 2 filas listas y el saldo neto al 31/10/2026" />
@@ -74,12 +81,12 @@ Los importes de esta pantalla son los del corte. Los pagos que registres despué
 
 <AccordionGroup>
   <Accordion title="¿Puedo usar las dos formas para el mismo proveedor?">
-    No conviene: sumarías dos veces la misma deuda. Elegí facturas impagas si tenés el detalle, o un saldo único si no.
+    No. Cada proveedor tiene una sola forma y una sola fecha de corte. Con facturas impagas podés importar más partidas después, a la misma fecha de corte; con un saldo inicial, no se puede sumar otro. Elegí facturas impagas si tenés el detalle, o un saldo único si no.
   </Accordion>
   <Accordion title="Me equivoqué en un saldo anterior">
     Deshacé la fila desde el detalle de la importación (**Deshacer**) y volvé a importarla corregida. Ver [Deshacer filas importadas](/docs/guides/proveedores-importaciones#deshacer-filas-importadas).
   </Accordion>
   <Accordion title="Tengo una factura anterior al corte que ya está en el saldo inicial">
-    Si la importás después como comprobante con fecha anterior al corte y marcás **Aprobar también los comprobantes**, queda como registro histórico y no vuelve a sumar deuda.
+    Si la importás después desde Excel como comprobante, con fecha igual o anterior al corte, queda como registro histórico: conserva el archivo y los datos, no vuelve a sumar deuda y no se aprueba. Pasa lo mismo aunque marques **Aprobar también los comprobantes**.
   </Accordion>
 </AccordionGroup>

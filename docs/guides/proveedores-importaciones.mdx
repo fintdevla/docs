@@ -1,14 +1,14 @@
 ---
 title: 'Importar proveedores y comprobantes desde Excel'
 sidebarTitle: 'Importar desde Excel'
-description: 'Cargá muchos proveedores o comprobantes con una planilla, revisá cada fila antes de confirmar, corregí lo que falló y deshacé si hace falta'
+description: 'Cargá muchos proveedores o comprobantes con una planilla, revisá cada fila antes de confirmar, completá las filas pendientes y deshacé si hace falta'
 ---
 
 Si tenés el padrón de proveedores o las facturas del mes en una planilla, importala en lugar de cargar uno por uno. Fint te muestra una vista previa, importa solo las filas que están bien y te deja corregir el resto. Necesitás ser **Administrador**.
 
 Se puede importar:
 
-- **Proveedores**: nombre y CUIT de cada uno; los demás datos son opcionales.
+- **Proveedores**: nombre y CUIT de cada uno, más los datos que tu organización haya marcado como **Requerido** (ver [Configuración](/docs/guides/proveedores-configuracion)); los demás son opcionales.
 - **Comprobantes**: una fila por comprobante, con proveedor, tipo, fechas e importes.
 - **Facturas impagas anteriores** y **Saldo inicial por proveedor**: lo que ya debías antes de usar Fint. Ver [Saldos anteriores](/docs/guides/proveedores-saldos-anteriores).
 
@@ -65,6 +65,8 @@ Los comprobantes importados entran **Por revisar**. Si ya los controlaste en la 
 
 Si hay filas con errores, marcá también **Importar solo las filas válidas y dejar las demás pendientes para corregir**. Confirmá que revisaste la vista previa y tocá **Confirmar y procesar**.
 
+Si el proveedor tiene un [saldo anterior](/docs/guides/proveedores-saldos-anteriores), los comprobantes con fecha igual o anterior a su fecha de corte se importan como registro histórico, con o sin esta opción: quedan con su archivo y sus datos, pero no suman deuda ni se aprueban, porque esa deuda ya está en el saldo anterior.
+
 ## Corregir una fila
 
 En el detalle de la importación, la tabla **Revisión por fila** muestra el estado de cada fila. Filtrala por **Revisión** o **Resultado** para ver solo las que tienen problemas.
@@ -120,7 +122,7 @@ En **Proveedores** o **Comprobantes**, menú **⋯** → **Historial de importac
     Si el CUIT coincide, la fila se vincula al proveedor existente y no lo modifica.
   </Accordion>
   <Accordion title="Los comprobantes importados no aparecen en la cuenta corriente">
-    Quedaron **Por revisar**. Aprobalos desde **Comprobantes** o, la próxima vez, marcá **Aprobar también los comprobantes** al confirmar.
+    Quedaron **Por revisar**. Aprobalos desde **Comprobantes** o, la próxima vez, marcá **Aprobar también los comprobantes** al confirmar. Los que tienen fecha igual o anterior al corte de un saldo anterior son registros históricos y no se aprueban: esa deuda ya está en el saldo anterior.
   </Accordion>
   <Accordion title="El archivo tiene varias hojas">
     En **Más opciones**, escribí en **Hoja** el nombre de la hoja que querés importar.

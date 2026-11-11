@@ -4,10 +4,11 @@ sidebarTitle: "Créditos y anticipos"
 description: "Usá una nota de crédito o un anticipo para cancelar facturas, deshacé una aplicación y registrá el dinero que te devolvió un proveedor."
 ---
 
-Un proveedor puede tener **crédito a favor** de tu institución. Viene de dos lugares:
+Un proveedor puede tener **crédito a favor** de tu institución. Viene de tres lugares:
 
 - Una **nota de crédito** aprobada (por ejemplo, por una devolución de mercadería).
 - Un **anticipo**: un pago que hiciste antes de tener la factura.
+- Un **saldo anterior** a favor del colegio: un saldo inicial negativo, o una nota de crédito o un anticipo importados con las facturas impagas anteriores. Ver [Saldos anteriores](/docs/guides/proveedores-saldos-anteriores).
 
 Ese crédito ya descuenta la deuda neta del proveedor. Para que una factura concreta baje su pendiente, **aplicás** el crédito a esa factura. Si el proveedor te devuelve plata, registrás un **reintegro**.
 
@@ -32,7 +33,7 @@ Si registrás un pago a un proveedor con crédito sin usar, Fint te avisa y pide
     Desde **Comprobantes** o desde **Usar crédito** en la ficha. Tocá **Aplicar crédito**.
   </Step>
   <Step title="Elegí la factura">
-    En **Comprobante a cancelar con el crédito** aparecen las obligaciones pendientes del proveedor; podés buscar por número o descripción. El **Importe a aplicar** se completa con lo menor entre el crédito y el pendiente; podés aplicar solo una parte.
+    En **Comprobante a cancelar con el crédito** aparecen las obligaciones pendientes del proveedor; podés buscar por número o descripción. Una nota de crédito se aplica a comprobantes de su misma moneda: una en dólares, a facturas en dólares. El **Importe a aplicar** se completa con lo menor entre el crédito y el pendiente; podés aplicar solo una parte.
   </Step>
   <Step title="Confirmá">
     Elegí la **Fecha efectiva de aplicación** y tocá **Confirmar aplicación**.
@@ -45,7 +46,7 @@ Si registrás un pago a un proveedor con crédito sin usar, Fint te avisa y pide
 
 En el ejemplo, la factura de \$1.210.000 tenía un pago de \$400.000. Con la nota de crédito de \$210.000 aplicada le quedan \$600.000 pendientes. La deuda neta del proveedor no cambia: ya descontaba el crédito. Aplicar no mueve dinero ni genera una orden de pago.
 
-Si la factura está reservada en un lote, se pide **Saldo reservado: elegí cómo usarlo**: usar la reserva del lote o liberarla (con motivo) y aplicar el crédito por fuera.
+Si la factura está reservada en un lote, se pide **Saldo reservado: elige cómo usarlo**: usar la reserva del lote o liberarla (con motivo) y aplicar el crédito por fuera.
 
 ## Registrar un anticipo
 
@@ -71,7 +72,7 @@ Se genera una OP con **Deuda cancelada** en \$0 y el importe como **Anticipo**. 
 
 ## Usar el anticipo cuando llega la factura
 
-Cuando cargues y apruebes la factura, abrí la OP del anticipo desde **Pagos** o desde **Créditos y anticipos** de la ficha. En **Crédito disponible**, tocá **Aplicar crédito**, elegí la factura y confirmá.
+Cuando cargues y apruebes la factura, abrí la OP del anticipo desde **Pagos** o desde **Créditos y anticipos** de la ficha. En **Crédito disponible**, tocá **Aplicar crédito**, elegí la factura y confirmá. Un anticipo se puede aplicar a cualquier factura del proveedor, también a una cargada en dólares, por su equivalente en pesos.
 
 <Frame>
   <img src="/docs/images/proveedores/creditos-op-aplicada.png" alt="OP del anticipo de Comedor Los Álamos: 350.000 pesos entregados, la Factura 0003-00002210 cancelada con 300.000 pesos como aplicación posterior y 50.000 pesos de crédito disponible con los botones Aplicar crédito y Registrar reintegro" />
@@ -139,12 +140,12 @@ Si registraste un reintegro que no ocurrió, abrilo y tocá **Corregir un reinte
     No. Baja el pendiente de la factura sin mover dinero y sin generar otra orden de pago. En la factura se ve como **Créditos aplicados**, separado de **Pagado**.
   </Accordion>
   <Accordion title="¿Puedo usar parte de una nota de crédito?">
-    Sí. Aplicá el importe que quieras; el resto queda disponible para otra factura o para un reintegro.
+    Sí. Aplicá el importe que quieras; el resto queda disponible para otra factura de la misma moneda o para un reintegro.
   </Accordion>
   <Accordion title="Pagué de más a un proveedor, ¿cómo lo registro?">
     Registrá la diferencia como **anticipo**: queda como crédito a favor para la próxima factura o para un reintegro.
   </Accordion>
   <Accordion title="¿Por qué la deuda neta es negativa?">
-    El proveedor tiene más crédito a favor de tu institución (anticipos o notas de crédito) que facturas pendientes.
+    El proveedor tiene más crédito a favor de tu institución (anticipos, notas de crédito o un saldo anterior negativo) que facturas pendientes.
   </Accordion>
 </AccordionGroup>

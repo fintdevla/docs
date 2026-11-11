@@ -15,7 +15,7 @@ Cuando le pagás a un proveedor, registrás ese pago en Fint para que el comprob
 En **Comprobantes**, la pestaña **Por pagar** muestra los comprobantes aprobados que todavía tienen saldo. Desde cada fila, el menú **⋯** ofrece **Registrar pago** y **Agregar a un lote**.
 
 <Frame>
-  <img src="/docs/images/proveedores/pagos-por-pagar.png" alt="Pestaña Por pagar de Comprobantes con siete facturas de Librería del Parque, Transportes Ruta Sur y Servicios Edilicios Norte, cada una Por pagar con su importe y vencimiento" />
+  <img src="/docs/images/proveedores/pagos-por-pagar.png" alt="Pestaña Por pagar de Comprobantes con facturas de transporte, comedor, mantenimiento, imprenta, librería y ferretería, cada una con su importe total, descripción, vencimiento y plazo; dos aparecen vencidas" />
 </Frame>
 
 Un comprobante aparece acá recién cuando está aprobado. Mientras está **Por revisar**, todavía no es deuda: ver [Comprobantes](/docs/guides/proveedores-comprobantes).
@@ -57,7 +57,7 @@ Cada pago tiene **un solo medio**. Si pagaste una factura con dos medios (por ej
 | **Cheque**, **Echeq**, **Tarjeta**, **Mercado Pago**, **Otro medio** | Una cuenta bancaria | **Referencia** obligatoria (en cheques, el número de cheque) |
 
 - Las cuentas y cajas que aparecen en **Desde la cuenta** / **Desde la caja** se configuran en [Cajas y cuentas de pago](/docs/guides/proveedores-configuracion). Si falta una, elegí **+ Crear cuenta** o **+ Crear caja** sin salir del pago. También podés elegir **Sin cuenta** o **Sin caja**.
-- En **Hacia la cuenta del proveedor** solo se pueden elegir cuentas en pesos **verificadas**. Una cuenta sin verificar aparece deshabilitada con la marca *sin revisar*: verificala primero desde la [ficha del proveedor](/docs/guides/proveedores-directorio). También podés elegir **Sin cuenta de destino** o **+ Agregar cuenta del proveedor**.
+- En **Hacia la cuenta del proveedor** solo se pueden elegir cuentas en pesos **verificadas**. Una cuenta sin verificar aparece deshabilitada con la marca *sin revisar*: verificala primero desde la [ficha del proveedor](/docs/guides/proveedores-directorio). También podés elegir **Sin cuenta de destino** o **+ Agregar cuenta del proveedor**. Al agregar la cuenta desde el pago, si ya confirmaste los datos con el proveedor por un canal conocido, marcá **Ya la revisé con el proveedor**: la cuenta queda verificada y elegida en el pago. Sin esa marca se guarda en la ficha, pero no se puede usar para transferir hasta verificarla.
 - Los pagos son siempre en pesos. Un comprobante cargado en dólares se paga por su equivalente en pesos.
 
 ## Pagar varios comprobantes juntos
@@ -96,10 +96,10 @@ Para pagar solo una parte de un comprobante, registrá el pago desde ese comprob
 **Pagos** lista todas las órdenes de pago: número de OP, proveedor, referencia, fecha de pago, **Deuda cancelada**, **Fondos entregados** y estado (**Registrado** o **Anulado**). Podés buscar, filtrar por **Proveedor** y **Estado**, y elegir columnas.
 
 <Frame>
-  <img src="/docs/images/proveedores/pagos-listado.png" alt="Listado Pagos con tres órdenes de pago: una de Servicios Edilicios Norte anulada por 42.000 pesos, otra de 280.000 y la de Librería del Parque por 400.000, con referencia, fecha de pago, deuda cancelada y fondos entregados" />
+  <img src="/docs/images/proveedores/pagos-listado.png" alt="Listado Pagos con tres órdenes de pago: una de Servicios Edilicios Norte anulada por 42.000 pesos, otra de 280.000 y la de Librería del Parque por 400.000, con fecha de pago, deuda cancelada, fondos entregados y estado" />
 </Frame>
 
-Hacé clic en una OP para ver su detalle: los comprobantes que canceló, el medio con su origen y destino, archivos y actividad. **Descargar PDF** baja la orden de pago (`OP-0001-….pdf`) para archivarla o mandarla al proveedor.
+Hacé clic en una OP para ver su detalle: los comprobantes que canceló, el medio con su origen y destino, [archivos y actividad](/docs/guides/proveedores-directorio#archivos-y-notas). **Descargar PDF** baja la orden de pago (`OP-0001-….pdf`) para archivarla o mandarla al proveedor.
 
 <Frame>
   <img src="/docs/images/proveedores/pagos-detalle-op.png" alt="Detalle de la orden de pago de Librería del Parque, Registrado y pagado el 10/11/2026: 400.000 pesos de fondos entregados y de deuda cancelada, factura 0004-00001873 y transferencia desde Banco Provincia · Pagos hacia Banco Galicia" />
@@ -140,7 +140,7 @@ La OP queda **Anulado** y conserva su historia; el comprobante vuelve a tener el
     Registrá dos pagos sobre el mismo comprobante, uno por cada medio. El primero queda como pago parcial.
   </Accordion>
   <Accordion title="¿Por qué no puedo elegir la cuenta del proveedor?">
-    Solo se puede transferir a cuentas en pesos verificadas. Verificala desde la ficha del proveedor o elegí **Sin cuenta de destino**.
+    Como destino de una transferencia solo se pueden elegir cuentas en pesos, activas y verificadas. Verificala o reactivala desde la ficha del proveedor, o elegí **Sin cuenta de destino**.
   </Accordion>
   <Accordion title="¿Por qué me pide un motivo para pagar?">
     El proveedor tiene crédito a favor sin usar. Podés aplicarlo antes o explicar por qué pagás igual.
