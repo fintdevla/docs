@@ -93,6 +93,13 @@
             "docs/guides/conciliacion-bancaria-casos-frecuentes"
           ]
         },
+        {
+          "group": "Débito automático",
+          "pages": [
+            "docs/guides/debito-automatico",
+            "docs/guides/debito-automatico-familias"
+          ]
+        },
         "docs/guides/cobrar-en-fint",
         "docs/guides/pagos",
         "docs/guides/facturacion"

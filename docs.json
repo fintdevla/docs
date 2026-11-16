@@ -55,6 +55,14 @@
                 ]
               },
               {
+                "group": "Débito automático",
+                "icon": "building-columns",
+                "root": "docs/guides/debito-automatico",
+                "pages": [
+                  "docs/guides/debito-automatico-familias"
+                ]
+              },
+              {
                 "group": "Órdenes y liquidaciones",
                 "icon": "file-invoice",
                 "root": "docs/guides/solicitudes-pago",
